@@ -17,8 +17,7 @@ cp .env.example .env
 php artisan key:generate
 ```
 
-## Git設定
-
+## Git
 ### レポジトリURL確認
 ```
 git remote -v
@@ -29,13 +28,14 @@ git remote -v
 git remote rename origin upstream
 ```
 
+
 ### ローカルリポジトリのURLを登録
 ```
-git remote add orogin https://github.com/自分のgithubユーザー名/oic_portal.git 
+git remote add origin https://github.com/自分のgithubユーザー名/oic_portal.git 
 ```
 
 
-### 操作
+### ローカルリポジトリへ変更内容を反映
 ```
 git add -A
 ```
@@ -52,9 +52,25 @@ git commit -m "コミット名"
 git push -u origin master
 ```
 
-
-
 ### fork元の変更を取得
 ```
-git pull origin/master 
+git pull origin master 
+```
+
+## Laravel
+
+```
+php artisan migrate:refresh
+```
+
+```
+php artisan db::seed
+```
+
+```
+php artisan serve
+```
+
+```
+php artisan route::list
 ```
