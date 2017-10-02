@@ -62,9 +62,9 @@ class LoginController extends Controller
         $userModel = app( User::class );
         $user = $userModel->where('email',$getUser->email)->first();
 
-        if(!$user instanceof User){
-            if(!Str::contains($user->email,'@oic.jp')){
-                return redirect('/')->flash('メールアドレスがoic.jpではありません。')->error();
+        if(!$user){
+            if(!str_contains($getUser->email,'@oic.jp')){
+                flash('メールアドレスがoic.jpではありません。','danger');
             }
             return redirect('/register');
         }else{
