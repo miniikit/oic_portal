@@ -11,10 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/','IndexController@index');
+
+Route::get('/login/google', 'Auth\LoginController@getGoogleAuth');
+Route::get('/oauth_callback', 'Auth\LoginController@getGoogleAuthCallback');
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
