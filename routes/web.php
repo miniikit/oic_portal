@@ -11,6 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/','IndexController@index');
+
+Route::get('/top','TopController@top');
+
+Route::get('/login/google', 'Auth\LoginController@getGoogleAuth');
+Route::get('/oauth_callback', 'Auth\LoginController@getGoogleAuthCallback');
+
+Auth::routes();

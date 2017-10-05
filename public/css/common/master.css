@@ -1,0 +1,68 @@
+
+/*
+header, body, footer
+*/
+
+/* header */
+
+header{
+  position: relative;
+  z-index: 998;
+}
+.nav-extended{
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  background-color: #fff;
+}
+nav a{
+  color: darkgray;
+}
+.brand-logo{
+  color: darkgray;
+}
+
+@media only screen and (max-width: 350px){
+  nav .brand-logo{
+    color: darkgray;
+  }
+}
+
+
+.tabs.tabs-transparent .tab a:hover, .tabs.tabs-transparent .tab a.active{
+  color: black;
+}
+.tabs.tabs-transparent .tab a, .tabs.tabs-transparent .tab.disabled a, .tabs.tabs-transparent .tab.disabled a:hover{
+  color: black;
+}
+.tabs.tabs-transparent .indicator{
+  background-color: darkgray;
+}
+
+/* body */
+  html, body{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  body{
+    background-color: #F7F4F1;
+  }
+  #main{
+    min-height: 100%;
+    margin-top: 140px;
+    margin-bottom: -50px;
+  }
+  .push{
+    height: 20px;
+  }
+
+
+/* footer */
+ .page-footer-another{
+   width: 100%;
+   color: #fff;
+   background-color: darkgray;
+   padding: 2%;
+   margin-top: 50px;
+ }
