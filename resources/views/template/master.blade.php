@@ -41,8 +41,8 @@
           <div class="nav-content">
             <ul class="tabs tabs-transparent">
               <li class="tab"><a class="active" href="#tab1">topニュースランキング</a></li>
-              <li class="tab"><a href="#tab2">ニュース</a></li>
-              <li class="tab"><a href="#tab3">Test</a></li>
+              <li class="tab"><a href="#tab2">ニュースジャンル1</a></li>
+              <li class="tab"><a href="#tab3">ニュースジャンル2</a></li>
               <li class="tab"><a href="#tab4">コミュニティ</a></li>
             </ul>
           </div>
@@ -69,10 +69,13 @@
           </div>
     </footer>
 
-
+    <!--- Script --->
     <!--Import jQuery before materialize.js-->
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script type="text/javascript">
+      $(".button-collapse").sideNav();
+    </script>
     @yield('script')
   </body>
 </html>
