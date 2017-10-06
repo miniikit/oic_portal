@@ -21,6 +21,14 @@ nav a{
 .brand-logo{
   color: darkgray;
 }
+
+@media only screen and (max-width: 350px){
+  nav .brand-logo{
+    color: darkgray;
+  }
+}
+
+
 .tabs.tabs-transparent .tab a:hover, .tabs.tabs-transparent .tab a.active{
   color: black;
 }
