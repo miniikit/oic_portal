@@ -14,6 +14,9 @@
   .row .input-field.col.s6 {
     margin-left: auto;
   }
+  .btn{
+    background-color: #009688;
+  }
 }
 
 @media only screen and (max-width: 600px) {
