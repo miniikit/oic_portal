@@ -1,77 +1,127 @@
-@extends('layouts.app')
+@extends('template/master')
 
-@section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Register</div>
+@section('css')
+  <link rel="stylesheet" href="/css/auth/register.css">
+@endsection
 
-                <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="{{ route('register') }}">
-                        {{ csrf_field() }}
+@section('main')
 
-                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Name</label>
+<div class="row_content">
+  <form class="col s12">
 
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
-
-                                @if ($errors->has('name'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
-
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Register
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
+    <div class="input-field col s6">
+      <input id="name" type="text" class="validate">
+      <label for="name">氏名</label>
     </div>
+
+    <div class="input-field col s6">
+      <input id="kana" type="text" class="validate">
+      <label for="kana">フリガナ</label>
+    </div>
+
+    <div class="input-field col s6">
+      <input id="email" type="email" class="validate">
+      <label for="email">メールアドレス</label>
+    </div>
+
+    <div class="row">
+      <div class="input-field col s6">
+        <select>
+               <option value="" disabled selected></option>
+               <option value="" class="left circle">1</option>
+               <option value="" class="left circle">2</option>
+               <option value="" class="left circle">3</option>
+               <option value="" class="left circle">4</option>
+             </select>
+        <label>学年</label>
+      </div>
+
+      <div class="input-field col s6">
+        <select>
+             <option value="" disabled selected></option>
+             <option value="" class="left circle">A</option>
+             <option value="" class="left circle">B</option>
+             <option value="" class="left circle">C</option>
+             <option value="" class="left circle">D</option>
+             <option value="" class="left circle">E</option>
+             <option value="" class="left circle">F</option>
+             <option value="" class="left circle">G</option>
+             <option value="" class="left circle">H</option>
+             <option value="" class="left circle">I</option>
+           </select>
+        <label>クラス</label>
+      </div>
+    </div>
+
+    <div class="input-field col s12">
+      <select>
+         <option value="" disabled selected></option>
+         <option value="1">情報処理IT</option>
+         <option value="2">ゲーム</option>
+         <option value="3">CG・映像・アニメーション</option>
+         <option value="4">デザイン・Web</option>
+      </select>
+     <label>学科</label>
+    </div>
+
+    <div class="input-field col s12">
+      <select>
+        <option value="" disabled selected></option>
+        <optgroup label="情報処理IT">
+          <option value="1">ITスペシャリスト専攻</option>
+          <option value="2">ネットワークセキュリティ専攻</option>
+          <option value="3">システムエンジニア専攻</option>
+          <option value="4">ネットワークエンジニア専攻</option>
+          <option value="5">Webエンジニア専攻</option>
+          <option value="6">テクニカルコース</option>
+          <option value="7">ネットワークシステムコース</option>
+
+        </optgroup>
+        <optgroup label="ゲーム">
+          <option value="1">ゲームプログラマー専攻</option>
+          <option value="2">ゲームデザイナー専攻</option>
+          <option value="3">ゲームプランナー専攻</option>
+          <option value="4">ゲームクリエイター専攻（PG）</option>
+          <option value="5">ゲームクリエイター専攻（CG）</option>
+          <option value="6">ゲームプログラムコース</option>
+          <option value="7">ゲームCGデザインコース</option>
+        </optgroup>
+        <optgroup label="CG・映像・アニメーション">
+          <option value="1">CG映像クリエイター専攻</option>
+          <option value="2">CGクリエイター専攻</option>
+          <option value="3">CG映像コース</option>
+          <option value="4">CGアニメーションコース</option>
+        </optgroup>
+        <optgroup label="デザイン・Web">
+          <option value="1">アートディレクター専攻</option>
+          <option value="2">Webデザインコース</option>
+          <option value="3">グラフィックデザインコース</option>
+          <option value="4">マンガイラストコース</option>
+        </optgroup>
+      </select>
+      <label>コース</label>
+    </div>
+
+
+    <div class="input-field col s6">
+      <input id="portfolio" type="text" class="validate">
+      <label for="portfolio">ポートフォリオ</label>
+    </div>
+
+    <div class="input-field col s6">
+      <textarea id="introduction" class="materialize-textarea"></textarea>
+      <label for="introduction">自己紹介</label>
+    </div>
+
+  </form>
 </div>
+
+@section('script')
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('select').material_select();
+  });
+</script>
+@endsection
+
 @endsection
