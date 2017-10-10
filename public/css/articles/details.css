@@ -1,0 +1,62 @@
+
+.rap{
+  width: 100%;
+  height: auto;
+  padding-bottom: 50px;
+  display: block;
+}
+.backlink{
+  text-align: right;
+}
+.page-title{
+  text-align: center;
+  font-size: 25px;
+  letter-spacing: 1px;
+  width: 100%;
+  height: auto;
+}
+.comment-area{
+  background-color: aqua;
+}
+
+@media only screen and (max-width: 600px){
+
+  #main{
+    margin-top: 100px;
+  }
+  .row .col{
+    /*
+    background-color: aqua;
+    */
+  }
+  .text{
+    height: 100%;
+    margin-top: 30px;
+    letter-spacing: 1px;
+    line-height: 150%;
+  }
+  .pager{
+    text-align: center;
+    padding-top: 70px;
+  }
+}
+
+@media only screen and (min-width: 601px){
+  .row .col{
+    /*
+    background-color: aqua;
+    */
+  }
+  .row .col p{
+    padding: 1.2rem;
+    letter-spacing: 3px;
+  }
+  .article-image{
+    padding: 1rem;
+  }
+  .pager{
+    text-align: center;
+    padding-top: 50px;
+    display: block;
+  }
+}
