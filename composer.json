@@ -1,37 +1,4 @@
 {
-<<<<<<< HEAD
-  "name": "laravel/laravel",
-  "description": "The Laravel Framework.",
-  "keywords": [
-    "framework",
-    "laravel"
-  ],
-  "license": "MIT",
-  "type": "project",
-  "require": {
-    "php": ">=7.0.0",
-    "barryvdh/laravel-debugbar": "^3.1",
-    "fideloper/proxy": "~3.3",
-    "laracasts/flash": "^3.0",
-    "laravel/framework": "5.5.*",
-    "illuminate/html": "=5.0",
-    "laravel/socialite": "^3.0",
-    "laravel/tinker": "~1.0"
-  },
-  "require-dev": {
-    "filp/whoops": "~2.0",
-    "fzaninotto/faker": "~1.4",
-    "mockery/mockery": "0.9.*",
-    "phpunit/phpunit": "~6.0"
-  },
-  "autoload": {
-    "classmap": [
-      "database/seeds",
-      "database/factories"
-    ],
-    "psr-4": {
-      "App\\": "app/"
-=======
     "name": "laravel/laravel",
     "description": "The Laravel Framework.",
     "keywords": ["framework", "laravel"],
@@ -89,7 +56,6 @@
         "preferred-install": "dist",
         "sort-packages": true,
         "optimize-autoloader": true
->>>>>>> e4fbfc52be1fbdf5509e9c68a8d9d2e84730603c
     }
   },
   "autoload-dev": {
