@@ -30,7 +30,6 @@ class DatabaseSeeder extends Seeder
             //test data
             User::create([
                 'name' => 'テスト　太郎',
-                'kana' =>  'テスト　タロウ',
                 'email' => 'b5163@oic.jp',
                 ]);
         }
