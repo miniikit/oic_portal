@@ -21,7 +21,7 @@
     <header>
         <nav class="nav-extended">
           <div class="nav-wrapper">
-            <a href="#" class="brand-logo center">OIC-portal</a>
+            <a href="/top" class="brand-logo center">OIC-portal</a>
             <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
               <ul class="side-nav" id="mobile-demo">
                 <li>
@@ -37,15 +37,7 @@
                   <li><a href="#">page3</a></li>
               </ul>
           </div>
-
-          <div class="nav-content">
-            <ul class="tabs tabs-transparent">
-              <li class="tab"><a class="active" href="#tab1">topニュースランキング</a></li>
-              <li class="tab"><a href="#tab2">ニュースジャンル1</a></li>
-              <li class="tab"><a href="#tab3">ニュースジャンル2</a></li>
-              <li class="tab"><a href="#tab4">コミュニティ</a></li>
-            </ul>
-          </div>
+          @yield('nav-tab')
         </nav>
     </header>
 
