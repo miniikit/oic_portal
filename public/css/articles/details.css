@@ -16,7 +16,10 @@
   height: auto;
 }
 .comment-area{
-  background-color: aqua;
+  background-color: #fff;
+}
+.row .col.s12{
+  padding-bottom: 10px;  
 }
 
 @media only screen and (max-width: 600px){
@@ -42,10 +45,14 @@
 }
 
 @media only screen and (min-width: 601px){
-  .row .col{
-    /*
-    background-color: aqua;
-    */
+  /*.row{
+    background-color: #f5f5f5;
+  }*/
+  .row .col.l9{
+    padding-bottom: 20px;
+  }
+  .row .col.l3{
+    padding-bottom: 20px;
   }
   .row .col p{
     padding: 1.2rem;
@@ -58,5 +65,15 @@
     text-align: center;
     padding-top: 50px;
     display: block;
+  }
+  /* side-contents */
+  .card-panel{
+    margin-top: 15px;
+  }
+  .card-contents{
+    padding: 10px;
+  }
+  .side{
+    width: 100%;
   }
 }

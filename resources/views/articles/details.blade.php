@@ -30,11 +30,13 @@
         </div>
 
         <div class="comment">
-          <div class="row">
-            <form class="col s12">
+          <div class="input-text col s12">
+            <div class="col s2">
+              <img class="circle" src="images/sample-icon2.jpg">
+            </div>
+            <form class="col s10">
               <div class="row">
                 <div class="input-field col s11">
-                  <i class="material-icons prefix">mode_edit</i>
                   <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
                   <label for="icon_prefix2">コメント</label>
                 </div>
@@ -43,44 +45,53 @@
           </div>
         </div>
 
-        <div class="comment-area col s12 center-align">
-          <div class="col s2">
-            <img class="square" src="images/sample-icon.jpg">
+        @for ($i=0; $i < 5; $i++)
+          <div class="comment-area col s12 center-align">
+            <div class="col s2">
+              <img class="circle" src="images/sample-icon2.jpg">
+            </div>
+            <div class="col s10">
+              <div class="row">
+                <h4 class="comment-text">ここにコメントを表示</h4>
+              </div>
+            </div>
           </div>
-          <div class="col s10">
-            <h4 class="comment-text">ここにコメントを表示</h4>
-          </div>
-        </div>
-
+        @endfor
       </div>
 
       <div class="col s12 m4 l3">
-        <div class="row">
-
-          <div class="backnumber">
-            <ul>
-              <li>
-                <div class="card horizontal">
-                  <div class="card-image">
-                    <img src="https://lorempixel.com/100/190/nature/6">
-                  </div>
-                  <div class="card-stacked">
-                    <div class="card-content">
-                      <p>I am a very simple card. I am good at containing small bits of information.</p>
-                    </div>
-                    <div class="card-action">
-                      <a href="#">This is a link</a>
-                    </div>
-                  </div>
-                </div>
-              </li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-            </ul>
+        <div class="side row">
+          <div class="card-panel teal white center">
+            <h2>関連記事</h2>
           </div>
+          @for ($i=0; $i < 3; $i++)
+            <div class="relation card">
+                <div class="card-contents">
+                  <p>ミニスーファミにやりたいゲームが入ってない！って方に、同じくらいの値段で買えるSFC用のレトロフリーク</p>
+                </div>
+                <div class="card-action">
+                  <a href="#">This is a link</a>
+                </div>
+            </div>
+          @endfor
+        </div>
+      </div>
 
+      <div class="col s12 m4 l3">
+        <div class="side row">
+          <div class="card-panel teal white center">
+            <h2>ランキング</h2>
+          </div>
+          @for ($i=0; $i < 3; $i++)
+            <div class="relation card">
+                <div class="card-contents">
+                  <p>ミニスーファミにやりたいゲームが入ってない！って方に、同じくらいの値段で買えるSFC用のレトロフリーク</p>
+                </div>
+                <div class="card-action">
+                  <a href="#">This is a link</a>
+                </div>
+            </div>
+          @endfor
         </div>
       </div>
 
