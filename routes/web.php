@@ -22,7 +22,7 @@ Route::get('/oauth_callback', 'Auth\LoginController@getGoogleAuthCallback');
 Auth::routes();
 
 Route::get('/logout','FakeController@fake');
-Route::get('/register','FakeController@fake');
+//Route::get('/register','FakeController@fake');
 Route::get('/register/confirm','FakeController@fake');
 Route::get('/register/complete','FakeController@fake');
 
