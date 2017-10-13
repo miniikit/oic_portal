@@ -19,7 +19,7 @@
   background-color: #fff;
 }
 .row .col.s12{
-  padding-bottom: 10px;  
+  padding-bottom: 10px;
 }
 
 @media only screen and (max-width: 600px){
@@ -37,10 +37,18 @@
     margin-top: 30px;
     letter-spacing: 1px;
     line-height: 150%;
+    border-bottom: solid 2px;
   }
   .pager{
     text-align: center;
     padding-top: 70px;
+  }
+  /* side-contents */
+  .card-contents{
+    padding: 10px;
+  }
+  .comment{
+    margin-top: 30px;
   }
 }
 
@@ -54,9 +62,16 @@
   .row .col.l3{
     padding-bottom: 20px;
   }
-  .row .col p{
+  .main-contents-text{
     padding: 1.2rem;
     letter-spacing: 3px;
+  }
+  .side-contents-text{
+    letter-spacing: 1px;
+  }
+  .text-image{
+    padding: 1rem;
+    max-width: 90%;
   }
   .article-image{
     padding: 1rem;
