@@ -1,0 +1,56 @@
+
+@media screen and (min-width: 0px) and (max-width: 600px) {
+  table, tbody, tr, th, td {
+    display: block;
+  }
+  table {
+    line-height: 3.5;
+  }
+  table th {
+    width: 100%;
+    background: darkgray;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  p.title{
+    color: #fff;
+    text-align: center;
+  }
+  p.ans{
+    margin-left: 30px;
+  }
+  div .row{
+    margin-top: 50px;
+  }
+  .btn{
+    background-color: darkgray;
+  }
+}
+@media screen and (min-width: 601px) {
+  div .contents{
+    margin-right: 15%;
+    margin-left: 15%;
+  }
+  table {
+    margin-top: 25%;
+    line-height: 4.5;
+  }
+  table th {
+    width: 40%;
+    background: darkgray;
+  }
+  p.title{
+    color: #fff;
+    text-align: center;
+  }
+  p.ans{
+    margin-left: 30px;
+  }
+  div .row{
+    padding-top: 30px;
+    margin-top: 30px;
+  }
+  .btn{
+    background-color: darkgray;
+  }
+｝
