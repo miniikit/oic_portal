@@ -114,8 +114,8 @@
     </div>
 
     <div class="row">
-      <div class="input-field col s6"><a class="waves-effect waves-light btn">戻る</a></div>
-      <div class="input-field col s6"><a class="waves-effect waves-light btn">確認</a></div>
+      <div class="col s6 center"><a class="waves-effect waves-light btn">戻る</a></div>
+      <div class="col s6 center"><a class="waves-effect waves-light btn">確認</a></div>
     </div>
 
   </form>

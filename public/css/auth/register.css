@@ -1,3 +1,18 @@
+
+@media only screen and (min-width: 0px) and (max-width: 600px){
+  form.col.s12{
+    line-height: 4.5;
+  }
+  .row .input-field.col.s6{
+    width: 100%;
+  }
+  .btn{
+    background-color: darkgray;
+    margin-top: 30px;
+  }
+}
+
+
 @media only screen and (min-width: 601px) {
   .row_content{
     text-align: center;
@@ -10,17 +25,13 @@
     left: 0;
     margin: 0 auto;
     width: 45%;
+    line-height: 4.5;
   }
   .row .input-field.col.s6 {
     margin-left: auto;
   }
   .btn{
-    background-color: #009688;
-  }
-}
-
-@media only screen and (max-width: 600px) {
-  .row .input-field.col.s6{
-    width: 100%;
+    background-color: darkgray;
+    margin-top: 30px;
   }
 }
