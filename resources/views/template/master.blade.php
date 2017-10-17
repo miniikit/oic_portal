@@ -37,7 +37,6 @@
                   <li><a href="#">記事投稿</a></li>
                   <li><a href="#">お気に入り</a></li>
                   <li><a href="#">コミュニティ</a></li>
-
               </ul>
           </div>
           @yield('nav-tab')
