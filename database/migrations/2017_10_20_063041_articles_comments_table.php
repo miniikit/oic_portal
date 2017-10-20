@@ -18,6 +18,7 @@ class ArticlesCommentsTable extends Migration
             $table->increments('article_id');//記事ID
             $table->increments('user_id');//会員ID
             $table->string('article_comment_text',255);//記事コメント内容
+            $table->timestamp();
         });
     }
 
