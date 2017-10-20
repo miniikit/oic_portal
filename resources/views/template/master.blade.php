@@ -32,9 +32,11 @@
                     <a href="#!email"><span class="black-text email">rentaro@oic.jp</span></a>
                   </div>
                 </li>
-                  <li><a href="#">page１</a></li>
-                  <li><a href="#">page2</a></li>
-                  <li><a href="#">page3</a></li>
+                  <li><a href="/top">トップ</a></li>
+                  <li><a href="#">マイページ</a></li>
+                  <li><a href="#">記事投稿</a></li>
+                  <li><a href="#">お気に入り</a></li>
+                  <li><a href="#">コミュニティ</a></li>
               </ul>
           </div>
           @yield('nav-tab')

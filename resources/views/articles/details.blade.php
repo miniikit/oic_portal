@@ -13,7 +13,7 @@
               <p>2017/xx/yy</p>
           </div>
           <div class="col s12 m6 l5">
-              <p class="backlink"><a href="#">back</a></p>
+              <p class="backlink"><a href="/top">back</a></p>
           </div>
         </div>
 
@@ -25,7 +25,7 @@
           <img class="image-box" width="100%" src="images/sample-1.jpg">
         </div>
 
-        <div class="text center">
+        <div class="text-area">
           {{-- <img class="text-image" src="images/" alt=""> --}}
           <p class="main-contents-text">仮想通貨Bitcoin(ビットコイン)のマイニングで利益を得るには、高性能な専用マシンを使うのが必須で、さらには電力コストを抑えるために電気代の安い国に拠点を構えることが求められます。マイナーたちが軍拡競争のような熾烈なサバイバルを繰り広げる中で、システムを維持するためのマイニングに必要なエネルギーが高まり続ける状況は、将来的にビットコインシステムの維持そのものを不可能にすると指摘されています。</p>
         </div>
