@@ -8,7 +8,7 @@
   <div class="row">
 
       <div class="col s12 m8 l9">
-          <div class="col s12">
+          <div class="date_link col s12">
             <div class="col s6">
               <p class="date">2017/xx/yy</p>
             </div>
@@ -33,16 +33,17 @@
 
         <div class="comment">
           <div class="input-text col s12">
-            <div class="col s2">
+            {{-- <div class="col s2">
               <img class="circle" src="images/sample-icon2.jpg">
-            </div>
-            <form class="col s10">
-              <div class="row">
-                <div class="input-field col s11">
+            </div> --}}
+            <form class="row">
+              {{-- <div class="row"> --}}
+              <img class="main-image circle" src="images/sample-icon2.jpg">
+                <div class="input-field">
                   <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
                   <label for="icon_prefix2">コメント</label>
                 </div>
-              </div>
+              {{-- </div> --}}
             </form>
           </div>
         </div>
@@ -68,12 +69,15 @@
           </div>
           @for ($i=0; $i < 3; $i++)
             <div class="relation card">
+                <div class="card-image">
+                  <a href="details"><img src="images/sample-2.jpg"></a>
+                </div>
                 <div class="card-contents">
                   <p class="side-contents-text">ミニスーファミにやりたいゲームが入ってない！って方に、同じくらいの値段で買えるSFC用のレトロフリーク</p>
                 </div>
-                <div class="card-action">
+                {{-- <div class="card-action">
                   <a href="#">This is a link</a>
-                </div>
+                </div> --}}
             </div>
           @endfor
         </div>
@@ -86,11 +90,11 @@
           </div>
           @for ($i=0; $i < 3; $i++)
             <div class="relation card">
+                <div class="card-image">
+                  <a href="details"><img src="images/sample-3.jpg"></a>
+                </div>
                 <div class="card-contents">
                   <p>ミニスーファミにやりたいゲームが入ってない！って方に、同じくらいの値段で買えるSFC用のレトロフリーク</p>
-                </div>
-                <div class="card-action">
-                  <a href="#">This is a link</a>
                 </div>
             </div>
           @endfor

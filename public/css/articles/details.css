@@ -34,6 +34,21 @@
   #main{
     margin-top: 100px;
   }
+  .title{
+    font-size: 30px;
+  }
+  .date_link .col{
+    padding: 0;
+  }
+  .date{
+    font-size: 20px;
+  }
+  .backlink{
+    font-size: 20px;
+  }
+  .main-image{
+    width: 10%;
+  }
   .text{
     height: 100%;
     margin-top: 30px;
