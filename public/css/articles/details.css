@@ -5,8 +5,15 @@
   padding-bottom: 50px;
   display: block;
 }
+.title{
+  font-size: 40px;
+}
 .backlink{
   text-align: right;
+  font-size: 25px;
+}
+.date{
+  font-size: 25px;
 }
 .page-title{
   text-align: center;
@@ -19,7 +26,7 @@
   background-color: #fff;
 }
 .row .col.s12{
-  padding-bottom: 10px;
+  padding-bottom: 15px;
 }
 
 @media only screen and (max-width: 600px){
@@ -27,17 +34,17 @@
   #main{
     margin-top: 100px;
   }
-  .row .col{
-    /*
-    background-color: aqua;
-    */
-  }
   .text{
     height: 100%;
     margin-top: 30px;
     letter-spacing: 1px;
     line-height: 150%;
     border-bottom: solid 2px;
+  }
+  .main-contents-text{
+    padding: 1rem;
+    font-size: 20px;
+    letter-spacing: 1px;
   }
   .pager{
     text-align: center;
@@ -48,7 +55,7 @@
     padding: 10px;
   }
   .comment{
-    margin-top: 30px;
+    margin-top: 15px;
   }
 }
 
@@ -63,8 +70,9 @@
     padding-bottom: 20px;
   }
   .main-contents-text{
-    padding: 1.2rem;
+    padding: 2rem;
     letter-spacing: 3px;
+    font-size: 20px;
   }
   .side-contents-text{
     letter-spacing: 1px;
