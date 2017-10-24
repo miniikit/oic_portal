@@ -33,17 +33,15 @@
 
         <div class="comment">
           <div class="input-text col s12">
-            {{-- <div class="col s2">
-              <img class="circle" src="images/sample-icon2.jpg">
-            </div> --}}
-            <form class="row">
-              {{-- <div class="row"> --}}
-              <img class="main-image circle" src="images/sample-icon2.jpg">
+            <div class="col s2">
+              <img class="account-image circle" src="images/sample-icon2.jpg">
+            </div>
+            <form class="col s10">
                 <div class="input-field">
+                  {{-- <img class="main-image circle" src="images/sample-icon2.jpg"> --}}
                   <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
                   <label for="icon_prefix2">コメント</label>
                 </div>
-              {{-- </div> --}}
             </form>
           </div>
         </div>
@@ -54,8 +52,8 @@
               <img class="circle" src="images/sample-icon2.jpg">
             </div>
             <div class="col s10">
-              <div class="row">
-                <h4 class="comment-text">ここにコメントを表示</h4>
+              <div class="comment-areasub row left-align">
+                <h4 class="comment-text">ここにコメントを表示ここにコメントを表示ここにコメントを表示ここにコメントを表示ここにコメントを表示ここにコメントを表示ここにコメントを表示</h4>
               </div>
             </div>
           </div>
