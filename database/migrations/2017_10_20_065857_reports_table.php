@@ -14,11 +14,11 @@ class ReportsTable extends Migration
     public function up()
     {
         Schema::create('reports_table', function (Blueprint $table){
-            $table->increments('id');
-            $table->increments('report_category_id');
-            $table->increments('user_id');
-            $table->string('report_contents',255);
-            $table->increments('report_contents');
+            $table->increments('id');//通報ID
+            $table->increments('report_category_id');//通報カテゴリID
+            $table->increments('user_id');//会員ID
+            $table->string('report_contents',255);//通報内容
+            $table->increments('report_deal_status_id');//通報対処状態ID
             $table->timestamp();
         });
     }

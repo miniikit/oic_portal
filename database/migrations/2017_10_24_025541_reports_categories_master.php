@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class ReportsDealsTable extends Migration
+class ReportsCategoriesMaster extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class ReportsDealsTable extends Migration
      */
     public function up()
     {
-        Schema::create('reports_deals_table', function (Blueprint $table){
-            $table->increments('id');//通報対処ID
-            $table->increments('report_id');//通報ID
-            $table->increments('user_id');//会員ID
-            $table->string('report_deal_comment',300);//コメント
+        Schema::create('reports_categories_master', function (Blueprint $table){
+            $table->increments('id');//通報カテゴリID
+            $table->string('report_category_name',30);//通報カテゴリ名
+            $table->increments('report_risk_id');//危険度ID
             $table->timestamp();
         });
     }
@@ -29,6 +28,6 @@ class ReportsDealsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('reports_deals_table');
+        Schema::drop('reports_categories_master');
     }
 }

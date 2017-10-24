@@ -18,7 +18,7 @@ class ArticlesTable extends Migration
             $table->string('article_title',255);//記事タイトル
             $table->text('article_text');//記事本文
             $table->string('article_image',100);//記事画像
-            $table->string('news_site_id',3);//ニュースサイトID
+            $table->increments('news_site_id');//ニュースサイトID
             $table->timestamp();
         });
     }
