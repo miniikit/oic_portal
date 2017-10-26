@@ -21,7 +21,7 @@ Route::get('/login/google', 'Auth\LoginController@getGoogleAuth');
 Route::get('/oauth_callback', 'Auth\LoginController@getGoogleAuthCallback');
 
 
-Auth::routes();
+
 
 Route::get('/logout','FakeController@fake');
 Route::get('/register','FakeController@fake');
@@ -52,3 +52,5 @@ Route::get('/articles/999999','FakeController@fake');
 Route::get('/report','FakeController@fake');
 Route::get('/report/confirm','FakeController@fake');
 Route::get('/report/complete','FakeController@fake');
+
+Auth::routes();
