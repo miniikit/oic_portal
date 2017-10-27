@@ -35,6 +35,132 @@
     </div>
     <!-- article tab1 -->
       <div class="row">
+        <div id="tab1" class="col s4">
+            <div class="card">
+              <div class="card-image">
+                <a href="details"><img src="images/sample-1.jpg"></a>
+                <span class="card-title">記事タイトル</span>
+              </div>
+              <div class="card-content">
+                <p>ここに記事の内容の一部を表示</p>
+              </div>
+              <div class="card-action">
+                <a href="#">This is a link</a>
+              </div>
+            </div>
+        </div>
+        <div id="tab1" class="col s4">
+            <div class="card">
+              <div class="card-image">
+                <a href="details"><img src="images/sample-2.jpg"></a>
+                <span class="card-title">記事タイトル</span>
+              </div>
+              <div class="card-content">
+                <p>ここに記事の内容の一部を表示</p>
+              </div>
+              <div class="card-action">
+                <a href="#">This is a link</a>
+              </div>
+            </div>
+        </div>
+        <div id="tab1" class="col s4">
+            <div class="card">
+              <div class="card-image">
+                <a href="details"><img src="images/sample-3.jpg"></a>
+                <span class="card-title">記事タイトル</span>
+              </div>
+              <div class="card-content">
+                <p>ここに記事の内容の一部を表示</p>
+              </div>
+              <div class="card-action">
+                <a href="#">This is a link</a>
+              </div>
+            </div>
+        </div>
+        <div id="tab1" class="col s4">
+            <div class="card">
+              <div class="card-image">
+                <a href="details"><img src="images/sample-4.jpg"></a>
+                <span class="card-title">記事タイトル</span>
+              </div>
+              <div class="card-content">
+                <p>ここに記事の内容の一部を表示</p>
+              </div>
+              <div class="card-action">
+                <a href="#">This is a link</a>
+              </div>
+            </div>
+        </div>
+        <div id="tab1" class="col s4">
+            <div class="card">
+              <div class="card-image">
+                <a href="details"><img src="images/sample-5.jpg"></a>
+                <span class="card-title">記事タイトル</span>
+              </div>
+              <div class="card-content">
+                <p>ここに記事の内容の一部を表示</p>
+              </div>
+              <div class="card-action">
+                <a href="#">This is a link</a>
+              </div>
+            </div>
+        </div>
+        <div id="tab1" class="col s4">
+            <div class="card">
+              <div class="card-image">
+                <a href="details"><img src="images/sample-6.jpg"></a>
+                <span class="card-title">記事タイトル</span>
+              </div>
+              <div class="card-content">
+                <p>ここに記事の内容の一部を表示</p>
+              </div>
+              <div class="card-action">
+                <a href="#">This is a link</a>
+              </div>
+            </div>
+        </div>
+        <div id="tab1" class="col s4">
+            <div class="card">
+              <div class="card-image">
+                <a href="details"><img src="images/sample-3.jpg"></a>
+                <span class="card-title">記事タイトル</span>
+              </div>
+              <div class="card-content">
+                <p>ここに記事の内容の一部を表示</p>
+              </div>
+              <div class="card-action">
+                <a href="#">This is a link</a>
+              </div>
+            </div>
+        </div>
+        <div id="tab1" class="col s4">
+            <div class="card">
+              <div class="card-image">
+                <a href="details"><img src="images/sample-1.jpg"></a>
+                <span class="card-title">記事タイトル</span>
+              </div>
+              <div class="card-content">
+                <p>ここに記事の内容の一部を表示</p>
+              </div>
+              <div class="card-action">
+                <a href="#">This is a link</a>
+              </div>
+            </div>
+        </div>
+        <div id="tab1" class="col s4">
+            <div class="card">
+              <div class="card-image">
+                <a href="details"><img src="images/sample-2.jpg"></a>
+                <span class="card-title">記事タイトル</span>
+              </div>
+              <div class="card-content">
+                <p>ここに記事の内容の一部を表示</p>
+              </div>
+              <div class="card-action">
+                <a href="#">This is a link</a>
+              </div>
+            </div>
+        </div>
         @for ($i=1; $i < 13; $i++)
           <div id="tab1" class="col s4">
               <div class="card">
