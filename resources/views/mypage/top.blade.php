@@ -9,8 +9,8 @@
       <ul class="tabs tabs-transparent">
         <li class="tab"><a class="active" href="#tab1">プロフィール</a></li>
         <li class="tab"><a href="#tab2">お気に入り</a></li>
-        <li class="tab"><a href="#tab3">ジャンル１</a></li>
-        <li class="tab"><a href="#tab4">ジャンル２</a></li>
+        <li class="tab"><a href="#tab3">フォロー</a></li>
+        <li class="tab"><a href="#tab4">フォロワー</a></li>
       </ul>
     </div>
 @endsection
