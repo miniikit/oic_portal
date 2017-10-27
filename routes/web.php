@@ -23,7 +23,6 @@ Route::get('/oauth_callback', 'Auth\LoginController@getGoogleAuthCallback');
 
 
 //Auth
-Route::get('/logout','FakeController@fake');
 Route::post('/register/confirm','Auth\RegisterController@confirm');
 Route::post('/register/complete','Auth\RegisterController@complete');
 
