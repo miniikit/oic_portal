@@ -33,7 +33,7 @@
                   </div>
                 </li>
                   <li><a href="/top">トップ</a></li>
-                  <li><a href="#">マイページ</a></li>
+                  <li><a href="/mypage">マイページ</a></li>
                   <li><a href="#">記事投稿</a></li>
                   <li><a href="#">お気に入り</a></li>
                   <li><a href="#">コミュニティ</a></li>
