@@ -8,6 +8,12 @@
   <div class="row">
 
       <div class="col s12 m8 l9">
+        <div class="rap">
+          <div class="col s12 m6 l7">
+              <p>2017/xx/yy</p>
+          </div>
+          <div class="col s12 m6 l5">
+              <p class="backlink"><a href="/top">back</a></p>
           <div class="date_link col s12">
             <div class="col s6">
               <p class="date">2017/xx/yy</p>
