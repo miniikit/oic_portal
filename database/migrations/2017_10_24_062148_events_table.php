@@ -15,11 +15,12 @@ class EventsTable extends Migration
     {
         Schema::create('events_table', function (Blueprint $table){
            $table->increments('id');//イベントID
-           $table->string('event_title');//イベントタイトル
-           $table->string('event_text');//イベント詳細テキスト
-           //イベント予定日時
-           //イベント終了日時
-           $table->timestamp();
+           $table->string('event_title',100);//イベントタイトル
+           $table->text('event_text');//イベント詳細テキスト
+           $table->dateTime('event_start_date_time');//イベント予定日時
+           $table->dateTime('event_end_date_time');//イベント終了日時
+           $table->integer('event_maker_id');//イベント作成者ID
+           $table->timestamps();
         });
     }
 

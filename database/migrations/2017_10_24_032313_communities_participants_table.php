@@ -15,9 +15,9 @@ class CommunitiesParticipantsTable extends Migration
     {
         Schema::create('communities_participants_table', function (Blueprint $table){
            $table->increments('id');//コミュニティ参加者ID
-           $table->increments('community_id');//コミュニティID
-           $table->increments('user_id');//会員ID
-           $table->timestamp();
+           $table->integer('community_id');//コミュニティID
+           $table->integer('user_id');//会員ID
+           $table->timestamps();
         });
     }
 

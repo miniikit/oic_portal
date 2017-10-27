@@ -17,8 +17,8 @@ class ProfilesTable extends Migration
             $table->increments('id');//プロフィールID
             $table->string('profile_image');//プロフィール画像
             $table->string('profile_name',255);//プロフィール名
-            $table->increments('course_id');//学科カテゴリID
-            $table->timestamp();
+            $table->integer('course_id');//学科カテゴリID
+            $table->timestamps();
         });
     }
 

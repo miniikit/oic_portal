@@ -16,9 +16,9 @@ class CommunitiesTable extends Migration
         Schema::create('communities_table', function (Blueprint $table){
            $table->increments('id');//コミュニティID
            $table->string('community_title',255);//コミュニティ名
-           $table->string('community_contents');//コミュニティコンテンツ
-           $table->increments('authority_id');//権限ID
-           $table->timestamp();
+           $table->text('community_contents');//コミュニティコンテンツ
+           $table->integer('authority_id');//権限ID
+           $table->timestamps();
         });
     }
 

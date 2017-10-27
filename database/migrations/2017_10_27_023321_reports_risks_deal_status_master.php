@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CommunitiesCategoriesMaster extends Migration
+class ReportsRisksDealStatusMaster extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CommunitiesCategoriesMaster extends Migration
      */
     public function up()
     {
-        Schema::create('communities_categories_master', function (Blueprint $table){
-           $table->increments('community_category_id');//コミュニティカテゴリID
-           $table->string('community_category_name',255);//コミュニティカテゴリ名
+        Schema::create('reports_risks_deal_status_master', function (Blueprint $table){
+           $table->increments('id');//通報対処状態ID
+           $table->string('report_risk_deal_status_name',30);//通報対処状態名
            $table->timestamps();
         });
     }
@@ -27,6 +27,6 @@ class CommunitiesCategoriesMaster extends Migration
      */
     public function down()
     {
-        Schema::drop('communities_categories_master');
+        Schema::drop('reports_risks_deal_status_master');
     }
 }

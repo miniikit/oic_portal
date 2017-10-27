@@ -15,10 +15,10 @@ class CommunitiesCommentsTable extends Migration
     {
         Schema::create('communities_comments_table', function (Blueprint $table){
            $table->increments('id');//コミュニティコメントID
-           $table->increments('community_id');//コミュニティID
-           $table->increments('user_id');//会員ID
+           $table->integer('community_id');//コミュニティID
+           $table->integer('user_id');//会員ID
            $table->string('community_comment_contents',255);//コメント内容
-           $table->timestamp();
+           $table->timestamps();
         });
     }
 

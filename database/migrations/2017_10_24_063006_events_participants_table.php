@@ -15,9 +15,10 @@ class EventsParticipantsTable extends Migration
     {
         Schema::create('events_participants_table', function (Blueprint $table){
            $table->increments('id');//イベント参加者ID
-           $table->increments('event_id');//イベントID
-           $table->increments('user_id');//会員ID
-           $table->timestamp();
+           $table->integer('event_id');//イベントID
+           $table->integer('event_user_id');//会員ID
+           $table->integer('event_authority_id');//権限ID
+           $table->timestamps();
         });
     }
 

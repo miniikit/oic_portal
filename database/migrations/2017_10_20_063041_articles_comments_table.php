@@ -15,10 +15,10 @@ class ArticlesCommentsTable extends Migration
     {
         Schema::create('articles_comments_table', function (Blueprint $table){
             $table->increments('id');//記事コメントID
-            $table->increments('article_id');//記事ID
-            $table->increments('user_id');//会員ID
+            $table->integer('article_id');//記事ID
+            $table->integer('user_id');//会員ID
             $table->string('article_comment_text',255);//記事コメント内容
-            $table->timestamp();
+            $table->timestamps();
         });
     }
 

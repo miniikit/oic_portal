@@ -19,8 +19,8 @@ class NewsSitesMaster extends Migration
            $table->string('news_site_tag_title',255);//カスタムタグ(タイトル)
            $table->string('news_site_tag_article',255);//カスタムタグ(記事)
            $table->string('news_site_tag_image',255);//カスタムタグ(画像)
-           $table->increments('news_site_category_id');//ニュースサイトカテゴリID
-           $table->timestamp();
+           $table->integer('news_site_category_id');//ニュースサイトカテゴリID
+           $table->timestamps();
         });
     }
 

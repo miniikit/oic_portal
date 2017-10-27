@@ -16,7 +16,7 @@ class NewsSitesCategoriesMaster extends Migration
         Schema::create('news_sites_categories_master', function (Blueprint $table){
            $table->increments('id');//ニュースサイトカテゴリID
            $table->string('news_site_category_name',50);//ニュースサイトカテゴリ名
-           $table->timestamp();
+           $table->timestamps();
         });
     }
 

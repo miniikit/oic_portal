@@ -15,9 +15,9 @@ class FriendsTable extends Migration
     {
         Schema::create('friends_table', function (Blueprint $table){
            $table->increments('id');//友達ID
-           $table->increments('user_id');//会員ID
-           $table->increments('user2_id');//会員2_ID
-           $table->timestamp();
+           $table->integer('user_id');//会員ID
+           $table->integer('user2_id');//会員2_ID
+           $table->timestamps();
         });
     }
 

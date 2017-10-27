@@ -16,8 +16,8 @@ class ReportsCategoriesMaster extends Migration
         Schema::create('reports_categories_master', function (Blueprint $table){
             $table->increments('id');//通報カテゴリID
             $table->string('report_category_name',30);//通報カテゴリ名
-            $table->increments('report_risk_id');//危険度ID
-            $table->timestamp();
+            $table->integer('report_risk_id');//危険度ID
+            $table->timestamps();
         });
     }
 

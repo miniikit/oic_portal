@@ -16,7 +16,7 @@ class AuthoritiesMaster extends Migration
         Schema::create('authorities_master', function (Blueprint $table){
             $table->increments('id');//権限ID
             $table->string('authority_name',50);//権限名
-            $table->timestamp();
+            $table->timestamps();
         });
     }
 
