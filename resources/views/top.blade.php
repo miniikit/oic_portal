@@ -161,6 +161,24 @@
               </div>
             </div>
         </div>
+        @for ($i=1; $i < 13; $i++)
+          <div id="tab1" class="col s4">
+              <div class="card">
+                <div class="card-wrapper">
+                  <div class="card-image">
+                    <a href="details"><img src="images/sample-1.jpg"></a>
+                    <span class="card-title">記事タイトル</span>
+                  </div>
+                  <div class="card-content">
+                    <p>ここに記事の内容の一部を表示</p>
+                  </div>
+                  <div class="card-action">
+                    <a href="#">This is a link</a>
+                  </div>
+                </div>
+              </div>
+          </div>
+        @endfor
       </div>
 
   <div id="tab2" class="col s12">
