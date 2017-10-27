@@ -22,11 +22,10 @@ Route::get('/oauth_callback', 'Auth\LoginController@getGoogleAuthCallback');
 
 
 
-
+//Auth
 Route::get('/logout','FakeController@fake');
-//Route::get('/register','FakeController@fake');
-//Route::get('/register/confirm','FakeController@fake');
-Route::get('/register/complete','FakeController@fake');
+Route::post('/register/confirm','Auth\RegisterController@confirm');
+Route::post('/register/complete','Auth\RegisterController@complete');
 
 Route::get('/like/index','FakeController@fake');
 
