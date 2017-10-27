@@ -14,9 +14,13 @@ class CreateUsersTable extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('name',50)->nullable();
-            $table->string('email')->unique();
+            $table->increments('id');//会員ID
+            $table->string('email',255)->unique();//メールアドレス
+            $table->string('name',255);//氏名
+            $table->string('name_kana',255);//フリガナ
+            $table->integer('authority_id');//権限ID
+            $table->integer('course_id');//学科カテゴリID
+            $table->integer('profile_id');//プロフィールID
             $table->rememberToken();
             $table->timestamps();
         });
@@ -29,6 +33,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::drop('users');
+        Schema::dropIfExists('users');
     }
 }
