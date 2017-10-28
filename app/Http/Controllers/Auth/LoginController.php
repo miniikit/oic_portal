@@ -59,13 +59,15 @@ class LoginController extends Controller
     {
         $getUser = Socialite::driver('google')->user();
 
+        if(!str_contains($getUser->email,'@oic.jp')){
+            flash('メールアドレスがoic.jpではありません。学生アカウントでログインしてください。','danger');
+            return redirect('/');
+        }
+
         $userModel = app( User::class );
         $user = $userModel->where('email',$getUser->email)->first();
 
-        if(!$user instanceof User){
-            if(!Str::contains($user->email,'@oic.jp')){
-                return redirect('/')->flash('メールアドレスがoic.jpではありません。')->error();
-            }
+        if(!$user){
             return redirect('/register');
         }else{
             Auth::loginUsingId($user->id);
