@@ -1,4 +1,4 @@
-@extends('template/master')
+@extends('template.master')
 
 @section('css')
   <link rel="stylesheet" href="/css/auth/confirm.css">
