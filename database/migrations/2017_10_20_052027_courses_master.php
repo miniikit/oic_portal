@@ -18,6 +18,7 @@ class CoursesMaster extends Migration
             $table->string('course_name', 255);//カテゴリ名
             $table->integer('parent_course_id');//親学科カテゴリID
             $table->string('course_depth',2);//深さ
+            $table->dateTime('course_admission_year');//年度
             $table->timestamps();
         });
     }
