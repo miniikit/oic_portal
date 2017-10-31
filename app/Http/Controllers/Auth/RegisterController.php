@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use App\Http\Controllers\Controller;
+use Illuminate\Auth\Events\Registered;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
@@ -27,7 +29,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -50,7 +52,13 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6|confirmed',
+            'kana' => 'required|max:100',
+            'sc_year' => 'required',
+            'sc_class' => 'required',
+            'major' => 'required',
+            'course' => 'required',
+            'portfolio' =>'url',
+            'introduction' =>'string',
         ]);
     }
 
@@ -65,7 +73,29 @@ class RegisterController extends Controller
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
-            'password' => bcrypt($data['password']),
+            'kana' => $data['kana'],
+            'sc_year' => $data['sc_year'],
+            'sc_class' => $data['sc_class'],
+            'major' => $data['major'],
+            'course' => $data['course'],
+            'portfolio' => $data['portfolio'],
+            'introduction' => $data['introduction'],
         ]);
+    }
+
+    public function confirm(Request $request)
+    {
+        $data = $request->all();
+
+        return view('auth.register.confirm',compact('data'));
+    }
+
+    public function complete(Request $request)
+    {
+        $data = $request->all();
+
+        event(new Registered($user = $this->create($data)));
+
+        return view('auth.register.complete');
     }
 }

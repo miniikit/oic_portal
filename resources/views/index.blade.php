@@ -80,9 +80,7 @@
                 <a href="./login/google">新規登録(google認証ページ)</a>
             @else
                 <p>Hello! Your Logged In!</p>
-                <a href="{{ route('logout') }}"
-                   onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
+                <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                     Logout
                 </a>
 
