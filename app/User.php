@@ -26,4 +26,19 @@ class User extends Authenticatable
     protected $hidden = [
         //
     ];
+
+    public function profiles()
+    {
+        return $this->hasMany('App\Profile');
+    }
+
+    public function courses()
+    {
+        return $this->hasMany('App\Course');
+    }
+
+    public function authoritys()
+    {
+        return $this->hasMany('App\Authority');
+    }
 }
