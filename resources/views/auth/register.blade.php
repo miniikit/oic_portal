@@ -62,47 +62,67 @@
 
     <div class="input-field col s12">
         <select id="categories" name="major" value="{{ old('major') }}">
-            <option value="" selected="selected" disabled selected class="msg"></option>
-            <option data-category="1" value="情報処理IT" class="it">情報処理IT</option>
-            <option data-category="2" value="ゲーム" class="game">ゲーム</option>
-            <option data-category="3" value="CG・映像・アニメーション" class="cg">CG・映像・アニメーション</option>
-            <option data-category="4" value="デザイン・Web" class="design">デザイン・Web</option>
+            <option data-category="1" value="">学科を選択してください</option>
+            <option data-category="2" value="情報処理IT" class="it">情報処理IT</option>
+            <option data-category="3" value="ゲーム" class="game">ゲーム</option>
+            <option data-category="4" value="CG・映像・アニメーション" class="cg">CG・映像・アニメーション</option>
+            <option data-category="5" value="デザイン・Web" class="design">デザイン・Web</option>
         </select>
      <label>学科</label>
     </div>
 
-    <div class="input-field col s12">
-      <select id="target" name="course" value="{{ old('course') }}">
-        <option value="" selected="selected" disabled selected class="msg"></option>
+      <div class="target__select input-field col s12" data-category="1">
+          <select  name="course" value="{{ old('course') }}">
+              <option value="" selected disabled>コースを選択してください</option>
+          </select>
+          <label>コース</label>
+      </div>
 
-          <option data-category="1" value="ITスペシャリスト専攻" class="it">ITスペシャリスト専攻</option>
-          <option data-category="1" value="ネットワークセキュリティ専攻" class="it">ネットワークセキュリティ専攻</option>
-          <option data-category="1" value="システムエンジニア専攻" class="it">システムエンジニア専攻</option>
-          <option data-category="1" value="ネットワークエンジニア専攻" class="it">ネットワークエンジニア専攻</option>
-          <option data-category="1" value="Webエンジニア専攻" class="it">Webエンジニア専攻</option>
-          <option data-category="1" value="テクニカルコース" class="it">テクニカルコース</option>
-          <option data-category="1" value="ネットワークシステムコース" class="it">ネットワークシステムコース</option>
-
-          <option data-category="2" value="ゲームプログラマー専攻" class="game">ゲームプログラマー専攻</option>
-          <option data-category="2" value="ゲームデザイナー専攻" class="game">ゲームデザイナー専攻</option>
-          <option data-category="2" value="ゲームプランナー専攻" class="game">ゲームプランナー専攻</option>
-          <option data-category="2" value="ゲームクリエイター専攻（PG）" class="game">ゲームクリエイター専攻（PG）</option>
-          <option data-category="2" value="ゲームクリエイター専攻（CG）" class="game">ゲームクリエイター専攻（CG）</option>
-          <option data-category="2" value="ゲームプログラムコース" class="game">ゲームプログラムコース</option>
-          <option data-category="2" value="ゲームCGデザインコース" class="game">ゲームCGデザインコース</option>
-
-          <option data-category="3" value="CG映像クリエイター専攻" class="cg">CG映像クリエイター専攻</option>
-          <option data-category="3" value="CGクリエイター専攻"class="cg">CGクリエイター専攻</option>
-          <option data-category="3" value="CG映像コース" class="cg">CG映像コース</option>
-          <option data-category="3" value="CGアニメーションコース" class="cg">CGアニメーションコース</option>
-
-          <option data-category="4" value="アートディレクター専攻" class="design">アートディレクター専攻</option>
-          <option data-category="4" value="Webデザインコース" class="design">Webデザインコース</option>
-          <option data-category="4" value="グラフィックデザインコース" class="design">グラフィックデザインコース</option>
-          <option data-category="4" value="マンガイラストコース" class="design">マンガイラストコース</option>
+    <div class="target__select input-field col s12 none" data-category="2">
+      <select  name="course" value="{{ old('course') }}">
+          <option value="ITスペシャリスト専攻" class="it">ITスペシャリスト専攻</option>
+          <option value="ネットワークセキュリティ専攻" class="it">ネットワークセキュリティ専攻</option>
+          <option value="システムエンジニア専攻" class="it">システムエンジニア専攻</option>
+          <option value="ネットワークエンジニア専攻" class="it">ネットワークエンジニア専攻</option>
+          <option value="Webエンジニア専攻" class="it">Webエンジニア専攻</option>
+          <option value="テクニカルコース" class="it">テクニカルコース</option>
+          <option value="ネットワークシステムコース" class="it">ネットワークシステムコース</option>
       </select>
       <label>コース</label>
     </div>
+
+      <div class="target__select input-field col s12 none" data-category="3">
+          <select name="course" value="{{ old('course') }}">
+              <option value="ゲームプログラマー専攻" class="game">ゲームプログラマー専攻</option>
+              <option value="ゲームデザイナー専攻" class="game">ゲームデザイナー専攻</option>
+              <option value="ゲームプランナー専攻" class="game">ゲームプランナー専攻</option>
+              <option value="ゲームクリエイター専攻（PG）" class="game">ゲームクリエイター専攻（PG）</option>
+              <option value="ゲームクリエイター専攻（CG）" class="game">ゲームクリエイター専攻（CG）</option>
+              <option value="ゲームプログラムコース" class="game">ゲームプログラムコース</option>
+              <option value="ゲームCGデザインコース" class="game">ゲームCGデザインコース</option>
+          </select>
+          <label>コース</label>
+      </div>
+
+      <div class="target__select input-field col s12 none" data-category="4">
+          <select name="course" value="{{ old('course') }}">
+              <option value="CG映像クリエイター専攻" class="cg">CG映像クリエイター専攻</option>
+              <option value="CGクリエイター専攻"class="cg">CGクリエイター専攻</option>
+              <option value="CG映像コース" class="cg">CG映像コース</option>
+              <option value="CGアニメーションコース" class="cg">CGアニメーションコース</option>
+          </select>
+          <label>コース</label>
+      </div>
+
+      <div class="target__select input-field col s12 none" data-category="5">
+          <select name="course" value="{{ old('course') }}">
+              <option value="アートディレクター専攻" class="design">アートディレクター専攻</option>
+              <option value="Webデザインコース" class="design">Webデザインコース</option>
+              <option value="グラフィックデザインコース" class="design">グラフィックデザインコース</option>
+              <option value="マンガイラストコース" class="design">マンガイラストコース</option>
+          </select>
+          <label>コース</label>
+      </div>
 
 
     <div class="input-field col s6">
