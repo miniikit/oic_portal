@@ -1,0 +1,90 @@
+
+#main{
+  margin-top: 100px;
+}
+.image{
+  border: 1px solid black;
+}
+.tabs{
+  background-color: none;
+}
+
+
+
+@media only screen and (max-width: 600px) {
+  .row .col.s6{
+    width: 100%;
+  }
+  .image{
+    border: 1px solid black;
+    height: 100px;
+    width: 100px;
+  }
+  .username h1{
+    font-size: 25px;
+    letter-spacing: 3px;
+    margin-top: 1.1rem;
+  }
+  .follow-button{
+    margin: 0.3rem;
+  }
+  .switch{
+    margin: 0.3rem;
+  }
+  .item{
+    font-size: 20px;
+  }
+  .item-sub{
+    font-size: 15px;
+  }
+  .prfbox{
+    margin-bottom: 3rem;
+  }
+  .prf{
+    margin-top: 0.75rem;
+  }
+  .prf-text{
+    margin-top: 0.75rem;
+  }
+
+}
+
+@media only screen and (min-width: 601px) {
+  .image{
+    border: 1px solid black;
+    height: 152px;
+    width: 152px;
+  }
+  .profile-image{
+    padding: 50px 0 50px 0;
+  }
+  .username h1{
+    font-size: 35px;
+    letter-spacing: 3px;
+  }
+  .prf{
+    margin-top: 1.1rem;
+    text-align: center;
+  }
+  .prf-text{
+    margin-top: 1.1rem;
+  }
+  .text{
+    font-size: 18px;
+    letter-spacing: 1px;
+  }
+  .follow-button{
+    margin: 0.5rem;
+  }
+  .item{
+    font-size: 20px;
+  }
+  .item-sub{
+    font-size: 15px;
+  }
+  .wap{
+    margin-top: 3rem;
+  }
+}
+
+}

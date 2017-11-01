@@ -38,9 +38,9 @@
             </div>
             <form class="col s10">
                 <div class="input-field">
-                  {{-- <img class="main-image circle" src="images/sample-icon2.jpg"> --}}
                   <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
                   <label for="icon_prefix2">コメント</label>
+                  <a class="comment-submit waves-effect waves-light btn">コメント</a>
                 </div>
             </form>
           </div>
@@ -111,5 +111,14 @@
     </ul>
   </div>
 
+@endsection
 
+@section('script')
+  <script type="text/javascript">
+    $('#icon_prefix2').trigger('autoresize');
+
+    // $(document).ready(function() {
+    // $('textarea#icon_prefix2').characterCounter();
+  // });
+  </script>
 @endsection
