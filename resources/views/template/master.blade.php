@@ -37,6 +37,15 @@
                   <li><a href="#">記事投稿</a></li>
                   <li><a href="#">お気に入り</a></li>
                   <li><a href="#">コミュニティ</a></li>
+                  <li>
+                    @if (Auth::guest())
+                        <a href="./login/google">ログイン</a>
+                    @else
+                    <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        Logout
+                    </a>
+                    @endif
+                  </li>
               </ul>
           </div>
           @yield('nav-tab')
@@ -68,8 +77,14 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="js/materialize.min.js"></script>
     <script type="text/javascript">
-      $(".button-collapse").sideNav();
+      $('.button-collapse').sideNav({
+      menuWidth: 300,
+      edge: 'left',
+      closeOnClick: true,
+      draggable: true,
+      });
     </script>
+
     @yield('script')
   </body>
 </html>

@@ -6,9 +6,10 @@
 <div class="nav-content">
   <ul class="tabs tabs-transparent">
     <li class="tab"><a class="active" href="#tab1">新着ニュース</a></li>
-    <li class="tab"><a href="#tab2">ランキング</a></li>
-    <li class="tab"><a href="#tab3">ジャンル１</a></li>
-    <li class="tab"><a href="#tab4">ジャンル２</a></li>
+    <li class="tab"><a href="#tab2">IT・ビジネス系</a></li>
+    <li class="tab"><a href="#tab3">ゲーム系</a></li>
+    <li class="tab"><a href="#tab4">映像・CG・アニメーション</a></li>
+    <li class="tab"><a href="#tab5">デザイン・WEB系</a></li>
   </ul>
 </div>
 @endsection
@@ -25,6 +26,8 @@
   <div class="sort col s12 right-align">
     <a class='dropdown-button btn' href='#' data-activates='dropdown1'>並び替え</a>
     <ul id='dropdown1' class='dropdown-content'>
+      <li><a disabled selected>並び替え</a></li>
+      <li class="divider"></li>
       <li><a href="#!">いいね順</a></li>
       <li><a href="#!">コメント順</a></li>
       <li><a href="#!">閲覧数順</a></li>
@@ -85,7 +88,17 @@
     </div>
   </form>
 </div>
+<div id="tab5" class="col s12">
+  <form>
+    <div class="input-field">
+      <input id="search5" class="center" type="search" required>
+      <label class="label-icon" for="search5"><i class="material-icons">search</i></label>
+      <i class="material-icons">close</i>
+    </div>
+  </form>
+</div>
 @endsection
+
 @section('script')
 <script type="text/javascript">
   $(".button-collapse").sideNav();
