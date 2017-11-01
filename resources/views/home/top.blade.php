@@ -26,6 +26,8 @@
   <div class="sort col s12 right-align">
     <a class='dropdown-button btn' href='#' data-activates='dropdown1'>並び替え</a>
     <ul id='dropdown1' class='dropdown-content'>
+      <li><a disabled selected>並び替え</a></li>
+      <li class="divider"></li>
       <li><a href="#!">いいね順</a></li>
       <li><a href="#!">コメント順</a></li>
       <li><a href="#!">閲覧数順</a></li>
