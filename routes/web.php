@@ -40,7 +40,8 @@ Route::get('/report/confirm','FakeController@fake');
 Route::get('/report/complete','FakeController@fake');
 
 Route::get('/chat', function () {
-    return view('chat');
+    $user = Auth::user();
+    return view('chat',compact('user'));
 });
 
 Route::get('/messages', function () {

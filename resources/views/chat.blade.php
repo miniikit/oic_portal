@@ -7,7 +7,7 @@
     <body>
     <div class="app">
         <h1>Chatroom</h1>
-          <p>{{ $user->name }}</p>
+          <p class="chatname">{{ $user->name }}</p>
             <span class="badge pull-right">@{{ usersInRoom.length }}</span>
                 <chat-log :messages="messages"></chat-log>
                 <chat-composer v-on:messagesent="addMessage"></chat-composer>
