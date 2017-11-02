@@ -5,7 +5,7 @@
    <link href="/css/app.css" rel="stylesheet">
 </head>
     <body>
-    <div class="app">
+    <div id="app">
         <h1>Chatroom</h1>
           <p class="chatname">{{ $user->name }}</p>
             <span class="badge pull-right">@{{ usersInRoom.length }}</span>
