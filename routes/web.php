@@ -39,6 +39,25 @@ Route::get('/report','FakeController@fake');
 Route::get('/report/confirm','FakeController@fake');
 Route::get('/report/complete','FakeController@fake');
 
+Route::get('/chat', function () {
+    return view('chat');
+});
+
+Route::get('/messages', function () {
+    return App\Message::with('user')->get();
+});
+
+Route::post('/messages', function () {
+
+    $user = Auth::user();
+    $message = $user->messages()->create([
+        'message' => request()->get('message')
+    ]);
+
+    broadcast(new MessagePosted($message, $user))->toOthers();
+    return ['status' => 'OK'];
+});
+
 //Auth
 Route::get('/login/google', 'Auth\LoginController@getGoogleAuth');
 Route::get('/oauth_callback', 'Auth\LoginController@getGoogleAuthCallback');
