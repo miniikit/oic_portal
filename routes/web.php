@@ -59,3 +59,4 @@ Route::get('/report/complete','FakeController@fake');
 // crawler
 Route::get('/crawl','Crawl\CrawlController@getRss');
 Route::get('/crawl2','Crawl\CrawlController@getImage')->name('getImage');
+Route::get('/crawl/check','Crawl\CrawlController@customeCheck');
