@@ -5,6 +5,6 @@ class TopController extends Controller
 {
   public function top()
   {
-    return view('/home.top');
+    return view('home.top');
   }
 }
