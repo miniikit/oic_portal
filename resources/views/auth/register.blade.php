@@ -4,6 +4,12 @@
   <link rel="stylesheet" href="/css/auth/register.css">
 @endsection
 
+@section('plug')
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="/js/register.js"></script>
+@endsection
+
+
 @section('main')
 
 <div class="row_content">
@@ -55,57 +61,68 @@
     </div>
 
     <div class="input-field col s12">
-        <select name="major" value="{{ old('major') }}">
-            <option value="" disabled selected></option>
-            <optgroup label="情報処理IT">
-                <option value="1">情報処理IT</option>
-                <option value="2">ゲーム</option>
-                <option value="3">CG・映像・アニメーション</option>
-                <option value="4">デザイン・Web</option>
-            </optgroup>
+        <select id="categories" name="major" value="{{ old('major') }}">
+            <option data-category="1" value="">学科を選択してください</option>
+            <option data-category="2" value="情報処理IT" class="it">情報処理IT</option>
+            <option data-category="3" value="ゲーム" class="game">ゲーム</option>
+            <option data-category="4" value="CG・映像・アニメーション" class="cg">CG・映像・アニメーション</option>
+            <option data-category="5" value="デザイン・Web" class="design">デザイン・Web</option>
         </select>
      <label>学科</label>
     </div>
 
-    <div class="input-field col s12">
-      <select name="course" value="{{ old('course') }}">
-        <option value="" disabled selected></option>
-        <optgroup label="情報処理IT">
-          <option value="1">ITスペシャリスト専攻</option>
-          <option value="2">ネットワークセキュリティ専攻</option>
-          <option value="3">システムエンジニア専攻</option>
-          <option value="4">ネットワークエンジニア専攻</option>
-          <option value="5">Webエンジニア専攻</option>
-          <option value="6">テクニカルコース</option>
-          <option value="7">ネットワークシステムコース</option>
-        </optgroup>
+      <div class="target__select input-field col s12" data-category="1">
+          <select  name="course" value="{{ old('course') }}">
+              <option value="" selected disabled>コースを選択してください</option>
+          </select>
+          <label>コース</label>
+      </div>
 
-        <optgroup label="ゲーム">
-          <option value="1">ゲームプログラマー専攻</option>
-          <option value="2">ゲームデザイナー専攻</option>
-          <option value="3">ゲームプランナー専攻</option>
-          <option value="4">ゲームクリエイター専攻（PG）</option>
-          <option value="5">ゲームクリエイター専攻（CG）</option>
-          <option value="6">ゲームプログラムコース</option>
-          <option value="7">ゲームCGデザインコース</option>
-        </optgroup>
-
-        <optgroup label="CG・映像・アニメーション">
-          <option value="1">CG映像クリエイター専攻</option>
-          <option value="2">CGクリエイター専攻</option>
-          <option value="3">CG映像コース</option>
-          <option value="4">CGアニメーションコース</option>
-        </optgroup>
-
-        <optgroup label="デザイン・Web">
-          <option value="1">アートディレクター専攻</option>
-          <option value="2">Webデザインコース</option>
-          <option value="3">グラフィックデザインコース</option>
-          <option value="4">マンガイラストコース</option>
-        </optgroup>
+    <div class="target__select input-field col s12 none" data-category="2">
+      <select  name="course" value="{{ old('course') }}">
+          <option value="ITスペシャリスト専攻" class="it">ITスペシャリスト専攻</option>
+          <option value="ネットワークセキュリティ専攻" class="it">ネットワークセキュリティ専攻</option>
+          <option value="システムエンジニア専攻" class="it">システムエンジニア専攻</option>
+          <option value="ネットワークエンジニア専攻" class="it">ネットワークエンジニア専攻</option>
+          <option value="Webエンジニア専攻" class="it">Webエンジニア専攻</option>
+          <option value="テクニカルコース" class="it">テクニカルコース</option>
+          <option value="ネットワークシステムコース" class="it">ネットワークシステムコース</option>
       </select>
       <label>コース</label>
     </div>
+
+      <div class="target__select input-field col s12 none" data-category="3">
+          <select name="course" value="{{ old('course') }}">
+              <option value="ゲームプログラマー専攻" class="game">ゲームプログラマー専攻</option>
+              <option value="ゲームデザイナー専攻" class="game">ゲームデザイナー専攻</option>
+              <option value="ゲームプランナー専攻" class="game">ゲームプランナー専攻</option>
+              <option value="ゲームクリエイター専攻（PG）" class="game">ゲームクリエイター専攻（PG）</option>
+              <option value="ゲームクリエイター専攻（CG）" class="game">ゲームクリエイター専攻（CG）</option>
+              <option value="ゲームプログラムコース" class="game">ゲームプログラムコース</option>
+              <option value="ゲームCGデザインコース" class="game">ゲームCGデザインコース</option>
+          </select>
+          <label>コース</label>
+      </div>
+
+      <div class="target__select input-field col s12 none" data-category="4">
+          <select name="course" value="{{ old('course') }}">
+              <option value="CG映像クリエイター専攻" class="cg">CG映像クリエイター専攻</option>
+              <option value="CGクリエイター専攻"class="cg">CGクリエイター専攻</option>
+              <option value="CG映像コース" class="cg">CG映像コース</option>
+              <option value="CGアニメーションコース" class="cg">CGアニメーションコース</option>
+          </select>
+          <label>コース</label>
+      </div>
+
+      <div class="target__select input-field col s12 none" data-category="5">
+          <select name="course" value="{{ old('course') }}">
+              <option value="アートディレクター専攻" class="design">アートディレクター専攻</option>
+              <option value="Webデザインコース" class="design">Webデザインコース</option>
+              <option value="グラフィックデザインコース" class="design">グラフィックデザインコース</option>
+              <option value="マンガイラストコース" class="design">マンガイラストコース</option>
+          </select>
+          <label>コース</label>
+      </div>
 
 
     <div class="input-field col s6">
@@ -127,11 +144,11 @@
 </div>
 
 @section('script')
-<script type="text/javascript">
-  $(document).ready(function() {
-    $('select').material_select();
-  });
-</script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('select').material_select();
+        });
+    </script>
 @endsection
 
 @endsection

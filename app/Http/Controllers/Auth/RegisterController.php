@@ -80,6 +80,7 @@ class RegisterController extends Controller
             'course' => $data['course'],
             'portfolio' => $data['portfolio'],
             'introduction' => $data['introduction'],
+            'authority_id' => 1,
         ]);
     }
 
