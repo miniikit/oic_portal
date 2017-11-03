@@ -236,11 +236,13 @@ class CommunitiesTableSeeder extends Seeder
     public function run()
     {
         DB::table('communities_table')->delete();
-        DB::table('communities_table')->insert([
-            'community_title' => '会',
-            'community_contents' => 'あああああ',
-            'authority_id' => 1
-        ]);
+        for ($i = 0; $i < 5; $i++) {
+            DB::table('communities_table')->insert([
+                'community_title' => '会',
+                'community_contents' => 'あああああ',
+                'authority_id' => $i
+            ]);
+        }
     }
 }
 
@@ -309,13 +311,15 @@ class EventsTableSeeder extends Seeder
     public function run()
     {
         DB::table('events_table')->delete();
-        DB::table('events_table')->insert([
-            'event_title' => '勉強会',
-            'event_text' => '勉強会開催します',
-            'event_start_date_time' => 20170101,
-            'event_end_date_time' => 20171231,
-            'event_marker_id' => 1
-        ]);
+        for ($i = 0; $i < 5; $i++) {
+            DB::table('events_table')->insert([
+                'event_title' => '勉強会',
+                'event_text' => '勉強会開催します',
+                'event_start_date_time' => 20170101,
+                'event_end_date_time' => 20171231,
+                'event_marker_id' => $i
+            ]);
+        }
     }
 }
 
@@ -357,7 +361,7 @@ class ReportsRisksCategoriesMasterSeeder extends Seeder
         for ($i = 0; $i < count($i); $i++) {
             DB::table('reports_risks_categories_master')->insert([
                 'report_risk_category_name' => $reportsRisksCategories[$i],
-                'report_risk_num' => 1
+                'report_risk_num' => $i
             ]);
         }
     }
