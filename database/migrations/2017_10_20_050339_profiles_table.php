@@ -18,6 +18,9 @@ class ProfilesTable extends Migration
             $table->string('profile_image');//プロフィール画像
             $table->string('profile_name',255);//プロフィール名
             $table->integer('course_id');//学科カテゴリID
+            $table->dateTime('profile_admission_year');//入学年度
+            $table->text('profile_url');//URL
+            $table->text('profile_introduction');//自己紹介
             $table->timestamps();
         });
     }

@@ -1,5 +1,6 @@
 <?php
 
+use app\Http\Controllers\Crawl\CrawlController;
 use App\Events\MessagePosted;
 
 /*
@@ -74,3 +75,8 @@ Route::post('/register/confirm','Auth\RegisterController@confirm');
 Route::post('/register/complete','Auth\RegisterController@complete');
 
 Auth::routes();
+
+// crawler
+Route::get('/crawl','Crawl\CrawlController@getRss');
+Route::get('/crawl2','Crawl\CrawlController@getImage')->name('getImage');
+Route::get('/crawl/check','Crawl\CrawlController@customeCheck');
