@@ -1,5 +1,8 @@
 <?php
 
+use app\Http\Controllers\Crawl\CrawlController;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -52,3 +55,7 @@ Route::get('/articles/999999','FakeController@fake');
 Route::get('/report','FakeController@fake');
 Route::get('/report/confirm','FakeController@fake');
 Route::get('/report/complete','FakeController@fake');
+
+// crawler
+Route::get('/crawl','Crawl\CrawlController@getRss');
+Route::get('/crawl2','Crawl\CrawlController@getImage')->name('getImage');
