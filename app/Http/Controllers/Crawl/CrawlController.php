@@ -19,8 +19,8 @@ class CrawlController extends Controller
     public function customeCheck()
     {
         // TARGET PATH
-        $rss_url = 'http://feed.rssad.jp/rss/gigazine/rss_2.0'; //サイトURL
-        $articles_list_tag = 'item link';   // 記事一覧を取得するためのタグ
+        $rss_url = ''; //サイトURL
+        $articles_list_tag = 'item link'; // 記事一覧を取得するためのタグ
 
         // 処理
         $client = new Client();
@@ -31,6 +31,7 @@ class CrawlController extends Controller
             $results = $node->text();
             return $results;
         });
+        dd($urls);
 
     }
 
