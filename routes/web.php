@@ -1,5 +1,8 @@
 <?php
 
+use app\Http\Controllers\Crawl\CrawlController;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -39,6 +42,7 @@ Route::get('/report','FakeController@fake');
 Route::get('/report/confirm','FakeController@fake');
 Route::get('/report/complete','FakeController@fake');
 
+<<<<<<< HEAD
 Route::get('/chat', function () {
     $user = Auth::user();
     return view('chat',compact('user'));
@@ -67,3 +71,9 @@ Route::post('/register/confirm','Auth\RegisterController@confirm');
 Route::post('/register/complete','Auth\RegisterController@complete');
 
 Auth::routes();
+=======
+// crawler
+Route::get('/crawl','Crawl\CrawlController@getRss');
+Route::get('/crawl2','Crawl\CrawlController@getImage')->name('getImage');
+Route::get('/crawl/check','Crawl\CrawlController@customeCheck');
+>>>>>>> dev
