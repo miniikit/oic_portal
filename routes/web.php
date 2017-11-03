@@ -39,6 +39,9 @@ Route::get('/report','FakeController@fake');
 Route::get('/report/confirm','FakeController@fake');
 Route::get('/report/complete','FakeController@fake');
 
+
+Route::group(['middleware' => ['web']], function () {
+
 Route::get('/chat', function () {
     $user = Auth::user();
     return view('chat',compact('user'));
@@ -57,6 +60,8 @@ Route::post('/messages', function () {
 
     broadcast(new MessagePosted($message, $user))->toOthers();
     return ['status' => 'OK'];
+});
+
 });
 
 //Auth
