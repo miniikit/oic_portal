@@ -38,6 +38,8 @@ class DatabaseSeeder extends Seeder
         $this->call('ReportsRisksCategoriesMasterSeeder');
         $this->call('EventsAuthoritiesTableSeeder');
         $this->call('ChatsTableSeeder');
+        $this->call('InquiriesTableSeeder');
+        $this->call('MessagesTableSeeder');
 
         Model::reguard();
     }
@@ -48,14 +50,16 @@ class UsersSeeder extends Seeder
     public function run()
     {
         DB::table('users')->delete();
-        DB::table('users')->insert([
-            'email' => 'b9999@oic.jp',
-            'name' => '山田太郎',
-            'name_kana' => 'ヤマダタロウ',
-            'authority_id' => 1,
-            'course_id' => 1,
-            'profile_id' => 1
-        ]);
+        for ($i = 0; $i < 10; $i++) {
+            DB::table('users')->insert([
+                'email' => 'b9999@oic.jp',
+                'name' => '山田太郎',
+                'name_kana' => 'ヤマダタロウ',
+                'authority_id' => $i,
+                'course_id' => $i,
+                'profile_id' => $i
+            ]);
+        }
     }
 }
 
@@ -78,11 +82,16 @@ class ProfilesTableSeeder extends Seeder
     public function run()
     {
         DB::table('profiles_table')->delete();
-        DB::table('profiles_table')->insert([
-            'profile_image' => '',
-            'profile_name' => 'ホゲ',
-            'course_id' => 1
-        ]);
+        for ($i = 0; $i < 10; $i++) {
+            DB::table('profiles_table')->insert([
+                'profile_image' => '',
+                'profile_name' => 'hoge',
+                'course_id' => $i,
+                'profile_admission_year' => 2017,
+                'profile_url' => '',
+                'profile_introduction' => ''
+            ]);
+        }
     }
 }
 
@@ -95,8 +104,9 @@ class CoursesMasterSeeder extends Seeder
         for($i = 0; $i < count($i); $i++) {
             DB::table('courses_master')->insert([
                 'course_name' => $categories[$i],
-                'parent_course_id' => 1,
-                'course_depth' => 1
+                'parent_course_id' => $i,
+                'course_depth' => $i,
+                'course_admission_year' => 2017
             ]);
         }
     }
@@ -107,12 +117,14 @@ class ArticlesTableSeeder extends Seeder
     public function run()
     {
         DB::table('articles_table')->delete();
-        DB::table('articles_table')->insert([
-            'article_title' => '新商品',
-            'article_text' => '新商品が',
-            'article_image' => '',
-            'news_site_id' => 1
-        ]);
+        for ($i = 0;$i < 10; $i++){
+                DB::table('articles_table')->insert([
+                    'article_title' => '新商品',
+                    'article_text' => '新商品が',
+                    'article_image' => '',
+                    'news_site_id' => $i
+                ]);
+            }
     }
 }
 
@@ -121,10 +133,12 @@ class ArticlesLikesTableSeeder extends Seeder
     public function run()
     {
         DB::table('articles_likes_table')->delete();
-        DB::table('articles_likes_table')->insert([
-            'article_id' => 1,
-            'user_id' => 1
-        ]);
+        for ($i = 0; $i < 5; $i++) {
+            DB::table('articles_likes_table')->insert([
+                'article_id' => $i,
+                'user_id' => $i
+            ]);
+        }
     }
 }
 
@@ -133,11 +147,13 @@ class ArticlesCommentsTableSeeder extends Seeder
     public function run()
     {
         DB::table('articles_comments_table')->delete();
-        DB::table('articles_comments_table')->insert([
-            'article_id' => 1,
-            'user_id' => 1,
-            'article_comment_text' => 'あああああああ'
-        ]);
+        for ($i = 0; $i < 10; $i++) {
+            DB::table('articles_comments_table')->insert([
+                'article_id' => $i,
+                'user_id' => $i,
+                'article_comment_text' => 'あああああああ'
+            ]);
+        }
     }
 }
 
@@ -146,12 +162,14 @@ class ReportsTableSeeder extends Seeder
     public function run()
     {
         DB::table('reports_table')->delete();
-        DB::table('reports_table')->insert([
-            'report_category_id' => 1,
-            'user_id' => 1,
-            'report_contents' => 'テスト',
-            'report_deal_status_id' =>1
-        ]);
+        for ($i = 0; $i < 5; $i++) {
+            DB::table('reports_table')->insert([
+                'report_category_id' => $i,
+                'user_id' => $i,
+                'report_contents' => 'テスト',
+                'report_deal_status_id' => $i
+            ]);
+        }
     }
 }
 
@@ -160,11 +178,13 @@ class ReportsDealsTableSeeder extends Seeder
     public function run()
     {
         DB::table('reports_deals_table')->delete();
-        DB::table('reports_deals_table')->insert([
-            'report_id' => 1,
-            'user_id' => 1,
-            'report_deal_comment' => '削除しました'
-        ]);
+        for ($i = 0; $i < 5; $i++) {
+            DB::table('reports_deals_table')->insert([
+                'report_id' => $i,
+                'user_id' => $i,
+                'report_deal_comment' => '削除しました'
+            ]);
+        }
     }
 }
 
@@ -177,7 +197,7 @@ class ReportsCategoriesMasterSeeder extends Seeder
         for ($i = 0; $i < count($i); $i++) {
             DB::table('reports_categories_master')->insert([
                 'report_category_name' => $reportCategories[$i],
-                'report_risk_id' => 1
+                'report_risk_id' => $i
             ]);
         }
     }
@@ -188,10 +208,12 @@ class FriendsTableSeeder extends Seeder
     public function run()
     {
         DB::table('friends_table')->delete();
-        DB::table('friends_table')->insert([
-            'user_id' => 1,
-            'user2_id' => 1
-        ]);
+        for ($i = 0; $i < 5; $i++) {
+            DB::table('friends_table')->insert([
+                'user_id' => $i,
+                'user2_id' => $i
+            ]);
+        }
     }
 }
 
@@ -227,10 +249,12 @@ class CommunitiesParticipantsTableSeeder extends Seeder
     public function run()
     {
         DB::table('communities_participants_table')->delete();
-        DB::table('communities_participants_table')->insert([
-            'community_id' => 1,
-            'user_id' => 1
-        ]);
+        for ($i = 0; $i < 5; $i++) {
+            DB::table('communities_participants_table')->insert([
+                'community_id' => $i,
+                'user_id' => $i
+            ]);
+        }
     }
 }
 
@@ -239,11 +263,13 @@ class CommunitiesCommentsTableSeeder extends Seeder
     public function run()
     {
         DB::table('communities_comments_table')->delete();
-        DB::table('communities_comments_table')->insert([
-            'community_id' => 1,
-            'user_id' => 1,
-            'community_comment_contents' => 'コミュニティコメント'
-        ]);
+        for ($i = 0; $i < 5; $i++) {
+            DB::table('communities_comments_table')->insert([
+                'community_id' => $i,
+                'user_id' => $i,
+                'community_comment_contents' => 'コミュニティコメント'
+            ]);
+        }
     }
 }
 
@@ -252,13 +278,15 @@ class NewsSitesMasterSeeder extends Seeder
     public function run()
     {
         DB::table('news_sites_master')->delete();
-        DB::table('news_sites_master')->insert([
-            'news_site_url' => '',
-            'news_site_tag_title' => 'ITメディア',
-            'news_site_tag_article' => 'ああああ',
-            'news_site_tag_image' => '',
-            'news_site_category_id' => 1
-        ]);
+        for ($i = 0; $i < 5; $i++) {
+            DB::table('news_sites_master')->insert([
+                'news_site_url' => '',
+                'news_site_tag_title' => 'ITメディア',
+                'news_site_tag_article' => 'ああああ',
+                'news_site_tag_image' => '',
+                'news_site_category_id' => $i
+            ]);
+        }
     }
 }
 
@@ -354,10 +382,37 @@ class ChatsTableSeeder extends Seeder
     public function run()
     {
         DB::table('chats_table')->delete();
-        DB::table('chats_table')->insert([
-            'chat_user_id' => 1,
-            'chat_user2_id' => 1,
-            'chat_text' => ''
+        for ($i = 0; $i < 5; $i++) {
+            DB::table('chats_table')->insert([
+                'chat_user_id' => $i,
+                'chat_user2_id' => $i,
+                'chat_text' => 'hello'
+            ]);
+        }
+    }
+}
+
+class InquiriesTableSeeder extends Seeder
+{
+    public function run()
+    {
+        DB::table('inquiries_table')->delete();
+        DB::table('inquiries_table')->insert([
+           'inquiry_text' => 'ログインについての問い合わせ'
         ]);
     }
 }
+
+/*
+class MessagesTableSeeder extends Seeder
+{
+    public function  run()
+    {
+        DB::table('messages_table')->delete();
+        DB::table('messages_table')->insert([
+           'message' => '',
+           'user_id' => 1
+        ]);
+    }
+}
+*/

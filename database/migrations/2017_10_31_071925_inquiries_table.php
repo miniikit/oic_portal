@@ -13,7 +13,11 @@ class InquiriesTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('inquiries_table', function (Blueprint $table){
+           $table->increments('id');//問い合わせID
+           $table->text('inquiry_text');//問い合わせ内容
+           $table->increments();
+        });
     }
 
     /**
@@ -23,6 +27,6 @@ class InquiriesTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('inquiries_table');
     }
 }
