@@ -1,0 +1,11 @@
+
+div.content{
+  position: relative;
+}
+p.text{
+  height: 50px;
+  line-height: 300px;
+  font-size: 30px;
+  color: darkgray;
+  text-align: center;
+}

@@ -19,8 +19,8 @@ class CrawlController extends Controller
     public function customeCheck()
     {
         // TARGET PATH
-        $rss_url = ''; //サイトURL
-        $articles_list_tag = 'item link'; // 記事一覧を取得するためのタグ
+        $rss_url = 'http://dengekionline.com/'; //サイトURL
+        $articles_list_tag = '.artMain h3 a'; // 記事一覧を取得するためのタグ
 
         // 処理
         $client = new Client();

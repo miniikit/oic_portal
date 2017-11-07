@@ -407,7 +407,7 @@ class NewsSitesMasterSeeder extends Seeder
             'news_site_category_id' => 1
         ]);
 
-        //MdN DESIGN
+        // MdN DESIGN
         DB::table('news_sites_master')->insert([
             'news_site_url' => 'http://rss.rssad.jp/rss/mdn/di/rss.php',
             'news_site_tag_title' => 'item title',
@@ -416,7 +416,7 @@ class NewsSitesMasterSeeder extends Seeder
             'news_site_category_id' => 1
         ]);
 
-        //ファミ通APP
+        // ファミ通APP
         DB::table('news_sites_master')->insert([
             'news_site_url' => 'https://app.famitsu.com/feed/',
             'news_site_tag_title' => 'item title',
@@ -425,15 +425,176 @@ class NewsSitesMasterSeeder extends Seeder
             'news_site_category_id' => 1
         ]);
 
-        //
+        // keizai report.com 日本経済・財政
         DB::table('news_sites_master')->insert([
-        'news_site_url' => '',
+            'news_site_url' => 'http://xml.keizaireport.com/rss/node_2.xml',
             'news_site_tag_title' => 'item title',
             'news_site_tag_article' => 'item link',
             'news_site_tag_image' => '',
             'news_site_category_id' => 1
         ]);
 
+        // keizai report.com 経営総合
+        DB::table('news_sites_master')->insert([
+            'news_site_url' => 'http://xml.keizaireport.com/rss/node_3.xml',
+            'news_site_tag_title' => 'item title',
+            'news_site_tag_article' => 'item link',
+            'news_site_tag_image' => '',
+            'news_site_category_id' => 1
+        ]);
+
+        // keizai report.com 金融総合
+        DB::table('news_sites_master')->insert([
+            'news_site_url' => 'http://xml.keizaireport.com/rss/node_4.xml',
+            'news_site_tag_title' => 'item title',
+            'news_site_tag_article' => 'item link',
+            'news_site_tag_image' => '',
+            'news_site_category_id' => 1
+        ]);
+
+        // keizai report.com 産業総合
+        DB::table('news_sites_master')->insert([
+            'news_site_url' => 'http://xml.keizaireport.com/rss/node_5.xml',
+            'news_site_tag_title' => 'item title',
+            'news_site_tag_article' => 'item link',
+            'news_site_tag_image' => '',
+            'news_site_category_id' => 1
+        ]);
+
+        // keizai report.com 海外経済・国際機関
+        DB::table('news_sites_master')->insert([
+            'news_site_url' => 'http://xml.keizaireport.com/rss/node_6.xml',
+            'news_site_tag_title' => 'item title',
+            'news_site_tag_article' => 'item link',
+            'news_site_tag_image' => '',
+            'news_site_category_id' => 1
+        ]);
+
+        // keizai report.com 経済見通し
+        DB::table('news_sites_master')->insert([
+            'news_site_url' => 'http://xml.keizaireport.com/rss/node_7.xml',
+            'news_site_tag_title' => 'item title',
+            'news_site_tag_article' => 'item link',
+            'news_site_tag_image' => '',
+            'news_site_category_id' => 1
+        ]);
+
+        // keizai report.com 地域経済・地方自治体
+        DB::table('news_sites_master')->insert([
+            'news_site_url' => 'http://xml.keizaireport.com/rss/node_8.xml',
+            'news_site_tag_title' => 'item title',
+            'news_site_tag_article' => 'item link',
+            'news_site_tag_image' => '',
+            'news_site_category_id' => 1
+        ]);
+
+        // keizai report.com 環境・リサイクル
+        DB::table('news_sites_master')->insert([
+            'news_site_url' => 'http://xml.keizaireport.com/rss/node_9.xml',
+            'news_site_tag_title' => 'item title',
+            'news_site_tag_article' => 'item link',
+            'news_site_tag_image' => '',
+            'news_site_category_id' => 1
+        ]);
+
+        // keizai report.com インターネット
+        DB::table('news_sites_master')->insert([
+            'news_site_url' => 'http://xml.keizaireport.com/rss/node_10.xml',
+            'news_site_tag_title' => 'item title',
+            'news_site_tag_article' => 'item link',
+            'news_site_tag_image' => '',
+            'news_site_category_id' => 1
+        ]);
+
+        // TOKYO DESIGN WEEK
+        DB::table('news_sites_master')->insert([
+            'news_site_url' => 'http://tokyodesignweek.jp/designboom/',
+            'news_site_tag_title' => 'article dt',
+            'news_site_tag_article' => 'article a',
+            'news_site_tag_image' => '',
+            'news_site_category_id' => 1
+        ]);
+
+        // PHOTOSHOPVIP
+        DB::table('news_sites_master')->insert([
+            'news_site_url' => 'http://photoshopvip.net/',
+            'news_site_tag_title' => 'article h2 a',
+            'news_site_tag_article' => 'article a',
+            'news_site_tag_image' => '',
+            'news_site_category_id' => 1
+        ]);
+
+        // scrmble
+        DB::table('news_sites_master')->insert([
+            'news_site_url' => 'http://scrmble.jp/',
+            'news_site_tag_title' => 'ul h2 a', //空白
+            'news_site_tag_article' => 'ul a',
+            'news_site_tag_image' => '',
+            'news_site_category_id' => 1
+        ]);
+
+        // JDP
+        DB::table('news_sites_master')->insert([
+            'news_site_url' => 'https://www.jidp.or.jp/news/',
+            'news_site_tag_title' => 'article h1 a',
+            'news_site_tag_article' => 'article h1 a',
+            'news_site_tag_image' => '',
+            'news_site_category_id' => 1
+        ]);
+
+        // CGWORLD.JP
+        DB::table('news_sites_master')->insert([
+            'news_site_url' => 'https://cgworld.jp/news/',
+            'news_site_tag_title' => 'article h2',
+            'news_site_tag_article' => 'article a',
+            'news_site_tag_image' => '',
+            'news_site_category_id' => 1
+        ]);
+
+        // Gamer
+        DB::table('news_sites_master')->insert([
+            'news_site_url' => 'https://www.gamer.ne.jp/news/',
+            'news_site_tag_title' => 'li p a',
+            'news_site_tag_article' => 'li p a',
+            'news_site_tag_image' => '',
+            'news_site_category_id' => 1
+        ]);
+
+        // 3D人
+        DB::table('news_sites_master')->insert([
+            'news_site_url' => 'http://3dnchu.com/',
+            'news_site_tag_title' => 'article h2 a',
+            'news_site_tag_article' => 'article h2 a',
+            'news_site_tag_image' => '',
+            'news_site_category_id' => 1
+        ]);
+
+        // 電撃オンライン
+        DB::table('news_sites_master')->insert([
+            'news_site_url' => 'http://dengekionline.com/',
+            'news_site_tag_title' => '.artMain h3 a',
+            'news_site_tag_article' => '.artMain h3 a',
+            'news_site_tag_image' => '',
+            'news_site_category_id' => 1
+        ]);
+
+        // a
+        DB::table('news_sites_master')->insert([
+            'news_site_url' => '',
+            'news_site_tag_title' => '',
+            'news_site_tag_article' => '',
+            'news_site_tag_image' => '',
+            'news_site_category_id' => 1
+        ]);
+
+        // a
+        DB::table('news_sites_master')->insert([
+            'news_site_url' => '',
+            'news_site_tag_title' => '',
+            'news_site_tag_article' => '',
+            'news_site_tag_image' => '',
+            'news_site_category_id' => 1
+        ]);
     }
 
 }
