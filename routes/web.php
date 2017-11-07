@@ -19,10 +19,13 @@ Route::get('/','IndexController@index');
 Route::get('/top','TopController@top');
 Route::get('/details','DetailsController@details');
 
+Route::get('/mypage','MypageController@mypage');
+
+/* fake
 Route::get('/like/index','FakeController@fake');
 
-//Route::get('/mypage','FakeController@fake');
-Route::get('/mypage','MypageController@mypage');
+Route::get('/mypage','FakeController@fake');
+
 Route::get('/mypage/edit','FakeController@fake');
 Route::get('/mypage/confirm','FakeController@fake');
 
@@ -41,6 +44,7 @@ Route::get('/articles/999999','FakeController@fake');
 Route::get('/report','FakeController@fake');
 Route::get('/report/confirm','FakeController@fake');
 Route::get('/report/complete','FakeController@fake');
+*/
 
 
 Route::group(['middleware' => ['web']], function () {
@@ -53,6 +57,7 @@ Route::post('/messages', 'MessagesController@postmessages');
 //Auth
 Route::get('/login/google', 'Auth\LoginController@getGoogleAuth');
 Route::get('/oauth_callback', 'Auth\LoginController@getGoogleAuthCallback');
+Route::post('/logout','Auth\LoginController@logout');
 
 Route::post('/register/confirm','Auth\RegisterController@confirm');
 Route::post('/register/complete','Auth\RegisterController@complete');

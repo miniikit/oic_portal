@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
 use Socialite;
@@ -74,7 +75,13 @@ class LoginController extends Controller
         }else{
             Auth::loginUsingId($user->id);
             $user = Auth::user();
-            return redirect('/top',compact('user->id','user->name'));
+            return view('home.top',compact('user'));
         }
+    }
+
+    public function logout(Request $request)
+    {
+        $request->session()->flush();
+        return redirect('/top');
     }
 }
