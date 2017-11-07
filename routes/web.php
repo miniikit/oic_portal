@@ -24,12 +24,6 @@ Route::get('/','HomeController@index')->name('user_home');
 
 // 問い合わせ
 
-// old
-Route::get('/top','TopController@top');
-
-// tmp
-Route::get('/details','DetailsController@details');
-
 Route::get('/mypage','MypageController@mypage');
 
 Route::get('/like/index','FakeController@fake');
@@ -86,17 +80,13 @@ Route::group(['middleware' => ['web']], function () {
     Route::post('/messages', 'MessagesController@postmessages');
 
     // 認証
-    Route::get('/login/google', 'Auth\LoginController@getGoogleAuth');
-    Route::get('/oauth_callback', 'Auth\LoginController@getGoogleAuthCallback');
-
-    //Auth
     Route::get('/login/google', 'Auth\LoginController@getGoogleAuth')->name('user_login');
     Route::get('/oauth_callback', 'Auth\LoginController@getGoogleAuthCallback');
     Route::post('/logout','Auth\LoginController@logout')->name('user_logout');
 
     // 会員登録
-    Route::post('/register/confirm','Auth\RegisterController@confirm');
-    Route::post('/register/complete','Auth\RegisterController@complete');
+    Route::post('/register/confirm','Auth\RegisterController@confirm')->name('user_register_confirm');
+    Route::post('/register/complete','Auth\RegisterController@complete')->name('user_register_complete');;
 
 });
 

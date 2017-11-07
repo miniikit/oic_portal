@@ -13,7 +13,7 @@
               <p class="date">2017/xx/yy</p>
             </div>
             <div class="col s6">
-              <p class="backlink"><a class="backlink" href="/top">back</a></p>
+              <p class="backlink"><a class="backlink" href="{{ route('user_home') }}">back</a></p>
             </div>
           </div>
 
