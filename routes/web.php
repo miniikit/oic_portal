@@ -39,6 +39,7 @@ Route::get('/user/10484','FakeController@fake');
 
 
 /**
+
  * 記事
  */
 // 一覧
@@ -69,8 +70,7 @@ Route::get('/report/complete','FakeController@fake');
 /**
  * 会員限定
  */
-Route::group(['middleware' => ['web']], function () {
-
+Route::group(['middleware' => ['UserAuth']], function () {
     // CHAT
     Route::get('/chat', 'MessagesController@chat');
 
@@ -78,27 +78,36 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('/messages', 'MessagesController@getmessages');
     Route::post('/messages', 'MessagesController@postmessages');
 
+/**
+ * マイページ
+ */
+    Route::get('/mypage','MypagesController@show')->name('user_mypage');
+    Route::get('/mypage/edit','MypagesController@edit')->name('user_mypage_edit');
+    Route::get('/mypage/confirm','FakeController@fake');
+
+    Route::get('/mypage/follow','FakeController@fake');
+    Route::get('/user/10484','FakeController@fake');
+    Route::get('/mypage/block','FakeController@fake');
+});
+
+/**
+ *  AUTH
+ */
+
+
     // 認証
     Route::get('/login/google', 'Auth\LoginController@getGoogleAuth')->name('user_login');
     Route::get('/oauth_callback', 'Auth\LoginController@getGoogleAuthCallback');
     Route::post('/logout','Auth\LoginController@logout')->name('user_logout');
 
     // 会員登録
-    Route::post('/register/confirm','Auth\RegisterController@confirm')->name('user_register_confirm');
     Route::post('/register/complete','Auth\RegisterController@complete')->name('user_register_complete');;
 
-});
-
-/**
- *  AUTH
- */
-Auth::routes();
-
-
+    Auth::routes();
 /**
  * Crawler
  */
-// test
-Route::get('/crawl','Crawl\CrawlController@getRss');
-Route::get('/crawl2','Crawl\CrawlController@getImage')->name('getImage');
-Route::get('/crawl/check','Crawl\CrawlController@customeCheck');
+    // test
+    Route::get('/crawl','Crawl\CrawlController@getRss');
+    Route::get('/crawl2','Crawl\CrawlController@getImage')->name('getImage');
+    Route::get('/crawl/check','Crawl\CrawlController@customeCheck');

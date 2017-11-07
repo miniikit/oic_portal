@@ -17,7 +17,6 @@
 <body>
 
 <!--- ヘッダー -->
-
 <header>
     <nav class="nav-extended">
         <div class="nav-wrapper">
@@ -25,9 +24,8 @@
             @if (Auth::guest())
                 <a href="/login/google">ログイン</a>
             @else
-                <a href="/logout" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-                    Logout
-                </a>
+                <a href="/logout" onclick="event.preventDefault();document.getElementById('logout-form').submit();">ログアウト</a>
+                <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">{{ csrf_field() }}</form>
             @endif
             <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
             <ul class="side-nav" id="mobile-demo">
