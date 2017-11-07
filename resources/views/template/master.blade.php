@@ -22,6 +22,13 @@
         <nav class="nav-extended">
           <div class="nav-wrapper">
             <a href="/top" class="brand-logo center">OIC-portal</a>
+                                @if (Auth::guest())
+                        <a href="/login/google">ログイン</a>
+                    @else
+                    <a href="/logout" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                        Logout
+                    </a>
+                    @endif
             <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
               <ul class="side-nav" id="mobile-demo">
                 <li>
@@ -38,14 +45,6 @@
                   <li><a href="#">お気に入り</a></li>
                   <li><a href="#">コミュニティ</a></li>
                   <li>
-                    @if (Auth::guest())
-                        {{ route('user_login') }}
-                        {{--<a href="/login/google">ログイン</a>--}}
-                    @else
-                    <a href="{{ route('user_logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-                        Logout
-                    </a>
-                    @endif
                   </li>
               </ul>
           </div>
@@ -53,7 +52,7 @@
         </nav>
     </header>
 
-    <!--- メイン --->
+    <!--- メイン -->
 
     <main id="main">
       <div class="container">
@@ -62,7 +61,7 @@
       <div class="push"></div>
     </main>
 
-    <!--- フッター --->
+    <!--- フッター -->
 
     <footer class="page-footer-another">
           <div class="footer-copyright">
@@ -73,7 +72,7 @@
           </div>
     </footer>
 
-    <!--- Script --->
+    <!--- Script -->
     <!--Import jQuery before materialize.js-->
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="js/materialize.min.js"></script>
