@@ -10,7 +10,7 @@
       <div class="col s12">
         <div class="profile-image center">
           <div class="profile-rap">
-            <img class="image circle" src="images/sample-icon2.jpg" alt="">
+            <img class="image circle" src="/images/sample-icon2.jpg" alt="">
           </div>
         </div>
       </div>
@@ -75,7 +75,7 @@
           <div class="card">
             <div class="card-wrapper">
               <div class="card-image">
-                <a href="details"><img src="images/sample-{{ $i }}.jpg"></a>
+                <a href="details"><img src="/images/sample-{{ $i }}.jpg"></a>
                 <span class="card-title">記事タイトル</span>
               </div>
               <div class="card-content">
