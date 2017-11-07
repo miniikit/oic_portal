@@ -16,7 +16,7 @@ class InquiriesTable extends Migration
         Schema::create('inquiries_table', function (Blueprint $table){
            $table->increments('id');//問い合わせID
            $table->text('inquiry_text');//問い合わせ内容
-           $table->increments();
+           $table->timestamps();           
         });
     }
 

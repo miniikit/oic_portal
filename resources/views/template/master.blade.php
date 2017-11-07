@@ -16,7 +16,7 @@
   </head>
   <body>
 
-    <!--- ヘッダー --->
+    <!--- ヘッダー -->
 
     <header>
         <nav class="nav-extended">
@@ -39,9 +39,10 @@
                   <li><a href="#">コミュニティ</a></li>
                   <li>
                     @if (Auth::guest())
-                        <a href="./login/google">ログイン</a>
+                        {{ route('user_login') }}
+                        {{--<a href="/login/google">ログイン</a>--}}
                     @else
-                    <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                    <a href="{{ route('user_logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                         Logout
                     </a>
                     @endif
