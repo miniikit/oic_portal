@@ -24,15 +24,14 @@ Route::get('/','HomeController@index')->name('user_home');
 
 // 問い合わせ
 
-Route::get('/mypage','MypageController@mypage');
 
 Route::get('/like/index','FakeController@fake');
 
 /**
  * マイページ
  */
-Route::get('/mypage','MypageController@mypage');
-Route::get('/mypage/edit','FakeController@fake');
+Route::get('/mypage','MypagesController@show')->name('user_mypage');
+Route::get('/mypage/edit','MypagesController@edit')->name('user_mypage_edit');
 Route::get('/mypage/confirm','FakeController@fake');
 
 Route::get('/mypage/follow','FakeController@fake');
@@ -53,11 +52,11 @@ Route::get('/articles/999999/edit','ArticlesController@edit')->name('user_articl
 Route::get('/articles/2017/03','ArticlesController@fake');
 
 // 投稿
-Route::get('/articles/post','ArticlesController@fake');
+Route::get('/articles/post','ArticlesController@fake')->name('user_article_post');
 // 確認
-Route::get('/articles/post/confirm','ArticlesController@fake');
+Route::get('/articles/post/confirm','ArticlesController@fake')->name('user_article_post_confirm');
 // 完了
-Route::get('/articles/post/complete','ArticlesController@fake');
+Route::get('/articles/post/complete','ArticlesController@fake')->name('user_article_post_complete');
 
 /**
  * 通報

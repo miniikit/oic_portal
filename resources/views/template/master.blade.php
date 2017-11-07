@@ -32,8 +32,8 @@
                     <a href="#!email"><span class="black-text email">rentaro@oic.jp</span></a>
                   </div>
                 </li>
-                  <li><a href="/top">トップ</a></li>
-                  <li><a href="/mypage">マイページ</a></li>
+                  <li><a href="{{ route('user_home') }}}">トップ</a></li>
+                  <li><a href="{{ route('user_mypage') }}">マイページ</a></li>
                   <li><a href="#">記事投稿</a></li>
                   <li><a href="#">お気に入り</a></li>
                   <li><a href="#">コミュニティ</a></li>
