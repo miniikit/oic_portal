@@ -73,23 +73,25 @@ class RegisterController extends Controller
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
-            'kana' => $data['kana'],
+            'name_kana' => $data['kana'],
             'sc_year' => $data['sc_year'],
             'sc_class' => $data['sc_class'],
             'major' => $data['major'],
-            'course' => $data['course'],
+            'course_id' => $data['course'],
             'portfolio' => $data['portfolio'],
-            'introduction' => $data['introduction'],
+            'profile_id' => 1,
             'authority_id' => 1,
         ]);
     }
 
+    /*
     public function confirm(Request $request)
     {
         $data = $request->all();
 
         return view('auth.register.confirm',compact('data'));
     }
+    */
 
     public function complete(Request $request)
     {
