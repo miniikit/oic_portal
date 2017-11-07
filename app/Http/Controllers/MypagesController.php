@@ -9,6 +9,19 @@ use app\User;
 
 class MypagesController extends Controller
 {
+    public function mypage()
+    {
+      if(Auth::check()){
+        $userId = Auth::user()->id;
+        $userInfo = app( User::class)::where('users.id',$userId)->get();
+
+        return view('mypage.top',compact('userInfo'));
+
+      }else{
+
+        return view('login/google');
+      }
+    }
 
     public function show()
     {

@@ -75,7 +75,6 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'name_kana' => $data['kana'],
             'sc_year' => $data['sc_year'],
-            'sc_class' => $data['sc_class'],
             'major' => $data['major'],
             'course_id' => $data['course'],
             'portfolio' => $data['portfolio'],
