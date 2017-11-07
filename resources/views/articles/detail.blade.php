@@ -1,4 +1,4 @@
-@extends('template/master')
+@extends('template.master')
 
 @section('css')
   <link rel="stylesheet" href="/css/articles/details.css">
@@ -22,7 +22,7 @@
         </div>
 
         <div class="article-image">
-          <img class="image-box" width="100%" src="images/sample-1.jpg">
+          <img class="image-box" width="100%" src="/images/sample-1.jpg">
         </div>
 
         <div class="text-area">
@@ -34,7 +34,7 @@
         <div class="comment">
           <div class="input-text col s12">
             <div class="col s2">
-              <img class="account-image circle" src="images/sample-icon2.jpg">
+              <img class="account-image circle" src="/images/sample-icon2.jpg">
             </div>
             <form class="col s10">
                 <div class="input-field">
@@ -49,7 +49,7 @@
         @for ($i=0; $i < 5; $i++)
           <div class="comment-area col s12 center-align">
             <div class="col s2">
-              <img class="circle" src="images/sample-icon2.jpg">
+              <img class="circle" src="/images/sample-icon2.jpg">
             </div>
             <div class="col s10">
               <div class="comment-areasub row left-align">
@@ -68,7 +68,7 @@
           @for ($i=0; $i < 3; $i++)
             <div class="relation card">
                 <div class="card-image">
-                  <a href="details"><img src="images/sample-2.jpg"></a>
+                  <a href="details"><img src="/images/sample-2.jpg"></a>
                 </div>
                 <div class="card-contents">
                   <p class="side-contents-text">ミニスーファミにやりたいゲームが入ってない！って方に、同じくらいの値段で買えるSFC用のレトロフリーク</p>
@@ -89,7 +89,7 @@
           @for ($i=0; $i < 3; $i++)
             <div class="relation card">
                 <div class="card-image">
-                  <a href="details"><img src="images/sample-3.jpg"></a>
+                  <a href="details"><img src="/images/sample-3.jpg"></a>
                 </div>
                 <div class="card-contents">
                   <p>ミニスーファミにやりたいゲームが入ってない！って方に、同じくらいの値段で買えるSFC用のレトロフリーク</p>

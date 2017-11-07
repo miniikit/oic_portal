@@ -28,6 +28,18 @@ Route::get('/','HomeController@index')->name('user_home');
 Route::get('/like/index','FakeController@fake');
 
 /**
+ * マイページ
+ */
+Route::get('/mypage','MypagesController@show')->name('user_mypage');
+Route::get('/mypage/edit','MypagesController@edit')->name('user_mypage_edit');
+Route::get('/mypage/confirm','FakeController@fake')->name('');
+Route::get('/mypage/follow','FakeController@fake');
+Route::get('/mypage/block','FakeController@fake');
+Route::get('/user/10484','FakeController@fake');
+
+
+/**
+
  * 記事
  */
 // 一覧
