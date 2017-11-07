@@ -28,7 +28,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/top';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -62,7 +62,7 @@ class LoginController extends Controller
         /*
         if(!str_contains($getUser->email,'@oic.jp')){
             flash('メールアドレスがoic.jpではありません。学生アカウントでログインしてください。','danger');
-            return redirect('/top',compact('user->id','user->name'));
+            return redirect('/',compact('user->id','user->name'));
         }
         */
 
