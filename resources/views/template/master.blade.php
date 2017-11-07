@@ -18,6 +18,19 @@
 
 <!--- ヘッダー -->
 
+
+    <header>
+        <nav class="nav-extended">
+          <div class="nav-wrapper">
+            <a href="/top" class="brand-logo center">OIC-portal</a>
+                                @if (Auth::guest())
+                        <a href="/login/google">ログイン</a>
+                    @else
+            <a href="/logout" onclick="event.preventDefault();document.getElementById('logout-form').submit();"><i
+                        class="fa fa-unlock-alt" aria-hidden="true"></i>ログアウト</a>
+            <form id="logout-form" action="{{ url('/logout') }}" method="POST"
+                  style="display: none;">{{ csrf_field() }}</form>
+                    @endif
 <header>
     <nav class="nav-extended">
         <div class="nav-wrapper">
