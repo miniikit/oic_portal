@@ -29,7 +29,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/top';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -63,7 +63,7 @@ class LoginController extends Controller
         /*
         if(!str_contains($getUser->email,'@oic.jp')){
             flash('メールアドレスがoic.jpではありません。学生アカウントでログインしてください。','danger');
-            return redirect('/top',compact('user->id','user->name'));
+            return redirect('/',compact('user->id','user->name'));
         }
         */
 
@@ -75,13 +75,15 @@ class LoginController extends Controller
         }else{
             Auth::loginUsingId($user->id);
             $user = Auth::user();
-            return view('home.top',compact('user'));
+            return redirect()->route('user_home',compact('user'));
+            //return view('home.top',compact('user'));
         }
     }
 
     public function logout(Request $request)
     {
         $request->session()->flush();
-        return redirect('/top');
+        //return redirect('/top');
+        return redirect()->route('user_home');
     }
 }

@@ -20,4 +20,14 @@ class MypagesController extends Controller
         return view('login/google');
       }
     }
+
+    public function show()
+    {
+      return view('mypage.detail');
+    }
+
+    public function edit()
+    {
+        return view('mypage.detail');
+    }
 }

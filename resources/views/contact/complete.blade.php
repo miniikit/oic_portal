@@ -1,14 +1,16 @@
 @extends('template.master')
 
 @section('css')
-  <link rel="stylesheet" href="/css/contact/confirm.css">
+  <link rel="stylesheet" href="/css/contact/complete.css">
 @endsection
 
 @section('main')
-      
-<div class="text center-align">
-  <p>送信しました</p>
-</div>
+
+  <div class="content">
+    <div class="center-align">
+      <p class="text">送信しました</p>
+    </div>
+  </div>
 
 
 @endsection
