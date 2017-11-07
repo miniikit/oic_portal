@@ -22,11 +22,10 @@
         </div>
 
         <div class="article-image">
-          <img class="image-box" width="100%" src="images/sample-1.jpg">
+          <img class="image-box" width="100%" src="/images/sample-1.jpg">
         </div>
 
         <div class="text-area">
-          {{-- <img class="text-image" src="images/" alt=""> --}}
           <p class="main-contents-text">仮想通貨Bitcoin(ビットコイン)のマイニングで利益を得るには、高性能な専用マシンを使うのが必須で、さらには電力コストを抑えるために電気代の安い国に拠点を構えることが求められます。マイナーたちが軍拡競争のような熾烈なサバイバルを繰り広げる中で、システムを維持するためのマイニングに必要なエネルギーが高まり続ける状況は、将来的にビットコインシステムの維持そのものを不可能にすると指摘されています。
           仮想通貨Bitcoin(ビットコイン)のマイニングで利益を得るには、高性能な専用マシンを使うのが必須で、さらには電力コストを抑えるために電気代の安い国に拠点を構えることが求められます。マイナーたちが軍拡競争のような熾烈なサバイバルを繰り広げる中で、システムを維持するためのマイニングに必要なエネルギーが高まり続ける状況は、将来的にビットコインシステムの維持そのものを不可能にすると指摘されています。</p>
         </div>
@@ -34,7 +33,7 @@
         <div class="comment">
           <div class="input-text col s12">
             <div class="col s2">
-              <img class="account-image circle" src="images/sample-icon2.jpg">
+              <img class="account-image circle" src="/images/sample-icon2.jpg">
             </div>
             <form class="col s10">
                 <div class="input-field">
@@ -49,7 +48,7 @@
         @for ($i=0; $i < 5; $i++)
           <div class="comment-area col s12 center-align">
             <div class="col s2">
-              <img class="circle" src="images/sample-icon2.jpg">
+              <img class="circle" src="/images/sample-icon2.jpg">
             </div>
             <div class="col s10">
               <div class="comment-areasub row left-align">
@@ -68,7 +67,7 @@
           @for ($i=0; $i < 3; $i++)
             <div class="relation card">
                 <div class="card-image">
-                  <a href="details"><img src="images/sample-2.jpg"></a>
+                  <a href="details"><img src="/images/sample-2.jpg"></a>
                 </div>
                 <div class="card-contents">
                   <p class="side-contents-text">ミニスーファミにやりたいゲームが入ってない！って方に、同じくらいの値段で買えるSFC用のレトロフリーク</p>
@@ -89,7 +88,7 @@
           @for ($i=0; $i < 3; $i++)
             <div class="relation card">
                 <div class="card-image">
-                  <a href="details"><img src="images/sample-3.jpg"></a>
+                  <a href="details"><img src="/images/sample-3.jpg"></a>
                 </div>
                 <div class="card-contents">
                   <p>ミニスーファミにやりたいゲームが入ってない！って方に、同じくらいの値段で買えるSFC用のレトロフリーク</p>
