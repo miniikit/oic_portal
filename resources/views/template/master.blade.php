@@ -25,9 +25,10 @@
                                 @if (Auth::guest())
                         <a href="/login/google">ログイン</a>
                     @else
-                    <a href="/logout" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-                        Logout
-                    </a>
+            <a href="/logout" onclick="event.preventDefault();document.getElementById('logout-form').submit();"><i
+                        class="fa fa-unlock-alt" aria-hidden="true"></i>ログアウト</a>
+            <form id="logout-form" action="{{ url('/logout') }}" method="POST"
+                  style="display: none;">{{ csrf_field() }}</form>
                     @endif
             <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
               <ul class="side-nav" id="mobile-demo">

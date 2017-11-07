@@ -11,10 +11,11 @@ class MypagesController extends Controller
     public function mypage()
     {
       if(Auth::check()){
-        $userid = Auth::user()->id;
-        $userinfo = app( User::class)::where('users.id',$userId)->get();
+        $userId = Auth::user()->id;
+        $userInfo = app( User::class)::where('users.id',$userId)->get();
 
-        return view('mypage.top',compact('userinfo'));
+        return view('mypage.top',compact('userInfo'));
+
       }else{
 
         return view('login/google');
