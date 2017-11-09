@@ -1,0 +1,62 @@
+@media only screen and (min-width: 0px) and (max-width: 600px){
+  .input-field {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+  }
+  p{
+    font-size: 30px;
+    color: darkgray;
+    text-align: center;
+  }
+  div.but{
+    text-align: center;
+  }
+  a.waves-effect.waves-light.btn{
+    background-color:  darkgray;
+  }
+}
+
+
+@media only screen and (min-width: 601px) {
+  div.content{
+    position: relative;
+  }
+  form.col.s10{
+    margin: auto;
+  }
+  form{
+    width: 66%;
+    margin-left: auto;
+    left: auto;
+    right: auto
+  }
+  .input-field {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+  }
+  /*p{
+    font-size: 30px;
+    color: darkgray;
+    text-align: center;
+  }*/
+  .input-field .prefix.active{
+    color: darkgray;
+  }
+  label{
+    font-size: 30px;
+  }
+  textarea.materialize-textarea {
+    overflow-y: hidden;
+    padding: .8rem 0 1.6rem 0;
+    resize: none;
+    min-height: 10rem;
+}
+  div.but{
+    text-align: center;
+    margin-top: 30px;
+  }
+  a.waves-effect.waves-light.btn{
+    background-color:  darkgray;
+    font-size: 20px;
+  }
+}
