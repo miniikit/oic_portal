@@ -17,7 +17,7 @@
   </div>
 
 <div class="row_content">
-  <form role="form" class="col s12" method="POST" action="{{ url('/register/confirm') }}">
+  <form role="form" class="col s12" method="POST" action="{{ url('/register/complete') }}">
     {{ csrf_field() }}
 
     <div class="input-field col s12">
@@ -71,13 +71,13 @@
 
     <div class="target__select input-field rap none" data-category="2">
       <select  name="course" value="{{ old('course') }}">
-          <option value="ITスペシャリスト専攻" class="it">ITスペシャリスト専攻</option>
-          <option value="ネットワークセキュリティ専攻" class="it">ネットワークセキュリティ専攻</option>
-          <option value="システムエンジニア専攻" class="it">システムエンジニア専攻</option>
-          <option value="ネットワークエンジニア専攻" class="it">ネットワークエンジニア専攻</option>
-          <option value="Webエンジニア専攻" class="it">Webエンジニア専攻</option>
-          <option value="テクニカルコース" class="it">テクニカルコース</option>
-          <option value="ネットワークシステムコース" class="it">ネットワークシステムコース</option>
+          <option value="1" class="it">ITスペシャリスト専攻</option>
+          <option value="2" class="it">ネットワークセキュリティ専攻</option>
+          <option value="3" class="it">システムエンジニア専攻</option>
+          <option value="4" class="it">ネットワークエンジニア専攻</option>
+          <option value="5" class="it">Webエンジニア専攻</option>
+          <option value="6" class="it">テクニカルコース</option>
+          <option value="7" class="it">ネットワークシステムコース</option>
       </select>
       <label>コース</label>
     </div>
@@ -107,7 +107,7 @@
 
       <div class="target__select input-field rap none" data-category="5">
           <select name="course" value="{{ old('course') }}">
-              <option value="アートディレクター専攻" class="design">アートディレクター専攻</option>
+              <option value="20" class="design">アートディレクター専攻</option>
               <option value="Webデザインコース" class="design">Webデザインコース</option>
               <option value="グラフィックデザインコース" class="design">グラフィックデザインコース</option>
               <option value="マンガイラストコース" class="design">マンガイラストコース</option>
@@ -136,12 +136,12 @@
   </form>
 </div>
 
+@endsection
+
 @section('script')
     <script type="text/javascript">
         $(document).ready(function() {
             $('select').material_select();
         });
     </script>
-@endsection
-
 @endsection

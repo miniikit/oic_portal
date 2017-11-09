@@ -9,39 +9,9 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
 use Socialite;
 
-class LoginController extends Controller
+class AdminLoginController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Login Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles authenticating users for the application and
-    | redirecting them to your home screen. The controller uses a trait
-    | to conveniently provide its functionality to your applications.
-    |
-    */
-
-    use AuthenticatesUsers;
-
-    /**
-     * Where to redirect users after login.
-     *
-     * @var string
-     */
-    protected $redirectTo = '/';
-
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('guest')->except('logout');
-    }
-
-    public function getGoogleAuth()
+    public function getGoogleAdAuth()
     {
         $scopes = [
             'https://www.googleapis.com/auth/plus.me',
@@ -56,7 +26,7 @@ class LoginController extends Controller
 
     }
 
-    public function getGoogleAuthCallback()
+    public function getGoogleAdAuthCallback()
     {
         $getUser = Socialite::driver('google')->user();
 
