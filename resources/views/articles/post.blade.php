@@ -17,21 +17,21 @@
         <label for="textarea1">記事本文</label>
       </div>
       <div class="file-field input-field">
-        <div class="btn">
-          <span>画像</span>
           <input type="file" multiple>
-        </div>
         <div class="file-path-wrapper">
-          <input class="file-path validate" type="text" placeholder="Upload one or more files">
+          <input class="file-path validate" type="text" placeholder="画像選択">
+          <label for="image">画像選択</label>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s6">
           <select>
-            <option value="" disabled selected>Choose your option</option>
-            <option value="1">Option 1</option>
-            <option value="2">Option 2</option>
-            <option value="3">Option 3</option>
+            <option value="" disabled selected></option>
+            <option value="1">すべて</option>
+            <option value="2">情報処理・IT</option>
+            <option value="3">ゲーム</option>
+            <option value="4">CG・映像・アニメーション</option>
+            <option value="5">デザイン・web</option>
           </select>
           <label>ジャンル</label>
         </div>
@@ -44,7 +44,7 @@
   </form>
   <div class="row">
       <div class="col s6 right-align"><button type="button" class="waves-effect waves-light btn">戻る</button></div>
-      <div class="col s6 left-align"><button type="submit" class="waves-effect waves-light btn">送信</button></div>
+      <div class="col s6 left-align"><button type="submit" class="waves-effect waves-light btn">確認</button></div>
   </div>
 </div>
 

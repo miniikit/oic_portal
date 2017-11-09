@@ -111,3 +111,6 @@ Route::group(['middleware' => ['UserAuth']], function () {
     Route::get('/crawl','Crawl\CrawlController@getRss');
     Route::get('/crawl2','Crawl\CrawlController@getImage')->name('getImage');
     Route::get('/crawl/check','Crawl\CrawlController@customeCheck');
+
+
+  

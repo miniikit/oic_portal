@@ -1,18 +1,22 @@
 @media only screen and (min-width: 0px) and (max-width: 600px){
   .input-field {
-    margin-top: 3rem;
     margin-bottom: 3rem;
   }
-  p{
-    font-size: 30px;
+  .row .input-field.col.s6{
+    width: 100%;
+  }
+  .input-field .prefix.active{
     color: darkgray;
-    text-align: center;
   }
-  div.but{
-    text-align: center;
-  }
-  a.waves-effect.waves-light.btn{
+  textarea.materialize-textarea {
+    overflow-y: hidden;
+    padding: .8rem 0 1.6rem 0;
+    resize: none;
+    min-height: 10rem;
+}
+  button.waves-effect.waves-light.btn{
     background-color:  darkgray;
+    font-size: 15px;
   }
 }
 
@@ -34,11 +38,6 @@
     margin-top: 3rem;
     margin-bottom: 3rem;
   }
-  /*p{
-    font-size: 30px;
-    color: darkgray;
-    text-align: center;
-  }*/
   .input-field .prefix.active{
     color: darkgray;
   }
@@ -51,12 +50,14 @@
     resize: none;
     min-height: 10rem;
 }
-  div.but{
-    text-align: center;
-    margin-top: 30px;
-  }
-  a.waves-effect.waves-light.btn{
+  button.waves-effect.waves-light.btn{
     background-color:  darkgray;
     font-size: 20px;
+  }
+  div.col.s6.right-align{
+    padding-right: 2rem;
+  }
+  div.col.s6.left-align{
+    padding-left: 2rem;
   }
 }

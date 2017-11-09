@@ -129,8 +129,8 @@
     </div>
 
     <div class="row">
-        <div class="col s6 center"><button type="button" class="waves-effect waves-light btn" onclick="history.back()">戻る</button></div>
-        <div class="col s6 center"><button type="submit" class="waves-effect waves-light btn">送信</button></div>
+        <div class="col s6 right-align"><button type="button" class="waves-effect waves-light btn" onclick="history.back()">戻る</button></div>
+        <div class="col s6 left-align"><button type="submit" class="waves-effect waves-light btn">送信</button></div>
     </div>
 
   </form>
