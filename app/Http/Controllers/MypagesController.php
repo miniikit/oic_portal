@@ -32,7 +32,7 @@ class MypagesController extends Controller
             return view('mypage.detail', compact('userInfo'));
         } else {
 
-            return view('login.google');
+            return redirect('login/google');
         }
     }
 
