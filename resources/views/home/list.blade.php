@@ -39,21 +39,20 @@
                 <div id="tab1" class="col s4">
                     <div class="card">
                         <div class="card-wrapper">
-                            <a href="{{ route('user_article_detail') }}">
                                 <div class="card-image">
-                                    <img src="images/sample-{{ $i }}.jpg">
+                                  <a href="{{ route('user_article_detail') }}"><img src="images/sample-{{ $i }}.jpg"></a>
                                     <span class="card-title">記事タイトル</span>
                                 </div>
                                 <div class="card-content">
                                     <p class="card-text">@for($j=0; $j<2; $j++)ここに記事の内容の一部を表示@endfor</p>
                                 </div>
-                            </a>
                             <div class="card-action">
                                 <i class="goodicon material-icons" id="counter">thumb_up</i>
                                 <label class="showcounter" for="counter">100</label>
                                 <i class="goodicon material-icons" id="counter">remove_red_eye</i>
                                 <label class="showcounter" for="counter">1000</label>
                             </div>
+                            <a href="{{ route('user_article_detail') }}"></a>
                         </div>
                     </div>
                 </div>

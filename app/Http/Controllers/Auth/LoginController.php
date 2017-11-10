@@ -76,14 +76,12 @@ class LoginController extends Controller
             Auth::loginUsingId($user->id);
             $user = Auth::user();
             return redirect()->route('user_home',compact('user'));
-            //return view('home.top',compact('user'));
         }
     }
 
     public function logout(Request $request)
     {
         $request->session()->flush();
-        //return redirect('/top');
         return redirect()->route('user_home');
     }
 }

@@ -24,8 +24,8 @@ Route::get('/','HomeController@index')->name('user_home');
 
 // 問い合わせ
 
-
-Route::get('/like/index','FakeController@fake');
+//お気に入り
+Route::get('/like','LikeController@index');
 
 /**
  * マイページ
