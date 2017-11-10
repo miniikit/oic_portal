@@ -8,11 +8,12 @@
   font-size: 40px;
 }
 .backlink {
-  text-align: right;
+  text-align: left;
   font-size: 25px;
 }
 .date {
   font-size: 25px;
+  text-align: right;
 }
 .page-title {
   text-align: center;
@@ -25,6 +26,7 @@
   color: darkgray;
 }
 .row .col.s12 {
+  padding-top: 15px;
   padding-bottom: 15px;
 }
 .input-field{
@@ -32,6 +34,10 @@
 }
 .comment-submit{
   margin-right: 10px;
+}
+.border{
+  border-bottom: solid 1px;
+  color: darkgray;
 }
 
 @media only screen and (max-width: 600px) {

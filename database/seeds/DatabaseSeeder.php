@@ -67,7 +67,7 @@ class AuthoritiesMasterSeeder extends Seeder
 {
     public function run()
     {
-        $authorities = ['一般','サブ管理者','管理者'];
+        $authorities = ['一般', 'サブ管理者', '管理者'];
         DB::table('authorities_master')->delete();
         for ($i = 0; $i < count($i); $i++) {
             DB::table('authorities_master')->insert([
@@ -99,9 +99,9 @@ class CoursesMasterSeeder extends Seeder
 {
     public function run()
     {
-        $categories = ['総合情報メディア','',''];
+        $categories = ['総合情報メディア', '', ''];
         DB::table('courses_master')->delete();
-        for($i = 0; $i < count($i); $i++) {
+        for ($i = 0; $i < count($i); $i++) {
             DB::table('courses_master')->insert([
                 'course_name' => $categories[$i],
                 'parent_course_id' => $i,
@@ -117,14 +117,14 @@ class ArticlesTableSeeder extends Seeder
     public function run()
     {
         DB::table('articles_table')->delete();
-        for ($i = 0;$i < 10; $i++){
-                DB::table('articles_table')->insert([
-                    'article_title' => '新商品',
-                    'article_text' => '新商品が',
-                    'article_image' => '',
-                    'news_site_id' => $i
-                ]);
-            }
+        for ($i = 0; $i < 10; $i++) {
+            DB::table('articles_table')->insert([
+                'article_title' => '新商品',
+                'article_text' => '新商品が',
+                'article_image' => '',
+                'news_site_id' => $i
+            ]);
+        }
     }
 }
 
@@ -192,7 +192,7 @@ class ReportsCategoriesMasterSeeder extends Seeder
 {
     public function run()
     {
-        $reportCategories = ['不適切','誹謗中傷','規約違反'];
+        $reportCategories = ['不適切', '誹謗中傷', '規約違反'];
         DB::table('reports_categories_master')->delete();
         for ($i = 0; $i < count($i); $i++) {
             DB::table('reports_categories_master')->insert([
@@ -221,7 +221,7 @@ class CommunitiesCategoriesMasterSeeder extends Seeder
 {
     public function run()
     {
-        $communitiesCategories = ['#test1','#test2','#test3'];
+        $communitiesCategories = ['#test1', '#test2', '#test3'];
         DB::table('communities_categories_master')->delete();
         for ($i = 0; $i < count($i); $i++) {
             DB::table('communities_categories_master')->insert([
@@ -280,23 +280,330 @@ class NewsSitesMasterSeeder extends Seeder
     public function run()
     {
         DB::table('news_sites_master')->delete();
-        for ($i = 0; $i < 5; $i++) {
-            DB::table('news_sites_master')->insert([
-                'news_site_url' => '',
-                'news_site_tag_title' => 'ITメディア',
-                'news_site_tag_article' => 'ああああ',
-                'news_site_tag_image' => '',
-                'news_site_category_id' => $i
-            ]);
-        }
+
+        // GIGAZINE
+        DB::table('news_sites_master')->insert([
+            'news_site_url' => 'http://feed.rssad.jp/rss/gigazine/rss_2.0',
+            'news_site_tag_title' => 'item title',
+            'news_site_tag_article' => 'item link',
+            'news_site_tag_image' => '',
+            'news_site_category_id' => 1
+        ]);
+
+        // TrendMicro 技術ブログ
+        DB::table('news_sites_master')->insert([
+            'news_site_url' => 'http://feeds.trendmicro.com/TM-Securityblog/',
+            'news_site_tag_title' => 'item title',
+            'news_site_tag_article' => 'item link',
+            'news_site_tag_image' => '',
+            'news_site_category_id' => 1
+        ]);
+
+        // ITmedia 速報
+        DB::table('news_sites_master')->insert([
+            'news_site_url' => 'http://rss.rssad.jp/rss/itmnews/2.0/news_bursts.xml',
+            'news_site_tag_title' => 'item title',
+            'news_site_tag_article' => 'item link',
+            'news_site_tag_image' => '',
+            'news_site_category_id' => 1
+        ]);
+
+        // ITmedia 国内記事
+        DB::table('news_sites_master')->insert([
+            'news_site_url' => 'http://rss.rssad.jp/rss/itmnews/2.0/news_domestic.xml',
+            'news_site_tag_title' => 'item title',
+            'news_site_tag_article' => 'item link',
+            'news_site_tag_image' => '',
+            'news_site_category_id' => 1
+        ]);
+
+        // ITmedia 海外記事
+        DB::table('news_sites_master')->insert([
+            'news_site_url' => 'http://rss.rssad.jp/rss/itmnews/2.0/news_foreign.xml',
+            'news_site_tag_title' => 'item title',
+            'news_site_tag_article' => 'item link',
+            'news_site_tag_image' => '',
+            'news_site_category_id' => 1
+        ]);
+
+        // ITmedia ベンチャー
+        DB::table('news_sites_master')->insert([
+            'news_site_url' => 'http://rss.rssad.jp/rss/itmnews/2.0/news_venture.xml',
+            'news_site_tag_title' => 'item title',
+            'news_site_tag_article' => 'item link',
+            'news_site_tag_image' => '',
+            'news_site_category_id' => 1
+        ]);
+
+        // ITmedia 製品動向
+        DB::table('news_sites_master')->insert([
+            'news_site_url' => 'http://rss.rssad.jp/rss/itmnews/2.0/news_products.xml',
+            'news_site_tag_title' => 'item title',
+            'news_site_tag_article' => 'item link',
+            'news_site_tag_image' => '',
+            'news_site_category_id' => 1
+        ]);
+
+        // ITmedia 科学・テクノロジー
+        DB::table('news_sites_master')->insert([
+            'news_site_url' => 'http://rss.rssad.jp/rss/itmnews/2.0/news_technology.xml',
+            'news_site_tag_title' => 'item title',
+            'news_site_tag_article' => 'item link',
+            'news_site_tag_image' => '',
+            'news_site_category_id' => 1
+        ]);
+
+        // ITmedia ネットトピック
+        DB::table('news_sites_master')->insert([
+            'news_site_url' => 'http://rss.rssad.jp/rss/itmnews/2.0/news_nettopics.xml',
+            'news_site_tag_title' => 'item title',
+            'news_site_tag_article' => 'item link',
+            'news_site_tag_image' => '',
+            'news_site_category_id' => 1
+        ]);
+
+        // ITmedia 社会とIT
+        DB::table('news_sites_master')->insert([
+            'news_site_url' => 'http://rss.rssad.jp/rss/itmnews/2.0/news_society.xml',
+            'news_site_tag_title' => 'item title',
+            'news_site_tag_article' => 'item link',
+            'news_site_tag_image' => '',
+            'news_site_category_id' => 1
+        ]);
+
+        // ITmedia セキュリティ
+        DB::table('news_sites_master')->insert([
+            'news_site_url' => 'http://rss.rssad.jp/rss/itmnews/2.0/news_security.xml',
+            'news_site_tag_title' => 'item title',
+            'news_site_tag_article' => 'item link',
+            'news_site_tag_image' => '',
+            'news_site_category_id' => 1
+        ]);
+
+        // ITmedia 企業・業界動向
+        DB::table('news_sites_master')->insert([
+            'news_site_url' => 'http://rss.rssad.jp/rss/itmnews/2.0/news_industry.xml',
+            'news_site_tag_title' => 'item title',
+            'news_site_tag_article' => 'item link',
+            'news_site_tag_image' => '',
+            'news_site_category_id' => 1
+        ]);
+
+        // ITmedia リサーチ
+        DB::table('news_sites_master')->insert([
+            'news_site_url' => 'http://rss.rssad.jp/rss/itmnews/2.0/news_research.xml',
+            'news_site_tag_title' => 'item title',
+            'news_site_tag_article' => 'item link',
+            'news_site_tag_image' => '',
+            'news_site_category_id' => 1
+        ]);
+
+        // ITmedia PR
+        DB::table('news_sites_master')->insert([
+            'news_site_url' => 'http://rss.rssad.jp/rss/itmnews/2.0/news_special.xml',
+            'news_site_tag_title' => 'item title',
+            'news_site_tag_article' => 'item link',
+            'news_site_tag_image' => '',
+            'news_site_category_id' => 1
+        ]);
+
+        // MdN DESIGN
+        DB::table('news_sites_master')->insert([
+            'news_site_url' => 'http://rss.rssad.jp/rss/mdn/di/rss.php',
+            'news_site_tag_title' => 'item title',
+            'news_site_tag_article' => 'item link',
+            'news_site_tag_image' => '',
+            'news_site_category_id' => 1
+        ]);
+
+        // ファミ通APP
+        DB::table('news_sites_master')->insert([
+            'news_site_url' => 'https://app.famitsu.com/feed/',
+            'news_site_tag_title' => 'item title',
+            'news_site_tag_article' => 'item link',
+            'news_site_tag_image' => '',
+            'news_site_category_id' => 1
+        ]);
+
+        // keizai report.com 日本経済・財政
+        DB::table('news_sites_master')->insert([
+            'news_site_url' => 'http://xml.keizaireport.com/rss/node_2.xml',
+            'news_site_tag_title' => 'item title',
+            'news_site_tag_article' => 'item link',
+            'news_site_tag_image' => '',
+            'news_site_category_id' => 1
+        ]);
+
+        // keizai report.com 経営総合
+        DB::table('news_sites_master')->insert([
+            'news_site_url' => 'http://xml.keizaireport.com/rss/node_3.xml',
+            'news_site_tag_title' => 'item title',
+            'news_site_tag_article' => 'item link',
+            'news_site_tag_image' => '',
+            'news_site_category_id' => 1
+        ]);
+
+        // keizai report.com 金融総合
+        DB::table('news_sites_master')->insert([
+            'news_site_url' => 'http://xml.keizaireport.com/rss/node_4.xml',
+            'news_site_tag_title' => 'item title',
+            'news_site_tag_article' => 'item link',
+            'news_site_tag_image' => '',
+            'news_site_category_id' => 1
+        ]);
+
+        // keizai report.com 産業総合
+        DB::table('news_sites_master')->insert([
+            'news_site_url' => 'http://xml.keizaireport.com/rss/node_5.xml',
+            'news_site_tag_title' => 'item title',
+            'news_site_tag_article' => 'item link',
+            'news_site_tag_image' => '',
+            'news_site_category_id' => 1
+        ]);
+
+        // keizai report.com 海外経済・国際機関
+        DB::table('news_sites_master')->insert([
+            'news_site_url' => 'http://xml.keizaireport.com/rss/node_6.xml',
+            'news_site_tag_title' => 'item title',
+            'news_site_tag_article' => 'item link',
+            'news_site_tag_image' => '',
+            'news_site_category_id' => 1
+        ]);
+
+        // keizai report.com 経済見通し
+        DB::table('news_sites_master')->insert([
+            'news_site_url' => 'http://xml.keizaireport.com/rss/node_7.xml',
+            'news_site_tag_title' => 'item title',
+            'news_site_tag_article' => 'item link',
+            'news_site_tag_image' => '',
+            'news_site_category_id' => 1
+        ]);
+
+        // keizai report.com 地域経済・地方自治体
+        DB::table('news_sites_master')->insert([
+            'news_site_url' => 'http://xml.keizaireport.com/rss/node_8.xml',
+            'news_site_tag_title' => 'item title',
+            'news_site_tag_article' => 'item link',
+            'news_site_tag_image' => '',
+            'news_site_category_id' => 1
+        ]);
+
+        // keizai report.com 環境・リサイクル
+        DB::table('news_sites_master')->insert([
+            'news_site_url' => 'http://xml.keizaireport.com/rss/node_9.xml',
+            'news_site_tag_title' => 'item title',
+            'news_site_tag_article' => 'item link',
+            'news_site_tag_image' => '',
+            'news_site_category_id' => 1
+        ]);
+
+        // keizai report.com インターネット
+        DB::table('news_sites_master')->insert([
+            'news_site_url' => 'http://xml.keizaireport.com/rss/node_10.xml',
+            'news_site_tag_title' => 'item title',
+            'news_site_tag_article' => 'item link',
+            'news_site_tag_image' => '',
+            'news_site_category_id' => 1
+        ]);
+
+        // TOKYO DESIGN WEEK
+        DB::table('news_sites_master')->insert([
+            'news_site_url' => 'http://tokyodesignweek.jp/designboom/',
+            'news_site_tag_title' => 'article dt',
+            'news_site_tag_article' => 'article a',
+            'news_site_tag_image' => '',
+            'news_site_category_id' => 1
+        ]);
+
+        // PHOTOSHOPVIP
+        DB::table('news_sites_master')->insert([
+            'news_site_url' => 'http://photoshopvip.net/',
+            'news_site_tag_title' => 'article h2 a',
+            'news_site_tag_article' => 'article a',
+            'news_site_tag_image' => '',
+            'news_site_category_id' => 1
+        ]);
+
+        // scrmble
+        DB::table('news_sites_master')->insert([
+            'news_site_url' => 'http://scrmble.jp/',
+            'news_site_tag_title' => 'ul h2 a', //空白
+            'news_site_tag_article' => 'ul a',
+            'news_site_tag_image' => '',
+            'news_site_category_id' => 1
+        ]);
+
+        // JDP
+        DB::table('news_sites_master')->insert([
+            'news_site_url' => 'https://www.jidp.or.jp/news/',
+            'news_site_tag_title' => 'article h1 a',
+            'news_site_tag_article' => 'article h1 a',
+            'news_site_tag_image' => '',
+            'news_site_category_id' => 1
+        ]);
+
+        // CGWORLD.JP
+        DB::table('news_sites_master')->insert([
+            'news_site_url' => 'https://cgworld.jp/news/',
+            'news_site_tag_title' => 'article h2',
+            'news_site_tag_article' => 'article a',
+            'news_site_tag_image' => '',
+            'news_site_category_id' => 1
+        ]);
+
+        // Gamer
+        DB::table('news_sites_master')->insert([
+            'news_site_url' => 'https://www.gamer.ne.jp/news/',
+            'news_site_tag_title' => 'li p a',
+            'news_site_tag_article' => 'li p a',
+            'news_site_tag_image' => '',
+            'news_site_category_id' => 1
+        ]);
+
+        // 3D人
+        DB::table('news_sites_master')->insert([
+            'news_site_url' => 'http://3dnchu.com/',
+            'news_site_tag_title' => 'article h2 a',
+            'news_site_tag_article' => 'article h2 a',
+            'news_site_tag_image' => '',
+            'news_site_category_id' => 1
+        ]);
+
+        // 電撃オンライン
+        DB::table('news_sites_master')->insert([
+            'news_site_url' => 'http://dengekionline.com/',
+            'news_site_tag_title' => '.artMain h3 a',
+            'news_site_tag_article' => '.artMain h3 a',
+            'news_site_tag_image' => '',
+            'news_site_category_id' => 1
+        ]);
+
+        // a
+        DB::table('news_sites_master')->insert([
+            'news_site_url' => '',
+            'news_site_tag_title' => '',
+            'news_site_tag_article' => '',
+            'news_site_tag_image' => '',
+            'news_site_category_id' => 1
+        ]);
+
+        // a
+        DB::table('news_sites_master')->insert([
+            'news_site_url' => '',
+            'news_site_tag_title' => '',
+            'news_site_tag_article' => '',
+            'news_site_tag_image' => '',
+            'news_site_category_id' => 1
+        ]);
     }
+
 }
 
 class NewsSitesCategoriesMasterSeeder extends Seeder
 {
     public function run()
     {
-        $newsSitesCategories = ['#test1','#test2','#test3'];
+        $newsSitesCategories = ['#test1', '#test2', '#test3'];
         DB::table('news_sites_categories_master')->delete();
         for ($i = 0; $i < count($i); $i++) {
             DB::table('news_sites_categories_master')->insert([
@@ -328,7 +635,7 @@ class EventsParticipantsTableSeeder extends Seeder
     public function run()
     {
         DB::table('events_participants_table')->delete();
-        for ($i = 0; $i < 10; $i++){
+        for ($i = 0; $i < 10; $i++) {
             DB::table('events_participants_table')->insert([
                 'event_id' => $i,
                 'event_user_id' => $i,
@@ -356,7 +663,7 @@ class ReportsRisksCategoriesMasterSeeder extends Seeder
 {
     public function run()
     {
-        $reportsRisksCategories = ['#test1','#test2','#test3'];
+        $reportsRisksCategories = ['#test1', '#test2', '#test3'];
         DB::table('reports_risks_categories_master')->delete();
         for ($i = 0; $i < count($i); $i++) {
             DB::table('reports_risks_categories_master')->insert([
@@ -402,7 +709,7 @@ class InquiriesTableSeeder extends Seeder
     {
         DB::table('inquiries_table')->delete();
         DB::table('inquiries_table')->insert([
-           'inquiry_text' => 'ログインについての問い合わせ'
+            'inquiry_text' => 'ログインについての問い合わせ'
         ]);
     }
 }
