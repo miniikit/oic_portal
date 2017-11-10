@@ -11,6 +11,7 @@ use Goutte\Client;
 class CrawlController extends Controller
 {
     protected $crawlService;
+
     public function __construct(CrawlService $crawlService)
     {
         $this->crawlService = $crawlService;
@@ -34,6 +35,28 @@ class CrawlController extends Controller
 
     }
 
+    public function getLists()
+    {
+        // TARGET PATH
+        $url = 'http://feed.rssad.jp/rss/gigazine/rss_2.0';
+        $tag_for_url = 'item link';
+        $tag_for_title = '.cntimage h1.title';
+        $tag_for_image = '.cntimage img';
+
+        // 初期設定
+        $client = $this->crawlService->makeCrient();
+        $urls = $this->crawlService->getLists($client, $url, $tag_for_url);
+
+        for ($i = 0; $i < count($urls); $i++) {
+            $contents = $this->crawlService->getContents($client, $urls[$i]);
+            $title = $this->crawlService->getTitle($contents,$tag_for_title);
+            $image = $this->crawlService->getImages($contents,$tag_for_image);
+            dd("contents",$contents,$title,$image);
+            // DB挿入
+        }
+
+    }
+
     public function getRss()
     {
         // TARGET PATH
@@ -41,8 +64,9 @@ class CrawlController extends Controller
         $articles_list_tag = 'item link';
 
         // 初期設定
-        $client = new Client();
+        $client = $this->crawlService->makeCrient();
         $crawler = $client->request('GET', $rss_url);
+        dd($crawler);
 
         // 記事URL取得
         $urls = $crawler->filter($articles_list_tag)->each(function ($node) {
@@ -56,7 +80,7 @@ class CrawlController extends Controller
         $image_custom_tag = 'div.cntimage a img';
 
         //　記事イメージを取得
-        $article_images = $this->crawlService->get_article_images($client,$article_url,$image_custom_tag);
+        $article_images = $this->crawlService->get_article_images($client, $article_url, $image_custom_tag);
         /*
         $article_url = $urls[0];
         $crawler = $client->request('GET', $article_url);

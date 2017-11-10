@@ -9,15 +9,57 @@ use Goutte\Client;
 
 class CrawlService
 {
-    /**
-     * ソースを返却
-     * @param $url
-     * @return \Symfony\Component\DomCrawler\Crawler
-     */
-    public function get_contents($url)
+    public function makeCrient()
     {
         $client = new Client();
 
+        return $client;
+    }
+
+    public function getLists($client,$url,$tag_for_url)
+    {
+        $crawler = $client->request('GET', $url);
+
+        // 記事URL取得
+        $urls = $crawler->filter($tag_for_url)->each(function ($node) {
+            $results = $node->text();
+            return $results;
+        });
+
+        return $urls;
+    }
+
+    public function getContents($client,$url)
+    {
+        $crawler = $client->request('GET', $url);
+
+        return $crawler;
+    }
+
+    public function getTitle($contents,$tag_for_title)
+    {
+        $title = $contents->filter($tag_for_title)->each(function ($node) {
+            $results = $node->text();
+            return $results;
+        });
+
+        return $title;
+    }
+
+    public function getImages($contents,$tag_for_image)
+    {
+        $image = $contents->filter($tag_for_image)->each(function ($node) {
+            $results = $node->attr('src');
+            return $results;
+        });
+
+        return $image;
+    }
+
+
+
+    public function get_contents($client,$url)
+    {
         $crawler = $client->request('GET', $url);
 
         return $crawler;
@@ -29,9 +71,13 @@ class CrawlService
      * @param $urls
      * @return mixed
      */
-    public function get_article_images($url, $image_custom_tag)
+    public function get_article_images($client,$url, $image_custom_tag)
     {
-        $crawler = $this->get_contents($url);
+        $crawler = $this->get_contents($client,$url);
+        dd($crawler);
+
+        $crawler = $client->request('GET', $url);
+        dd($crawler);
 
         $article_images = $crawler->filter($image_custom_tag)->each(function ($node) {
             $results = $node->attr('src');
