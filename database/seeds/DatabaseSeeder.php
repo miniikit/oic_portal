@@ -61,6 +61,15 @@ class UsersSeeder extends Seeder
                 'profile_id' => $i
             ]);
         }
+        DB::table('users')->insert([
+                'email' => 'oicportalapp' . $i .'@gmail.com',
+                'name' => 'オイシー太郎',
+                'name_kana' => 'オイシータロウ',
+                'authority_id' => 1,
+                'course_id' => 1,
+                'profile_id' => 1
+            ]);
+
     }
 }
 
