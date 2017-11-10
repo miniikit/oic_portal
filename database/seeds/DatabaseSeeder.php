@@ -588,16 +588,44 @@ class NewsSitesMasterSeeder extends Seeder
             'news_site_category_id' => 1
         ]);
 
-        // a
+        // Gamespark
         DB::table('news_sites_master')->insert([
-            'news_site_url' => '',
-            'news_site_tag_title' => '',
-            'news_site_tag_article' => '',
+            'news_site_url' => 'https://www.gamespark.jp/',
+            'news_site_tag_title' => 'section ul h3',
+            'news_site_tag_article' => 'section a.link',
+            'news_site_tag_image' => '',
+            'news_site_category_id' => 1
+        ]);
+
+        // doope!
+        DB::table('news_sites_master')->insert([
+            'news_site_url' => 'https://doope.jp/',
+            'news_site_tag_title' => '.cont_titbox h2 a',
+            'news_site_tag_article' => 'cont_titbox h2 a',
+            'news_site_tag_image' => '',
+            'news_site_category_id' => 1
+        ]);
+
+        // 東洋経済オンライン
+        DB::table('news_sites_master')->insert([
+            'news_site_url' => 'http://toyokeizai.net/',
+            'news_site_tag_title' => 'ul .title a',
+            'news_site_tag_article' => 'ul .title a',
+            'news_site_tag_image' => '',
+            'news_site_category_id' => 1
+        ]);
+
+        // GAME Watch
+        DB::table('news_sites_master')->insert([
+            'news_site_url' => 'https://game.watch.impress.co.jp/',
+            'news_site_tag_title' => 'article .title a',
+            'news_site_tag_article' => 'article .title a',
             'news_site_tag_image' => '',
             'news_site_category_id' => 1
         ]);
 
         // a
+        /*
         DB::table('news_sites_master')->insert([
             'news_site_url' => '',
             'news_site_tag_title' => '',
@@ -605,6 +633,7 @@ class NewsSitesMasterSeeder extends Seeder
             'news_site_tag_image' => '',
             'news_site_category_id' => 1
         ]);
+        */
     }
 
 }
