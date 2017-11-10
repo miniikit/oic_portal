@@ -25,6 +25,7 @@ class MypagesController extends Controller
 
     public function show()
     {
+        /*
         if (Auth::check()) {
             $userId = Auth::user()->id;
             $userInfo = app(User::class)::where('users.id', $userId)->first();
@@ -32,9 +33,11 @@ class MypagesController extends Controller
             return view('mypage.detail', compact('userInfo'));
         } else {
 
-            return view('login.google');
+            return redirect('login/google');
         }
     }
+        */
+        return view('mypage.detail');
 
     public function edit()
     {

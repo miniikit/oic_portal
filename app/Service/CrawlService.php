@@ -56,8 +56,6 @@ class CrawlService
         return $image;
     }
 
-
-
     public function get_contents($client,$url)
     {
         $crawler = $client->request('GET', $url);
