@@ -81,6 +81,15 @@ Route::group(['middleware' => ['UserAuth']], function () {
 /**
  * マイページ
  */
+    // Route::get('/mypage','MypagesController@show')->name('user_mypage');
+    // Route::get('/mypage/edit','MypagesController@edit')->name('user_mypage_edit');
+    // Route::get('/mypage/confirm','FakeController@fake');
+    //
+    // Route::get('/mypage/follow','FakeController@fake');
+    // Route::get('/user/10484','FakeController@fake');
+    // Route::get('/mypage/block','FakeController@fake');
+});
+
     Route::get('/mypage','MypagesController@show')->name('user_mypage');
     Route::get('/mypage/edit','MypagesController@edit')->name('user_mypage_edit');
     Route::get('/mypage/confirm','FakeController@fake');
@@ -88,7 +97,6 @@ Route::group(['middleware' => ['UserAuth']], function () {
     Route::get('/mypage/follow','FakeController@fake');
     Route::get('/user/10484','FakeController@fake');
     Route::get('/mypage/block','FakeController@fake');
-});
 
 /**
  *  AUTH
