@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 use App\User;
 
 class DatabaseSeeder extends Seeder
@@ -39,7 +40,7 @@ class DatabaseSeeder extends Seeder
         $this->call('EventsAuthoritiesTableSeeder');
         $this->call('ChatsTableSeeder');
         $this->call('InquiriesTableSeeder');
-        $this->call('MessagesTableSeeder');
+        //$this->call('MessagesTableSeeder');
 
         Model::reguard();
     }
@@ -52,7 +53,7 @@ class UsersSeeder extends Seeder
         DB::table('users')->delete();
         for ($i = 0; $i < 10; $i++) {
             DB::table('users')->insert([
-                'email' => 'b9999@oic.jp',
+                'email' => 'b999' . $i .'@oic.jp',
                 'name' => '山田太郎',
                 'name_kana' => 'ヤマダタロウ',
                 'authority_id' => $i,
@@ -84,12 +85,12 @@ class ProfilesTableSeeder extends Seeder
         DB::table('profiles_table')->delete();
         for ($i = 0; $i < 10; $i++) {
             DB::table('profiles_table')->insert([
-                'profile_image' => '',
+                'profile_image' => '/images/1.jpg',
                 'profile_name' => 'hoge',
                 'course_id' => $i,
-                'profile_admission_year' => 2017,
-                'profile_url' => '',
-                'profile_introduction' => ''
+                'profile_admission_year' => Carbon::now(),
+                'profile_url' => 'http://www.oic-portal.co.jp',
+                'profile_introduction' => 'Hello'
             ]);
         }
     }
@@ -106,7 +107,7 @@ class CoursesMasterSeeder extends Seeder
                 'course_name' => $categories[$i],
                 'parent_course_id' => $i,
                 'course_depth' => $i,
-                'course_admission_year' => 2017
+                'course_admission_year' => Carbon::now()
             ]);
         }
     }
@@ -624,7 +625,7 @@ class EventsTableSeeder extends Seeder
                 'event_text' => '勉強会開催します',
                 'event_start_date_time' => 20170101,
                 'event_end_date_time' => 20171231,
-                'event_marker_id' => $i
+                'event_maker_id' => $i
             ]);
         }
     }
