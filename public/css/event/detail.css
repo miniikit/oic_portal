@@ -1,0 +1,53 @@
+
+.border{
+  border-bottom: solid 1px;
+  color: darkgray;
+}
+
+@media only screen and (max-width: 600px) {
+  .row .col{
+    padding: 0.5rem;
+  }
+  .date_link .col {
+    padding: 0;
+  }
+  .backlink {
+    font-size: 20px;
+  }
+  .date {
+    font-size: 20px;
+  }
+
+
+}
+
+@media only screen and (min-width: 601px) {
+  .article-image {
+    padding: 1rem;
+  }
+  .image-box{
+    padding: 0 3rem;
+  }
+  .main-contents-text {
+    padding: 2rem;
+    letter-spacing: 3px;
+    line-height: 2rem;
+    font-size: 30px;
+  }
+  .event-title {
+    text-align: center;
+    font-size: 3rem;
+    letter-spacing: 1px;
+    width: 100%;
+    height: auto;
+  }
+  .date_link{
+    font-size: 2rem;
+  }
+  .schedule{
+    padding: 2rem;
+    font-size: 30px;
+    letter-spacing: 2px;
+    text-align: right;
+  }
+}

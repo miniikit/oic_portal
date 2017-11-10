@@ -112,30 +112,12 @@ Route::get('/community/new/complete', 'FakeController@fake');
 /**
  *  イベント
  */
-<<<<<<< HEAD
-    // Route::get('/mypage','MypagesController@show')->name('user_mypage');
-    // Route::get('/mypage/edit','MypagesController@edit')->name('user_mypage_edit');
-    // Route::get('/mypage/confirm','FakeController@fake');
-    //
-    // Route::get('/mypage/follow','FakeController@fake');
-    // Route::get('/user/10484','FakeController@fake');
-    // Route::get('/mypage/block','FakeController@fake');
-});
-
-    Route::get('/mypage','MypagesController@show')->name('user_mypage');
-    Route::get('/mypage/edit','MypagesController@edit')->name('user_mypage_edit');
-    Route::get('/mypage/confirm','FakeController@fake');
-
-    Route::get('/mypage/follow','FakeController@fake');
-    Route::get('/user/10484','FakeController@fake');
-    Route::get('/mypage/block','FakeController@fake');
-=======
 // 一覧
-Route::get('/event', 'FakeController@index');
+Route::get('/event', 'EventController@index');
 // 一覧(終了分)  TODO : URL考える
-Route::get('/event/', 'FakeController@index');
+Route::get('/event/kk', 'FakeController@index');
 // 詳細
-Route::get('/event/1000', 'FakeController@show');
+Route::get('/event/1000', 'EventController@show');
 
 // 更新
 Route::get('/event/1000/edit', 'FakeController@edit');
@@ -152,7 +134,6 @@ Route::get('/event/new/confirm', 'FakeController@make');
 Route::get('/event/new/complete', 'FakeController@fake');
 
 
->>>>>>> 1049288094192935f199067388f15c042cd16db2
 
 /**
  * Auth
