@@ -5,14 +5,9 @@
 @endsection
 
 @section('main')
-  <div class="row">
+  <div class="main-panel row">
     <div class="date_link col s12">
-      <div class="col s6 left-align">
-        <p class="backlink"><a class="backlink" href="">戻る</a></p>
-      </div>
-      <div class="col s6 right-align">
         <p class="date">2017/xx/yy</p>
-      </div>
     </div>
 
     <div class="event-title">
@@ -24,13 +19,18 @@
     </div>
 
     <div class="text-area">
-      <p class="main-contents-text">@for ($i=0; $i < 30; $i++)
-        ここにイベント詳細文を表示
-      @endfor</p>
+      <p class="main-contents-text">@for ($i = 0; $i < 2; $i++)
+        Alexa「山手線は平常通り運行しています」。
 
-      <p class="schedule">
-        開催日時 : 2017/xx/yy ~ 2017/xx/yy
+なんて情報が受け取れるようになりますよ。JR東日本はAmazonのスマートスピーカー「Amazon Echo」などに搭載されているAIアシスタント「Alexa」への対応を発表しました。
+
+今まではスマホやWebで運行情報をチェックしてましたけど、今後はAlexa搭載のスマートスピーカーに「アレクサ、JR 東日本を開いて」と話しかければOK。会話方式で路線名を指定して運行情報を教えてもらったり、登録した路線の状況を素早く教えてもらえるようですよ。
+
+      @endfor
       </p>
+      <div class="join-button center">
+        <a class="join waves-effect waves-light btn">参加する</a>
+      </div>
     </div>
     <div class="border"></div>
 
@@ -39,7 +39,7 @@
         <li>
           <div class="collapsible-header"><i class="material-icons">date_range</i>日程</div>
           <div class="collapsible-body">
-            <span>ここに日程</span>
+            <span>開催日時 : 2017/xx/yy ~ 2017/xx/yy</span>
           </div>
         </li>
         <li>
@@ -66,7 +66,7 @@
     <div class="comment col s12">
       <ul class="collection">
         <li class="collection-item avatar">
-          <img src="/images/sample-icon1.jpg" alt="" class="circle">
+          <img src="/images/sample-icon2.jpg" alt="" class="circle">
           <span class="name">name</span>
           <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
           <div class="wap-comment">
@@ -80,7 +80,7 @@
       <ul class="collection">
         @for ($i = 0; $i < 5; $i++)
           <li class="collection-item avatar">
-            <img src="/images/sample-icon1.jpg" alt="" class="circle">
+            <img src="/images/sample-icon2.jpg" alt="" class="circle">
             <span class="name">name</span>
             <p>
               ここにコメントを表示
