@@ -39,10 +39,16 @@
   border-bottom: solid 1px;
   color: darkgray;
 }
+.fav-btn{
+  padding-right: 0.5rem;
+}
 
 @media only screen and (max-width: 600px) {
   #main {
     margin-top: 100px;
+  }
+  .row .col{
+    padding: 0.5rem;
   }
   .title {
     font-size: 30px;
@@ -86,6 +92,10 @@
     vertical-align: middle;
     padding: 10px;
   }
+  .comment-field .row .col.s10{
+    width: 100%;
+  }
+
   /* side-contents */
   .card-contents {
     padding: 10px;
