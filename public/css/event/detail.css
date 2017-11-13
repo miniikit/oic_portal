@@ -7,6 +7,14 @@
   text-align: right;
   padding: 0.5rem;
 }
+/*.main-panel{
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 20px;
+  margin-bottom: 50px;
+}
+*/
+
 
 @media only screen and (max-width: 600px) {
   .row .col{
@@ -15,31 +23,43 @@
   .date_link .col {
     padding: 0;
   }
-  .backlink {
-    font-size: 20px;
-  }
-  .date {
-    font-size: 20px;
+  .date_link {
+    font-size: 0.5em;
   }
   .event-title{
     text-align: center;
   }
   .title{
-    font-size: 1.5rem;
+    font-size: 1.2em;
   }
   .event-image{
     padding-top: 0.5rem;
   }
   .text-area{
-    font-size: 1.1rem;
-    letter-spacing: 2px;
+    font-size: 0.6em;
+    letter-spacing: 1.3px;
     line-height: 1.3rem;
     padding: 0.75rem;
+    margin-top: 30px;
   }
   .schedule{
     padding-top: 1rem;
   }
-
+  .join-button{
+    margin: 30px 0;
+  }
+  .join{
+    font-size: 0.6em;
+  }
+  .collapsible-body{
+    font-size: 0.9em;
+  }
+  .comment-submit{
+    font-size: 0.6em;
+  }
+  .collection{
+    font-size: 0.6em;
+  }
 }
 
 @media only screen and (min-width: 601px) {
@@ -52,18 +72,20 @@
   .main-contents-text {
     padding: 2rem;
     letter-spacing: 3px;
-    line-height: 2rem;
-    font-size: 30px;
+    line-height: 1.7em;
+    font-size: 0.95em;
   }
   .event-title {
     text-align: center;
-    font-size: 3rem;
+    font-size: 2em;
     letter-spacing: 1px;
     width: 100%;
     height: auto;
+    margin: 50px 0;
   }
   .date_link{
-    font-size: 2rem;
+    font-size: 0.9em;
+    color: darkgray;
   }
   .schedule{
     padding: 2rem;
@@ -71,7 +93,18 @@
     letter-spacing: 2px;
     text-align: right;
   }
+  .comment-submit{
+    font-size: 0.7em;
+  }
   .event-info{
     margin-top: 1rem;
+  }
+  .join-button{
+    margin: 50px 0;
+  }
+  .join{
+    width: 250px;
+    height: 54px;
+    line-height: 54px;
   }
 }
