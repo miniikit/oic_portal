@@ -14,7 +14,7 @@
     </div>
 @endsection
 @section('main')
-    <div id="tab1" class="col s12">
+    <div id="tab1" class="row">
         <form>
             <div class="input-field">
                 <input id="search1" class="center" type="search" required>
@@ -22,17 +22,26 @@
                 <i class="material-icons">close</i>
             </div>
         </form>
-        <!-- Dropdown -->
-        <div class="sort col s12 right-align">
-            <a class='dropdown-button btn' href='#' data-activates='dropdown1'>並び替え</a>
-            <ul id='dropdown1' class='dropdown-content'>
-                <li><a disabled selected>並び替え</a></li>
-                <li class="divider"></li>
-                <li><a href="#!">いいね順</a></li>
-                <li><a href="#!">コメント順</a></li>
-                <li><a href="#!">閲覧数順</a></li>
-            </ul>
+
+        <div class="sort-box input-field col s6">
+          <select>
+            <option value="" disabled selected>並び替え</option>
+            <option value="1">いいね順</option>
+            <option value="2">コメント順</option>
+            <option value="3">閲覧数順</option>
+          </select>
         </div>
+        <div class="sort-box input-field col s6">
+          <select>
+            <option value="" disabled selected>ジャンル</option>
+            <option value="1">情報処理IT</option>
+            <option value="2">ゲーム</option>
+            <option value="3">CG・映像・アニメーション</option>
+            <option value="4">デザイン・Web</option>
+          </select>
+        </div>
+
+
         <!-- article tab1 -->
         <div class="row">
             @for ($i=1; $i< 7; $i++)
@@ -41,9 +50,9 @@
                         <div class="card-wrapper">
                                 <div class="card-image">
                                   <a href="{{ route('user_article_detail') }}"><img src="images/sample-{{ $i }}.jpg"></a>
-                                    <span class="card-title">記事タイトル</span>
                                 </div>
                                 <div class="card-content">
+                                    <span class="card-title">記事タイトル</span>
                                     <p class="card-text">@for($j=0; $j<2; $j++)ここに記事の内容の一部を表示@endfor</p>
                                 </div>
                             <div class="card-action">
@@ -104,19 +113,8 @@
     <script type="text/javascript">
         $(".button-collapse").sideNav();
 
-        $(".dropdown-button").dropdown({
-            inDuration: 300,
-            outDuration: 225,
-            constrainWidth: false,
-            hover: tr
-            gutter: belowOrigin
-        :
-        false
-        alignment: 'left',
-            stopPropagation
-        :
-        false
-        })
-        ;
+        $(document).ready(function() {
+          $('select').material_select();
+        });
     </script>
 @endsection
