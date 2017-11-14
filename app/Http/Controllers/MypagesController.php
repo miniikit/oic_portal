@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Course;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
 use app\User;
+use Illuminate\Support\Facades\DB;
+
 
 class MypagesController extends Controller
 {
@@ -37,7 +40,14 @@ class MypagesController extends Controller
         }
     }
         */
-        return view('mypage.detail');
+
+        $userId = Auth::user()->id;
+        $data = app(User::class)::where('users.id',$userId)->first();
+
+        $course = join(Course::class,'courses_master','id','=','id')->get();
+        dd($course);
+        //$result = DB::table('courses_master')->join('courses_master','id','=','id')->get();
+        return view('mypage.detail',compact('data','course'));
       }
 
     public function edit()

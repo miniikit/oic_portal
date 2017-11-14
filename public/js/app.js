@@ -1415,6 +1415,7 @@ var app = new Vue({
             // Persist to the database etc
             axios.post('/messages', message).then(function (response) {
                 // Do whatever;
+                console.log(response.data);
             });
         }
     },
@@ -1497,15 +1498,16 @@ if (token) {
  * allows your team to easily build robust real-time web applications.
  */
 
-// import Echo from 'laravel-echo'
-
 
 
 window.Pusher = __webpack_require__(42);
 
 window.Echo = new __WEBPACK_IMPORTED_MODULE_0_laravel_echo___default.a({
   broadcaster: 'pusher',
-  key: '8a0ab427ba7705057500'
+  key: '8a0ab427ba7705057500',
+  cluster: 'mt1',
+  encrypted: true
+
 });
 
 /***/ }),
