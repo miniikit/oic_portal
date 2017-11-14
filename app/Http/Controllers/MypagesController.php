@@ -12,43 +12,18 @@ use Illuminate\Support\Facades\DB;
 
 class MypagesController extends Controller
 {
-    public function mypage()
-    {
-      if(Auth::check()){
-        $userId = Auth::user()->id;
-        $userInfo = app( User::class)::where('users.id',$userId)->get();
-
-        return view('mypage.top',compact('userInfo'));
-
-      }else{
-
-        return view('login/google');
-      }
-    }
-
     public function show()
     {
-        /*
-        if (Auth::check()) {
-            $userId = Auth::user()->id;
-            $userInfo = app(User::class)::where('users.id', $userId)->first();
-
-            return view('mypage.detail', compact('userInfo'));
-        } else {
-
-            return redirect('login/google');
-        }
-    }
-        */
-
+     if(Auth::check()){
         $userId = Auth::user()->id;
         $data = app(User::class)::where('users.id',$userId)->first();
 
-        $course = join(Course::class,'courses_master','id','=','id')->get();
-        dd($course);
         //$result = DB::table('courses_master')->join('courses_master','id','=','id')->get();
-        return view('mypage.detail',compact('data','course'));
+        return view('mypage.detail',compact('data'));
+      }else{
+         return redirect()->route('user_login');
       }
+    }
 
     public function edit()
     {

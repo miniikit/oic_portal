@@ -144,9 +144,10 @@ Route::get('/oauth_callback', 'Auth\LoginController@getGoogleAuthCallback');
 Route::post('/logout', 'Auth\LoginController@logout')->name('user_logout');
 
 // 会員登録
-Route::post('/register/complete', 'Auth\RegisterController@complete')->name('user_register_complete');;
+Route::post('/register','Auth\RegisterController@register');
+Route::post('/register/complete', 'Auth\RegisterController@complete')->name('user_register_complete');
 
-Auth::routes();
+//Auth::routes();
 
 
 /**

@@ -30,8 +30,6 @@ const app = new Vue({
 
             // Persist to the database etc
             axios.post('/messages', message).then(response => {
-                // Do whatever;
-                console.log(response.messages);
             })
         }
     },

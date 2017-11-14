@@ -55,7 +55,7 @@
           </div>
           <div class="col s4">
             <h1 class="item" id="course">コース</h1>
-            <label class="item-sub" for="course">{{ $course['course_name'] }}</label>
+            <label class="item-sub" for="course">{{ $data['course'] }}</label>
           </div>
           <div class="col s4">
             <h1 class="item" id="year">学年</h1>

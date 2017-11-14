@@ -31,7 +31,11 @@
             <ul class="side-nav" id="mobile-demo">
                 <li>
                     @if(Auth::guest())
-                        @else
+                    <li><a href="{{ route('user_home') }}">トップ</a></li>
+                    <li><a href="#">コミュニティ</a></li>
+                    <li><a href="/event/">イベント</a></li>
+                    <li><a href="/contact">お問い合わせ</a></li>
+                    @else
                     <div class="user-view">
                         <div class="background"></div>
                         <a href="#!user"><img class="circle" src="/images/example.jpg"></a>
@@ -46,7 +50,7 @@
                 <li><a href="#">コミュニティ</a></li>
                 <li><a href="/event/">イベント</a></li>
                 <li><a href="/contact">お問い合わせ</a></li>
-                    @endif
+               @endif
             </ul>
         </div>
         @yield('nav-tab')
