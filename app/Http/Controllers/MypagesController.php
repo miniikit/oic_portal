@@ -38,6 +38,7 @@ class MypagesController extends Controller
     }
         */
         return view('mypage.detail');
+      }
 
     public function edit()
     {
