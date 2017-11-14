@@ -293,126 +293,154 @@ class NewsSitesMasterSeeder extends Seeder
 
         // GIGAZINE
         DB::table('news_sites_master')->insert([
+            'news_site_name' => 'GIGAZINE',
             'news_site_url' => 'http://feed.rssad.jp/rss/gigazine/rss_2.0',
             'news_site_tag_title' => 'item title',
-            'news_site_tag_article' => 'item link',
+            'news_site_tag_url' => 'item link',
+            'news_site_tag_text' => '',
             'news_site_tag_image' => '',
-            'news_site_category_id' => 1
+            'news_site_category_id' => rand(1,3)
         ]);
 
         // TrendMicro 技術ブログ
         DB::table('news_sites_master')->insert([
+            'news_site_name' => 'TrendMicro',
             'news_site_url' => 'http://feeds.trendmicro.com/TM-Securityblog/',
             'news_site_tag_title' => 'item title',
-            'news_site_tag_article' => 'item link',
+            'news_site_tag_url' => 'item link',
+            'news_site_tag_text' => '',
             'news_site_tag_image' => '',
             'news_site_category_id' => 1
         ]);
 
         // ITmedia 速報
         DB::table('news_sites_master')->insert([
+            'news_site_name' => 'ITmedia',
             'news_site_url' => 'http://rss.rssad.jp/rss/itmnews/2.0/news_bursts.xml',
             'news_site_tag_title' => 'item title',
-            'news_site_tag_article' => 'item link',
+            'news_site_tag_url' => 'item link',
+            'news_site_tag_text' => '',
             'news_site_tag_image' => '',
             'news_site_category_id' => 1
         ]);
 
         // ITmedia 国内記事
         DB::table('news_sites_master')->insert([
+            'news_site_name' => 'ITmedia',
             'news_site_url' => 'http://rss.rssad.jp/rss/itmnews/2.0/news_domestic.xml',
             'news_site_tag_title' => 'item title',
-            'news_site_tag_article' => 'item link',
+            'news_site_tag_url' => 'item link',
+            'news_site_tag_text' => '',
             'news_site_tag_image' => '',
             'news_site_category_id' => 1
         ]);
 
         // ITmedia 海外記事
         DB::table('news_sites_master')->insert([
+            'news_site_name' => 'ITmedia',
             'news_site_url' => 'http://rss.rssad.jp/rss/itmnews/2.0/news_foreign.xml',
             'news_site_tag_title' => 'item title',
-            'news_site_tag_article' => 'item link',
+            'news_site_tag_url' => 'item link',
+            'news_site_tag_text' => '',
             'news_site_tag_image' => '',
             'news_site_category_id' => 1
         ]);
 
         // ITmedia ベンチャー
         DB::table('news_sites_master')->insert([
+            'news_site_name' => 'ITmedia',
             'news_site_url' => 'http://rss.rssad.jp/rss/itmnews/2.0/news_venture.xml',
             'news_site_tag_title' => 'item title',
-            'news_site_tag_article' => 'item link',
+            'news_site_tag_url' => 'item link',
+            'news_site_tag_text' => '',
             'news_site_tag_image' => '',
             'news_site_category_id' => 1
         ]);
 
         // ITmedia 製品動向
         DB::table('news_sites_master')->insert([
+            'news_site_name' => 'ITmedia',
             'news_site_url' => 'http://rss.rssad.jp/rss/itmnews/2.0/news_products.xml',
             'news_site_tag_title' => 'item title',
-            'news_site_tag_article' => 'item link',
+            'news_site_tag_url' => 'item link',
+            'news_site_tag_text' => '',
             'news_site_tag_image' => '',
             'news_site_category_id' => 1
         ]);
 
         // ITmedia 科学・テクノロジー
         DB::table('news_sites_master')->insert([
+            'news_site_name' => 'ITmedia',
             'news_site_url' => 'http://rss.rssad.jp/rss/itmnews/2.0/news_technology.xml',
             'news_site_tag_title' => 'item title',
-            'news_site_tag_article' => 'item link',
+            'news_site_tag_url' => 'item link',
+            'news_site_tag_text' => '',
             'news_site_tag_image' => '',
             'news_site_category_id' => 1
         ]);
 
         // ITmedia ネットトピック
         DB::table('news_sites_master')->insert([
+            'news_site_name' => 'ITmedia',
             'news_site_url' => 'http://rss.rssad.jp/rss/itmnews/2.0/news_nettopics.xml',
             'news_site_tag_title' => 'item title',
-            'news_site_tag_article' => 'item link',
+            'news_site_tag_url' => 'item link',
+            'news_site_tag_text' => '',
             'news_site_tag_image' => '',
             'news_site_category_id' => 1
         ]);
 
         // ITmedia 社会とIT
         DB::table('news_sites_master')->insert([
+            'news_site_name' => 'ITmedia',
             'news_site_url' => 'http://rss.rssad.jp/rss/itmnews/2.0/news_society.xml',
             'news_site_tag_title' => 'item title',
-            'news_site_tag_article' => 'item link',
+            'news_site_tag_url' => 'item link',
+            'news_site_tag_text' => '',
             'news_site_tag_image' => '',
             'news_site_category_id' => 1
         ]);
 
         // ITmedia セキュリティ
         DB::table('news_sites_master')->insert([
+            'news_site_name' => 'ITmedia',
             'news_site_url' => 'http://rss.rssad.jp/rss/itmnews/2.0/news_security.xml',
             'news_site_tag_title' => 'item title',
-            'news_site_tag_article' => 'item link',
+            'news_site_tag_url' => 'item link',
+            'news_site_tag_text' => '',
             'news_site_tag_image' => '',
             'news_site_category_id' => 1
         ]);
 
         // ITmedia 企業・業界動向
         DB::table('news_sites_master')->insert([
+            'news_site_name' => 'ITmedia',
             'news_site_url' => 'http://rss.rssad.jp/rss/itmnews/2.0/news_industry.xml',
             'news_site_tag_title' => 'item title',
-            'news_site_tag_article' => 'item link',
+            'news_site_tag_url' => 'item link',
+            'news_site_tag_text' => '',
             'news_site_tag_image' => '',
             'news_site_category_id' => 1
         ]);
 
         // ITmedia リサーチ
         DB::table('news_sites_master')->insert([
+            'news_site_name' => 'ITmedia',
             'news_site_url' => 'http://rss.rssad.jp/rss/itmnews/2.0/news_research.xml',
             'news_site_tag_title' => 'item title',
-            'news_site_tag_article' => 'item link',
+            'news_site_tag_url' => 'item link',
+            'news_site_tag_text' => '',
             'news_site_tag_image' => '',
             'news_site_category_id' => 1
         ]);
 
         // ITmedia PR
         DB::table('news_sites_master')->insert([
+            'news_site_name' => 'ITmedia',
             'news_site_url' => 'http://rss.rssad.jp/rss/itmnews/2.0/news_special.xml',
             'news_site_tag_title' => 'item title',
-            'news_site_tag_article' => 'item link',
+            'news_site_tag_url' => 'item link',
+            'news_site_tag_text' => '',
             'news_site_tag_image' => '',
             'news_site_category_id' => 1
         ]);
@@ -421,7 +449,8 @@ class NewsSitesMasterSeeder extends Seeder
         DB::table('news_sites_master')->insert([
             'news_site_url' => 'http://rss.rssad.jp/rss/mdn/di/rss.php',
             'news_site_tag_title' => 'item title',
-            'news_site_tag_article' => 'item link',
+            'news_site_tag_url' => 'item link',
+            'news_site_tag_text' => '',
             'news_site_tag_image' => '',
             'news_site_category_id' => 1
         ]);
@@ -430,7 +459,8 @@ class NewsSitesMasterSeeder extends Seeder
         DB::table('news_sites_master')->insert([
             'news_site_url' => 'https://app.famitsu.com/feed/',
             'news_site_tag_title' => 'item title',
-            'news_site_tag_article' => 'item link',
+            'news_site_tag_url' => 'item link',
+            'news_site_tag_text' => '',
             'news_site_tag_image' => '',
             'news_site_category_id' => 1
         ]);
@@ -439,7 +469,8 @@ class NewsSitesMasterSeeder extends Seeder
         DB::table('news_sites_master')->insert([
             'news_site_url' => 'http://xml.keizaireport.com/rss/node_2.xml',
             'news_site_tag_title' => 'item title',
-            'news_site_tag_article' => 'item link',
+            'news_site_tag_url' => 'item link',
+            'news_site_tag_text' => '',
             'news_site_tag_image' => '',
             'news_site_category_id' => 1
         ]);
@@ -448,7 +479,8 @@ class NewsSitesMasterSeeder extends Seeder
         DB::table('news_sites_master')->insert([
             'news_site_url' => 'http://xml.keizaireport.com/rss/node_3.xml',
             'news_site_tag_title' => 'item title',
-            'news_site_tag_article' => 'item link',
+            'news_site_tag_url' => 'item link',
+            'news_site_tag_text' => '',
             'news_site_tag_image' => '',
             'news_site_category_id' => 1
         ]);
@@ -457,7 +489,8 @@ class NewsSitesMasterSeeder extends Seeder
         DB::table('news_sites_master')->insert([
             'news_site_url' => 'http://xml.keizaireport.com/rss/node_4.xml',
             'news_site_tag_title' => 'item title',
-            'news_site_tag_article' => 'item link',
+            'news_site_tag_url' => 'item link',
+            'news_site_tag_text' => '',
             'news_site_tag_image' => '',
             'news_site_category_id' => 1
         ]);
@@ -466,7 +499,8 @@ class NewsSitesMasterSeeder extends Seeder
         DB::table('news_sites_master')->insert([
             'news_site_url' => 'http://xml.keizaireport.com/rss/node_5.xml',
             'news_site_tag_title' => 'item title',
-            'news_site_tag_article' => 'item link',
+            'news_site_tag_url' => 'item link',
+            'news_site_tag_text' => '',
             'news_site_tag_image' => '',
             'news_site_category_id' => 1
         ]);
@@ -475,7 +509,8 @@ class NewsSitesMasterSeeder extends Seeder
         DB::table('news_sites_master')->insert([
             'news_site_url' => 'http://xml.keizaireport.com/rss/node_6.xml',
             'news_site_tag_title' => 'item title',
-            'news_site_tag_article' => 'item link',
+            'news_site_tag_url' => 'item link',
+            'news_site_tag_text' => '',
             'news_site_tag_image' => '',
             'news_site_category_id' => 1
         ]);
@@ -484,7 +519,8 @@ class NewsSitesMasterSeeder extends Seeder
         DB::table('news_sites_master')->insert([
             'news_site_url' => 'http://xml.keizaireport.com/rss/node_7.xml',
             'news_site_tag_title' => 'item title',
-            'news_site_tag_article' => 'item link',
+            'news_site_tag_url' => 'item link',
+            'news_site_tag_text' => '',
             'news_site_tag_image' => '',
             'news_site_category_id' => 1
         ]);
@@ -493,7 +529,8 @@ class NewsSitesMasterSeeder extends Seeder
         DB::table('news_sites_master')->insert([
             'news_site_url' => 'http://xml.keizaireport.com/rss/node_8.xml',
             'news_site_tag_title' => 'item title',
-            'news_site_tag_article' => 'item link',
+            'news_site_tag_url' => 'item link',
+            'news_site_tag_text' => '',
             'news_site_tag_image' => '',
             'news_site_category_id' => 1
         ]);
@@ -502,7 +539,8 @@ class NewsSitesMasterSeeder extends Seeder
         DB::table('news_sites_master')->insert([
             'news_site_url' => 'http://xml.keizaireport.com/rss/node_9.xml',
             'news_site_tag_title' => 'item title',
-            'news_site_tag_article' => 'item link',
+            'news_site_tag_url' => 'item link',
+            'news_site_tag_text' => '',
             'news_site_tag_image' => '',
             'news_site_category_id' => 1
         ]);
@@ -511,7 +549,8 @@ class NewsSitesMasterSeeder extends Seeder
         DB::table('news_sites_master')->insert([
             'news_site_url' => 'http://xml.keizaireport.com/rss/node_10.xml',
             'news_site_tag_title' => 'item title',
-            'news_site_tag_article' => 'item link',
+            'news_site_tag_url' => 'item link',
+            'news_site_tag_text' => '',
             'news_site_tag_image' => '',
             'news_site_category_id' => 1
         ]);
@@ -520,7 +559,8 @@ class NewsSitesMasterSeeder extends Seeder
         DB::table('news_sites_master')->insert([
             'news_site_url' => 'http://tokyodesignweek.jp/designboom/',
             'news_site_tag_title' => 'article dt',
-            'news_site_tag_article' => 'article a',
+            'news_site_tag_url' => 'article a',
+            'news_site_tag_text' => '',
             'news_site_tag_image' => '',
             'news_site_category_id' => 1
         ]);
@@ -529,7 +569,8 @@ class NewsSitesMasterSeeder extends Seeder
         DB::table('news_sites_master')->insert([
             'news_site_url' => 'http://photoshopvip.net/',
             'news_site_tag_title' => 'article h2 a',
-            'news_site_tag_article' => 'article a',
+            'news_site_tag_url' => 'article a',
+            'news_site_tag_text' => '',
             'news_site_tag_image' => '',
             'news_site_category_id' => 1
         ]);
@@ -538,7 +579,8 @@ class NewsSitesMasterSeeder extends Seeder
         DB::table('news_sites_master')->insert([
             'news_site_url' => 'http://scrmble.jp/',
             'news_site_tag_title' => 'ul h2 a', //空白
-            'news_site_tag_article' => 'ul a',
+            'news_site_tag_url' => 'ul a',
+            'news_site_tag_text' => '',
             'news_site_tag_image' => '',
             'news_site_category_id' => 1
         ]);
@@ -547,7 +589,8 @@ class NewsSitesMasterSeeder extends Seeder
         DB::table('news_sites_master')->insert([
             'news_site_url' => 'https://www.jidp.or.jp/news/',
             'news_site_tag_title' => 'article h1 a',
-            'news_site_tag_article' => 'article h1 a',
+            'news_site_tag_url' => 'article h1 a',
+            'news_site_tag_text' => '',
             'news_site_tag_image' => '',
             'news_site_category_id' => 1
         ]);
@@ -556,7 +599,8 @@ class NewsSitesMasterSeeder extends Seeder
         DB::table('news_sites_master')->insert([
             'news_site_url' => 'https://cgworld.jp/news/',
             'news_site_tag_title' => 'article h2',
-            'news_site_tag_article' => 'article a',
+            'news_site_tag_url' => 'article a',
+            'news_site_tag_text' => '',
             'news_site_tag_image' => '',
             'news_site_category_id' => 1
         ]);
@@ -565,7 +609,8 @@ class NewsSitesMasterSeeder extends Seeder
         DB::table('news_sites_master')->insert([
             'news_site_url' => 'https://www.gamer.ne.jp/news/',
             'news_site_tag_title' => 'li p a',
-            'news_site_tag_article' => 'li p a',
+            'news_site_tag_url' => 'li p a',
+            'news_site_tag_text' => '',
             'news_site_tag_image' => '',
             'news_site_category_id' => 1
         ]);
@@ -574,7 +619,8 @@ class NewsSitesMasterSeeder extends Seeder
         DB::table('news_sites_master')->insert([
             'news_site_url' => 'http://3dnchu.com/',
             'news_site_tag_title' => 'article h2 a',
-            'news_site_tag_article' => 'article h2 a',
+            'news_site_tag_url' => 'article h2 a',
+            'news_site_tag_text' => '',
             'news_site_tag_image' => '',
             'news_site_category_id' => 1
         ]);
@@ -583,7 +629,8 @@ class NewsSitesMasterSeeder extends Seeder
         DB::table('news_sites_master')->insert([
             'news_site_url' => 'http://dengekionline.com/',
             'news_site_tag_title' => '.artMain h3 a',
-            'news_site_tag_article' => '.artMain h3 a',
+            'news_site_tag_url' => '.artMain h3 a',
+            'news_site_tag_text' => '',
             'news_site_tag_image' => '',
             'news_site_category_id' => 1
         ]);
@@ -592,7 +639,8 @@ class NewsSitesMasterSeeder extends Seeder
         DB::table('news_sites_master')->insert([
             'news_site_url' => 'https://www.gamespark.jp/',
             'news_site_tag_title' => 'section ul h3',
-            'news_site_tag_article' => 'section a.link',
+            'news_site_tag_url' => 'section a.link',
+            'news_site_tag_text' => '',
             'news_site_tag_image' => '',
             'news_site_category_id' => 1
         ]);
@@ -601,7 +649,8 @@ class NewsSitesMasterSeeder extends Seeder
         DB::table('news_sites_master')->insert([
             'news_site_url' => 'https://doope.jp/',
             'news_site_tag_title' => '.cont_titbox h2 a',
-            'news_site_tag_article' => 'cont_titbox h2 a',
+            'news_site_tag_url' => 'cont_titbox h2 a',
+            'news_site_tag_text' => '',
             'news_site_tag_image' => '',
             'news_site_category_id' => 1
         ]);
@@ -610,7 +659,8 @@ class NewsSitesMasterSeeder extends Seeder
         DB::table('news_sites_master')->insert([
             'news_site_url' => 'http://toyokeizai.net/',
             'news_site_tag_title' => 'ul .title a',
-            'news_site_tag_article' => 'ul .title a',
+            'news_site_tag_url' => 'ul .title a',
+            'news_site_tag_text' => '',
             'news_site_tag_image' => '',
             'news_site_category_id' => 1
         ]);
@@ -619,7 +669,8 @@ class NewsSitesMasterSeeder extends Seeder
         DB::table('news_sites_master')->insert([
             'news_site_url' => 'https://game.watch.impress.co.jp/',
             'news_site_tag_title' => 'article .title a',
-            'news_site_tag_article' => 'article .title a',
+            'news_site_tag_url' => 'article .title a',
+            'news_site_tag_text' => '',
             'news_site_tag_image' => '',
             'news_site_category_id' => 1
         ]);
@@ -629,7 +680,8 @@ class NewsSitesMasterSeeder extends Seeder
         DB::table('news_sites_master')->insert([
             'news_site_url' => '',
             'news_site_tag_title' => '',
-            'news_site_tag_article' => '',
+            'news_site_tag_url' => '',
+            'news_site_tag_text' => '',
             'news_site_tag_image' => '',
             'news_site_category_id' => 1
         ]);
