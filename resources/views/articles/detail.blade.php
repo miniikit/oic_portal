@@ -44,10 +44,10 @@
 
         <div class="comment">
           <div class="input-text col s12">
-            <div class="col s2">
+            <div class="user-icon col s2">
               <img class="account-image circle" src="/images/sample-icon2.jpg">
             </div>
-            <form class="col s10">
+            <form class="comment-field col s10">
                 <div class="input-field">
                   <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
                   <label for="icon_prefix2">コメント</label>

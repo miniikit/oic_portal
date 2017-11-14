@@ -112,11 +112,11 @@ Route::get('/community/new/complete', 'FakeController@fake');
  *  イベント
  */
 // 一覧
-Route::get('/event', 'FakeController@index');
+Route::get('/event', 'EventController@index');
 // 一覧(終了分)  TODO : URL考える
-Route::get('/event/', 'FakeController@index');
+Route::get('/event/kk', 'FakeController@index');
 // 詳細
-Route::get('/event/1000', 'FakeController@show');
+Route::get('/event/1000', 'EventController@show');
 
 // 更新
 Route::get('/event/1000/edit', 'FakeController@edit');
