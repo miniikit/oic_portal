@@ -40,6 +40,7 @@ class DatabaseSeeder extends Seeder
         $this->call('EventsAuthoritiesTableSeeder');
         $this->call('ChatsTableSeeder');
         $this->call('InquiriesTableSeeder');
+        $this->call('ArticlesExclusionTableSeeder');
         //$this->call('MessagesTableSeeder');
 
         Model::reguard();
@@ -720,6 +721,17 @@ class InquiriesTableSeeder extends Seeder
         DB::table('inquiries_table')->delete();
         DB::table('inquiries_table')->insert([
             'inquiry_text' => 'ログインについての問い合わせ'
+        ]);
+    }
+}
+
+class ArticlesExclusionTableSeeder extends Seeder
+{
+    public function run()
+    {
+        DB::table('articles_exclusion')->delete();
+        DB::table('articles_exclusion')->insert([
+           'exclusion_string' => '\n'
         ]);
     }
 }
