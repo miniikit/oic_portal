@@ -1,0 +1,129 @@
+
+@media only screen and (min-width: 0px) and (max-width: 600px){
+
+  #main {
+    margin-top: 100px;
+  }
+  div.content{
+    padding: 0 .75rem;
+  }
+  p.title{
+    font-size: 30px;
+    color: darkgray;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  .page-title {
+    text-align: center;
+    font-size: 20px;
+    letter-spacing: 1px;
+    width: 100%;
+    height: auto;
+  }
+  .title {
+    font-size: 30px;
+    margin-bottom: 1rem;
+  }
+  .row .col.s12 {
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+  .date {
+    font-size: 20px;
+    text-align: right;
+  }
+  .backlink {
+    font-size: 20px;
+    text-align: left;
+  }
+  .main-contents-text {
+    padding: 1rem;
+    font-size: 20px;
+    letter-spacing: 1px;
+    line-height: 1.5rem;
+  }
+  .border{
+    border-bottom: solid 1px;
+    color: darkgray;
+  }
+  .goodicon {
+    color: darkgray;
+  }
+  button.waves-effect.waves-light.btn{
+    margin-top: 10rem;
+    margin-bottom: 5rem;
+    background-color:  darkgray;
+    font-size: 20px;
+  }
+}
+
+@media only screen and (min-width: 601px) {
+
+  p.title{
+    font-size: 30px;
+    color: darkgray;
+    text-align: center;
+  }
+  form{
+    position: relative;
+    width: 66.6666666667%;
+    margin-left: auto;
+    margin-right: auto;
+    left: auto;
+    right: auto
+  }
+  div.row{
+    margin: auto;
+  }
+  .row .col.s12 {
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+  .backlink {
+    text-align: left;
+    font-size: 25px;
+  }
+  .date {
+    font-size: 25px;
+    text-align: right;
+  }
+  .article-image {
+    padding: 1rem;
+  }
+  .page-title {
+    text-align: center;
+    font-size: 25px;
+    letter-spacing: 1px;
+    width: 100%;
+    height: auto;
+  }
+  .title {
+    font-size: 40px;
+  }
+  .main-contents-text {
+    padding: 2rem;
+    letter-spacing: 3px;
+    font-size: 20px;
+    line-height: 1.5rem;
+  }
+  .border {
+    border-bottom: solid 1px;
+    color: darkgray;
+  }
+  .goodicon {
+    color: darkgray;
+  }
+  button.waves-effect.waves-light.btn{
+    margin-top: 10rem;
+    margin-bottom: 5rem;
+    background-color:  darkgray;
+    font-size: 20px;
+  }
+  div.col.s6.right-align{
+    padding-right: 2rem;
+  }
+  div.col.s6.left-align{
+    padding-left: 2rem;
+  }
+
+}
