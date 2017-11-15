@@ -39,40 +39,50 @@ class CrawlController extends Controller
 
     public function getLists()
     {
+
         $SQL = new SQLService();
         $sites = $SQL->getRssSites();
-        dd($sites);
+
+
         foreach($sites as $site)
         {
+
             // TARGET PATH
             $site_id = $site->id;
-            $url = $site->news_site_url;
-            $tag_for_url = $site->news_site_tag_title;
+            $url = $site->news_site_url;    // サイト自体のURL
+            $tag_for_url = $site->news_site_tag_url;    // 記事URL
             $tag_for_title = $site->news_site_tag_title;
             $tag_for_image = $site->news_site_tag_image;
-            $tag_for_text = $site->news_site_tag_article;
+            $tag_for_text = $site->news_site_tag_text;
+
+
+            $new = $this->crawlService->newArticleCheck($site_id);
 
             // 初期設定
             $client = $this->crawlService->makeCrient();
             $urls = $this->crawlService->getLists($client, $url, $tag_for_url);
+            $titles = $this->crawlService->getLists($client, $url, $tag_for_title);
 
 
-            $ko = array();
-
-            for ($i = 0; $i < count($urls); $i++) {
+            for ($i = count($urls)-1; $i > 0; $i--) {
                 // 記事取得
                 $contents = $this->crawlService->getContents($client, $urls[$i]);
-                $title = $this->crawlService->getTitle($contents,$tag_for_title);
-                $image = $this->crawlService->getImages($contents,$tag_for_image);
-                $text = $this->crawlService->getText($contents,$tag_for_text);
+                $title = $titles[$i];
+                //本来 $title = $this->crawlService->getTitle($contents,$tag_for_title);
+                //$image = $this->crawlService->getImages($contents,$tag_for_image);
+                //$text = $this->crawlService->getText($contents,$tag_for_text);
+
                 // 不要文字列除去
                 //$text = $this->crawlService->replaceWord($text);
 
                 // DB挿入
-                $query = $SQL->insertArticle($title[0],$text[0],$image[0],$site_id);
-                $ko[$i] = $urls[$i];
+                $query = $SQL->insertArticle($title,'test image path','test text',$site_id);
             }
         }
+
+
+        $articles = $SQL->getArticlesTEST();
+        dd(123,$articles);
 
 //
 //        // TARGET PATH

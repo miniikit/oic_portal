@@ -18,6 +18,11 @@ class SQLService
         return DB::table('news_sites_master')->whereNull('deleted_at')->get();//->where('deleted_at','=','null')->get();
     }
 
+    public function getArticlesTEST()
+    {
+        return DB::table('articles_table')->get();
+    }
+
     public function getSites()
     {
 

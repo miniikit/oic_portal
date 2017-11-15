@@ -60,7 +60,7 @@ class UsersSeeder extends Seeder
 
         // 管理者
         DB::table('users')->insert([
-            'email' => 'oicportalapp' . $i .'@gmail.com',
+            'email' => 'oicportalapp@gmail.com',
             'name' => 'オイシー太郎',
             'name_kana' => 'オイシータロウ',
             'authority_id' => 1,
@@ -127,9 +127,9 @@ class CoursesMasterSeeder extends Seeder
         for ($i = 0; $i < count($parentCourses); $i++) {
             DB::table('courses_master')->insert([
                 'course_name' => $parentCourses[$i],
-                'parent_course_id' => null,
+                'parent_course_id' => 0,
                 'course_depth' => 0,
-                'course_admission_year' => null
+                'course_year' => 0
             ]);
         }
         $courses = ['ITスペシャリスト専攻','ネットワークセキュリティ専攻','システムエンジニア専攻','ネットワークエンジニア専攻','Webエンジニア専攻','テクニカルコース','ネットワークシステムコース','ゲームプログラマー専攻','ゲームデザイナー専攻','ゲームプランナー専攻','ゲームクリエイター専攻(PG)','ゲームクリエイター専攻(CG)','ゲームプログラムコース','ゲームCGデザインコース','CG映像クリエイター専攻','CGクリエイター専攻','CG映像コース','CGアニメーションコース','アートディレクター専攻','Webデザインコース','グラフィックデザインコース','マンガイラストコース'];
@@ -141,7 +141,7 @@ class CoursesMasterSeeder extends Seeder
                 'course_name' => $courses[$i],
                 'parent_course_id' => $parents[$i],
                 'course_depth' => 1,
-                'course_admission_year' => $year[$i]
+                'course_year' => $year[$i]
             ]);
         }
     }
@@ -479,6 +479,7 @@ class NewsSitesMasterSeeder extends Seeder
 
         // MdN DESIGN
         DB::table('news_sites_master')->insert([
+            'news_site_name' => 'MdN DESIGN',
             'news_site_url' => 'http://rss.rssad.jp/rss/mdn/di/rss.php',
             'news_site_tag_title' => 'item title',
             'news_site_tag_url' => 'item link',
@@ -489,6 +490,8 @@ class NewsSitesMasterSeeder extends Seeder
 
         // ファミ通APP
         DB::table('news_sites_master')->insert([
+            'news_site_name' => 'MdN DESIGN',
+
             'news_site_url' => 'https://app.famitsu.com/feed/',
             'news_site_tag_title' => 'item title',
             'news_site_tag_url' => 'item link',
@@ -499,6 +502,8 @@ class NewsSitesMasterSeeder extends Seeder
 
         // keizai report.com 日本経済・財政
         DB::table('news_sites_master')->insert([
+            'news_site_name' => 'MdN DESIGN',
+
             'news_site_url' => 'http://xml.keizaireport.com/rss/node_2.xml',
             'news_site_tag_title' => 'item title',
             'news_site_tag_url' => 'item link',
@@ -509,6 +514,8 @@ class NewsSitesMasterSeeder extends Seeder
 
         // keizai report.com 経営総合
         DB::table('news_sites_master')->insert([
+            'news_site_name' => 'MdN DESIGN',
+
             'news_site_url' => 'http://xml.keizaireport.com/rss/node_3.xml',
             'news_site_tag_title' => 'item title',
             'news_site_tag_url' => 'item link',
@@ -519,6 +526,8 @@ class NewsSitesMasterSeeder extends Seeder
 
         // keizai report.com 金融総合
         DB::table('news_sites_master')->insert([
+            'news_site_name' => 'MdN DESIGN',
+
             'news_site_url' => 'http://xml.keizaireport.com/rss/node_4.xml',
             'news_site_tag_title' => 'item title',
             'news_site_tag_url' => 'item link',
@@ -529,6 +538,8 @@ class NewsSitesMasterSeeder extends Seeder
 
         // keizai report.com 産業総合
         DB::table('news_sites_master')->insert([
+            'news_site_name' => 'MdN DESIGN',
+
             'news_site_url' => 'http://xml.keizaireport.com/rss/node_5.xml',
             'news_site_tag_title' => 'item title',
             'news_site_tag_url' => 'item link',
@@ -539,6 +550,8 @@ class NewsSitesMasterSeeder extends Seeder
 
         // keizai report.com 海外経済・国際機関
         DB::table('news_sites_master')->insert([
+            'news_site_name' => 'MdN DESIGN',
+
             'news_site_url' => 'http://xml.keizaireport.com/rss/node_6.xml',
             'news_site_tag_title' => 'item title',
             'news_site_tag_url' => 'item link',
@@ -549,6 +562,8 @@ class NewsSitesMasterSeeder extends Seeder
 
         // keizai report.com 経済見通し
         DB::table('news_sites_master')->insert([
+            'news_site_name' => 'MdN DESIGN',
+
             'news_site_url' => 'http://xml.keizaireport.com/rss/node_7.xml',
             'news_site_tag_title' => 'item title',
             'news_site_tag_url' => 'item link',
@@ -559,6 +574,8 @@ class NewsSitesMasterSeeder extends Seeder
 
         // keizai report.com 地域経済・地方自治体
         DB::table('news_sites_master')->insert([
+            'news_site_name' => 'MdN DESIGN',
+
             'news_site_url' => 'http://xml.keizaireport.com/rss/node_8.xml',
             'news_site_tag_title' => 'item title',
             'news_site_tag_url' => 'item link',
@@ -569,6 +586,8 @@ class NewsSitesMasterSeeder extends Seeder
 
         // keizai report.com 環境・リサイクル
         DB::table('news_sites_master')->insert([
+            'news_site_name' => 'MdN DESIGN',
+
             'news_site_url' => 'http://xml.keizaireport.com/rss/node_9.xml',
             'news_site_tag_title' => 'item title',
             'news_site_tag_url' => 'item link',
@@ -579,6 +598,8 @@ class NewsSitesMasterSeeder extends Seeder
 
         // keizai report.com インターネット
         DB::table('news_sites_master')->insert([
+            'news_site_name' => 'MdN DESIGN',
+
             'news_site_url' => 'http://xml.keizaireport.com/rss/node_10.xml',
             'news_site_tag_title' => 'item title',
             'news_site_tag_url' => 'item link',
@@ -589,6 +610,8 @@ class NewsSitesMasterSeeder extends Seeder
 
         // TOKYO DESIGN WEEK
         DB::table('news_sites_master')->insert([
+            'news_site_name' => 'MdN DESIGN',
+
             'news_site_url' => 'http://tokyodesignweek.jp/designboom/',
             'news_site_tag_title' => 'article dt',
             'news_site_tag_url' => 'article a',
@@ -599,6 +622,8 @@ class NewsSitesMasterSeeder extends Seeder
 
         // PHOTOSHOPVIP
         DB::table('news_sites_master')->insert([
+            'news_site_name' => 'MdN DESIGN',
+
             'news_site_url' => 'http://photoshopvip.net/',
             'news_site_tag_title' => 'article h2 a',
             'news_site_tag_url' => 'article a',
@@ -609,6 +634,8 @@ class NewsSitesMasterSeeder extends Seeder
 
         // scrmble
         DB::table('news_sites_master')->insert([
+            'news_site_name' => 'MdN DESIGN',
+
             'news_site_url' => 'http://scrmble.jp/',
             'news_site_tag_title' => 'ul h2 a', //空白
             'news_site_tag_url' => 'ul a',
@@ -619,6 +646,8 @@ class NewsSitesMasterSeeder extends Seeder
 
         // JDP
         DB::table('news_sites_master')->insert([
+            'news_site_name' => 'MdN DESIGN',
+
             'news_site_url' => 'https://www.jidp.or.jp/news/',
             'news_site_tag_title' => 'article h1 a',
             'news_site_tag_url' => 'article h1 a',
@@ -629,6 +658,8 @@ class NewsSitesMasterSeeder extends Seeder
 
         // CGWORLD.JP
         DB::table('news_sites_master')->insert([
+            'news_site_name' => 'MdN DESIGN',
+
             'news_site_url' => 'https://cgworld.jp/news/',
             'news_site_tag_title' => 'article h2',
             'news_site_tag_url' => 'article a',
@@ -639,6 +670,8 @@ class NewsSitesMasterSeeder extends Seeder
 
         // Gamer
         DB::table('news_sites_master')->insert([
+            'news_site_name' => 'MdN DESIGN',
+
             'news_site_url' => 'https://www.gamer.ne.jp/news/',
             'news_site_tag_title' => 'li p a',
             'news_site_tag_url' => 'li p a',
@@ -649,6 +682,8 @@ class NewsSitesMasterSeeder extends Seeder
 
         // 3D人
         DB::table('news_sites_master')->insert([
+            'news_site_name' => 'MdN DESIGN',
+
             'news_site_url' => 'http://3dnchu.com/',
             'news_site_tag_title' => 'article h2 a',
             'news_site_tag_url' => 'article h2 a',
@@ -659,6 +694,8 @@ class NewsSitesMasterSeeder extends Seeder
 
         // 電撃オンライン
         DB::table('news_sites_master')->insert([
+            'news_site_name' => 'MdN DESIGN',
+
             'news_site_url' => 'http://dengekionline.com/',
             'news_site_tag_title' => '.artMain h3 a',
             'news_site_tag_url' => '.artMain h3 a',
@@ -669,6 +706,8 @@ class NewsSitesMasterSeeder extends Seeder
 
         // Gamespark
         DB::table('news_sites_master')->insert([
+            'news_site_name' => 'MdN DESIGN',
+
             'news_site_url' => 'https://www.gamespark.jp/',
             'news_site_tag_title' => 'section ul h3',
             'news_site_tag_url' => 'section a.link',
@@ -679,6 +718,8 @@ class NewsSitesMasterSeeder extends Seeder
 
         // doope!
         DB::table('news_sites_master')->insert([
+            'news_site_name' => 'MdN DESIGN',
+
             'news_site_url' => 'https://doope.jp/',
             'news_site_tag_title' => '.cont_titbox h2 a',
             'news_site_tag_url' => 'cont_titbox h2 a',
@@ -689,6 +730,8 @@ class NewsSitesMasterSeeder extends Seeder
 
         // 東洋経済オンライン
         DB::table('news_sites_master')->insert([
+            'news_site_name' => 'MdN DESIGN',
+
             'news_site_url' => 'http://toyokeizai.net/',
             'news_site_tag_title' => 'ul .title a',
             'news_site_tag_url' => 'ul .title a',
@@ -699,6 +742,8 @@ class NewsSitesMasterSeeder extends Seeder
 
         // GAME Watch
         DB::table('news_sites_master')->insert([
+            'news_site_name' => 'MdN DESIGN',
+
             'news_site_url' => 'https://game.watch.impress.co.jp/',
             'news_site_tag_title' => 'article .title a',
             'news_site_tag_url' => 'article .title a',

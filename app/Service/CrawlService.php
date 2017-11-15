@@ -54,7 +54,7 @@ class CrawlService
     }
 
     /**
-     * 記事タイトルを取得
+     * 記事タイトルを取得（一覧ページから取得）
      * @param $contents
      * @param $tag_for_title
      * @return mixed
@@ -115,6 +115,15 @@ class CrawlService
         return $word;
     }
 
+    public function newArticleCheck($site_id)
+    {
+        return DB::table('articles_table')->where('news_site_id','=',$site_id)->orderBy('id','desc')->first();
+    }
+
+
+    /*
+     * 以下、動作テスト用
+     */
 
     public function get_contents($client,$url)
     {
