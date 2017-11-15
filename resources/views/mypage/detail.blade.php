@@ -17,7 +17,7 @@
 
       <div class="prfbox row">
         <div class="username col s12 center-align">
-          <h1>UserName</h1>
+          <h1>{{ $data['name'] }}</h1>
         @if (Auth::guest())
           <div class="follow-button col s12 center-align">
             <a class="waves-effect waves-light btn">フォロー</a>
@@ -51,15 +51,15 @@
         <div class="prf col s12 left-align">
           <div class="col s4">
             <h1 class="item" id="department">学科</h1>
-            <label class="item-sub" for="department">ここに学科</label>
+            <label class="item-sub" for="department">{{ $data['major'] }}</label>
           </div>
           <div class="col s4">
             <h1 class="item" id="course">コース</h1>
-            <label class="item-sub" for="course">ここにコース</label>
+            <label class="item-sub" for="course">{{ $data['course'] }}</label>
           </div>
           <div class="col s4">
             <h1 class="item" id="year">学年</h1>
-            <label class="item-sub" for="year">ここに学年</label>
+            <label class="item-sub" for="year">{{ $data['sc_year'] }}</label>
           </div>
         </div>
 

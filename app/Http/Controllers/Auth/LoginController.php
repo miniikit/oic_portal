@@ -58,7 +58,12 @@ class LoginController extends Controller
 
     public function getGoogleAuthCallback()
     {
-        $getUser = Socialite::driver('google')->user();
+        //例外処理
+      try{
+        $getUser = Socialite::driver('google')->stateless()->user();
+      }catch (\Exception $e) {
+          return redirect()->route('user_home');
+      }
 
         /*
         if(!str_contains($getUser->email,'@oic.jp')){
@@ -71,7 +76,7 @@ class LoginController extends Controller
         $user = $userModel->where('email',$getUser->email)->first();
 
         if(!$user){
-            return redirect('/register');
+            return view('auth.register');
         }else{
             Auth::loginUsingId($user->id);
             $user = Auth::user();
