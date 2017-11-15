@@ -1,8 +1,5 @@
 
-.title{
-  font-size: 2rem;
-  color: darkgray;
-}
+
 
 
 
@@ -10,13 +7,32 @@
   .people{
     float: right;
   }
+  .title{
+    font-size: 1.2rem;
+    color: darkgray;
+  }
+  .card-sentence{
+    font-size: 0.8em;
+    letter-spacing: 1px;
+    line-height: 1.1rem;
+  }
+  .card-action{
+    font-size: 0.65em;
+  }
+  .select-wrapper input.select-dropdown{
+    font-size: 0.8em;
+  }
 }
 
 @media only screen and (min-width: 801px) {
-  .date{
-
-  }
   .people{
     float: right;
+  }
+  .card-sentence{
+    font-size: 0.95em;
+  }
+  .title{
+    font-size: 2rem;
+    color: darkgray;
   }
 }

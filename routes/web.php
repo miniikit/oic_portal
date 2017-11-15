@@ -72,7 +72,7 @@ Route::get('/report', 'FakeController@fake')->name('user_report');
     Route::get('/mypage/edit', 'MypagesController@edit')->name('user_mypage_edit');
 
     // フォロー
-    Route::get('/mypage/follow', 'FakeController@fake')->name('user_mypage_follow');
+    Route::get('/mypage/follow', 'MypagesController@follow')->name('user_mypage_follow');
     // ブロック
     Route::get('/mypage/block', 'FakeController@fake')->name('user_mypage_block');
 

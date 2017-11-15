@@ -55,7 +55,7 @@
                 <div class="card-stacked">
                   <div class="card-content">
                     <span class="card-title">Card Title</span>
-                    <p>ここにイベント情報の一部を表示ここにイベント情報の一部を表示ここにイベント情報の一部を表示ここにイベント情報の一部を表示ここにイベント情報の一部を表示ここにイベント情報の一部を表示</p>
+                    <p class="card-sentence">ここにイベント情報の一部を表示ここにイベント情報の一部を表示ここにイベント情報の一部を表示ここにイベント情報の一部を表示ここにイベント情報の一部を表示ここにイベント情報の一部を表示</p>
                   </div>
                   <div class="card-action">
                     <span class="date">掲載期間 2017/XX/YY ~ 2017/XX/YY</span>
