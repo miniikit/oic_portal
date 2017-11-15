@@ -4,16 +4,12 @@
   padding-bottom: 50px;
   display: block;
 }
-.title {
-  font-size: 40px;
-}
 .backlink {
   text-align: left;
   font-size: 25px;
 }
-.date {
-  font-size: 25px;
-  text-align: right;
+.date_link {
+  font-size: 0.9em;
 }
 .page-title {
   text-align: center;
@@ -24,10 +20,6 @@
 }
 .goodicon{
   color: darkgray;
-}
-.row .col.s12 {
-  padding-top: 15px;
-  padding-bottom: 15px;
 }
 .input-field{
   text-align: right;
@@ -51,31 +43,23 @@
     padding: 0.5rem;
   }
   .title {
-    font-size: 30px;
+    font-size: 1.2em;
   }
   .date_link .col {
     padding: 0;
   }
-  .date {
-    font-size: 20px;
-  }
-  .backlink {
-    font-size: 20px;
+  .date_link {
+    font-size: 0.5em;
   }
   .main-image {
     width: 10%;
   }
-  .text {
-    height: 100%;
+  .text-area {
+    font-size: 0.6em;
+    letter-spacing: 1.3px;
+    line-height: 1.3rem;
+    padding: 0.75rem;
     margin-top: 30px;
-    letter-spacing: 1px;
-    line-height: 150%;
-    border-bottom: solid 2px;
-  }
-  .main-contents-text {
-    padding: 1rem;
-    font-size: 20px;
-    letter-spacing: 1px;
   }
   .pager {
     text-align: center;
@@ -95,6 +79,16 @@
   .comment-field .row .col.s10{
     width: 100%;
   }
+  .collection{
+    font-size: 0.6em;
+  }
+  .wap-comment{
+    text-align: right;
+    padding: 0.5rem;
+  }
+  .comment-submit{
+    font-size: 0.6em;
+  }
 
   /* side-contents */
   .card-contents {
@@ -106,9 +100,10 @@
 }
 
 @media only screen and (min-width: 601px) {
-  /*.row{
-    background-color: #f5f5f5;
-  }*/
+  .title{
+    font-size: 2rem;
+    margin: 40px 0;
+  }
   .row .col.l9 {
     padding-bottom: 20px;
   }
@@ -118,10 +113,13 @@
   .main-contents-text {
     padding: 2rem;
     letter-spacing: 3px;
-    font-size: 20px;
+    line-height: 1.7em;
+    font-size: 0.95em;
   }
   .side-contents-text {
     letter-spacing: 1px;
+    font-size: 0.9em;
+    line-height: 1.7em;
   }
   .text-image {
     padding: 1rem;
@@ -135,16 +133,16 @@
     padding-top: 50px;
     display: block;
   }
-  /* comment area */
-  .comment-areasub{
-    display: table;
-    width: 100%;
-    height: 7rem;
+  .icon-button{
+    margin: 20px 20px 50px 0;
   }
-  .comment-text{
-    display: table-cell;
-    vertical-align: middle;
-    padding: 20px;
+  /* comment area */
+  .wap-comment{
+    text-align: right;
+    padding: 0.5rem;
+  }
+  .comment-submit{
+    font-size: 0.7em;
   }
 
   /* side-contents */

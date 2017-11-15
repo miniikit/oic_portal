@@ -44,4 +44,14 @@ class MypagesController extends Controller
     {
         return view('mypage.detail');
     }
+
+    public function follow()
+    {
+      return view('mypage.follow');
+    }
+
+    public function follower()
+    {
+      return view('mypage.follower');
+    }
 }
