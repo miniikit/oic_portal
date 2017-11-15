@@ -40,44 +40,70 @@ class CrawlController extends Controller
     public function getLists()
     {
         $SQL = new SQLService();
-
         $sites = $SQL->getRssSites();
-
-        for($j=0; $j<count($sites); $j++)
+        dd($sites);
+        foreach($sites as $site)
         {
+            // TARGET PATH
+            $site_id = $site->id;
+            $url = $site->news_site_url;
+            $tag_for_url = $site->news_site_tag_title;
+            $tag_for_title = $site->news_site_tag_title;
+            $tag_for_image = $site->news_site_tag_image;
+            $tag_for_text = $site->news_site_tag_article;
 
+            // 初期設定
+            $client = $this->crawlService->makeCrient();
+            $urls = $this->crawlService->getLists($client, $url, $tag_for_url);
+
+
+            $ko = array();
+
+            for ($i = 0; $i < count($urls); $i++) {
+                // 記事取得
+                $contents = $this->crawlService->getContents($client, $urls[$i]);
+                $title = $this->crawlService->getTitle($contents,$tag_for_title);
+                $image = $this->crawlService->getImages($contents,$tag_for_image);
+                $text = $this->crawlService->getText($contents,$tag_for_text);
+                // 不要文字列除去
+                //$text = $this->crawlService->replaceWord($text);
+
+                // DB挿入
+                $query = $SQL->insertArticle($title[0],$text[0],$image[0],$site_id);
+                $ko[$i] = $urls[$i];
+            }
         }
 
-
-        // TARGET PATH
-        $site_id = 1;
-        $url = 'http://feed.rssad.jp/rss/gigazine/rss_2.0';
-        $tag_for_url = 'item link';
-        $tag_for_title = '.cntimage h1.title';
-        $tag_for_image = '.cntimage img';
-        $tag_for_text = '.cntimage';
-
-        // 初期設定
-        $client = $this->crawlService->makeCrient();
-        $urls = $this->crawlService->getLists($client, $url, $tag_for_url);
-
-
-        $ko = array();
-
-        for ($i = 0; $i < count($urls); $i++) {
-            // 記事取得
-            $contents = $this->crawlService->getContents($client, $urls[$i]);
-            $title = $this->crawlService->getTitle($contents,$tag_for_title);
-            $image = $this->crawlService->getImages($contents,$tag_for_image);
-            $text = $this->crawlService->getText($contents,$tag_for_text);
-            // 不要文字列除去
-            //$text = $this->crawlService->replaceWord($text);
-
-            // DB挿入
-            $query = $SQL->insertArticle($title[0],$text[0],$image[0],$site_id);
-            $ko[$i] = $urls[$i];
-        }
-        dd($ko);
+//
+//        // TARGET PATH
+//        $site_id = 1;
+//        $url = 'http://feed.rssad.jp/rss/gigazine/rss_2.0';
+//        $tag_for_url = 'item link';
+//        $tag_for_title = '.cntimage h1.title';
+//        $tag_for_image = '.cntimage img';
+//        $tag_for_text = '.cntimage';
+//
+//        // 初期設定
+//        $client = $this->crawlService->makeCrient();
+//        $urls = $this->crawlService->getLists($client, $url, $tag_for_url);
+//
+//
+//        $ko = array();
+//
+//        for ($i = 0; $i < count($urls); $i++) {
+//            // 記事取得
+//            $contents = $this->crawlService->getContents($client, $urls[$i]);
+//            $title = $this->crawlService->getTitle($contents,$tag_for_title);
+//            $image = $this->crawlService->getImages($contents,$tag_for_image);
+//            $text = $this->crawlService->getText($contents,$tag_for_text);
+//            // 不要文字列除去
+//            //$text = $this->crawlService->replaceWord($text);
+//
+//            // DB挿入
+//            $query = $SQL->insertArticle($title[0],$text[0],$image[0],$site_id);
+//            $ko[$i] = $urls[$i];
+//        }
+//        dd($ko);
     }
 
     public function getRss()

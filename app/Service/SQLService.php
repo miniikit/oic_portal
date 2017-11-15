@@ -15,7 +15,7 @@ class SQLService
 
     public function getRssSites()
     {
-        return DB::table('NEWS_SITES_MASTER')->where('deleted_at','!=','NULL')->get();
+        return DB::table('news_sites_master')->whereNull('deleted_at')->get();//->where('deleted_at','=','null')->get();
     }
 
     public function getSites()
