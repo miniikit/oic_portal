@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Profile;
 use App\User;
+use Carbon\Carbon;
 use App\Http\Controllers\Controller;
-use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Foundation\Auth\RegistersUsers;
 
 class RegisterController extends Controller
 {
@@ -22,24 +22,21 @@ class RegisterController extends Controller
     |
     */
 
-    use RegistersUsers;
+     // use RegistersUsers;
 
     /**
      * Where to redirect users after registration.
      *
      * @var string
      */
-    protected $redirectTo = '/';
+    //protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('guest');
-    }
+
 
     /**
      * Get a validator for an incoming registration request.
@@ -68,26 +65,37 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\User
      */
-    protected function create(array $data)
-    {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'name_kana' => $data['kana'],
-            'sc_year' => $data['sc_year'],
-            'major' => $data['major'],
-            'course_id' => $data['course'],
-            'portfolio' => $data['portfolio'],
-            'profile_id' => 1,
-            'authority_id' => 1,
-        ]);
-    }
 
     public function complete(Request $request)
     {
         $data = $request->all();
+        $userModel = app(User::class);
+        $profileModel = app(Profile::class);
 
-        event(new Registered($user = $this->create($data)));
+        $profile = $profileModel->create([
+            'profile_image' => 'https://pbs.twimg.com/profile_images/835940654509342724/chujJdF__400x400.jpg',
+            'profile_name' => 'スパイスおじさん',
+            'profile_scyear' => $data['profile_scyear'],
+            'course_id' => $data['course_id2'],
+            'profile_admission_year' => Carbon::now(),
+            'profile_url' => $data['profile_url'],
+            'profile_introduction' => $data['profile_introduction'],
+        ]);
+
+        $profile->save(); //多分いらない??
+
+        if($profile){
+            $profileId = $profile->id;
+        }
+
+        $userModel->create([
+            'email' => $data['email'],
+            'name' => $data['name'],
+            'name_kana' => $data['kana'],
+            'authority_id' => 1,
+            'profile_id' => $profileId,
+            'course_id' => $data['course_id'],
+        ]);
 
         return view('auth.register.complete');
     }
