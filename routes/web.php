@@ -55,14 +55,14 @@ Route::get('/articles/post/complete', 'ArticlesController@fake')->name('user_art
  */
 Route::get('/report', 'FakeController@fake')->name('user_report');
 
+Route::get('/mypage/follow', 'MypagesController@follow')->name('user_mypage_follow');
 
-/**
- * AUTH
- */
-//Route::group(['middleware' => ['UserAuth']], function () {
+Route::group(['middleware' => ['UserAuth']],function()
+{
     /**
      * マイページ
      */
+
     // マイページ
     Route::get('/mypage', 'MypagesController@show')->name('user_mypage');
     // ユーザページ
@@ -71,8 +71,10 @@ Route::get('/report', 'FakeController@fake')->name('user_report');
     // 編集
     Route::get('/mypage/edit', 'MypagesController@edit')->name('user_mypage_edit');
 
-    // フォロー
+    /* // フォロー 作業中
     Route::get('/mypage/follow', 'MypagesController@follow')->name('user_mypage_follow');
+    */
+
     // ブロック
     Route::get('/mypage/block', 'FakeController@fake')->name('user_mypage_block');
 
@@ -83,7 +85,7 @@ Route::get('/report', 'FakeController@fake')->name('user_report');
     Route::get('/messages', 'MessagesController@getmessages')->name('user_mypage_message');
     Route::post('/messages', 'MessagesController@postmessages');
 
-    // });
+});
 
 /**
  * コミュニティ
@@ -137,16 +139,13 @@ Route::get('/event/new/complete', 'FakeController@fake');
 /**
  * Auth
  */
-// 認証
+// Googleログイン
 Route::get('/login/google', 'Auth\LoginController@getGoogleAuth')->name('user_login');
 Route::get('/oauth_callback', 'Auth\LoginController@getGoogleAuthCallback');
+//ログアウト
 Route::post('/logout', 'Auth\LoginController@logout')->name('user_logout');
-
 // 会員登録
-Route::post('/register','Auth\RegisterController@register');
 Route::post('/register/complete', 'Auth\RegisterController@complete')->name('user_register_complete');
-
-//Auth::routes();
 
 
 /**

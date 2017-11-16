@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use App\Course;
+use App\Profile;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
-use app\User;
 use Illuminate\Support\Facades\DB;
 
 
@@ -16,10 +17,11 @@ class MypagesController extends Controller
     {
      if(Auth::check()){
         $userId = Auth::user()->id;
-        $data = app(User::class)::where('users.id',$userId)->first();
+        $user = app(User::class)::find($userId);
+        $profile = app(Profile::class)::where('id',$user->profile_id)->first();
+        $course = app(Course::class)::where('id',$profile->course_id)->first();
 
-        //$result = DB::table('courses_master')->join('courses_master','id','=','id')->get();
-        return view('mypage.detail',compact('data'));
+        return view('mypage.detail',compact('profile','course'));
       }else{
          return redirect()->route('user_login');
       }
