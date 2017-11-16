@@ -1,0 +1,22 @@
+
+.title{
+  font-size: 2rem;
+  color: darkgray;
+}
+
+
+
+@media only screen and (max-width: 800px) {
+  .people{
+    float: right;
+  }
+}
+
+@media only screen and (min-width: 801px) {
+  .genre{
+    float: right;
+  }
+  .people{
+    margin-left: 5rem;
+}
+}
