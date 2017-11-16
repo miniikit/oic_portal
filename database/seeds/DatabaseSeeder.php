@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
 
         $this->call('UsersSeeder');
         $this->call('AuthoritiesMasterSeeder');
-        $this->call('ProfilesTableSeeder');
+        $this->call('ProfilesMasterSeeder');
         $this->call('CoursesMasterSeeder');
         $this->call('ArticlesTableSeeder');
         $this->call('ArticlesLikesTableSeeder');
@@ -63,19 +63,19 @@ class UsersSeeder extends Seeder
             'email' => 'oicportalapp@gmail.com',
             'name' => 'オイシー太郎',
             'name_kana' => 'オイシータロウ',
-            'authority_id' => 1,
+            'authority_id' => 3,
             'course_id' => 1,
             'profile_id' => 1
         ]);
 
 
         // ユーザ
-        for ($i = 0; $i < 5; $i++) {
+        for ($i = 2; $i < 7; $i++) {
             DB::table('users')->insert([
                 'email' => $i.$faker->email,
                 'name' => $faker->name,
                 'name_kana' => 'ヤマダタロウ',
-                'authority_id' => $i,
+                'authority_id' => 1,
                 'course_id' => $i,
                 'profile_id' => $i
             ]);
@@ -100,15 +100,16 @@ class AuthoritiesMasterSeeder extends Seeder
     }
 }
 
-class ProfilesTableSeeder extends Seeder
+class ProfilesMasterSeeder extends Seeder
 {
     public function run()
     {
-        DB::table('profiles_table')->delete();
+        DB::table('profiles_master')->delete();
         for ($i = 0; $i < 10; $i++) {
-            DB::table('profiles_table')->insert([
+            DB::table('profiles_master')->insert([
                 'profile_image' => '/images/1.jpg',
                 'profile_name' => 'hage',
+                'profile_scyear' => '3',
                 'course_id' => $i,
                 'profile_admission_year' => Carbon::now(),
                 'profile_url' => 'http://www.oic-portal.co.jp',
@@ -118,11 +119,12 @@ class ProfilesTableSeeder extends Seeder
     }
 }
 
+
 class CoursesMasterSeeder extends Seeder
 {
     public function run()
     {
-        $parentCourses = ['IT','ゲーム','CG','デザイン'];
+        $parentCourses = ['情報処理IT','ゲーム','CG・映像・アニメーション','デザイン・Web'];
         DB::table('courses_master')->delete();
         for ($i = 0; $i < count($parentCourses); $i++) {
             DB::table('courses_master')->insert([
