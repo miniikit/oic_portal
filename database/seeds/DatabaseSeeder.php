@@ -95,7 +95,7 @@ class AuthoritiesMasterSeeder extends Seeder
     {
         $authorities = ['一般','サブ管理者','管理者'];
         DB::table('authorities_master')->delete();
-        for ($i = 0; $i < count($authorities); $i++) {
+        for ($i = 1; $i < count($authorities); $i++) {
             DB::table('authorities_master')->insert([
                 'authority_name' => $authorities[$i]
             ]);
@@ -110,8 +110,8 @@ class ProfilesTableSeeder extends Seeder
         DB::table('profiles_table')->delete();
         for ($i = 0; $i < 10; $i++) {
             DB::table('profiles_table')->insert([
-                'profile_image' => '/images/1.jpg',
-                'profile_name' => 'hage',
+                'profile_image' => '/images/profile_images/default.jpg',
+                'profile_name' => 'hoge',
                 'profile_scyear' => '3',
                 'course_id' => $i,
                 'profile_admission_year' => Carbon::now(),
