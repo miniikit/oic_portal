@@ -107,13 +107,15 @@ class ProfilesTableSeeder extends Seeder
 {
     public function run()
     {
+        $faker = Faker::create('ja_JP');
+
         DB::table('profiles_table')->delete();
-        for ($i = 0; $i < 10; $i++) {
+        for ($i = 1; $i < 100; $i++) {
             DB::table('profiles_table')->insert([
                 'profile_image' => '/images/profile_images/default.jpg',
-                'profile_name' => 'hoge',
+                'profile_name' => $faker->name,
                 'profile_scyear' => '3',
-                'course_id' => $i,
+                'course_id' => rand(1,22),
                 'profile_admission_year' => Carbon::now(),
                 'profile_url' => 'http://www.oic-portal.co.jp',
                 'profile_introduction' => 'Hello'
