@@ -64,7 +64,6 @@ class UsersSeeder extends Seeder
             'name' => 'オイシー太郎',
             'name_kana' => 'オイシータロウ',
             'authority_id' => 3,
-            'course_id' => 1,
             'profile_id' => 1
         ]);
 
@@ -74,7 +73,6 @@ class UsersSeeder extends Seeder
             'name' => 'OIC USER',
             'name_kana' => 'おいしー　ユーザ',
             'authority_id' => 1,
-            'course_id' => 1,
             'profile_id' => 1
         ]);
 
@@ -85,7 +83,6 @@ class UsersSeeder extends Seeder
                 'name' => $faker->name,
                 'name_kana' => 'ヤマダタロウ',
                 'authority_id' => 1,
-                'course_id' => $i,
                 'profile_id' => $i
             ]);
         }
