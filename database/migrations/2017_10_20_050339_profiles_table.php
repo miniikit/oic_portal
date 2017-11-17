@@ -33,6 +33,6 @@ class ProfilesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('profiles_master');
+        Schema::drop('profiles_table');
     }
 }
