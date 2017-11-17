@@ -50,15 +50,15 @@
         <div class="prf col s12 left-align">
           <div class="col s4">
             <h1 class="item" id="department">学科</h1>
-            <label class="item-sub" for="department"></label>
+            <label class="item-sub" for="department">{{ $course->course_major }}</label>
           </div>
           <div class="col s4">
             <h1 class="item" id="course">コース</h1>
-            <label class="item-sub" for="course">{{ $course['course_name'] }}</label>
+            <label class="item-sub" for="course">{{ $course->course_name }}</label>
           </div>
           <div class="col s4">
             <h1 class="item" id="year">学年</h1>
-            <label class="item-sub" for="year">{{ $profile['profile_scyear'] }}</label>
+            <label class="item-sub" for="year">{{ $profile->profile_scyear }}</label>
           </div>
         </div>
 
