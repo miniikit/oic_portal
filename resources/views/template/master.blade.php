@@ -30,11 +30,17 @@
             <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
             <ul class="side-nav" id="mobile-demo">
                 <li>
+                    @if(Auth::guest())
+                    <li><a href="{{ route('user_home') }}">トップ</a></li>
+                    <li><a href="#">コミュニティ</a></li>
+                    <li><a href="/event/">イベント</a></li>
+                    <li><a href="/contact">お問い合わせ</a></li>
+                    @else
                     <div class="user-view">
                         <div class="background"></div>
                         <a href="#!user"><img class="circle" src="/images/example.jpg"></a>
-                        <a href="#!name"><span class="black-text name">rentaro</span></a>
-                        <a href="#!email"><span class="black-text email">rentaro@oic.jp</span></a>
+                        <a href="#!name"><span class="black-text name">{{ Auth::user()->name }}</span></a>
+                        <a href="#!email"><span class="black-text email">{{ Auth::user()->email }}</span></a>
                     </div>
                 </li>
                 <li><a href="{{ route('user_home') }}">トップ</a></li>
@@ -44,6 +50,7 @@
                 <li><a href="#">コミュニティ</a></li>
                 <li><a href="/event/">イベント</a></li>
                 <li><a href="/contact">お問い合わせ</a></li>
+               @endif
             </ul>
         </div>
         @yield('nav-tab')

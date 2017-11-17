@@ -9,12 +9,7 @@
 
       <div class="col s12 m8 l9">
           <div class="date_link col s12">
-            <div class="col s6">
-              <p class="backlink"><a class="backlink" href="{{ route('user_home') }}">戻る</a></p>
-            </div>
-            <div class="col s6">
-              <p class="date">2017/xx/yy</p>
-            </div>
+              <p>2017/xx/yy</p>
           </div>
 
         <div class="page-title">
@@ -42,33 +37,33 @@
           </a>
         </div>
 
-        <div class="comment">
-          <div class="input-text col s12">
-            <div class="user-icon col s2">
-              <img class="account-image circle" src="/images/sample-icon2.jpg">
-            </div>
-            <form class="comment-field col s10">
-                <div class="input-field">
-                  <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
-                  <label for="icon_prefix2">コメント</label>
-                  <a class="comment-submit waves-effect waves-light btn">コメント</a>
-                </div>
-            </form>
-          </div>
+        <div class="comment col s12">
+          <ul class="collection">
+            <li class="collection-item avatar">
+              <img src="/images/sample-icon2.jpg" alt="" class="circle">
+              <span class="name">name</span>
+              <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
+              <div class="wap-comment">
+                <a class="comment-submit waves-effect waves-light btn">コメント</a>
+              </div>
+            </li>
+          </ul>
         </div>
 
-        @for ($i=0; $i < 5; $i++)
-          <div class="comment-area col s12 center-align">
-            <div class="col s2">
-              <img class="circle" src="/images/sample-icon2.jpg">
-            </div>
-            <div class="col s10">
-              <div class="comment-areasub row left-align">
-                <h4 class="comment-text">ここにコメントを表示ここにコメントを表示ここにコメントを表示ここにコメントを表示ここにコメントを表示ここにコメントを表示ここにコメントを表示</h4>
-              </div>
-            </div>
-          </div>
-        @endfor
+        <div class="comment-area col s12">
+          <ul class="collection">
+            @for ($i = 0; $i < 8; $i++)
+              <li class="collection-item avatar">
+                <img src="/images/sample-icon2.jpg" alt="" class="circle">
+                <span class="name">name</span>
+                <p>
+                  ここにコメントを表示
+                </p>
+              </li>
+            @endfor
+         </ul>
+        </div>
+
       </div>
 
       <div class="col s12 m4 l3">
@@ -84,9 +79,6 @@
                 <div class="card-contents">
                   <p class="side-contents-text">ミニスーファミにやりたいゲームが入ってない！って方に、同じくらいの値段で買えるSFC用のレトロフリーク</p>
                 </div>
-                {{-- <div class="card-action">
-                  <a href="#">This is a link</a>
-                </div> --}}
             </div>
           @endfor
         </div>
@@ -103,7 +95,7 @@
                   <a href="details"><img src="/images/sample-3.jpg"></a>
                 </div>
                 <div class="card-contents">
-                  <p>ミニスーファミにやりたいゲームが入ってない！って方に、同じくらいの値段で買えるSFC用のレトロフリーク</p>
+                  <p class="side-contents-text">ミニスーファミにやりたいゲームが入ってない！って方に、同じくらいの値段で買えるSFC用のレトロフリーク</p>
                 </div>
             </div>
           @endfor

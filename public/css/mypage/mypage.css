@@ -70,11 +70,12 @@
     margin-top: 1.1rem;
   }
   .text{
-    font-size: 18px;
+    font-size: 0.9em;
     letter-spacing: 1px;
+    margin-top: 50px;
   }
   .follow-button{
-    margin: 0.5rem;
+    margin: 1rem;
   }
   .item{
     font-size: 20px;

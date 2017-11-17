@@ -83,15 +83,6 @@ class RegisterController extends Controller
         ]);
     }
 
-    /*
-    public function confirm(Request $request)
-    {
-        $data = $request->all();
-
-        return view('auth.register.confirm',compact('data'));
-    }
-    */
-
     public function complete(Request $request)
     {
         $data = $request->all();

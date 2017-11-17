@@ -23,6 +23,7 @@ class NewsSitesMaster extends Migration
             $table->string('news_site_tag_image', 255);//カスタムタグ(記事画像)
             $table->integer('news_site_category_id');//ニュースサイトカテゴリID
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

@@ -2,7 +2,8 @@
 /* main */
 
 .card-text{
-  letter-spacing: 2px;
+  letter-spacing: 1px;
+  font-size: 0.95em;
 }
 .sort{
   padding-bottom: 1.2rem;

@@ -23,9 +23,10 @@ use App\Events\MessagePosted;
 Route::get('/', 'HomeController@index')->name('user_home');
 
 // 問い合わせ
+Route::get('/contact','ContactsController@show')->name('user_contact');
 
 //お気に入り
-Route::get('/like', 'LikeController@index');
+Route::get('/like', 'LikeController@index')->name('user_like');
 
 
 /**
@@ -52,9 +53,7 @@ Route::get('/articles/post/complete', 'ArticlesController@fake')->name('user_art
 /**
  * 通報
  */
-Route::get('/report', 'FakeController@fake');
-Route::get('/report/confirm', 'FakeController@fake');
-Route::get('/report/complete', 'FakeController@fake');
+Route::get('/report', 'FakeController@fake')->name('user_report');
 
 
 /**
@@ -67,21 +66,21 @@ Route::get('/report/complete', 'FakeController@fake');
     // マイページ
     Route::get('/mypage', 'MypagesController@show')->name('user_mypage');
     // ユーザページ
-    Route::get('/user/1000', 'FakeController@fake');
+    Route::get('/user/1000', 'FakeController@fake')->name('user_profile');
 
     // 編集
     Route::get('/mypage/edit', 'MypagesController@edit')->name('user_mypage_edit');
 
     // フォロー
-    Route::get('/mypage/follow', 'FakeController@fake');
+    Route::get('/mypage/follow', 'MypagesController@follow')->name('user_mypage_follow');
     // ブロック
-    Route::get('/mypage/block', 'FakeController@fake');
+    Route::get('/mypage/block', 'FakeController@fake')->name('user_mypage_block');
 
     // CHAT
-    Route::get('/chat', 'MessagesController@chat');
+    Route::get('/chat', 'MessagesController@chat')->name('user_mypage_chat');
 
     // MESSAGE
-    Route::get('/messages', 'MessagesController@getmessages');
+    Route::get('/messages', 'MessagesController@getmessages')->name('user_mypage_message');
     Route::post('/messages', 'MessagesController@postmessages');
 
     // });
@@ -90,9 +89,9 @@ Route::get('/report/complete', 'FakeController@fake');
  * コミュニティ
  */
 // 一覧
-Route::get('/community', 'FakeController@index');
+Route::get('/community', 'FakeController@index')->name('user_community');
 // 詳細
-Route::get('/community/{$id}', 'FakeController@show');
+Route::get('/community/{$id}', 'FakeController@show')->name('user_community_detail');
 
 // 更新
 Route::get('/community/1000/edit', 'FakeController@edit');
@@ -144,9 +143,10 @@ Route::get('/oauth_callback', 'Auth\LoginController@getGoogleAuthCallback');
 Route::post('/logout', 'Auth\LoginController@logout')->name('user_logout');
 
 // 会員登録
-Route::post('/register/complete', 'Auth\RegisterController@complete')->name('user_register_complete');;
+Route::post('/register','Auth\RegisterController@register');
+Route::post('/register/complete', 'Auth\RegisterController@complete')->name('user_register_complete');
 
-Auth::routes();
+//Auth::routes();
 
 
 /**

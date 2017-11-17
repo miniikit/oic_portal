@@ -50,9 +50,10 @@
     background-color: darkgray;
     margin-top: 30px;
   }
-}
-
-
-.none {
-  display: none;
+  div.col.s6.right-align{
+    padding-right: 2rem;
+  }
+  div.col.s6.left-align{
+    padding-left: 2rem;
+  }
 }
