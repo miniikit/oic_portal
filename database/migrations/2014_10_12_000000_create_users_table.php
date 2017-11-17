@@ -19,7 +19,6 @@ class CreateUsersTable extends Migration
             $table->string('name',255);//氏名
             $table->string('name_kana',255);//フリガナ
             $table->integer('authority_id');//権限ID
-            $table->integer('course_id');//学科カテゴリID
             $table->integer('profile_id');//プロフィールID
             $table->rememberToken();
             $table->timestamps();

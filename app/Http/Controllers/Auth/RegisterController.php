@@ -94,7 +94,6 @@ class RegisterController extends Controller
             'name_kana' => $data['kana'],
             'authority_id' => 1,
             'profile_id' => $profileId,
-            'course_id' => $data['course_id'],
         ]);
 
         return view('auth.register.complete');
