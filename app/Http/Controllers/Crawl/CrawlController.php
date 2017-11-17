@@ -20,8 +20,8 @@ class CrawlController extends Controller
     public function customeCheck()
     {
         // TARGET PATH
-        $rss_url = ''; //サイトURL
-        $articles_list_tag = ''; // 記事一覧を取得するためのタグ
+        $rss_url = 'http://www.itmedia.co.jp/news/articles/1711/10/news091.html'; //サイトURL
+        $articles_list_tag = 'div h1 big'; // 記事一覧を取得するためのタグ
 
         // 処理
         $client = new Client();
