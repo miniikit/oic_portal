@@ -8,6 +8,11 @@ class Course extends Model
 {
     protected $table = 'courses_master';
     protected $fillable = [
-        'course_name','parent_course_id','course_depth'
+        'course_name','parent_course_id','course_depth','course_year'
     ];
+
+    public function users()
+    {
+        return $this->belongsTo('App\User');
+    }
 }

@@ -10,14 +10,14 @@
       <div class="col s12">
         <div class="profile-image center">
           <div class="profile-rap">
-            <img class="image circle" src="/images/sample-icon2.jpg" alt="">
+            <img class="image circle" src="{{ $profile['profile_image'] }}" alt="">
           </div>
         </div>
       </div>
 
       <div class="prfbox row">
         <div class="username col s12 center-align">
-          <h1>{{ $data['name'] }}</h1>
+          <h1>{{ $profile['profile_name'] }}</h1>
         @if (Auth::guest())
           <div class="follow-button col s12 center-align">
             <a class="waves-effect waves-light btn">フォロー</a>
@@ -50,21 +50,20 @@
         <div class="prf col s12 left-align">
           <div class="col s4">
             <h1 class="item" id="department">学科</h1>
-            <label class="item-sub" for="department">{{ $data['major'] }}</label>
+            <label class="item-sub" for="department"></label>
           </div>
           <div class="col s4">
             <h1 class="item" id="course">コース</h1>
-            <label class="item-sub" for="course">{{ $data['course'] }}</label>
+            <label class="item-sub" for="course">{{ $course['course_name'] }}</label>
           </div>
           <div class="col s4">
             <h1 class="item" id="year">学年</h1>
-            <label class="item-sub" for="year">{{ $data['sc_year'] }}</label>
+            <label class="item-sub" for="year">{{ $profile['profile_scyear'] }}</label>
           </div>
         </div>
 
         <div class="prf-text col s12 left-align">
-          <h2 class="text col s12">ここに自己紹介ここに自己紹介ここに自己紹介ここに自己紹介ここに自己紹介
-          ここに自己紹介ここに自己紹介ここに自己紹介ここに自己紹介ここに自己紹介ここに自己紹介ここに自己紹介</h2>
+          <h2 class="text col s12">{{ $profile['profile_introduction'] }}</h2>
         </div>
       </div>
 
