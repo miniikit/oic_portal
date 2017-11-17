@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
 
         $this->call('UsersSeeder');
         $this->call('AuthoritiesMasterSeeder');
-        $this->call('ProfilesMasterSeeder');
+        $this->call('ProfilesTableSeeder');
         $this->call('CoursesMasterSeeder');
         $this->call('ArticlesTableSeeder');
         $this->call('ArticlesLikesTableSeeder');
@@ -109,13 +109,13 @@ class AuthoritiesMasterSeeder extends Seeder
     }
 }
 
-class ProfilesMasterSeeder extends Seeder
+class ProfilesTableSeeder extends Seeder
 {
     public function run()
     {
-        DB::table('profiles_master')->delete();
+        DB::table('profiles_table')->delete();
         for ($i = 0; $i < 10; $i++) {
-            DB::table('profiles_master')->insert([
+            DB::table('profiles_table')->insert([
                 'profile_image' => '/images/1.jpg',
                 'profile_name' => 'hage',
                 'profile_scyear' => '3',
