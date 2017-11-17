@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\Profile;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
@@ -76,11 +77,10 @@ class LoginController extends Controller
         $user = $userModel->where('email',$getUser->email)->first();
 
         if(!$user){
-            return view('auth.register');
+            return view('auth.register',compact('getUser'));
         }else{
             Auth::loginUsingId($user->id);
-            $user = Auth::user();
-            return redirect()->route('user_home',compact('user'));
+            return redirect()->route('user_home');
         }
     }
 

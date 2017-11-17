@@ -17,10 +17,11 @@ class ProfilesTable extends Migration
             $table->increments('id');//プロフィールID
             $table->string('profile_image');//プロフィール画像
             $table->string('profile_name',255);//プロフィール名
+            $table->integer('profile_scyear');//学年
             $table->integer('course_id');//学科カテゴリID
             $table->dateTime('profile_admission_year');//入学年度
-            $table->text('profile_url');//URL
-            $table->text('profile_introduction');//自己紹介
+            $table->text('profile_url')->nullable();//URL
+            $table->text('profile_introduction')->nullable();//自己紹介
             $table->timestamps();
         });
     }
@@ -32,6 +33,6 @@ class ProfilesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('profiles_table');
+        Schema::drop('profiles_master');
     }
 }
