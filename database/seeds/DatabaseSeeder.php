@@ -790,10 +790,12 @@ class EventsParticipantsTableSeeder extends Seeder
 {
     public function run()
     {
+        $max = 10;
+
         DB::table('events_participants_table')->delete();
-        for ($i = 0; $i < 5; $i++) {
+        for ($i = 1; $i < 50; $i++) {
             DB::table('events_participants_table')->insert([
-                'event_id' => $i,
+                'event_id' => rand(1,$max),
                 'event_user_id' => $i,
                 'event_authority_id' => $i
             ]);
@@ -864,7 +866,7 @@ class InquiriesTableSeeder extends Seeder
 {
     public function run()
     {
-        $inquiriesTexts = ['質問', 'パスワード紛失', 'ヘルプ'];
+        $inquiriesTexts = ['質問', 'パスワード紛失'];
         DB::table('inquiries_table')->delete();
         for ($i = 0; $i < count($inquiriesTexts); $i++) {
             DB::table('inquiries_table')->insert([
