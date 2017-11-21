@@ -1,7 +1,7 @@
 @extends('template/master')
 
 @section('css')
-  <link rel="stylesheet" href="/css/mypage/follow.css">
+  <link rel="stylesheet" href="/css/mypage/follow-follower.css">
 @endsection
 
 @section('main')
@@ -11,20 +11,31 @@
     </div>
 
     <div class="row">
-      @for ($i=1; $i < 7; $i++)
-        <div class="col s12">
-          <div class="change card horizontal">
+      @for ($i=1; $i < 10; $i++)
+        <div class="user_card col s4">
+          <div class="card">
               <div class="card-image">
-                <a href="/mypage"><img src="/images/sample-icon2.jpg" class="user-image circle"></a>
+                <img src="/images/sample-icon2.jpg" class="user-image circle">
               </div>
               <div class="card-stacked">
-                <div class="card-content">
-                  <h1 class="card-name">ユーザー名</h1>
-                  <p class="card-sentence">ここにテキスト(文字数制限を設ける予定)ここにテキスト(文字数制限を設ける予定)ここにテキスト(文字数制限を設ける予定)ここにテキスト(文字数制限を設ける予定)ここにテキスト(文字数制限を設ける予定)ここにテキスト(文字数制限を設ける予定)ここにテキスト(文字数制限を設ける予定)ここにテキスト(文字数制限を設ける予定)</p>
+                <div class="border-top card-content">
+                  <a class="link_color" href="{{ route('user_profile') }}"><h1 class="card-name">ユーザー名</h1></a>
                 </div>
-                <div class="card-action">
-                  <span class="date">掲載期間 2017/XX/YY ~ 2017/XX/YY</span>
-                  <span class="people">xx/50</span>
+                <div class="card-content">
+                  <div class="user_info">
+                    <div class="user_stats">
+                      <strong>Post</strong>
+                      <span>10</span>
+                    </div>
+                    <div class="user_stats">
+                      <strong>follow</strong>
+                      <span>50</span>
+                    </div>
+                    <div class="user_stats">
+                      <strong>follower</strong>
+                      <span>100</span>
+                    </div>
+                  </div>
                 </div>
               </div>
           </div>

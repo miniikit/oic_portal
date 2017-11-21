@@ -1,0 +1,83 @@
+
+.border-top{
+  border-top: 1px solid rgba(160, 160, 160, 0.2);
+}
+.link_color{
+  color: black;
+}
+
+
+@media only screen and (max-width: 600px){
+  .title{
+    font-size: 1.5em;
+    color: darkgray;
+    margin-bottom: 50px;
+  }
+  .user_info{
+    display: flex;
+  }
+  .user_stats{
+    flex: 1;
+    text-align: center;
+  }
+  strong{
+    display: block;
+    float: left;
+    clear: both;
+    width: 100%;
+    color: #B3B1B2;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: -0.2px;
+  }
+  span{
+    font-size: 26px;
+    color: #5E5E5E;
+    padding: .18em 0;
+    display: inline-block;
+  }
+  /*.card-image{
+    display: none;
+  }*/
+}
+
+
+@media only screen and (min-width: 601px){
+  .title{
+    font-size: 2rem;
+    color: darkgray;
+    margin-bottom: 50px;
+  }
+  .user_info{
+    display: flex;
+  }
+  .user_stats{
+    flex: 1;
+    text-align: center;
+  }
+  strong{
+    display: block;
+    float: left;
+    clear: both;
+    width: 100%;
+    color: #B3B1B2;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: -0.2px;
+  }
+  span{
+    font-size: 26px;
+    color: #5E5E5E;
+    padding: .18em 0;
+    display: inline-block;
+  }
+  .year{
+    padding-bottom: 50px;
+  }
+  .follow-btn{
+    font-size: 0.65em;
+    width: 130px;
+    margin: 0 10px;
+  }
+
+}

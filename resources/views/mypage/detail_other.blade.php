@@ -45,7 +45,7 @@
             <label class="item-sub" for="follow">XXX</label>
           </div>
           <div class="prf-content col s4">
-            <a class="color" href="#"><h1 class="item" id="follower">フォロワー</h1></a>
+            <a class="color" href="{{ route('user_mypage_follower') }}"><h1 class="item" id="follower">フォロワー</h1></a>
             <label class="item-sub" for="follower">XXX</label>
           </div>
         </div>
