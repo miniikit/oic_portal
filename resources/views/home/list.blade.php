@@ -44,16 +44,16 @@
 
         <!-- article tab1 -->
         <div class="row">
-            @for ($i=1; $i< 7; $i++)
+            @foreach($articles as $article)
                 <div id="tab1" class="col s4">
                     <div class="card">
                         <div class="card-wrapper">
                                 <div class="card-image">
-                                  <a href="{{ route('user_article_detail') }}"><img src="images/sample-{{ $i }}.jpg"></a>
+                                  <a href="{{ $article->article_url }}"><img src="{{ $article->article_image }}"></a>
                                 </div>
                                 <div class="card-content">
-                                    <span class="card-title">記事タイトル</span>
-                                    <p class="card-text">@for($j=0; $j<2; $j++)ここに記事の内容の一部を表示@endfor</p>
+                                    <span class="card-title">{{ $article->article_title }}</span>
+                                    <p class="card-text">{{ $article->article_text }}</p>
                                 </div>
                             <div class="card-action">
                                 <i class="goodicon material-icons" id="counter">thumb_up</i>
@@ -61,11 +61,11 @@
                                 <i class="goodicon material-icons" id="counter">remove_red_eye</i>
                                 <label class="showcounter" for="counter">1000</label>
                             </div>
-                            <a href="{{ route('user_article_detail') }}"></a>
+                            <a href="{{ $article->article_url }}"></a>
                         </div>
                     </div>
                 </div>
-            @endfor
+            @endforeach
         </div>
     </div>
 

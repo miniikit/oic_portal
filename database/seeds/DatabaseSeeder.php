@@ -162,7 +162,7 @@ class ArticlesTableSeeder extends Seeder
             DB::table('articles_table')->insert([
                 'article_title' => $articlesTitle[$i],
                 'article_text' => $articlesText[$i],
-                'article_image' => '',
+                'article_image' => '/images/sample-' . rand(1,6) . '.jpg',
                 'article_url' => 'http://www.XXXXXXX.co.jp/articles/00000000' . $i,
                 'news_site_id' => rand(1,20)
             ]);
