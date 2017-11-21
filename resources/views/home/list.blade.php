@@ -49,7 +49,7 @@
                     <div class="card">
                         <div class="card-wrapper">
                                 <div class="card-image">
-                                  <a href="{{ route('user_article_detail') }}"><img src="images/sample-{{ $i }}.jpg"></a>
+                                  <a href="{{ route('user_article_detail',1) }}"><img src="images/sample-{{ $i }}.jpg"></a>
                                 </div>
                                 <div class="card-content">
                                     <span class="card-title">記事タイトル</span>
@@ -61,7 +61,7 @@
                                 <i class="goodicon material-icons" id="counter">remove_red_eye</i>
                                 <label class="showcounter" for="counter">1000</label>
                             </div>
-                            <a href="{{ route('user_article_detail') }}"></a>
+                            <a href="{{ route('user_article_detail',1) }}"></a>
                         </div>
                     </div>
                 </div>

@@ -77,14 +77,14 @@
           <div class="col s6">
             <div class="card">
               <div class="card-image">
-                <a href="{{ route('user_article_detail') }}"><img src="/images/sample-{{ $i }}.jpg"></a>
+                <a href="{{ route('user_article_detail',1) }}"><img src="/images/sample-{{ $i }}.jpg"></a>
                 <span class="card-title">記事タイトル</span>
               </div>
               <div class="card-content">
                 <p class="card-text">ここに記事の内容の一部を表示 ここに記事の内容の一部を表示 ここに記事の内容の一部を表示 ここに記事の内容の一部を表示</p>
               </div>
               <div class="card-action">
-                <a href="{{ route('user_article_detail') }}">READ MORE</a>
+                <a href="{{ route('user_article_detail',1) }}">READ MORE</a>
                 <div class="tags">
                   <div class="chip">
                     IT

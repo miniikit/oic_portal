@@ -15,7 +15,7 @@
         <div class="user_card col s4">
           <div class="card">
               <div class="card-image">
-                <img src="/images/sample-icon2.jpg" class="user-image circle">
+                <img src="/images/profile_images/default.jpg" class="user-image circle">
               </div>
               <div class="card-stacked">
                 <div class="border-top card-content">
@@ -42,7 +42,6 @@
         </div>
       @endfor
     </div>
-
   </div>
 @endsection
 
