@@ -166,7 +166,7 @@ class ArticlesTableSeeder extends Seeder
                 'article_title' => $articles[$i],
                 'article_text' => $articles[$i],
                 'article_image' => '',
-                'article_url' => 'http://www.XXXXXXX.co.jp/articles/0000000000001',
+                'article_url' => 'http://www.XXXXXXX.co.jp/articles/00000000' . $i,
                 'news_site_id' => $i
             ]);
         }

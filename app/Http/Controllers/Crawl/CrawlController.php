@@ -44,8 +44,7 @@ class CrawlController extends Controller
         $sites = $SQL->getRssSites();
 
 
-        foreach($sites as $site)
-        {
+        foreach ($sites as $site) {
 
             // TARGET PATH
             $site_id = $site->id;
@@ -64,7 +63,7 @@ class CrawlController extends Controller
             $titles = $this->crawlService->getLists($client, $url, $tag_for_title);
 
 
-            for ($i = count($urls)-1; $i > 0; $i--) {
+            for ($i = count($urls) - 1; $i > 0; $i--) {
                 // 記事取得
                 $contents = $this->crawlService->getContents($client, $urls[$i]);
                 $title = $titles[$i];
@@ -76,13 +75,13 @@ class CrawlController extends Controller
                 //$text = $this->crawlService->replaceWord($text);
 
                 // DB挿入
-                $query = $SQL->insertArticle($title,'test image path','test text',$site_id);
+                $query = $SQL->insertArticle($title, 'test image path', 'test text', $site_id);
             }
         }
 
 
         $articles = $SQL->getArticlesTEST();
-        dd(123,$articles);
+        dd(123, $articles);
 
 //
 //        // TARGET PATH
