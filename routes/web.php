@@ -35,7 +35,7 @@ Route::get('/like', 'LikeController@index')->name('user_like');
 // 一覧
 Route::get('/articles/index', 'ArticlesController@index')->name('user_article_list');
 // 詳細
-Route::get('/articles/1000', 'ArticlesController@detail')->name('user_article_detail');
+Route::get('/articles/{id}', 'ArticlesController@detail')->name('user_article_detail');
 // 編集
 Route::get('/articles/1000/edit', 'ArticlesController@edit')->name('user_article_edit');
 
