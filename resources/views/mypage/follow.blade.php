@@ -15,7 +15,7 @@
         <div class="col s4">
           <div class="card">
             <div class="card-content">
-              <img src="/images/sample-icon2.jpg" alt="" class="uesr-icon circle">
+              <img src="/images/profile_images/default.jpg" alt="" class="uesr-icon circle">
               <span class="card-title">ユーザー名</span>
               <p>
 
@@ -33,7 +33,7 @@
       <ul class="collection">
         @for ($i = 0; $i < 10; $i++)
           <li class="collection-item avatar">
-            <img src="/images/sample-icon2.jpg" alt="" class="circle">
+            <img src="/images/default.jpg" alt="" class="circle">
             <span class="name">name</span>
             <p>
               ここにコメントを表示
