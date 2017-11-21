@@ -11,10 +11,23 @@
   .title{
     font-size: 2rem;
     color: darkgray;
+    margin-bottom: 50px;
   }
   .uesr-icon{
     width: 70px;
     height: 70px;
+  }
+  .year{
+    padding-bottom: 50px;
+  }
+  .follow-btn{
+    font-size: 0.65em;
+    width: 130px;
+    margin: 0 10px;
+  }
+  .user-image{
+    width: 165px;
+    height: 165px;
   }
 
 }

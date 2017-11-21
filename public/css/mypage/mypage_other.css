@@ -19,10 +19,6 @@
   .image{
     height: 100px;
     width: 100px;
-    margin: 0 25px 0 50px;
-  }
-  .edit-btn{
-    margin: 25px 0;
   }
   .username h1{
     font-size: 25px;
@@ -68,22 +64,33 @@
   .chip:first-child{
     margin-right: 8px;
   }
+  .chat-btn{
+    margin: 25px 25px 25px 0;
+  }
+  .add-btn{
+    margin: 25px 0 25px 25px;
+  }
 }
 
 @media only screen and (min-width: 993px) {
   .image{
     height: 150px;
     width: 150px;
-    margin: 0 50px 0 100px;
   }
   .profile{
     margin: 50px 0 50px 0;
   }
-  .edit-btn{
+  .add-btn{
     width: 50px;
     height: 50px;
     font-size: 50px;
-    margin: 50px 0;
+    margin: 50px 0 50px 50px;
+  }
+  .chat-btn{
+    width: 50px;
+    height: 50px;
+    font-size: 50px;
+    margin: 50px 50px 50px 0;
   }
   .username h1{
     font-size: 35px;
