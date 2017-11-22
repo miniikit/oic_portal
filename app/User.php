@@ -49,6 +49,16 @@ class User extends Authenticatable
 
     public function friends()
     {
+        return $this->belongsToMany('App\User')->withTimestamps();
+    }
 
+    public function follow(User $user)
+    {
+       $this->friends();
+    }
+
+    public function unfollow(User $user)
+    {
+        $this->friends()->detach($user->id);
     }
 }
