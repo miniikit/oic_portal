@@ -55,7 +55,10 @@ Route::get('/articles/post/complete', 'ArticlesController@fake')->name('user_art
  */
 Route::get('/report', 'FakeController@fake')->name('user_report');
 
+//フォロー
 Route::get('/mypage/follow', 'MypagesController@follow')->name('user_mypage_follow');
+//フォロワー
+Route::get('/mypage/follower', 'MypagesController@follower')->name('user_mypage_follower');
 
 Route::group(['middleware' => ['UserAuth']],function()
 {
@@ -66,7 +69,7 @@ Route::group(['middleware' => ['UserAuth']],function()
     // マイページ
     Route::get('/mypage', 'MypagesController@show')->name('user_mypage');
     // ユーザページ
-    Route::get('/user/1000', 'FakeController@fake')->name('user_profile');
+    Route::get('/user/1000', 'MypagesController@show_user')->name('user_profile');
 
     // 編集
     Route::get('/mypage/edit', 'MypagesController@edit')->name('user_mypage_edit');
@@ -74,6 +77,7 @@ Route::group(['middleware' => ['UserAuth']],function()
     /* // フォロー 作業中
     Route::get('/mypage/follow', 'MypagesController@follow')->name('user_mypage_follow');
     */
+
 
     // ブロック
     Route::get('/mypage/block', 'FakeController@fake')->name('user_mypage_block');
