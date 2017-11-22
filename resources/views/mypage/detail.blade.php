@@ -66,9 +66,9 @@
             <div class="card">
               <div class="card-image">
                 <a href="{{ route('user_article_detail',1) }}"><img src="/images/sample-{{ $i }}.jpg"></a>
-                <span class="card-title">記事タイトル</span>
               </div>
               <div class="card-content">
+                <span class="card-title">記事タイトル</span>
                 <p class="card-text">ここに記事の内容の一部を表示 ここに記事の内容の一部を表示 ここに記事の内容の一部を表示 ここに記事の内容の一部を表示</p>
               </div>
               <div class="card-action">
