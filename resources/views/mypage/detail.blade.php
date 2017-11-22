@@ -41,7 +41,7 @@
         <div class="prf col s12">
           <div class="prf-content col s4">
             <h1 class="item" id="department">学科</h1>
-            <label class="item-sub" for="department">ここに学科</label>
+            <label class="item-sub" for="department">{{ $course->course_major }}</label>
           </div>
           <div class="prf-content col s4">
             <h1 class="item" id="course">コース</h1>
