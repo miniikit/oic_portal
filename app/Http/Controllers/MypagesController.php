@@ -31,6 +31,11 @@ class MypagesController extends Controller
         return view('mypage.detail');
     }
 
+    public function show_user()
+    {
+        return view('mypage.detail_other');
+    }
+
     public function follow()
     {
         return view('mypage.follow');

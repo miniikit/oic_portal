@@ -1,7 +1,7 @@
 @extends('template/master')
 
 @section('css')
-  <link rel="stylesheet" href="/css/mypage/mypage.css">
+  <link rel="stylesheet" href="/css/mypage/mypage_other.css">
 @endsection
 
 @section('main')
@@ -9,15 +9,27 @@
 
         <div class="profile col s12">
           <div class="profile-rap col s12 center">
+            <a class="chat-btn btn-floating waves-effect waves-light green"><i class="material-icons">chat</i></a>
+
             {{-- <img class="image circle" src="{{ $profile['profile_image'] }}" alt=""> --}}
-            <img class="image circle" src="/images/profile_images/default.jpg" alt="">
-            <a class="edit-btn btn-floating waves-effect waves-light green"><i class="material-icons">edit</i></a>
+            <img class="image circle" src="/images/sample-icon1.jpg" alt="">
+            <a class="add-btn btn-floating waves-effect waves-light modal-trigger red" href="#modal1"><i class="material-icons">add</i></a>
+              <!-- Modal Structure -->
+                <div id="modal1" class="modal">
+                  <div class="modal-content">
+                    <h4>フォローリクエスト</h4>
+                    <p>このユーザーの読者になりますか？</p>
+                  </div>
+                  <div class="modal-footer">
+                    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">OK</a>
+                  </div>
+                </div>
           </div>
         </div>
 
       <div class="prfbox col s12">
         <div class="username center-align">
-          <h1>{{ $profile['profile_name'] }}</h1>
+          <h1>ここにユーザーネーム</h1>
           {{-- <div class="follow-button col s12 center-align">
             <a class="waves-effect waves-light btn">フォロー</a>
           </div> --}}
@@ -45,16 +57,16 @@
           </div>
           <div class="prf-content col s4">
             <h1 class="item" id="course">コース</h1>
-            <label class="item-sub" for="course">{{ $course->course_name }}</label>
+            <label class="item-sub" for="course">ここにコース名</label>
           </div>
           <div class="prf-content col s4">
             <h1 class="item" id="year">学年</h1>
-            <label class="item-sub" for="year">{{ $profile->profile_scyear }}</label>
+            <label class="item-sub" for="year">ここに学年</label>
           </div>
         </div>
 
         <div class="prf-text col s12 left-align">
-          <h2 class="text col s12">{{ $profile['profile_introduction'] }}</h2>
+          <h2 class="text col s12">ここにテキスト</h2>
         </div>
       </div>
 
@@ -66,9 +78,9 @@
             <div class="card">
               <div class="card-image">
                 <a href="{{ route('user_article_detail',1) }}"><img src="/images/sample-{{ $i }}.jpg"></a>
+                <span class="card-title">記事タイトル</span>
               </div>
               <div class="card-content">
-                <span class="card-title">記事タイトル</span>
                 <p class="card-text">ここに記事の内容の一部を表示 ここに記事の内容の一部を表示 ここに記事の内容の一部を表示 ここに記事の内容の一部を表示</p>
               </div>
               <div class="card-action">
@@ -80,12 +92,6 @@
                   <div class="chip">
                     デザイン
                   </div>
-                  {{-- <div class="chip">
-                    映像
-                  </div>
-                  <div class="chip">
-                    アニメーション
-                  </div> --}}
                 </div>
 
                 {{-- カウンター 実装するか検討 --}}
@@ -106,4 +112,13 @@
 
   </div>
 
+@endsection
+
+@section('script')
+  <script type="text/javascript">
+    $(document).ready(function(){
+    // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
+    $('.modal').modal();
+    });
+  </script>
 @endsection

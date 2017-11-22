@@ -9,11 +9,12 @@
 
       <div class="col s12 m8 l9">
           <div class="date_link col s12">
-              <p>2017/xx/yy</p>
+<!--  TODO : null日付  !-->
+              <p>{{ $article->created_at }}</p>
           </div>
 
         <div class="page-title">
-          <h1 class="title">Title</h1>
+          <h1 class="title">{{ $article->article_title }}</h1>
         </div>
 
         <div class="article-image">
@@ -21,8 +22,7 @@
         </div>
 
         <div class="text-area">
-          <p class="main-contents-text">仮想通貨Bitcoin(ビットコイン)のマイニングで利益を得るには、高性能な専用マシンを使うのが必須で、さらには電力コストを抑えるために電気代の安い国に拠点を構えることが求められます。マイナーたちが軍拡競争のような熾烈なサバイバルを繰り広げる中で、システムを維持するためのマイニングに必要なエネルギーが高まり続ける状況は、将来的にビットコインシステムの維持そのものを不可能にすると指摘されています。
-          仮想通貨Bitcoin(ビットコイン)のマイニングで利益を得るには、高性能な専用マシンを使うのが必須で、さらには電力コストを抑えるために電気代の安い国に拠点を構えることが求められます。マイナーたちが軍拡競争のような熾烈なサバイバルを繰り広げる中で、システムを維持するためのマイニングに必要なエネルギーが高まり続ける状況は、将来的にビットコインシステムの維持そのものを不可能にすると指摘されています。</p>
+          <p class="main-contents-text">{{ $article->article_text }}</p>
         </div>
 
         <div class="border"></div>
@@ -40,7 +40,7 @@
         <div class="comment col s12">
           <ul class="collection">
             <li class="collection-item avatar">
-              <img src="/images/sample-icon2.jpg" alt="" class="circle">
+              <img src="/images/profile_images/default.jpg" alt="" class="circle">
               <span class="name">name</span>
               <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
               <div class="wap-comment">
@@ -54,7 +54,7 @@
           <ul class="collection">
             @for ($i = 0; $i < 8; $i++)
               <li class="collection-item avatar">
-                <img src="/images/sample-icon2.jpg" alt="" class="circle">
+                <img src="/images/profile_images/default.jpg" alt="" class="circle">
                 <span class="name">name</span>
                 <p>
                   ここにコメントを表示
