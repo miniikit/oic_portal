@@ -18,7 +18,7 @@
             </div>
 
             <div class="article-image">
-                <img class="image-box" width="100%" src="/images/sample-1.jpg">
+                <img class="image-box" width="100%" src="{{ $article->article_image }}">
             </div>
 
             <div class="text-area">

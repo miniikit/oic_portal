@@ -155,15 +155,13 @@ class ArticlesTableSeeder extends Seeder
 {
     public function run()
     {
-        $articlesTitle = ['#test1','#test2','#test3','#test4','#test5','#test6','#test7','#test8','#test9','#test10'];
-        $articlesText = ['#test1','#test2','#test3','#test4','#test5','#test6','#test7','#test8','#test9','#test10'];
         DB::table('articles_table')->delete();
-        for ($i = 1; $i < 10; $i++) {
+        for ($i = 1; $i < 50; $i++) {
             DB::table('articles_table')->insert([
-                'article_title' => $articlesTitle[$i],
-                'article_text' => $articlesText[$i],
+                'article_title' => '#test'.$i,
+                'article_text' => '#test'.$i,
                 'article_image' => '/images/sample-' . rand(1,6) . '.jpg',
-                'article_url' => 'http://www.XXXXXXX.co.jp/articles/00000000' . $i,
+                'article_url' => '/articles/' . $i,
                 'news_site_id' => rand(1,20)
             ]);
         }
@@ -175,10 +173,10 @@ class ArticlesLikesTableSeeder extends Seeder
     public function run()
     {
         DB::table('articles_likes_table')->delete();
-        for ($i = 1; $i < 5; $i++) {
+        for ($i = 1; $i < 500; $i++) {
             DB::table('articles_likes_table')->insert([
-                'article_id' => rand(1,10),
-                'user_id' => $i
+                'article_id' => rand(1,50),
+                'user_id' => rand(1,100)
             ]);
         }
     }
