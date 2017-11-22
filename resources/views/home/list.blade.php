@@ -49,19 +49,41 @@
                     <div class="card">
                         <div class="card-wrapper">
                                 <div class="card-image">
-                                  <a href="{{ route('user_article_detail') }}"><img src="images/sample-{{ $i }}.jpg"></a>
+                                  <a href="{{ route('user_article_detail',1) }}"><img src="images/sample-{{ $i }}.jpg"></a>
                                 </div>
                                 <div class="card-content">
                                     <span class="card-title">記事タイトル</span>
                                     <p class="card-text">@for($j=0; $j<2; $j++)ここに記事の内容の一部を表示@endfor</p>
                                 </div>
-                            <div class="card-action">
-                                <i class="goodicon material-icons" id="counter">thumb_up</i>
-                                <label class="showcounter" for="counter">100</label>
-                                <i class="goodicon material-icons" id="counter">remove_red_eye</i>
-                                <label class="showcounter" for="counter">1000</label>
-                            </div>
-                            <a href="{{ route('user_article_detail') }}"></a>
+                                <div class="card-action">
+                                  <a href="{{ route('user_article_detail',1) }}">READ MORE</a>
+                                  <div class="tags">
+                                    <div class="chip">
+                                      IT
+                                    </div>
+                                    <div class="chip">
+                                      デザイン
+                                    </div>
+                                    {{-- <div class="chip">
+                                      映像
+                                    </div>
+                                    <div class="chip">
+                                      アニメーション
+                                    </div> --}}
+                                  </div>
+
+                                  {{-- カウンター 実装するか検討 --}}
+                                  {{-- <div class="counter">
+                                    <i class="goodicon material-icons" id="counter">thumb_up</i>
+                                    <label class="showcounter" for="counter">100</label>
+                                  </div>
+                                  <div class="counter">
+                                    <i class="goodicon material-icons" id="counter">remove_red_eye</i>
+                                    <label class="showcounter" for="counter">1000</label>
+                                  </div> --}}
+
+                                </div>
+
                         </div>
                     </div>
                 </div>

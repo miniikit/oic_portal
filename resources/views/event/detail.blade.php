@@ -66,7 +66,7 @@
     <div class="comment col s12">
       <ul class="collection">
         <li class="collection-item avatar">
-          <img src="/images/sample-icon2.jpg" alt="" class="circle">
+          <img src="/images/profile_images/default.jpg" alt="" class="circle">
           <span class="name">name</span>
           <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
           <div class="wap-comment">
@@ -80,7 +80,7 @@
       <ul class="collection">
         @for ($i = 0; $i < 5; $i++)
           <li class="collection-item avatar">
-            <img src="/images/sample-icon2.jpg" alt="" class="circle">
+            <img src="/images/profile_images/default.jpg" alt="" class="circle">
             <span class="name">name</span>
             <p>
               ここにコメントを表示
