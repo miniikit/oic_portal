@@ -35,9 +35,12 @@ Route::get('/like', 'LikeController@index')->name('user_like');
 // 一覧
 Route::get('/articles/index', 'ArticlesController@index')->name('user_article_list');
 // 詳細
-Route::get('/articles/1000', 'ArticlesController@detail')->name('user_article_detail');
+Route::get('/articles/{id}', 'ArticlesController@detail')->name('user_article_detail');
 // 編集
 Route::get('/articles/1000/edit', 'ArticlesController@edit')->name('user_article_edit');
+// コメント投稿
+Route::post('/articles/{article_id}/comment', 'ArticlesController@store')->name('user_article_comment');
+//
 
 // TODO : URL設計
 Route::get('/articles/2017/03', 'ArticlesController@fake');
@@ -55,7 +58,10 @@ Route::get('/articles/post/complete', 'ArticlesController@fake')->name('user_art
  */
 Route::get('/report', 'FakeController@fake')->name('user_report');
 
+//フォロー
 Route::get('/mypage/follow', 'MypagesController@follow')->name('user_mypage_follow');
+//フォロワー
+Route::get('/mypage/follower', 'MypagesController@follower')->name('user_mypage_follower');
 
 Route::group(['middleware' => ['UserAuth']],function()
 {
@@ -66,7 +72,7 @@ Route::group(['middleware' => ['UserAuth']],function()
     // マイページ
     Route::get('/mypage', 'MypagesController@show')->name('user_mypage');
     // ユーザページ
-    Route::get('/user/1000', 'FakeController@fake')->name('user_profile');
+    Route::get('/user/1000', 'MypagesController@show_user')->name('user_profile');
 
     // 編集
     Route::get('/mypage/edit', 'MypagesController@edit')->name('user_mypage_edit');
@@ -74,6 +80,7 @@ Route::group(['middleware' => ['UserAuth']],function()
     /* // フォロー 作業中
     Route::get('/mypage/follow', 'MypagesController@follow')->name('user_mypage_follow');
     */
+
 
     // ブロック
     Route::get('/mypage/block', 'FakeController@fake')->name('user_mypage_block');
@@ -91,7 +98,7 @@ Route::group(['middleware' => ['UserAuth']],function()
  * コミュニティ
  */
 // 一覧
-Route::get('/community', 'FakeController@index')->name('user_community');
+Route::get('/community', 'CommunityController@index')->name('user_community');
 // 詳細
 Route::get('/community/{$id}', 'FakeController@show')->name('user_community_detail');
 
@@ -155,16 +162,3 @@ Route::post('/register/complete', 'Auth\RegisterController@complete')->name('use
 Route::get('/crawl', 'Crawl\CrawlController@getRss');
 Route::get('/crawl2', 'Crawl\CrawlController@getLists')->name('getImage');
 Route::get('/crawl/check', 'Crawl\CrawlController@customeCheck');
-
-
-Route::get('/list',function(){
-  return view('community.list');
-});
-
-Route::get('/detail',function(){
-  return view('community.detail');
-});
-
-Route::get('/creat',function(){
-  return view('community.creat');
-});
