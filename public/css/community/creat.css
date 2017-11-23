@@ -1,0 +1,70 @@
+@media only screen and (min-width: 0px) and (max-width: 600px){
+  #main{
+    margin-top: 10rem;
+  }
+  .input-field {
+    margin-bottom: 3rem;
+  }
+  .row .input-field.col.s6{
+    width: 100%;
+  }
+  .input-field .prefix.active{
+    color: darkgray;
+  }
+  textarea.materialize-textarea {
+    overflow-y: hidden;
+    padding: .8rem 0 1.6rem 0;
+    resize: none;
+    min-height: 10rem;
+}
+  button.waves-effect.waves-light.btn{
+    background-color:  darkgray;
+    font-size: 15px;
+  }
+}
+
+
+@media only screen and (min-width: 601px) {
+  #main{
+    margin-top: 10rem;
+  }
+  div.content{
+    position: relative;
+  }
+  form.col.s10{
+    margin: auto;
+  }
+  form{
+    width: 66%;
+    margin-left: auto;
+    left: auto;
+    right: auto
+  }
+  .input-field {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+  .input-field .prefix.active{
+    color: darkgray;
+  }
+  label{
+    font-size: 30px;
+  }
+  textarea.materialize-textarea {
+    overflow-y: hidden;
+    padding: .5rem 0 1.6rem 0;
+    resize: none;
+    min-height: 5rem;
+}
+  button.waves-effect.waves-light.btn{
+    background-color:  darkgray;
+    font-size: 20px;
+  }
+  div.col.s6.right-align{
+    padding-right: 2rem;
+  }
+  div.col.s6.left-align{
+    padding-left: 2rem;
+  }
+
+}

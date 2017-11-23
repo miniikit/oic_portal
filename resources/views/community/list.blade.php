@@ -12,6 +12,8 @@
     </h1>
   </div>
 
+
+
   <div class="row">
       <form class="col s12">
           <div class="input-field">
@@ -21,27 +23,20 @@
           </div>
       </form>
 
-      <div class="sort-box input-field col s4">
+      <div class="sort-box input-field col s6">
         <select>
           <option value="" disabled selected>並び替え</option>
           <option value="1">新着順</option>
           <option value="2">人気順</option>
         </select>
       </div>
-      <div class="sort-box input-field col s4">
+      <div class="sort-box input-field col s6">
         <select>
           <option value="" disabled selected>ジャンル</option>
           <option value="1">情報処理IT</option>
           <option value="2">ゲーム</option>
           <option value="3">CG・映像・アニメーション</option>
           <option value="4">デザイン・Web</option>
-        </select>
-      </div>
-      <div class="sort-box input-field col s4">
-        <select>
-          <option value="" disabled selected>開催状態</option>
-          <option value="1">未開催</option>
-          <option value="2">開催済みを含める</option>
         </select>
       </div>
 
@@ -54,8 +49,8 @@
                 </div>
                 <div class="card-stacked">
                   <div class="card-content">
-                    <span class="card-title">Card Title</span>
-                    <p>ここにイベント情報の一部を表示ここにイベント情報の一部を表示ここにイベント情報の一部を表示ここにイベント情報の一部を表示ここにイベント情報の一部を表示ここにイベント情報の一部を表示</p>
+                    <span class="card-title">コミュニティー名</span>
+                    <p class="card-text">ここにコミュニティー情報の一部を表示ここにコミュニティー情報の一部を表示ここにコミュニティー情報の一部を表示ここにコミュニティー情報の一部を表示ここにコミュニティー情報の一部を表示ここにコミュニティー情報の一部を表示</p>
                   </div>
                   <div class="card-action">
                     <span class="date">管理者xxxxx</span>
@@ -66,6 +61,15 @@
             </div>
           </div>
         @endfor
+      </div>
+      <div class="pager">
+        <ul class="pagination">
+          <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+          <li class="active"><a href="#!">1</a></li>
+          <li class="waves-effect"><a href="#!">2</a></li>
+          <li class="waves-effect"><a href="#!">3</a></li>
+          <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+        </ul>
       </div>
   </div>
 

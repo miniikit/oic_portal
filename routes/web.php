@@ -155,3 +155,16 @@ Route::post('/register/complete', 'Auth\RegisterController@complete')->name('use
 Route::get('/crawl', 'Crawl\CrawlController@getRss');
 Route::get('/crawl2', 'Crawl\CrawlController@getLists')->name('getImage');
 Route::get('/crawl/check', 'Crawl\CrawlController@customeCheck');
+
+
+Route::get('/list',function(){
+  return view('community.list');
+});
+
+Route::get('/detail',function(){
+  return view('community.detail');
+});
+
+Route::get('/creat',function(){
+  return view('community.creat');
+});

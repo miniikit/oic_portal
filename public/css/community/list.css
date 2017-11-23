@@ -7,16 +7,38 @@
 
 
 @media only screen and (max-width: 800px) {
-  .people{
+  .genre{
     float: right;
+  }
+  .people{
+    margin-left: 1rem;
+  }
+  p.card-text{
+    line-height:1.5rem;
+    letter-spacing: 0.01rem;
+  }
+  .pager {
+    text-align: center;
+    padding-top: 50px;
+    display: block;
   }
 }
 
 @media only screen and (min-width: 801px) {
+
   .genre{
     float: right;
   }
   .people{
     margin-left: 5rem;
-}
+  }
+  p.card-text{
+    line-height:1.5rem;
+    letter-spacing: 0.01rem;
+  }
+  .pager {
+    text-align: center;
+    padding-top: 50px;
+    display: block;
+  }
 }
