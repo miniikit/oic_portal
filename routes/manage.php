@@ -49,61 +49,61 @@ Route::post('/manage/article/category/1000/update','Manage\ArticlesCategoriesCon
  * 管理者 ー 記事
  */
 // 一覧
-Route::get('/manage/article', 'Manage\ArticlesCategoriesController@index')->name('manager_article_list');
+Route::get('/manage/article', 'Manage\ArticlesController@index')->name('manager_article_list');
 // 詳細
-Route::get('/manage/article/1000', 'Manage\ArticlesCategoriesController@show')->name('manager_article_detail');
+Route::get('/manage/article/1000', 'Manage\ArticlesController@show')->name('manager_article_detail');
 // 編集
-Route::get('/manage/article/1000/edit', 'Manage\ArticlesCategoriesController@edit')->name('manager_article_edit');
+Route::get('/manage/article/1000/edit', 'Manage\ArticlesController@edit')->name('manager_article_edit');
 // 更新
-Route::post('/manage/site/1000/update','Manage\SiteController@update')->name('manager_article_update');
+Route::post('/manage/site/1000/update','Manage\ArticlesController@update')->name('manager_article_update');
 
 
 /**
  * 管理者 ー ユーザ
  */
 // 一覧
-Route::get('/manage/user', 'Manage\ArticlesCategoriesController@index')->name('manager_user_list');
+Route::get('/manage/user', 'Manage\UserController@index')->name('manager_user_list');
 // 詳細
-Route::get('/manage/user/1000', 'Manage\ArticlesCategoriesController@show')->name('manager_user_detail');
+Route::get('/manage/user/1000', 'Manage\UserController@show')->name('manager_user_detail');
 // 編集
-Route::get('/manage/user/1000/edit', 'Manage\ArticlesCategoriesController@edit')->name('manager_user_edit');
+Route::get('/manage/user/1000/edit', 'Manage\UserController@edit')->name('manager_user_edit');
 // 更新
-Route::post('/manage/site/1000/update','Manage\SiteController@update')->name('manager_user_update');
+Route::post('/manage/site/1000/update','Manage\UserController@update')->name('manager_user_update');
 
 /**
  * 管理者 ー 管理者
  */
 // 一覧
-Route::get('/manage/manager', 'Manage\ArticlesCategoriesController@index')->name('manager_employee_list');
+Route::get('/manage/manager', 'Manage\EmployeesController@index')->name('manager_employee_list');
 // 詳細
-Route::get('/manage/manager/1000', 'Manage\ArticlesCategoriesController@show')->name('manager_employee_detail');
+Route::get('/manage/manager/1000', 'Manage\EmployeesController@show')->name('manager_employee_detail');
 // 編集
-Route::get('/manage/manager/1000/edit', 'Manage\ArticlesCategoriesController@edit')->name('manager_employee_edit');
+Route::get('/manage/manager/1000/edit', 'Manage\EmployeesController@edit')->name('manager_employee_edit');
 // 更新
-Route::post('/manage/site/1000/update','Manage\SiteController@update')->name('manager_employee_update');
+Route::post('/manage/site/1000/update','Manage\EmployeesController@update')->name('manager_employee_update');
 
 
 /**
  * 管理者 - コミュニティ
  */
 // 一覧
-Route::get('/manage/community', 'Manage\ArticlesCategoriesController@index')->name('manager_community_list');
+Route::get('/manage/community', 'Manage\CommunitiesController@index')->name('manager_community_list');
 // 詳細
-Route::get('/manage/community/1000', 'Manage\ArticlesCategoriesController@show')->name('manager_community_detail');
+Route::get('/manage/community/1000', 'Manage\CommunitiesController@show')->name('manager_community_detail');
 // 編集
-Route::get('/manage/community/1000/edit', 'Manage\ArticlesCategoriesController@edit')->name('manager_community_edit');
+Route::get('/manage/community/1000/edit', 'Manage\CommunitiesController@edit')->name('manager_community_edit');
 // 更新
-Route::post('/manage/site/1000/update','Manage\SiteController@update')->name('manager_community_update');
+Route::post('/manage/site/1000/update','Manage\CommunitiesController@update')->name('manager_community_update');
 
 
 /**
  * 管理者 - イベント
  */
 // 一覧
-Route::get('/manage/event', 'Manage\ArticlesCategoriesController@index')->name('manager_event_list');
+Route::get('/manage/event', 'Manage\EventsController@index')->name('manager_event_list');
 // 詳細
-Route::get('/manage/event/1000', 'Manage\ArticlesCategoriesController@show')->name('manager_event_detail');
+Route::get('/manage/event/1000', 'Manage\EventsController@show')->name('manager_event_detail');
 // 編集
-Route::get('/manage/event/1000/edit', 'Manage\ArticlesCategoriesController@edit')->name('manager_event_edit');
+Route::get('/manage/event/1000/edit', 'Manage\EventsController@edit')->name('manager_event_edit');
 // 更新
-Route::post('/manage/site/1000/update','Manage\SiteController@update')->name('manager_event_update');
+Route::post('/manage/site/1000/update','Manage\EventsController@update')->name('manager_event_update');
