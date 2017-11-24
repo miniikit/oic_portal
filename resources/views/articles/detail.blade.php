@@ -40,7 +40,8 @@
             <div class="comment col s12">
                 <ul class="collection">
                     <li class="collection-item avatar">
-                        <img src="/images/sample-icon2.jpg" alt="" class="circle">
+                        {{--TODO : アイコン実装--}}
+                        <img src="/images/profile_images/default.jpg" alt="" class="circle">
                         <span class="name">name</span>
                         <form action="{{ route('user_article_comment',$id) }}" method="POST">
                             <input type="text" id="icon_prefix2" class="materialize-textarea" name="comment_text" size="50">
@@ -66,7 +67,6 @@
                         @endforeach
                 </ul>
             </div>
-
         </div>
 
         <div class="col s12 m4 l3">

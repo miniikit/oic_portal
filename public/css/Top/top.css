@@ -11,3 +11,14 @@
 .showcounter{
   font-size: 1.1rem;
 }
+.card-action{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.tags{
+  display: flex;
+}
+.chip:first-child{
+  margin-right: 8px;
+}
