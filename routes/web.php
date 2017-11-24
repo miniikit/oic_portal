@@ -38,6 +38,9 @@ Route::get('/articles/index', 'ArticlesController@index')->name('user_article_li
 Route::get('/articles/{id}', 'ArticlesController@detail')->name('user_article_detail');
 // 編集
 Route::get('/articles/1000/edit', 'ArticlesController@edit')->name('user_article_edit');
+// コメント投稿
+Route::post('/articles/{article_id}/comment', 'ArticlesController@store')->name('user_article_comment');
+//
 
 // TODO : URL設計
 Route::get('/articles/2017/03', 'ArticlesController@fake');
