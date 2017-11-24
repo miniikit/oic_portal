@@ -10,7 +10,7 @@
         <div class="profile col s12">
           <div class="profile-rap col s12 center">
             {{-- <img class="image circle" src="{{ $profile['profile_image'] }}" alt=""> --}}
-            <img class="image circle" src="/images/profile_images/default.jpg" alt="">
+            <img class="image circle" src="{{App\Profile::find(Auth::user()->profile_id)->profile_image}}" alt="">
             <a class="edit-btn btn-floating waves-effect waves-light green"><i class="material-icons">edit</i></a>
           </div>
         </div>

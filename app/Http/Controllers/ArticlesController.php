@@ -32,4 +32,9 @@ class ArticlesController extends Controller
     {
         return view('articles.detail');
     }
+
+    public function write()
+    {
+        return view('articles.post');
+    }
 }
