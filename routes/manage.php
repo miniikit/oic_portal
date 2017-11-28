@@ -16,7 +16,9 @@ Route::get('/manage/crawl/home', 'Manage\CrawlScheduleController@home')->name('m
 // 一覧
 Route::get('/manage/crawl', 'Manage\CrawlScheduleController@index')->name('manager_crawl_list');
 // 詳細
-Route::get('/manage/crawl/1000', 'Manage\CrawlScheduleController@show')->name('manager_crawl_detail');
+Route::get('/manage/crawl/{id}', 'Manage\CrawlScheduleController@show')->name('manager_crawl_detail');
+// 更新
+Route::post('/manage/crawl/{id}/update','Manage\CrawlScheduleController@update')->name('manager_crawl_update');
 
 
 /**
