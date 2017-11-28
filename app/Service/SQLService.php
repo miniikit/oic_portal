@@ -30,7 +30,7 @@ class SQLService
     // クロールスケジュール取得
     public function getCrawlSchedules()
     {
-        return DB::table('crawler_schedule_table')->get();
+        return DB::table('crawler_schedule_table')->join('crawler_status_master','crawler_schedule_table.crawl_status_id','crawler_status_master.id')->get();
     }
 
     // クロールスケジュール詳細取得
@@ -43,8 +43,8 @@ class SQLService
     /*
      * クローラー
      */
-    // RSSサイト取得
-    public function getRssSites()
+    // サイト取得
+    public function getSites()
     {
         return DB::table('news_sites_master')->whereNull('deleted_at')->get();//->where('deleted_at','=','null')->get();
     }
@@ -52,11 +52,6 @@ class SQLService
     public function getArticlesTEST()
     {
         return DB::table('articles_table')->get();
-    }
-
-    public function getSites()
-    {
-
     }
 
     public function getOriginalSites()

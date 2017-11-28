@@ -115,10 +115,22 @@ class CrawlService
         return $word;
     }
 
-    public function newArticleCheck($site_id)
+    /**
+     * サイトでDBに格納されている最新記事のURLを返却
+     * @param $site_id
+     * @return \Illuminate\Database\Eloquent\Model|null|static
+     */
+    public function getLatestArticleUrlByDB($site_id)
     {
-        return DB::table('articles_table')->where('news_site_id','=',$site_id)->orderBy('id','desc')->first();
+        return DB::table('articles_table')->where('news_site_id','=',$site_id)->orderBy('id','desc')->select('articles_table.article_url')->first();
     }
+
+    public function checkNewArticle($latest_article_url,$urls)
+    {
+
+    }
+
+
 
 
     /*
