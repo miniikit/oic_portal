@@ -21,8 +21,8 @@ class CrawlController extends Controller
     public function customeCheck()
     {
         // TARGET PATH
-        $rss_url = ''; //サイトURL
-        $articles_list_tag = ''; // 記事一覧を取得するためのタグ
+        $rss_url = 'http://blog.trendmicro.co.jp/archives/16492'; //サイトURL
+        $articles_list_tag = '.post-text p'; // 記事一覧を取得するためのタグ
 
         // 処理
         $client = new Client();
