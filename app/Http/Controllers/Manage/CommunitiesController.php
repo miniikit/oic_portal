@@ -9,7 +9,7 @@ class CommunitiesController extends Controller
 {
     public function index()
     {
-        return view('manage.home');
+        return view('manage.communitymanage');
     }
 
     public function show()

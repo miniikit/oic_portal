@@ -1,0 +1,26 @@
+
+/*main*/
+.title{
+  font-size: 2em;
+  color: darkgray;
+}
+.title-box{
+  margin-bottom: 2rem;
+}
+.main-content{
+  background-color: #fff;
+  /*border-radius: 10px;*/
+  padding: 1rem;
+}
+.tb-title{
+  padding: 0.5rem;
+}
+.tb-text{
+  padding: 0.5rem;
+}
+
+
+/*side*/
+.side-content{
+  height: 1000px;
+}

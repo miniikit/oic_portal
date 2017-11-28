@@ -9,7 +9,7 @@ class EventsController extends Controller
 {
     public function index()
     {
-        return view('manage.home');
+        return view('manage.eventmanage');
     }
 
     public function show()

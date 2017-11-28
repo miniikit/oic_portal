@@ -9,17 +9,17 @@ class SiteController extends Controller
 {
     public function index()
     {
-        return view('manage.home');
+        return view('manage.sitemanage');
     }
 
     public function show()
     {
-        return view('manage.home');
+
     }
 
     public function edit()
     {
-        return view('manage.home');
+
     }
 
     public function update($id,Request $request)
