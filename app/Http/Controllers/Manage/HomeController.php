@@ -9,7 +9,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        return view('manage.home');
+        return view('manage.home.homemanage');
     }
 
     public function show()

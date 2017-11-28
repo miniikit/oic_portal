@@ -7,7 +7,7 @@
 @section('main')
   <div class="row">
     <div class="title-box center">
-      <h1 class="title">コミュニティ管理</h1>
+      <h1 class="title">記事管理</h1>
     </div>
     <div class="main-content col s12">
       <form>
@@ -19,11 +19,15 @@
       </form>
     <div class="col s12">
       <table class="table striped">
-        <thead>
+        <thead class="center">
           <tr>
-              <th class="tb-title">ここに項目名</th>
-              <th class="tb-title">ここに項目名</th>
-              <th class="tb-title">ここに項目名</th>
+            <th class="tb-title">記事ID</th>
+            <th class="tb-title">記事タイトル</th>
+            <th class="tb-title">本文</th>
+            <th class="tb-title">画像</th>
+            <th class="tb-title">ジャンル</th>
+            <th class="tb-title">記事URL</th>
+            <th class="tb-title">公開・非公開</th>
           </tr>
         </thead>
 
@@ -33,6 +37,11 @@
               <td class="tb-text">ここに内容</td>
               <td class="tb-text">ここに内容</td>
               <td class="tb-text">ここに内容</td>
+              <td class="tb-text">ここに内容</td>
+              <td class="tb-text">ここに内容</td>
+              <td class="tb-text">ここに内容</td>
+              <td class="tb-text">ここに内容</td>
+              <td class="tb-btn"><a class="del-btn waves-effect waves-light btn">削除</a></td>
             </tr>
           @endfor
         </tbody>

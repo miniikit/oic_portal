@@ -9,12 +9,12 @@ class ArticlesController extends Controller
 {
     public function index()
     {
-        return view('manage.articlemanage');
+        return view('manage.article.articlemanage');
     }
 
     public function show()
     {
-        return view('manage.home');
+        return view('manage.article.detail');
     }
 
     public function edit()

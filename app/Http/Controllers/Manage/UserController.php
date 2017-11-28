@@ -9,7 +9,7 @@ class UserController extends Controller
 {
     public function index()
     {
-        return view('manage.usermanage');
+        return view('manage.user.usermanage');
     }
 
     public function show()

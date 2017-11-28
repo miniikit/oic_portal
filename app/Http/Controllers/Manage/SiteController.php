@@ -9,7 +9,7 @@ class SiteController extends Controller
 {
     public function index()
     {
-        return view('manage.sitemanage');
+        return view('manage.site.sitemanage');
     }
 
     public function show()
