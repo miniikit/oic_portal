@@ -21,8 +21,8 @@ class CrawlController extends Controller
     public function customeCheck()
     {
         // TARGET PATH
-        $rss_url = 'http://www.itmedia.co.jp/news/articles/1711/10/news091.html'; //サイトURL
-        $articles_list_tag = 'div h1 big'; // 記事一覧を取得するためのタグ
+        $rss_url = 'http://blog.trendmicro.co.jp/archives/16492'; //サイトURL
+        $articles_list_tag = '.post-text p'; // 記事一覧を取得するためのタグ
 
         // 処理
         $client = new Client();
@@ -31,6 +31,7 @@ class CrawlController extends Controller
         // 記事URL取得
         $urls = $crawler->filter($articles_list_tag)->each(function ($node) {
             $results = $node->text();
+            //$results = $node->attr('src');
             return $results;
         });
         dd($urls);
