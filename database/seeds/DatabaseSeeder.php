@@ -43,6 +43,8 @@ class DatabaseSeeder extends Seeder
         $this->call('ChatsTableSeeder');
         $this->call('InquiriesTableSeeder');
         $this->call('ArticlesExclusionTableSeeder');
+        $this->call('CreateCrawlerStatusCategoriesMasterSeeder');
+        $this->call('CrawlerScheduleTableSeeder');
         //$this->call('MessagesTableSeeder');
 
         Model::reguard();
@@ -881,12 +883,58 @@ class ArticlesExclusionTableSeeder extends Seeder
 {
     public function run()
     {
-        DB::table('articles_exclusion')->delete();
-        DB::table('articles_exclusion')->insert([
+        DB::table('articles_exclusion_table')->delete();
+        DB::table('articles_exclusion_table')->insert([
            'exclusion_string' => '\n'
         ]);
     }
 }
+
+class CreateCrawlerStatusCategoriesMasterSeeder extends Seeder
+{
+    public function run()
+    {
+        $categories = ["予約","実行中","実行完了","キャンセル"];
+        DB::table('crawler_status_master')->delete();
+        foreach($categories as $category) {
+            DB::table('crawler_status_master')->insert([
+                'crawler_status' => $category,
+            ]);
+        }
+    }
+}
+
+class CrawlerScheduleTableSeeder extends Seeder
+{
+    public function run()
+    {
+        $max = 20;
+        $baseDate = Carbon::now()->subDay($max);
+        $count = -1;
+
+        $user = 0;
+
+        DB::table('crawler_schedule_table')->delete();
+        for($i=0; $i<$max; $i++) {
+            $date = $baseDate->addDay(++$count);
+            $endDate = $date->addHour();
+
+            // 時々ユーザが実行したことに
+            if($i % 4 === 0){
+                $user = rand(1,50);
+            }
+
+            DB::table('crawler_schedule_table')->insert([
+                'crawl_start_time' => $date,
+                'crawl_end_time' => $endDate,
+                'crawl_status_id' => rand(1,4),
+                'added_articles_count' => '31',
+                'user_id' => $user
+            ]);
+        }
+    }
+}
+
 
 /*
 class MessagesTableSeeder extends Seeder
