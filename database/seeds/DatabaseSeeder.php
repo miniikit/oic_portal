@@ -916,18 +916,22 @@ class CrawlerScheduleTableSeeder extends Seeder
 
         DB::table('crawler_schedule_table')->delete();
         for($i=0; $i<$max; $i++) {
-            $date = $baseDate->addDay(++$count);
-            $endDate = $date->addHour();
+            $date = $baseDate;
+            $date = $date->addDay(++$count);
+            $endDate = $date;
+            $endDate = $endDate->addHour();
 
             // 時々ユーザが実行したことに
             if($i % 4 === 0){
                 $user = rand(1,50);
             }
 
+            $crawlerStatus = rand(1,4);
+
             DB::table('crawler_schedule_table')->insert([
                 'crawl_start_time' => $date,
                 'crawl_end_time' => $endDate,
-                'crawl_status_id' => rand(1,4),
+                'crawl_status_id' => $crawlerStatus,
                 'added_articles_count' => '31',
                 'user_id' => $user
             ]);

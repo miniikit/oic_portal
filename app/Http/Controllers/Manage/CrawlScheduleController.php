@@ -33,11 +33,10 @@ class CrawlScheduleController extends Controller
     {
         // 全スケジュール
         $tasks = $this->sqlService->getCrawlSchedules();
-
         // 未実行
         $scheduled = array();
 
-        // 実行完了
+        // 開始時刻を過ぎているもの
         $finished = array();
 
         $now = Carbon::now();
@@ -67,6 +66,7 @@ class CrawlScheduleController extends Controller
      */
     public function show($id)
     {
+        // TODO : 画面埋め込み
         $task = $this->sqlService->getCrawlSchedule($id);
 
         return view('manage.home',compact('id','task'));
