@@ -664,8 +664,10 @@ class EventsTableSeeder extends Seeder
             DB::table('events_table')->insert([
                 'event_title' => $eventTitle[$i],
                 'event_text' => $eventTexts[$i],
+                'event_image' => '/images/sample-' . rand(1,6) . '.jpg',
                 'event_start_date_time' => Carbon::now(),
                 'event_end_date_time' => Carbon::now(),
+                'event_capacity' => rand(10,500),
                 'event_maker_id' => rand(1,$makermax)
             ]);
         }

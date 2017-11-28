@@ -46,25 +46,25 @@
       </div>
 
       <div class="row">
-        @for ($i=1; $i < 7; $i++)
+        @foreach($events as $event)
           <div class="col s12">
             <div class="change card horizontal">
                 <div class="card-image">
-                  <a href="/event/1000"><img src="/images/sample-{{ $i }}.jpg"></a>
+                  <a href="/event/1000"><img src="{{ $event->event_image }}"></a>
                 </div>
                 <div class="card-stacked">
                   <div class="card-content">
-                    <span class="card-title">Card Title</span>
-                    <p class="card-sentence">ここにイベント情報の一部を表示ここにイベント情報の一部を表示ここにイベント情報の一部を表示ここにイベント情報の一部を表示ここにイベント情報の一部を表示ここにイベント情報の一部を表示</p>
+                    <span class="card-title">{{ $event->event_title }}</span>
+                    <p class="card-sentence">{{ $event->event_text }}</p>
                   </div>
                   <div class="card-action">
-                    <span class="date">掲載期間 2017/XX/YY ~ 2017/XX/YY</span>
-                    <span class="people">xx/50</span>
+                    <span class="date">掲載期間 {{ $event->event_start_date_time }} ~ {{ $event->event_end_date_time }}</span>
+                    <span class="people">{{ $event->num }}/{{ $event->event_capacity }}</span>
                   </div>
                 </div>
             </div>
           </div>
-        @endfor
+        @endforeach
       </div>
   </div>
 
