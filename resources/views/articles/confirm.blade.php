@@ -9,6 +9,7 @@
     <div>
       <p class="title">確認画面</p>
     </div>
+    {{dd($data)}}
       <form>
         <div class="row">
         <div class="date_link col s12">
@@ -21,7 +22,7 @@
         </div>
 
         <div class="page-title">
-          <h1 class="title">Title</h1>
+          <h1 class="title">{{ $article->title }}</h1>
         </div>
 
         <div class="article-image">

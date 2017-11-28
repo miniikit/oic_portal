@@ -32,6 +32,14 @@ Route::get('/like', 'LikeController@index')->name('user_like');
 /**
  * 記事
  */
+// 投稿
+Route::get('/articles/write', 'ArticlesController@write')->name('user_article_write');
+// 確認
+Route::post('/articles/confirm', 'ArticlesController@confirm')->name('user_article_post_confirm');
+// 完了 TODO : いる？
+Route::post('/articles/post/complete', 'ArticlesController@fake')->name('user_article_post_complete');
+
+
 // 一覧
 Route::get('/articles/index', 'ArticlesController@index')->name('user_article_list');
 // 詳細
@@ -45,12 +53,6 @@ Route::post('/articles/{article_id}/comment', 'ArticlesController@store')->name(
 // TODO : URL設計
 Route::get('/articles/2017/03', 'ArticlesController@fake');
 
-// 投稿
-Route::get('/articles/post', 'ArticlesController@fake')->name('user_article_post');
-// 確認
-Route::get('/articles/post/confirm', 'ArticlesController@fake')->name('user_article_post_confirm');
-// 完了 TODO : いる？
-Route::get('/articles/post/complete', 'ArticlesController@fake')->name('user_article_post_complete');
 
 
 /**

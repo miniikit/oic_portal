@@ -15,6 +15,19 @@ class ArticlesController extends Controller
         return view('articles.index');
     }
 
+    //　投稿
+    public function write()
+    {
+        return view('articles.post');
+    }
+
+    // 投稿確認
+    public function confirm(Request $request)
+    {
+        $data = $request->all();
+        return view('articles.confirm',compact('data'));
+    }
+
     // 詳細
     public function detail($id)
     {
@@ -65,5 +78,4 @@ class ArticlesController extends Controller
         return redirect()->route('user_article_detail', compact('article_id'));
 
     }
-
 }

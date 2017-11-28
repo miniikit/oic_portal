@@ -17,8 +17,21 @@
   </div>
 
 <div class="row_content">
-  <form role="form" class="col s12" method="POST" action="{{ url('/register/complete') }}">
+  <form role="form" class="col s12" method="POST" action="{{ url('/register/complete') }}" enctype="multipart/form-data">
     {{ csrf_field() }}
+
+      <div class="input-field col s12">
+          <img src="/images/profile_images/default.jpg" alt="">
+          <input type="file" name="profile_image" value="" />
+          <label for="image">プロフィール画像</label>
+          <p>※ 拡張子: jpg png</p>
+      </div>
+
+      <div class="input-field col s12">
+          <i class="material-icons prefix">account_circle</i>
+          <input id="profile_name" type="text" class="validate" name="profile_name" value="{{ old('profile_name') }}">
+          <label for="profilename">プロフィール名</label>
+      </div>
 
     <div class="input-field col s12">
       <i class="material-icons prefix">account_circle</i>
@@ -52,7 +65,7 @@
 
 
     <div class="input-field rap">
-        <select id="categories" name="course_id" value="{{ old('course_id') }}">
+        <select id="categories" name="course_major" value="{{ old('course_major') }}">
             <option data-category="1" value="">学科を選択してください</option>
             <option data-category="2" value="1" class="it">情報処理IT</option>
             <option data-category="3" value="2" class="game">ゲーム</option>
@@ -63,14 +76,14 @@
     </div>
 
       <div class="target__select input-field rap" data-category="1">
-          <select  name="course_id2" value="{{ old('course_id2') }}">
+          <select  name="course_id" value="{{ old('course_id') }}">
               <option value="" selected disabled>コースを選択してください</option>
           </select>
           <label>コース</label>
       </div>
 
     <div class="target__select input-field rap none" data-category="2">
-      <select  name="course_id2" value="{{ old('course_id2') }}">
+      <select  name="course_id" value="{{ old('course_id') }}">
           <option value="5" class="it">ITスペシャリスト専攻</option>
           <option value="6" class="it">ネットワークセキュリティ専攻</option>
           <option value="7" class="it">システムエンジニア専攻</option>
@@ -83,7 +96,7 @@
     </div>
 
       <div class="target__select input-field rap none" data-category="3">
-          <select name="course_id2" value="{{ old('course_id2') }}">
+          <select name="course_id" value="{{ old('course_id') }}">
               <option value="12" class="game">ゲームプログラマー専攻</option>
               <option value="13" class="game">ゲームデザイナー専攻</option>
               <option value="14" class="game">ゲームプランナー専攻</option>
@@ -96,7 +109,7 @@
       </div>
 
       <div class="target__select input-field rap none" data-category="4">
-          <select name="course_id2" value="{{ old('course_id2') }}">
+          <select name="course_id" value="{{ old('course_id') }}">
               <option value="19" class="cg">CG映像クリエイター専攻</option>
               <option value="20"class="cg">CGクリエイター専攻</option>
               <option value="21" class="cg">CG映像コース</option>
@@ -106,7 +119,7 @@
       </div>
 
       <div class="target__select input-field rap none" data-category="5">
-          <select name="course_id2" value="{{ old('course_id2') }}">
+          <select name="course_id" value="{{ old('course_id') }}">
               <option value="19" class="design">アートディレクター専攻</option>
               <option value="20" class="design">Webデザインコース</option>
               <option value="21" class="design">グラフィックデザインコース</option>
