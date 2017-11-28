@@ -19,8 +19,8 @@
 <div class="row_content">
   <form role="form" class="col s12" method="POST" action="{{ url('/register/complete') }}" enctype="multipart/form-data">
     {{ csrf_field() }}
-
       <div class="input-field col s12">
+          {{--TODO : 画像書き換え実装--}}
           <img src="/images/profile_images/default.jpg" alt="">
           <input type="file" name="profile_image" value="" />
           <label for="image">プロフィール画像</label>

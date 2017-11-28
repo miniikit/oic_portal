@@ -35,9 +35,9 @@ Route::get('/like', 'LikeController@index')->name('user_like');
 // 投稿
 Route::get('/articles/write', 'ArticlesController@write')->name('user_article_write');
 // 確認
-Route::post('/articles/confirm', 'ArticlesController@confirm')->name('user_article_post_confirm');
-// 完了 TODO : いる？
-Route::post('/articles/post/complete', 'ArticlesController@fake')->name('user_article_post_complete');
+Route::post('/articles/confirm', 'ArticlesController@confirm')->name('user_article_confirm');
+// 完了
+Route::post('/articles/complete', 'ArticlesController@complete')->name('user_article_complete');
 
 
 // 一覧
