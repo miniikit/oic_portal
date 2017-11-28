@@ -46,4 +46,19 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Message');
     }
+
+    public function friends()
+    {
+        return $this->belongsToMany('App\User')->withTimestamps();
+    }
+
+    public function follow(User $user)
+    {
+       $this->friends();
+    }
+
+    public function unfollow(User $user)
+    {
+        $this->friends()->detach($user->id);
+    }
 }

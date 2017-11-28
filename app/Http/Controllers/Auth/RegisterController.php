@@ -72,30 +72,40 @@ class RegisterController extends Controller
         $userModel = app(User::class);
         $profileModel = app(Profile::class);
 
-        $profile = $profileModel->create([
-            'profile_image' => 'https://pbs.twimg.com/profile_images/835940654509342724/chujJdF__400x400.jpg',
-            'profile_name' => 'スパイスおじさん',
-            'profile_scyear' => $data['profile_scyear'],
-            'course_id' => $data['course_id2'],
-            'profile_admission_year' => Carbon::now(),
-            'profile_url' => $data['profile_url'],
-            'profile_introduction' => $data['profile_introduction'],
-        ]);
+            $carbon = Carbon::now();
 
-        $profile->save(); //多分いらない??
+            $imgfile = $request->file('profile_image');
 
-        if($profile){
-            $profileId = $profile->id;
+            $filename = $carbon->format('Y-m-d-H-i-s') . '.jpg';
+            $imgfile->move(public_path('/images/profile_images/'), $filename);
+
+
+            $profile_image = '/images/profile_images/' . $filename;
+
+            $profile = $profileModel->create([
+                'profile_image' => $profile_image,
+                'profile_name' => $data['profile_name'],
+                'course_id' => $data['course_id'],
+                'profile_admission_year' => Carbon::now(),
+                'profile_url' => $data['profile_url'],
+                'profile_introduction' => $data['profile_introduction'],
+            ]);
+
+            $profile->save(); //多分いらない??
+
+            if ($profile) {
+                $profileId = $profile->id;
+            }
+
+            $userModel->create([
+                'email' => $data['email'],
+                'name' => $data['name'],
+                'name_kana' => $data['kana'],
+                'authority_id' => 1,
+                'profile_id' => $profileId,
+            ]);
+
+            return view('auth.register.complete');
         }
-
-        $userModel->create([
-            'email' => $data['email'],
-            'name' => $data['name'],
-            'name_kana' => $data['kana'],
-            'authority_id' => 1,
-            'profile_id' => $profileId,
-        ]);
-
-        return view('auth.register.complete');
-    }
+    //}
 }
