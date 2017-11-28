@@ -13,7 +13,7 @@ class CreateArticlesExclusionTable extends Migration
      */
     public function up()
     {
-        Schema::create('articles_exclusion', function (Blueprint $table) {
+        Schema::create('articles_exclusion_table', function (Blueprint $table) {
             $table->increments('id');
             $table->string('exclusion_string',255);
             $table->timestamps();
@@ -27,6 +27,6 @@ class CreateArticlesExclusionTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('articles_exclusion');
+        Schema::dropIfExists('articles_exclusion_table');
     }
 }
