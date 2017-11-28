@@ -6,7 +6,6 @@
     "type": "project",
     "require": {
         "php": ">=7.0.0",
-        "almasaeed2010/adminlte": "~2.4",
         "barryvdh/laravel-debugbar": "^3.1",
         "fabpot/goutte": "^3.2",
         "fideloper/proxy": "~3.3",
