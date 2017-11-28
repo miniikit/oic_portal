@@ -2,29 +2,28 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
-use App\Course;
-use App\Profile;
-use Illuminate\Http\Request;
-use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use App\Service\SQLService;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
-
 
 class MypagesController extends Controller
 {
+    protected $SQLService;
+
+    public function __construct(SQLService $SQLService)
+    {
+        $this->SQLService = $SQLService;
+    }
+
     public function show()
     {
-     if(Auth::check()){
-        $userId = Auth::user()->id;
-        $user = app(User::class)::find($userId);
-        $profile = app(Profile::class)::where('id',$user->profile_id)->first();
-        $course = app(Course::class)::where('id',$profile->course_id)->first();
+        if(Auth::check()){
+            $profile = $this->SQLService->getUserProfile();
+            $course = $this->SQLService->getUserCourse();
 
-        return view('mypage.detail',compact('profile','course'));
-      }else{
-         return redirect()->route('user_login');
-      }
+            return view('mypage.detail', compact('profile', 'course'));
+        }else{
+            return redirect()->route('user_login');
+        }
     }
 
     public function edit()
@@ -39,11 +38,11 @@ class MypagesController extends Controller
 
     public function follow()
     {
-      return view('mypage.follow');
+        return view('mypage.follow');
     }
 
     public function follower()
     {
-      return view('mypage.follower');
+        return view('mypage.follower');
     }
 }

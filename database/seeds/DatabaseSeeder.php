@@ -133,7 +133,7 @@ class CoursesMasterSeeder extends Seeder
         for ($i = 0; $i < count($parentCourses); $i++) {
             DB::table('courses_master')->insert([
                 'course_name' => $parentCourses[$i],
-                'parent_course_id' => 0,
+                'parent_course_id' => 3,
                 'course_depth' => 0,
                 'course_year' => 0
             ]);
@@ -141,7 +141,6 @@ class CoursesMasterSeeder extends Seeder
         $courses = ['ITスペシャリスト専攻','ネットワークセキュリティ専攻','システムエンジニア専攻','ネットワークエンジニア専攻','Webエンジニア専攻','テクニカルコース','ネットワークシステムコース','ゲームプログラマー専攻','ゲームデザイナー専攻','ゲームプランナー専攻','ゲームクリエイター専攻(PG)','ゲームクリエイター専攻(CG)','ゲームプログラムコース','ゲームCGデザインコース','CG映像クリエイター専攻','CGクリエイター専攻','CG映像コース','CGアニメーションコース','アートディレクター専攻','Webデザインコース','グラフィックデザインコース','マンガイラストコース'];
         $parents = [1,1,1,1,1,1,1,2,2,2,2,2,2,2,3,3,3,3,4,4,4,4];
         $year = [4,4,3,3,3,2,2,4,4,4,3,3,2,2,4,3,2,2,3,2,2,2];
-        DB::table('courses_master')->delete();
         for ($i = 0; $i < count($courses); $i++) {
             DB::table('courses_master')->insert([
                 'course_name' => $courses[$i],
