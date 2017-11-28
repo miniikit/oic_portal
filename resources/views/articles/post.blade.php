@@ -7,19 +7,19 @@
 @section('main')
 
 <div class="content">
-  <form class="col s10">
+    <form class="col s10" method="POST" action="{{ url('/articles/confirm') }}" enctype="multipart/form-data">
     <div class="input-field col s12">
-      <input placeholder="タイトル" id="first_name" type="text" class="validate">
+      <input placeholder="タイトル" id="first_name" name="article_title" type="text" class="validate">
       <label for="first_name">タイトル</label>
     </div>
       <div class="input-field col s12">
-        <textarea id="textarea1" class="materialize-textarea" data-length="120"></textarea>
+        <textarea id="textarea1" class="materialize-textarea" name="article_text" data-length="120"></textarea>
         <label for="textarea1">記事本文</label>
       </div>
       <div class="file-field input-field">
           <input type="file" multiple>
         <div class="file-path-wrapper">
-          <input class="file-path validate" type="text" placeholder="画像選択">
+          <input class="file-path validate" type="text" name="article_image" placeholder="画像選択">
           <label for="image">画像選択</label>
         </div>
       </div>
@@ -40,12 +40,12 @@
           <label for="password">掲載期間</label>
         </div>
       </div>
-    </div>
+      <div class="row">
+        <div class="col s6 right-align"><button type="button" class="waves-effect waves-light btn">戻る</button></div>
+        <div class="col s6 left-align"><button type="submit" class="waves-effect waves-light btn">確認</button></div>
+      </div>
   </form>
-  <div class="row">
-      <div class="col s6 right-align"><button type="button" class="waves-effect waves-light btn">戻る</button></div>
-      <div class="col s6 left-align"><button type="submit" class="waves-effect waves-light btn">確認</button></div>
-  </div>
+</div>
 </div>
 
 @endsection
