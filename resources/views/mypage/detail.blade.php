@@ -53,8 +53,12 @@
           </div>
         </div>
 
+        <div class="prf-text col s12 life-align">
+          <h2 class="text">ここにポートフォリオ</h2>
+        </div>
+
         <div class="prf-text col s12 left-align">
-          <h2 class="text col s12">{{ $profile['profile_introduction'] }}</h2>
+          <h2 class="text">{{ $profile['profile_introduction'] }}</h2>
         </div>
       </div>
 
