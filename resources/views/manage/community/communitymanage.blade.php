@@ -17,11 +17,11 @@
               <i class="material-icons">close</i>
           </div>
       </form>
-    <div class="col s12">
+    <div class="table-wrp col s12">
       <table class="table striped">
         <thead>
           <tr>
-              <th class="tb-title">コミュニティID</th>
+              <th class="tb-title">ID</th>
               <th class="tb-title">コミュニティ名</th>
               <th class="tb-title">コミュニティコンテンツ</th>
           </tr>

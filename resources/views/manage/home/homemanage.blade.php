@@ -2,6 +2,7 @@
 
 @section('css')
   <link rel="stylesheet" href="/css/manage/home.css">
+  <link rel="stylesheet" href="/css/manage/managetemplete.css">
 @endsection
 
 @section('main')
@@ -21,25 +22,32 @@
             </div>
         </form>
       </div>
-      <table class="table striped">
-        <thead>
-          <tr>
-              <th class="tb-title">ここに項目名</th>
-              <th class="tb-title">ここに項目名</th>
-              <th class="tb-title">ここに項目名</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          @for ($i=0; $i < 30; $i++)
-            <tr class="tb-1">
-              <td class="tb-text">ここに内容</td>
-              <td class="tb-text">ここに内容</td>
-              <td class="tb-text">ここに内容</td>
+      <div class="table-wrp">
+        <table class="table-area striped">
+          <thead>
+            <tr>
+                <th class="tb-title">ID</th>
+                <th class="tb-title">カテゴリ</th>
+                <th class="tb-title">会員ID</th>
+                <th class="tb-title">通報内容</th>
+                <th class="tb-title">対処状態</th>
             </tr>
-          @endfor
-        </tbody>
-      </table>
+          </thead>
+
+          <tbody>
+            @for ($i=0; $i < 30; $i++)
+              <tr class="tb-1">
+                <td class="tb-text">ここに内容</td>
+                <td class="tb-text">ここに内容</td>
+                <td class="tb-text">ここに内容</td>
+                <td class="tb-text">ここに内容</td>
+                <td class="tb-text">ここに内容</td>
+                <td class="tb-btn"><a class="del-btn waves-effect waves-light btn">削除</a></td>
+              </tr>
+            @endfor
+          </tbody>
+        </table>
+      </div>
     </div>
     </div>
 

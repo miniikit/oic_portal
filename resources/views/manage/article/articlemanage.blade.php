@@ -17,11 +17,11 @@
               <i class="material-icons">close</i>
           </div>
       </form>
-    <div class="col s12">
+    <div class="table-wrp col s12">
       <table class="table striped">
         <thead class="center">
           <tr>
-            <th class="tb-title">記事ID</th>
+            <th class="tb-title">ID</th>
             <th class="tb-title">記事タイトル</th>
             <th class="tb-title">本文</th>
             <th class="tb-title">画像</th>

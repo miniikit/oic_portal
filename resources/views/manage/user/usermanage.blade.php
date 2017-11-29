@@ -17,13 +17,18 @@
               <i class="material-icons">close</i>
           </div>
       </form>
-    <div class="col s12">
+    <div class="table-wrp col s12">
       <table class="table striped">
         <thead>
           <tr>
-              <th class="tb-title">ここに項目名</th>
-              <th class="tb-title">ここに項目名</th>
-              <th class="tb-title">ここに項目名</th>
+              <th class="tb-title">ID</th>
+              <th class="tb-title">ユーザー名</th>
+              <th class="tb-title">フリガナ</th>
+              <th class="tb-title">ユーザー画像</th>
+              <th class="tb-title">学科</th>
+              <th class="tb-title">入学年度</th>
+              <th class="tb-title">ポートフォリオ</th>
+              <th class="tb-title">自己紹介</th>
           </tr>
         </thead>
 
@@ -33,6 +38,12 @@
               <td class="tb-text">ここに内容</td>
               <td class="tb-text">ここに内容</td>
               <td class="tb-text">ここに内容</td>
+              <td class="tb-text">ここに内容</td>
+              <td class="tb-text">ここに内容</td>
+              <td class="tb-text">ここに内容</td>
+              <td class="tb-text">ここに内容</td>
+              <td class="tb-text">ここに内容</td>
+              <td class="tb-btn"><a class="del-btn waves-effect waves-light btn">削除</a></td>
             </tr>
           @endfor
         </tbody>
