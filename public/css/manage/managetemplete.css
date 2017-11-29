@@ -21,6 +21,13 @@
 .tb-btn{
   text-align: center;
 }
+tr{
+  cursor:pointer;
+}
+tr:hover{
+  background:#ccc
+}
+
 .del-btn{
   margin: 10px;
 }

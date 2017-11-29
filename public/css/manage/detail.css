@@ -1,0 +1,26 @@
+
+/*main*/
+
+.title{
+  font-size: 2em;
+  color: darkgray;
+}
+.title-box{
+  margin-bottom: 2rem;
+}
+.main-content{
+  background-color: #fff;
+  margin: 1rem;
+}
+.th-box{
+  background-color: #004d40;
+  color: #fff;
+  padding: 0.1rem;
+  text-align: center;
+}
+.td-box{
+  padding: 1rem;
+}
+table,td,th{
+  border: 1px #fff solid;
+}
