@@ -26,4 +26,9 @@ class EventsController extends Controller
     {
         //dd($id,$request->all());
     }
+
+    public function delete($id,Request $request)
+    {
+        //dd($id,$request->all());
+    }
 }
