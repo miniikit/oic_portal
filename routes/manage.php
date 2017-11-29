@@ -135,10 +135,6 @@ Route::get('/manage/event/{id}', 'Manage\EventsController@show')->name('manager_
 // 編集
 Route::get('/manage/event/{id}/edit', 'Manage\EventsController@edit')->name('manager_event_edit');
 // 更新
-<<<<<<< HEAD
 Route::post('/manage/site/{id}/update','Manage\EventsController@update')->name('manager_event_update');
 // 削除
 Route::post('/manage/site/{id}/delete','Manage\EventsController@destroy')->name('manager_event_delete');
-=======
-Route::post('/manage/site/1000/update','Manage\EventsController@update')->name('manager_event_update');
->>>>>>> 71a58037f5729122867448c507a39de7cd84a4e6
