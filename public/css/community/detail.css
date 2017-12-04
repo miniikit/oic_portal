@@ -195,6 +195,20 @@
   .comment-submit{
     font-size: 0.7em;
   }
+  div.collapsible-body{
+    padding: 1rem;
+  }
+  img.admi{
+    width: 42px;
+    height: 42px;
+    overflow: hidden;
+    left: 15px;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  p.plink{
+    line-height: 2.5rem;
+  }
 
   div.but{
     text-align: center;

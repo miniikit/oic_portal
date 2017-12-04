@@ -100,7 +100,7 @@ Route::group(['middleware' => ['UserAuth']],function()
 // 一覧
 Route::get('/community', 'CommunityController@index')->name('user_community');
 // 詳細
-Route::get('/community/{$id}', 'FakeController@show')->name('user_community_detail');
+Route::get('/community/1000', 'CommunityController@show')->name('user_community_detail');
 
 // 更新
 Route::get('/community/1000/edit', 'FakeController@edit');
@@ -110,7 +110,7 @@ Route::get('/community/1000/edit/confirm', 'FakeController@edit');
 Route::get('/community/1000/edit/complete', 'FakeController@edit');
 
 // 新規作成
-Route::get('/community/new', 'FakeController@make');
+Route::get('/community/new', 'CommunityController@make')->name('user_community_creat');
 // 新規作成-確認
 Route::get('/community/new/confirm', 'FakeController@make');
 // 新規作成-完了

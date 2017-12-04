@@ -16,7 +16,7 @@
         <ul class="collection">
           @for ($i = 0; $i < 20; $i++)
             <li class="collection-item avatar">
-              <img src="/images/sample-icon2.jpg" alt="" class="circle">
+              <img src="/images/profile_images/default.jpg" alt="" class="circle">
               <span class="name">name</span>
               <p>
                 ここにコメントを表示
@@ -29,7 +29,7 @@
     <div class="comment">
       <ul class="collection">
         <li class="collection-item avatar">
-          <img src="/images/sample-icon2.jpg" alt="" class="circle">
+          <img src="/images/profile_images/default.jpg" alt="" class="circle">
           <span class="name">name</span>
           <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
           <div class="wap-comment">
@@ -53,7 +53,11 @@
        </li>
        <li>
          <div class="collapsible-header"><i class="material-icons">account_circle</i>管理者</div>
-         <div class="collapsible-body"><span>管理者について管理者について管理者について</span></div>
+         <div class="collapsible-body">
+             <img src="/images/profile_images/default.jpg" alt="" class="admi circle">
+             <span class="name">name</span>
+             <p class="plink">ここにプロフィールのリンク</p>
+         </div>
        </li>
        <li>
          <div class="collapsible-header"><i class="material-icons">people</i>メンバー</div>

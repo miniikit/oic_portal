@@ -12,6 +12,9 @@
     </h1>
   </div>
 
+<div class="c_but">
+  <a href="{{ route('user_community_creat') }}" class="add_btn btn-floating btn-large waves-effect waves-light"><i class="material-icons">add</i></a>
+</div>
 
 
   <div class="row">
@@ -45,7 +48,7 @@
           <div class="col s12">
             <div class="change card horizontal">
                 <div class="card-image">
-                  <a href="/event/1000"><img src="/images/sample-{{ $i }}.jpg"></a>
+                  <a href="/event/1000"><img src="/images/sample-{{ $i }}.jpg" class="cimg"></a>
                 </div>
                 <div class="card-stacked">
                   <div class="card-content">

@@ -4,9 +4,24 @@
   color: darkgray;
 }
 
-
-
-@media only screen and (max-width: 800px) {
+@media only screen and (min-width: 0px) and (max-width: 800px){
+  .title{
+    font-size: 1.5rem;
+    color: darkgray;
+  }
+  div.c_but{
+    float: right;
+  }
+  .btn-floating.btn-large {
+    width: 40px;
+    height: 40px;
+  }
+  .btn-floating.btn-large i {
+    line-height: 40px;
+  }
+  .btn-large i {
+    font-size: 1.5rem;
+  }
   .genre{
     float: right;
   }
@@ -24,8 +39,37 @@
   }
 }
 
-@media only screen and (min-width: 801px) {
+@media only screen and (min-width: 801px) and (max-width: 1430px){
+  div.c_but{
+    float: right;
+  }
+  .genre{
+    float: right;
+  }
+  .people{
+    margin-left: 5rem;
+  }
+  p.card-text{
+    line-height:1.5rem;
+    letter-spacing: 0.01rem;
+  }
+  .pager {
+    text-align: center;
+    padding-top: 50px;
+    display: block;
+  }
+  .card.horizontal .card-image img {
+    border-radius: 2px 0 0 2px;
+    max-width: 100%;
+    width: auto;
+    height: 100%;
+  }
+}
 
+@media only screen and (min-width: 1431px) {
+  div.c_but{
+    float: right;
+  }
   .genre{
     float: right;
   }

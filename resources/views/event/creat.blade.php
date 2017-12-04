@@ -1,7 +1,7 @@
 @extends('template.master')
 
 @section('css')
-  <link rel="stylesheet" href="/css/community/creat.css">
+  <link rel="stylesheet" href="/css/event/creat.css">
 @endsection
 
 @section('main')
@@ -9,12 +9,12 @@
 <div class="content">
   <form class="col s10">
     <div class="input-field col s12">
-      <input placeholder="コミュニティー名" id="first_name" type="text" class="validate">
-      <label for="first_name">コミュニティー名</label>
+      <input placeholder="イベント名" id="first_name" type="text" class="validate">
+      <label for="first_name">イベント名</label>
     </div>
     <div class="input-field col s12">
       <textarea id="textarea1" class="materialize-textarea" data-length="50"></textarea>
-      <label for="textarea1">コミュニティー内容</label>
+      <label for="textarea1">イベント内容</label>
     </div>
     <div class="file-field input-field">
       <input type="file" multiple>
@@ -40,6 +40,10 @@
               <a class="d_b btn-floating btn-large waves-effect waves-light" id="btn2"><i class="material-icons">delete</i></a>
             </div>
           </div>
+        </div>
+        <div class="input-field col s12">
+          <input type="text" class="datepicker">
+          <label for="password">掲載期間</label>
         </div>
       </div>
     </form>
