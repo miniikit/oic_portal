@@ -37,7 +37,7 @@ Route::get('/articles/write', 'ArticlesController@write')->name('user_article_wr
 // 確認
 Route::post('/articles/confirm', 'ArticlesController@confirm')->name('user_article_post_confirm');
 // 完了 TODO : いる？
-Route::post('/articles/post/complete', 'ArticlesController@fake')->name('user_article_post_complete');
+Route::get('/articles/post/complete', 'ArticlesController@complete')->name('user_article_post_complete');
 
 
 // 一覧
