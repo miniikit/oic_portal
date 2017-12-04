@@ -19,6 +19,7 @@ class EventsParticipantsTable extends Migration
            $table->integer('event_user_id');//会員ID
            $table->integer('event_authority_id');//権限ID
            $table->timestamps();
+           $table->softDeletes();
         });
     }
 
