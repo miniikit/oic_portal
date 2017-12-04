@@ -137,7 +137,7 @@ Route::get('/event/1000/edit/confirm', 'FakeController@edit');
 Route::get('/event/1000/edit/complete', 'FakeController@edit');
 
 // 新規作成
-Route::get('/event/new', 'FakeController@make');
+Route::get('/event/new', 'EventController@make');
 // 新規作成-確認
 Route::get('/event/new/confirm', 'FakeController@make');
 // 新規作成-完了   TODO : 関数名変更
