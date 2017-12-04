@@ -9,6 +9,18 @@ Route::get('/manage', 'Manage\HomeController@index')->name('manager_home');
 Route::get('/manage/detail', 'Manage\HomeController@show')->name('manager_detail');
 
 
+/**
+ * 管理者 - レポート
+ */
+// 一覧
+Route::get('/manage/report', 'Manage\ReportsController@home')->name('manager_report_list');
+// 詳細
+Route::get('/manage/report/{id}', 'Manage\ReportsController@home')->name('manager_report_detail');
+// 更新
+Route::post('/manage/report/{id}/update', 'Manage\ReportsController@home')->name('manager_report_update');
+// 削除
+Route::delete('/manage/report/{id}/delete', 'Manage\ReportsController@destroy')->name('manager_report_delete');
+
 
 /**
  * 管理者 - クローラー スケジュール
@@ -21,19 +33,23 @@ Route::get('/manage/crawl', 'Manage\CrawlScheduleController@index')->name('manag
 Route::get('/manage/crawl/{id}', 'Manage\CrawlScheduleController@show')->name('manager_crawl_detail');
 // 更新
 Route::post('/manage/crawl/{id}/update','Manage\CrawlScheduleController@update')->name('manager_crawl_update');
+// 削除
+Route::delete('/manage/crawl/{id}/delete','Manage\CrawlScheduleController@destroy')->name('manager_crawl_delete');
 
 
 /**
  * 管理者 ー ニュースサイト
  */
 // 一覧
-Route::get('/manage/site', 'Manage\SiteController@index')->name('manager_site_list');
+Route::get('/manage/site', 'Manage\SitesController@index')->name('manager_site_list');
 // 詳細
-Route::get('/manage/site/1000', 'Manage\SiteController@show')->name('manager_site_detail');
+Route::get('/manage/site/{id}', 'Manage\SitesController@show')->name('manager_site_detail');
 // 編集
-Route::get('/manage/site/1000/edit', 'Manage\SiteController@edit')->name('manager_site_edit');
+Route::get('/manage/site/{id}/edit', 'Manage\SitesController@edit')->name('manager_site_edit');
 // 更新
-Route::post('/manage/site/1000/update','Manage\SiteController@update')->name('manager_site_update');
+Route::post('/manage/site/{id}/update','Manage\SitesController@update')->name('manager_site_update');
+// 削除
+Route::delete('/manage/site/{id}/delete','Manage\SitesController@destroy')->name('manager_site_delete');
 
 
 /**
@@ -42,11 +58,13 @@ Route::post('/manage/site/1000/update','Manage\SiteController@update')->name('ma
 // 一覧
 Route::get('/manage/article/category', 'Manage\ArticlesCategoriesController@index')->name('manager_article_category_list');
 // 詳細
-Route::get('/manage/article/category/1000', 'Manage\ArticlesCategoriesController@show')->name('manager_article_category_detail');
+Route::get('/manage/article/category/{id}', 'Manage\ArticlesCategoriesController@show')->name('manager_article_category_detail');
 // 編集
-Route::get('/manage/article/category/1000/edit', 'Manage\ArticlesCategoriesController@edit')->name('manager_article_category_edit');
+Route::get('/manage/article/category/{id}/edit', 'Manage\ArticlesCategoriesController@edit')->name('manager_article_category_edit');
 // 更新
-Route::post('/manage/article/category/1000/update','Manage\ArticlesCategoriesController@update')->name('manager_article_category_update');
+Route::post('/manage/article/category/{id}/update','Manage\ArticlesCategoriesController@update')->name('manager_article_category_update');
+// 削除
+Route::delete('/manage/article/category/{id}/delete','Manage\ArticlesCategoriesController@destroy')->name('manager_article_category_delete');
 
 
 /**
@@ -55,24 +73,29 @@ Route::post('/manage/article/category/1000/update','Manage\ArticlesCategoriesCon
 // 一覧
 Route::get('/manage/article', 'Manage\ArticlesController@index')->name('manager_article_list');
 // 詳細
-Route::get('/manage/article/1000', 'Manage\ArticlesController@show')->name('manager_article_detail');
+Route::get('/manage/article/{id}', 'Manage\ArticlesController@show')->name('manager_article_detail');
 // 編集
-Route::get('/manage/article/1000/edit', 'Manage\ArticlesController@edit')->name('manager_article_edit');
+Route::get('/manage/article/{id}/edit', 'Manage\ArticlesController@edit')->name('manager_article_edit');
 // 更新
-Route::post('/manage/site/1000/update','Manage\ArticlesController@update')->name('manager_article_update');
+Route::post('/manage/site/{id}/update','Manage\ArticlesController@update')->name('manager_article_update');
+// 削除
+Route::delete('/manage/site/{id}/delete','Manage\ArticlesController@destroy')->name('manager_article_delete');
 
 
 /**
  * 管理者 ー ユーザ
  */
 // 一覧
-Route::get('/manage/user', 'Manage\UserController@index')->name('manager_user_list');
+Route::get('/manage/user', 'Manage\UsersController@index')->name('manager_user_list');
 // 詳細
-Route::get('/manage/user/1000', 'Manage\UserController@show')->name('manager_user_detail');
+Route::get('/manage/user/{id}', 'Manage\UsersController@show')->name('manager_user_detail');
 // 編集
-Route::get('/manage/user/1000/edit', 'Manage\UserController@edit')->name('manager_user_edit');
+Route::get('/manage/user/{id}/edit', 'Manage\UsersController@edit')->name('manager_user_edit');
 // 更新
-Route::post('/manage/site/1000/update','Manage\UserController@update')->name('manager_user_update');
+Route::post('/manage/site/{id}/update','Manage\UsersController@update')->name('manager_user_update');
+// 削除
+Route::delete('/manage/site/{id}/delete','Manage\UsersController@destroy')->name('manager_user_delete');
+
 
 /**
  * 管理者 ー 管理者
@@ -80,11 +103,13 @@ Route::post('/manage/site/1000/update','Manage\UserController@update')->name('ma
 // 一覧
 Route::get('/manage/manager', 'Manage\EmployeesController@index')->name('manager_employee_list');
 // 詳細
-Route::get('/manage/manager/1000', 'Manage\EmployeesController@show')->name('manager_employee_detail');
+Route::get('/manage/manager/{id}', 'Manage\EmployeesController@show')->name('manager_employee_detail');
 // 編集
-Route::get('/manage/manager/1000/edit', 'Manage\EmployeesController@edit')->name('manager_employee_edit');
+Route::get('/manage/manager/{id}/edit', 'Manage\EmployeesController@edit')->name('manager_employee_edit');
 // 更新
-Route::post('/manage/site/1000/update','Manage\EmployeesController@update')->name('manager_employee_update');
+Route::post('/manage/site/{id}/update','Manage\EmployeesController@update')->name('manager_employee_update');
+// 更新
+Route::delete('/manage/site/{id}/delete','Manage\EmployeesController@destroy')->name('manager_employee_delete');
 
 
 /**
@@ -93,11 +118,13 @@ Route::post('/manage/site/1000/update','Manage\EmployeesController@update')->nam
 // 一覧
 Route::get('/manage/community', 'Manage\CommunitiesController@index')->name('manager_community_list');
 // 詳細
-Route::get('/manage/community/1000', 'Manage\CommunitiesController@show')->name('manager_community_detail');
+Route::get('/manage/community/{id}', 'Manage\CommunitiesController@show')->name('manager_community_detail');
 // 編集
-Route::get('/manage/community/1000/edit', 'Manage\CommunitiesController@edit')->name('manager_community_edit');
+Route::get('/manage/community/{id}/edit', 'Manage\CommunitiesController@edit')->name('manager_community_edit');
 // 更新
-Route::post('/manage/site/1000/update','Manage\CommunitiesController@update')->name('manager_community_update');
+Route::post('/manage/site/{id}/update','Manage\CommunitiesController@update')->name('manager_community_update');
+// 削除
+Route::delete('/manage/site/{id}/delete','Manage\CommunitiesController@destroy')->name('manager_community_delete');
 
 
 /**
@@ -106,8 +133,10 @@ Route::post('/manage/site/1000/update','Manage\CommunitiesController@update')->n
 // 一覧
 Route::get('/manage/event', 'Manage\EventsController@index')->name('manager_event_list');
 // 詳細
-Route::get('/manage/event/1000', 'Manage\EventsController@show')->name('manager_event_detail');
+Route::get('/manage/event/{id}', 'Manage\EventsController@show')->name('manager_event_detail');
 // 編集
-Route::get('/manage/event/1000/edit', 'Manage\EventsController@edit')->name('manager_event_edit');
+Route::get('/manage/event/{id}/edit', 'Manage\EventsController@edit')->name('manager_event_edit');
 // 更新
-Route::post('/manage/site/1000/update','Manage\EventsController@update')->name('manager_event_update');
+Route::post('/manage/site/{id}/update','Manage\EventsController@update')->name('manager_event_update');
+// 削除
+Route::post('/manage/site/{id}/delete','Manage\EventsController@destroy')->name('manager_event_delete');

@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Manage;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class UserController extends Controller
+class UsersController extends Controller
 {
     public function index()
     {
@@ -23,6 +23,11 @@ class UserController extends Controller
     }
 
     public function update($id,Request $request)
+    {
+        //dd($id,$request->all());
+    }
+
+    public function delete($id,Request $request)
     {
         //dd($id,$request->all());
     }
