@@ -38,7 +38,7 @@
                     @else
                     <div class="user-view">
                         <div class="background"></div>
-                        <a href="#!user"><img class="circle" src=""></a>
+                        <a href="#!user"><img class="circle" src="{{App\Profile::find(Auth::user()->profile_id)->profile_image}}"></a>
                         <a href="#!name"><span class="black-text name">{{ Auth::user()->name }}</span></a>
                         <a href="#!email"><span class="black-text email">{{ Auth::user()->email }}</span></a>
                     </div>

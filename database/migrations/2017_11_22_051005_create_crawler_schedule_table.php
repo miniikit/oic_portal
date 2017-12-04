@@ -13,10 +13,10 @@ class CreateCrawlerScheduleTable extends Migration
      */
     public function up()
     {
-        Schema::create('crawler_schedule', function (Blueprint $table) {
+        Schema::create('crawler_schedule_table', function (Blueprint $table) {
             $table->increments('id');
             $table->dateTime('crawl_start_time');   // Crawl開始時刻
-            $table->dateTime('crawl_endt_time');    // Crawl終了時刻
+            $table->dateTime('crawl_end_time');    // Crawl終了時刻
             $table->integer('crawl_status_id'); // Crawl状態
             $table->integer('added_articles_count');  // 追加個数
             $table->integer('user_id'); // 担当者ID
@@ -32,6 +32,6 @@ class CreateCrawlerScheduleTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('crawler_schedule');
+        Schema::dropIfExists('crawler_schedule_table');
     }
 }

@@ -5,11 +5,11 @@ namespace App\Http\Controllers\Manage;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class SiteController extends Controller
+class UsersController extends Controller
 {
     public function index()
     {
-        return view('manage.home');
+        return view('manage.user.usermanage');
     }
 
     public function show()
@@ -23,6 +23,11 @@ class SiteController extends Controller
     }
 
     public function update($id,Request $request)
+    {
+        //dd($id,$request->all());
+    }
+
+    public function delete($id,Request $request)
     {
         //dd($id,$request->all());
     }

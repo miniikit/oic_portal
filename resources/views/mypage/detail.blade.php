@@ -10,7 +10,7 @@
         <div class="profile col s12">
           <div class="profile-rap col s12 center">
             {{-- <img class="image circle" src="{{ $profile['profile_image'] }}" alt=""> --}}
-            <img class="image circle" src="/images/profile_images/default.jpg" alt="">
+            <img class="image circle" src="{{App\Profile::find(Auth::user()->profile_id)->profile_image}}" alt="">
             <a class="edit-btn btn-floating waves-effect waves-light green"><i class="material-icons">edit</i></a>
           </div>
         </div>
@@ -41,20 +41,24 @@
         <div class="prf col s12">
           <div class="prf-content col s4">
             <h1 class="item" id="department">学科</h1>
-            <label class="item-sub" for="department">ここに学科</label>
+            <label class="item-sub" for="department">{{ $course->course_major }}</label>
           </div>
           <div class="prf-content col s4">
             <h1 class="item" id="course">コース</h1>
-            <label class="item-sub" for="course">{{ $course['course_name'] }}</label>
+            <label class="item-sub" for="course">{{ $course->course_name }}</label>
           </div>
           <div class="prf-content col s4">
             <h1 class="item" id="year">学年</h1>
-            <label class="item-sub" for="year">{{ $profile['profile_scyear'] }}</label>
+            <label class="item-sub" for="year">{{ $profile->profile_scyear }}</label>
           </div>
         </div>
 
+        <div class="prf-text col s12 life-align">
+          <h2 class="text">ここにポートフォリオ</h2>
+        </div>
+
         <div class="prf-text col s12 left-align">
-          <h2 class="text col s12">{{ $profile['profile_introduction'] }}</h2>
+          <h2 class="text">{{ $profile['profile_introduction'] }}</h2>
         </div>
       </div>
 

@@ -21,8 +21,8 @@ class CrawlController extends Controller
     public function customeCheck()
     {
         // TARGET PATH
-        $rss_url = 'http://www.itmedia.co.jp/news/articles/1711/10/news091.html'; //サイトURL
-        $articles_list_tag = 'div h1 big'; // 記事一覧を取得するためのタグ
+        $rss_url = 'http://blog.trendmicro.co.jp/archives/16492'; //サイトURL
+        $articles_list_tag = '.post-text p'; // 記事一覧を取得するためのタグ
 
         // 処理
         $client = new Client();
@@ -31,6 +31,7 @@ class CrawlController extends Controller
         // 記事URL取得
         $urls = $crawler->filter($articles_list_tag)->each(function ($node) {
             $results = $node->text();
+            //$results = $node->attr('src');
             return $results;
         });
         dd($urls);
@@ -41,7 +42,7 @@ class CrawlController extends Controller
     {
 
         $SQL = new SQLService();
-        $sites = $SQL->getRssSites();
+        $sites = $SQL->getSites();
 
 
         foreach ($sites as $site) {
@@ -55,13 +56,21 @@ class CrawlController extends Controller
             $tag_for_text = $site->news_site_tag_text;
 
 
-            $new = $this->crawlService->newArticleCheck($site_id);
-
             // 初期設定
             $client = $this->crawlService->makeCrient();
             $urls = $this->crawlService->getLists($client, $url, $tag_for_url);
             $titles = $this->crawlService->getLists($client, $url, $tag_for_title);
 
+
+            // サイトに更新があるか確認
+            $latest_article_url = $this->crawlService->getLatestArticleUrlByDB($site_id);
+            //$latest_article_url = "http://gigazine.net/news/20171128-macbook-egpu-rx-vega-64/";
+
+            if(in_array($latest_article_url,$urls)){
+                $this->crawlService->checkNewArticle($latest_article_url,$urls);
+            } else {
+                dd("false");
+            }
 
             for ($i = count($urls) - 1; $i > 0; $i--) {
                 // 記事取得
@@ -75,7 +84,7 @@ class CrawlController extends Controller
                 //$text = $this->crawlService->replaceWord($text);
 
                 // DB挿入
-                $query = $SQL->insertArticle($title, 'test image path', 'test text', $site_id);
+                $query = $SQL->insertArticle($title, 'image', 'text','URL', $site_id);
             }
         }
 
