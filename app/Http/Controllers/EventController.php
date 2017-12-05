@@ -39,5 +39,9 @@ class EventController extends Controller
     {
         return view('event.detail');
     }
+    public function make()
+    {
+        return view('event.creat');
+    }
 
 }
