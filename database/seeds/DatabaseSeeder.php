@@ -68,9 +68,18 @@ class UsersSeeder extends Seeder
             'profile_id' => 1
         ]);
 
-        // ユーザoic
+        //サブ管理者
         DB::table('users')->insert([
             'email' => 'oicportalapp2@gmail.com',
+            'name' => 'オイシー桜',
+            'name_kana' => 'オイシーサクラ',
+            'authority_id' => 2,
+            'profile_id' => 1
+        ]);
+
+        // ユーザoic
+        DB::table('users')->insert([
+            'email' => 'oicportalapp3@gmail.com',
             'name' => 'OIC USER',
             'name_kana' => 'おいしー　ユーザ',
             'authority_id' => 1,
@@ -96,7 +105,7 @@ class AuthoritiesMasterSeeder extends Seeder
     {
         $authorities = ['一般','サブ管理者','管理者'];
         DB::table('authorities_master')->delete();
-        for ($i = 1; $i < count($authorities); $i++) {
+        for ($i = 0; $i < count($authorities); $i++) {
             DB::table('authorities_master')->insert([
                 'authority_name' => $authorities[$i]
             ]);
