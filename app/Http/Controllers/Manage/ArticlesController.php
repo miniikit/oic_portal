@@ -9,12 +9,12 @@ class ArticlesController extends Controller
 {
     public function index()
     {
-        return view('manage.home');
+        return view('manage.article.articlemanage');
     }
 
     public function show()
     {
-        return view('manage.home');
+        return view('manage.article.detail');
     }
 
     public function edit()
@@ -23,6 +23,11 @@ class ArticlesController extends Controller
     }
 
     public function update($id,Request $request)
+    {
+        //dd($id,$request->all());
+    }
+
+    public function delete($id,Request $request)
     {
         //dd($id,$request->all());
     }

@@ -9,7 +9,7 @@ class CommunitiesController extends Controller
 {
     public function index()
     {
-        return view('manage.home');
+        return view('manage.community.communitymanage');
     }
 
     public function show()
@@ -23,6 +23,11 @@ class CommunitiesController extends Controller
     }
 
     public function update($id,Request $request)
+    {
+        //dd($id,$request->all());
+    }
+
+    public function delete($id,Request $request)
     {
         //dd($id,$request->all());
     }

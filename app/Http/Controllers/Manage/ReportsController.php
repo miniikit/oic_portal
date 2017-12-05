@@ -5,21 +5,21 @@ namespace App\Http\Controllers\Manage;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class EventsController extends Controller
+class ReportsController extends Controller
 {
     public function index()
     {
-        return view('manage.event.eventmanage');
+        return view('manage.report.list');
     }
 
     public function show()
     {
-        return view('manage.home');
+        return view('manage.report.detail');
     }
 
     public function edit()
     {
-        return view('manage.home');
+        return view('manage.report.edit');
     }
 
     public function update($id,Request $request)
