@@ -18,7 +18,7 @@
           </div>
       </form>
     <div class="table-wrp col s12">
-      <table class="table striped">
+      <table class="table">
         <thead>
           <tr>
               <th class="tb-title">ID</th>
@@ -32,7 +32,7 @@
 
         <tbody>
           @for ($i=0; $i < 30; $i++)
-            <tr class="tb-1">
+            <tr data-href="{{ route('manager_event_detail',1) }}">
               <td class="tb-text">ここに内容</td>
               <td class="tb-text">ここに内容</td>
               <td class="tb-text">ここに内容</td>
@@ -50,5 +50,14 @@
 @endsection
 
 @section('script')
-
+  <script type="text/javascript">
+  jQuery(function($) {
+  $('tr[data-href]').addClass('clickable')
+    .click(function(e) {
+      if(!$(e.target).is('a')){
+        window.location = $(e.target).closest('tr').data('href');
+      };
+  });
+  });
+  </script>
 @endsection

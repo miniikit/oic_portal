@@ -2,10 +2,36 @@
 div.content{
   position: relative;
 }
+div.center-align{
+  margin: auto;
+}
+p.title{
+  margin-bottom: 3rem;
+  line-height: 5rem;
+  font-size: 40px;
+  color: darkgray;
+  text-align: center;
+}
 p.text{
-  height: 50px;
-  line-height: 300px;
+  height: 30px;
   font-size: 30px;
   color: darkgray;
   text-align: center;
+}
+p.text_1{
+  height: 30px;
+  line-height: 5rem;
+  font-size: 30px;
+  color: darkgray;
+  text-align: center;
+}
+div.re_b{
+  margin-top: 5rem;
+}
+.submit-btn{
+  width: 250px;
+  height: 54px;
+  line-height: 54px;
+  font-size: 1.3em;
+  background-color: darkgray;
 }

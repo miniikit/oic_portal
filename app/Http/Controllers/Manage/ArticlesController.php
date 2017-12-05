@@ -19,7 +19,7 @@ class ArticlesController extends Controller
 
     public function edit()
     {
-        return view('manage.home');
+        return view('manage.article.edit');
     }
 
     public function update($id,Request $request)
