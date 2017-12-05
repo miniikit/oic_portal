@@ -18,6 +18,7 @@ class ArticlesLikesTable extends Migration
             $table->integer('article_id');//記事ID
             $table->integer('user_id');//会員ID
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

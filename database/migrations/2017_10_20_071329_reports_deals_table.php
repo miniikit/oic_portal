@@ -19,6 +19,7 @@ class ReportsDealsTable extends Migration
             $table->integer('user_id');//会員ID
             $table->string('report_deal_comment',300);//コメント
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
             $table->integer('profile_id');//プロフィールID
             $table->rememberToken();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

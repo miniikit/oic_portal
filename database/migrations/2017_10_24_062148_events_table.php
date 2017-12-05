@@ -21,6 +21,7 @@ class EventsTable extends Migration
            $table->dateTime('event_end_date_time');//イベント終了日時
            $table->integer('event_maker_id');//イベント作成者ID
            $table->timestamps();
+           $table->softDeletes();
         });
     }
 

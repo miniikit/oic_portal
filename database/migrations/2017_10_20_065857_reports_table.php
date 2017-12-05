@@ -20,6 +20,7 @@ class ReportsTable extends Migration
             $table->string('report_contents',255);//通報内容
             $table->integer('report_deal_status_id');//通報対処状態ID
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

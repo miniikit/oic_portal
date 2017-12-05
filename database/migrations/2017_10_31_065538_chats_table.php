@@ -19,6 +19,7 @@ class ChatsTable extends Migration
             $table->integer('chat_user2_id');//会員2_ID
             $table->text('chat_text');//チャット内容
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

@@ -18,6 +18,7 @@ class ReportsRisksCategoriesMaster extends Migration
             $table->string('report_risk_category_name',30);//通報危険度カテゴリ名
             $table->string('report_risk_num',3);//リスク数値
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

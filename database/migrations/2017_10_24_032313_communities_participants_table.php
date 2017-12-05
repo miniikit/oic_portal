@@ -18,6 +18,7 @@ class CommunitiesParticipantsTable extends Migration
            $table->integer('community_id');//コミュニティID
            $table->integer('user_id');//会員ID
            $table->timestamps();
+           $table->softDeletes();
         });
     }
 
