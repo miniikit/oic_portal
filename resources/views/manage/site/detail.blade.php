@@ -7,7 +7,7 @@
 @section('main')
   <div class="row">
     <div class="title-box center">
-      <h1 class="title">記事詳細</h1>
+      <h1 class="title">サイト詳細</h1>
     </div>
     <div class="main-content">
       <table>

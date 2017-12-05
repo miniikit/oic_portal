@@ -965,7 +965,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2017-12-04T14:19:08+00:00"
+            "time": "2017-12-04 14:19:08"
         },
         {
             "name": "laravel/socialite",
@@ -2084,7 +2084,11 @@
             ],
             "description": "Symfony BrowserKit Component",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
+            "time": "2017-11-07 14:20:24"
+=======
             "time": "2017-11-07T14:20:24+00:00"
+>>>>>>> 93812f0cea9cd24070308434e0d5fd9729174a18
         },
         {
             "name": "symfony/console",
@@ -2153,7 +2157,11 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
+            "time": "2017-12-02 18:20:11"
+=======
             "time": "2017-12-02T18:20:11+00:00"
+>>>>>>> 93812f0cea9cd24070308434e0d5fd9729174a18
         },
         {
             "name": "symfony/css-selector",
@@ -2206,7 +2214,11 @@
             ],
             "description": "Symfony CssSelector Component",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
+            "time": "2017-11-05 16:10:10"
+=======
             "time": "2017-11-05T16:10:10+00:00"
+>>>>>>> 93812f0cea9cd24070308434e0d5fd9729174a18
         },
         {
             "name": "symfony/debug",
@@ -2262,7 +2274,11 @@
             ],
             "description": "Symfony Debug Component",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
+            "time": "2017-11-21 09:01:46"
+=======
             "time": "2017-11-21T09:01:46+00:00"
+>>>>>>> 93812f0cea9cd24070308434e0d5fd9729174a18
         },
         {
             "name": "symfony/dom-crawler",
@@ -2318,7 +2334,11 @@
             ],
             "description": "Symfony DomCrawler Component",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
+            "time": "2017-11-05 16:10:10"
+=======
             "time": "2017-11-05T16:10:10+00:00"
+>>>>>>> 93812f0cea9cd24070308434e0d5fd9729174a18
         },
         {
             "name": "symfony/event-dispatcher",
@@ -2381,7 +2401,11 @@
             ],
             "description": "Symfony EventDispatcher Component",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
+            "time": "2017-11-09 14:14:31"
+=======
             "time": "2017-11-09T14:14:31+00:00"
+>>>>>>> 93812f0cea9cd24070308434e0d5fd9729174a18
         },
         {
             "name": "symfony/finder",
@@ -2430,7 +2454,11 @@
             ],
             "description": "Symfony Finder Component",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
+            "time": "2017-11-05 16:10:10"
+=======
             "time": "2017-11-05T16:10:10+00:00"
+>>>>>>> 93812f0cea9cd24070308434e0d5fd9729174a18
         },
         {
             "name": "symfony/http-foundation",
@@ -2484,7 +2512,11 @@
             ],
             "description": "Symfony HttpFoundation Component",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
+            "time": "2017-11-30 14:56:21"
+=======
             "time": "2017-11-30T14:56:21+00:00"
+>>>>>>> 93812f0cea9cd24070308434e0d5fd9729174a18
         },
         {
             "name": "symfony/http-kernel",
@@ -2572,7 +2604,11 @@
             ],
             "description": "Symfony HttpKernel Component",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
+            "time": "2017-12-04 23:05:00"
+=======
             "time": "2017-12-04T23:05:00+00:00"
+>>>>>>> 93812f0cea9cd24070308434e0d5fd9729174a18
         },
         {
             "name": "symfony/polyfill-mbstring",
@@ -2693,6 +2729,65 @@
             "time": "2017-10-11T12:05:26+00:00"
         },
         {
+            "name": "symfony/polyfill-php70",
+            "version": "v1.6.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/polyfill-php70.git",
+                "reference": "0442b9c0596610bd24ae7b5f0a6cdbbc16d9fcff"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/polyfill-php70/zipball/0442b9c0596610bd24ae7b5f0a6cdbbc16d9fcff",
+                "reference": "0442b9c0596610bd24ae7b5f0a6cdbbc16d9fcff",
+                "shasum": ""
+            },
+            "require": {
+                "paragonie/random_compat": "~1.0|~2.0",
+                "php": ">=5.3.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.6-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Polyfill\\Php70\\": ""
+                },
+                "files": [
+                    "bootstrap.php"
+                ],
+                "classmap": [
+                    "Resources/stubs"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony polyfill backporting some PHP 7.0+ features to lower PHP versions",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "compatibility",
+                "polyfill",
+                "portable",
+                "shim"
+            ],
+            "time": "2017-10-11 12:05:26"
+        },
+        {
             "name": "symfony/process",
             "version": "v3.4.1",
             "source": {
@@ -2739,7 +2834,11 @@
             ],
             "description": "Symfony Process Component",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
+            "time": "2017-11-22 12:18:49"
+=======
             "time": "2017-11-22T12:18:49+00:00"
+>>>>>>> 93812f0cea9cd24070308434e0d5fd9729174a18
         },
         {
             "name": "symfony/routing",
@@ -2817,7 +2916,11 @@
                 "uri",
                 "url"
             ],
+<<<<<<< HEAD
+            "time": "2017-11-24 14:13:49"
+=======
             "time": "2017-11-24T14:13:49+00:00"
+>>>>>>> 93812f0cea9cd24070308434e0d5fd9729174a18
         },
         {
             "name": "symfony/translation",
@@ -2885,7 +2988,11 @@
             ],
             "description": "Symfony Translation Component",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
+            "time": "2017-11-27 14:23:00"
+=======
             "time": "2017-11-27T14:23:00+00:00"
+>>>>>>> 93812f0cea9cd24070308434e0d5fd9729174a18
         },
         {
             "name": "symfony/var-dumper",
@@ -2954,7 +3061,11 @@
                 "debug",
                 "dump"
             ],
+<<<<<<< HEAD
+            "time": "2017-11-30 14:59:23"
+=======
             "time": "2017-11-30T14:59:23+00:00"
+>>>>>>> 93812f0cea9cd24070308434e0d5fd9729174a18
         },
         {
             "name": "tijsverkoyen/css-to-inline-styles",
@@ -3107,7 +3218,11 @@
                 "constructor",
                 "instantiate"
             ],
+<<<<<<< HEAD
+            "time": "2015-06-14 21:17:01"
+=======
             "time": "2015-06-14T21:17:01+00:00"
+>>>>>>> 93812f0cea9cd24070308434e0d5fd9729174a18
         },
         {
             "name": "filp/whoops",
@@ -4024,7 +4139,11 @@
                 "testing",
                 "xunit"
             ],
+<<<<<<< HEAD
+            "time": "2017-12-02 05:36:24"
+=======
             "time": "2017-12-02T05:36:24+00:00"
+>>>>>>> 93812f0cea9cd24070308434e0d5fd9729174a18
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -4083,7 +4202,11 @@
                 "mock",
                 "xunit"
             ],
+<<<<<<< HEAD
+            "time": "2017-12-02 05:31:19"
+=======
             "time": "2017-12-02T05:31:19+00:00"
+>>>>>>> 93812f0cea9cd24070308434e0d5fd9729174a18
         },
         {
             "name": "sebastian/code-unit-reverse-lookup",
