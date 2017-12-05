@@ -78,4 +78,8 @@ class ArticlesController extends Controller
         return redirect()->route('user_article_detail', compact('article_id'));
 
     }
+    public function complete()
+    {
+      return view('articles.complete');
+    }
 }
