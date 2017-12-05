@@ -283,7 +283,7 @@
                 "validation",
                 "validator"
             ],
-            "time": "2017-11-15T23:40:40+00:00"
+            "time": "2017-11-15 23:40:40"
         },
         {
             "name": "erusev/parsedown",
@@ -328,7 +328,9 @@
                 "markdown",
                 "parser"
             ],
-            "time": "2017-11-14T20:44:03+00:00"
+
+            "time": "2017-11-14 20:44:03"
+
         },
         {
             "name": "fabpot/goutte",
@@ -383,7 +385,9 @@
             "keywords": [
                 "scraper"
             ],
-            "time": "2017-11-19T08:45:40+00:00"
+
+            "time": "2017-11-19 08:45:40"
+
         },
         {
             "name": "fideloper/proxy",
@@ -965,7 +969,9 @@
                 "framework",
                 "laravel"
             ],
+
             "time": "2017-12-04 14:19:08"
+
         },
         {
             "name": "laravel/socialite",
@@ -1027,7 +1033,9 @@
                 "laravel",
                 "oauth"
             ],
-            "time": "2017-11-06T16:02:48+00:00"
+
+            "time": "2017-11-06 16:02:48"
+
         },
         {
             "name": "laravel/tinker",
@@ -1523,7 +1531,10 @@
                 "parser",
                 "php"
             ],
-            "time": "2017-11-04T11:48:34+00:00"
+
+            "time": "2017-11-04 11:48:34"
+
+
         },
         {
             "name": "paragonie/random_compat",
@@ -1838,7 +1849,9 @@
                 "interactive",
                 "shell"
             ],
-            "time": "2017-11-16T14:29:51+00:00"
+
+            "time": "2017-11-16 14:29:51"
+
         },
         {
             "name": "pusher/pusher-php-server",
@@ -2084,11 +2097,9 @@
             ],
             "description": "Symfony BrowserKit Component",
             "homepage": "https://symfony.com",
-<<<<<<< HEAD
+
             "time": "2017-11-07 14:20:24"
-=======
-            "time": "2017-11-07T14:20:24+00:00"
->>>>>>> 93812f0cea9cd24070308434e0d5fd9729174a18
+
         },
         {
             "name": "symfony/console",
@@ -2157,11 +2168,9 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-<<<<<<< HEAD
+
             "time": "2017-12-02 18:20:11"
-=======
-            "time": "2017-12-02T18:20:11+00:00"
->>>>>>> 93812f0cea9cd24070308434e0d5fd9729174a18
+
         },
         {
             "name": "symfony/css-selector",
@@ -2214,11 +2223,9 @@
             ],
             "description": "Symfony CssSelector Component",
             "homepage": "https://symfony.com",
-<<<<<<< HEAD
+
             "time": "2017-11-05 16:10:10"
-=======
-            "time": "2017-11-05T16:10:10+00:00"
->>>>>>> 93812f0cea9cd24070308434e0d5fd9729174a18
+
         },
         {
             "name": "symfony/debug",
@@ -2274,11 +2281,9 @@
             ],
             "description": "Symfony Debug Component",
             "homepage": "https://symfony.com",
-<<<<<<< HEAD
+
             "time": "2017-11-21 09:01:46"
-=======
-            "time": "2017-11-21T09:01:46+00:00"
->>>>>>> 93812f0cea9cd24070308434e0d5fd9729174a18
+
         },
         {
             "name": "symfony/dom-crawler",
@@ -2334,11 +2339,9 @@
             ],
             "description": "Symfony DomCrawler Component",
             "homepage": "https://symfony.com",
-<<<<<<< HEAD
+
             "time": "2017-11-05 16:10:10"
-=======
-            "time": "2017-11-05T16:10:10+00:00"
->>>>>>> 93812f0cea9cd24070308434e0d5fd9729174a18
+
         },
         {
             "name": "symfony/event-dispatcher",
@@ -2401,11 +2404,9 @@
             ],
             "description": "Symfony EventDispatcher Component",
             "homepage": "https://symfony.com",
-<<<<<<< HEAD
+
             "time": "2017-11-09 14:14:31"
-=======
-            "time": "2017-11-09T14:14:31+00:00"
->>>>>>> 93812f0cea9cd24070308434e0d5fd9729174a18
+
         },
         {
             "name": "symfony/finder",
@@ -2454,11 +2455,9 @@
             ],
             "description": "Symfony Finder Component",
             "homepage": "https://symfony.com",
-<<<<<<< HEAD
+
             "time": "2017-11-05 16:10:10"
-=======
-            "time": "2017-11-05T16:10:10+00:00"
->>>>>>> 93812f0cea9cd24070308434e0d5fd9729174a18
+
         },
         {
             "name": "symfony/http-foundation",
@@ -2512,11 +2511,9 @@
             ],
             "description": "Symfony HttpFoundation Component",
             "homepage": "https://symfony.com",
-<<<<<<< HEAD
+
             "time": "2017-11-30 14:56:21"
-=======
-            "time": "2017-11-30T14:56:21+00:00"
->>>>>>> 93812f0cea9cd24070308434e0d5fd9729174a18
+
         },
         {
             "name": "symfony/http-kernel",
@@ -2604,11 +2601,9 @@
             ],
             "description": "Symfony HttpKernel Component",
             "homepage": "https://symfony.com",
-<<<<<<< HEAD
+
             "time": "2017-12-04 23:05:00"
-=======
-            "time": "2017-12-04T23:05:00+00:00"
->>>>>>> 93812f0cea9cd24070308434e0d5fd9729174a18
+
         },
         {
             "name": "symfony/polyfill-mbstring",
@@ -2834,11 +2829,9 @@
             ],
             "description": "Symfony Process Component",
             "homepage": "https://symfony.com",
-<<<<<<< HEAD
+
             "time": "2017-11-22 12:18:49"
-=======
-            "time": "2017-11-22T12:18:49+00:00"
->>>>>>> 93812f0cea9cd24070308434e0d5fd9729174a18
+
         },
         {
             "name": "symfony/routing",
@@ -2916,11 +2909,9 @@
                 "uri",
                 "url"
             ],
-<<<<<<< HEAD
+
             "time": "2017-11-24 14:13:49"
-=======
-            "time": "2017-11-24T14:13:49+00:00"
->>>>>>> 93812f0cea9cd24070308434e0d5fd9729174a18
+
         },
         {
             "name": "symfony/translation",
@@ -2988,11 +2979,9 @@
             ],
             "description": "Symfony Translation Component",
             "homepage": "https://symfony.com",
-<<<<<<< HEAD
+
             "time": "2017-11-27 14:23:00"
-=======
-            "time": "2017-11-27T14:23:00+00:00"
->>>>>>> 93812f0cea9cd24070308434e0d5fd9729174a18
+
         },
         {
             "name": "symfony/var-dumper",
@@ -3061,11 +3050,9 @@
                 "debug",
                 "dump"
             ],
-<<<<<<< HEAD
+
             "time": "2017-11-30 14:59:23"
-=======
-            "time": "2017-11-30T14:59:23+00:00"
->>>>>>> 93812f0cea9cd24070308434e0d5fd9729174a18
+
         },
         {
             "name": "tijsverkoyen/css-to-inline-styles",
@@ -3218,11 +3205,9 @@
                 "constructor",
                 "instantiate"
             ],
-<<<<<<< HEAD
-            "time": "2015-06-14 21:17:01"
-=======
-            "time": "2015-06-14T21:17:01+00:00"
->>>>>>> 93812f0cea9cd24070308434e0d5fd9729174a18
+
+            "time": "2017-07-22 11:58:36"
+
         },
         {
             "name": "filp/whoops",
@@ -3283,7 +3268,9 @@
                 "throwable",
                 "whoops"
             ],
-            "time": "2017-11-23T18:22:44+00:00"
+
+            "time": "2017-11-23 18:22:44"
+
         },
         {
             "name": "fzaninotto/faker",
@@ -3695,7 +3682,9 @@
                 }
             ],
             "description": "With this component, a library can provide support for annotations via DocBlocks or otherwise retrieve information that is embedded in a DocBlock.",
-            "time": "2017-11-27T17:38:31+00:00"
+
+            "time": "2017-11-27 17:38:31"
+
         },
         {
             "name": "phpdocumentor/type-resolver",
@@ -3805,7 +3794,9 @@
                 "spy",
                 "stub"
             ],
-            "time": "2017-11-24T13:59:53+00:00"
+
+            "time": "2017-11-24 13:59:53"
+
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -3869,7 +3860,9 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2017-11-27T09:00:30+00:00"
+
+            "time": "2017-11-27 09:00:30"
+
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -3916,7 +3909,9 @@
                 "filesystem",
                 "iterator"
             ],
-            "time": "2017-11-27T13:52:08+00:00"
+
+            "time": "2017-11-27 13:52:08"
+
         },
         {
             "name": "phpunit/php-text-template",
@@ -4055,7 +4050,9 @@
             "keywords": [
                 "tokenizer"
             ],
-            "time": "2017-11-27T05:48:46+00:00"
+
+            "time": "2017-11-27 05:48:46"
+
         },
         {
             "name": "phpunit/phpunit",
@@ -4139,11 +4136,9 @@
                 "testing",
                 "xunit"
             ],
-<<<<<<< HEAD
+
             "time": "2017-12-02 05:36:24"
-=======
-            "time": "2017-12-02T05:36:24+00:00"
->>>>>>> 93812f0cea9cd24070308434e0d5fd9729174a18
+
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -4202,11 +4197,8 @@
                 "mock",
                 "xunit"
             ],
-<<<<<<< HEAD
+
             "time": "2017-12-02 05:31:19"
-=======
-            "time": "2017-12-02T05:31:19+00:00"
->>>>>>> 93812f0cea9cd24070308434e0d5fd9729174a18
         },
         {
             "name": "sebastian/code-unit-reverse-lookup",
@@ -4315,7 +4307,9 @@
                 "compare",
                 "equality"
             ],
-            "time": "2017-11-03T07:16:52+00:00"
+
+            "time": "2017-11-03 07:16:52"
+
         },
         {
             "name": "sebastian/diff",

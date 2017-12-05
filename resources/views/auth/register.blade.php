@@ -17,12 +17,12 @@
   </div>
 
 <div class="row_content">
-  <form role="form" class="col s12" method="POST" action="{{ url('/register/complete') }}" enctype="multipart/form-data">
+  <form role="form" id="register_form" class="col s12" method="POST" action="{{ url('/register/complete') }}" enctype="multipart/form-data">
     {{ csrf_field() }}
-
       <div class="input-field col s12">
+          {{--TODO : 画像書き換え実装--}}
           <img src="/images/profile_images/default.jpg" alt="">
-          <input type="file" name="profile_image" value="" />
+          <input type="file" name="profile_image" value="" >
           <label for="image">プロフィール画像</label>
           <p>※ 拡張子: jpg png</p>
       </div>
@@ -156,5 +156,8 @@
         $(document).ready(function() {
             $('select').material_select();
         });
+
+        var form = document.getElementById("register_form");
+        form.action = "/register/complete";
     </script>
 @endsection
