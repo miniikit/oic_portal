@@ -74,7 +74,7 @@ Route::group(['middleware' => ['UserAuth']],function()
     // マイページ
     Route::get('/mypage', 'MypagesController@show')->name('user_mypage');
     // ユーザページ
-    Route::get('/user/1000', 'MypagesController@show_user')->name('user_profile');
+    Route::get('/user/{id}', 'MypagesController@show_user')->name('user_profile');
 
     // 編集
     Route::get('/mypage/edit', 'MypagesController@edit')->name('user_mypage_edit');
@@ -93,6 +93,9 @@ Route::group(['middleware' => ['UserAuth']],function()
     // MESSAGE
     Route::get('/messages', 'MessagesController@getmessages')->name('user_mypage_message');
     Route::post('/messages', 'MessagesController@postmessages');
+
+    Route::post('/follow/request','MypagesController@add_follow')->name('user_follow_request');
+    Route::post('/unfollow/request','MypagesController@delete_follow')->name('user_unfollow_request');
 
 });
 

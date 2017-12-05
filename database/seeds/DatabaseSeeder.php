@@ -252,12 +252,22 @@ class FriendsTableSeeder extends Seeder
     public function run()
     {
         DB::table('friends_table')->delete();
-        for ($i = 0; $i < 5; $i++) {
+
+        /*
+        for ($i = 0; $i < 100; $i++) {
             DB::table('friends_table')->insert([
-                'user_id' => $i,
-                'user2_id' => $i
+                'user_id' => rand(1,10),
+                'user2_id' => rand(1,100)
             ]);
         }
+
+        for ($i = 0; $i < 300; $i++) {
+            DB::table('friends_table')->insert([
+                'user_id' => rand(1,100),
+                'user2_id' => rand(1,100)
+            ]);
+        }
+        */
     }
 }
 

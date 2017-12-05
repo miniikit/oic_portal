@@ -18,6 +18,7 @@ class FriendsTable extends Migration
            $table->integer('user_id');//会員ID
            $table->integer('user2_id');//会員2_ID
            $table->timestamps();
+           $table->softDeletes();
         });
     }
 
