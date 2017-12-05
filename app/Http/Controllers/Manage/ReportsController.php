@@ -4,12 +4,24 @@ namespace App\Http\Controllers\Manage;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 
 class ReportsController extends Controller
 {
     public function index()
     {
-        return view('manage.report.list');
+        $reports = DB::table('reports_table')
+            ->join('reports_categories_master','reports_categories_master.id','=','reports_table.report_category_id')
+            //->join('reports_risks_categories_master','reports_risks_categories_master.id','=','reports_categories_master.report_risk_id')
+            //->join('reports_risks_deal_status_master','reports_risks_deal_status_master.id','=','reports_table.report_deal_status_id')
+            //->join('reports_deals_table','report_id','=','reports_table.id')
+            //->join('users','users.id','=','reports_deals_table.user_id')
+            //->select('reports_table.id','reports_risks_categories_master.report_risk_category_name','reports_categories_master.report_category_name','users.name','reports_risks_deal_status_master.report_risk_deal_status_name','reports_table.created_at')
+            ->get();
+
+        dd($reports);
+
+        return view('manage.report.list',compact('reports'));
     }
 
     public function show()

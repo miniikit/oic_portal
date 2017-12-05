@@ -214,12 +214,14 @@ class ReportsTableSeeder extends Seeder
     {
         $reportsContents = ['不適切な内容です','誹謗中傷されました','規約違反しています'];
         DB::table('reports_table')->delete();
-        for ($i = 1; $i < count($reportsContents); $i++) {
+        for ($i = 0; $i < 50; $i++) {
             DB::table('reports_table')->insert([
-                'report_category_id' => $i,
-                'user_id' => $i,
-                'report_contents' => $reportsContents[$i],
-                'report_deal_status_id' => $i
+                'report_category_id' => rand(1,4),
+                'user_id' => rand(1,150),
+                'report_contents' => $reportsContents[rand(0,2)],
+                'report_deal_status_id' => rand(1,3),
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
             ]);
         }
     }

@@ -7,7 +7,7 @@
 @section('main')
     <div class="row">
         <div class="title-box center">
-            <h1 class="title">管理者一覧</h1>
+            <h1 class="title">通報一覧</h1>
         </div>
         <div class="main-content col s12">
             <form>
@@ -22,22 +22,24 @@
                     <thead>
                     <tr>
                         <th class="tb-title">ID</th>
-                        <th class="tb-title">ユーザー名</th>
-                        <th class="tb-title">氏名</th>
-                        <th class="tb-title">学籍番号</th>
-                        <th class="tb-title">権限名</th>
+                        <th class="tb-title">危険度</th>
+                        <th class="tb-title">カテゴリ名</th>
+                        <th class="tb-title">対処者名</th>
+                        <th class="tb-title">対処状態</th>
+                        <th class="tb-title">通報日時</th>
                         <th class="tb-title"></th>
 
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($employees as $employee)
+                    @foreach($reports as $report)
                         <tr class="tb-1">
-                            <td class="tb-text">{{ $employee->id }}</td>
-                            <td class="tb-text">{{ $employee->profile_name }}</td>
-                            <td class="tb-text">{{ $employee->name }}</td>
-                            <td class="tb-text">{{ $employee->email }}</td>
-                            <td class="tb-text">{{ $employee->authority_name }}</td>
+                            <td class="tb-text">{{ $report->id }}</td>
+                            <td class="tb-text">{{ $report->report_risk_category_name }}</td>
+                            <td class="tb-text">{{ $report->report_category_name }}</td>
+                            <td class="tb-text">{{ $report->name }}</td>
+                            <td class="tb-text">{{ $report->report_risk_deal_status_name }}</td>
+                            <td class="tb-text">{{ date('Y年m月d日', strtotime($report->created_at)) }}</td>
                             <td class="tb-btn"><a class="del-btn waves-effect waves-light btn">削除</a></td>
                         </tr>
                     @endforeach
