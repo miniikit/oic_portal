@@ -17,10 +17,33 @@
   color: #fff;
   padding: 0.1rem;
   text-align: center;
+  width: 35%;
+  vertical-align: middle;
 }
 .td-box{
   padding: 1rem;
+  width: 65%;
 }
 table,td,th{
   border: 1px #fff solid;
+}
+.btn-box{
+  margin-top: 2rem;
+}
+.back-btn{
+  width: 250px;
+  height: 54px;
+  line-height: 54px;
+}
+.edit-btn{
+  width: 250px;
+  height: 54px;
+  line-height: 54px;
+}
+input[type=text]:not(.browser-default){
+  margin: 0;
+  border: 1px darkgray solid;
+}
+.input-field{
+  margin: 0;
 }

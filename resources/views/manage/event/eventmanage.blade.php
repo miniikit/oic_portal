@@ -32,7 +32,7 @@
 
         <tbody>
           @for ($i=0; $i < 30; $i++)
-            <tr data-href="{{ route('manager_event_detail') }}">
+            <tr data-href="{{ route('manager_event_detail',1) }}">
               <td class="tb-text">ここに内容</td>
               <td class="tb-text">ここに内容</td>
               <td class="tb-text">ここに内容</td>

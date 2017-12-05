@@ -35,6 +35,14 @@
         </thead>
       </table>
     </div>
+    <div class="btn-box col s12">
+      <div class="col s6 center">
+        <a class="back-btn waves-effect waves-light btn">戻る</a>
+      </div>
+      <div class="col s6 center">
+        <a class="edit-btn waves-effect waves-light btn">編集</a>
+      </div>
+    </div>
   </div>
 @endsection
 
