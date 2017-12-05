@@ -37,7 +37,7 @@ Route::get('/articles/write', 'ArticlesController@write')->name('user_article_wr
 // 確認
 Route::post('/articles/confirm', 'ArticlesController@confirm')->name('user_article_post_confirm');
 // 完了 TODO : いる？
-Route::post('/articles/post/complete', 'ArticlesController@fake')->name('user_article_post_complete');
+Route::get('/articles/post/complete', 'ArticlesController@complete')->name('user_article_post_complete');
 
 
 // 一覧
@@ -100,9 +100,9 @@ Route::group(['middleware' => ['UserAuth']],function()
  * コミュニティ
  */
 // 一覧
-Route::get('/community', 'FakeController@index')->name('user_community');
+Route::get('/community', 'CommunityController@index')->name('user_community');
 // 詳細
-Route::get('/community/{$id}', 'FakeController@show')->name('user_community_detail');
+Route::get('/community/1000', 'CommunityController@show')->name('user_community_detail');
 
 // 更新
 Route::get('/community/1000/edit', 'FakeController@edit');
@@ -112,7 +112,7 @@ Route::get('/community/1000/edit/confirm', 'FakeController@edit');
 Route::get('/community/1000/edit/complete', 'FakeController@edit');
 
 // 新規作成
-Route::get('/community/new', 'FakeController@make');
+Route::get('/community/new', 'CommunityController@make')->name('user_community_creat');
 // 新規作成-確認
 Route::get('/community/new/confirm', 'FakeController@make');
 // 新規作成-完了
@@ -137,7 +137,7 @@ Route::get('/event/1000/edit/confirm', 'FakeController@edit');
 Route::get('/event/1000/edit/complete', 'FakeController@edit');
 
 // 新規作成
-Route::get('/event/new', 'FakeController@make');
+Route::get('/event/new', 'EventController@make');
 // 新規作成-確認
 Route::get('/event/new/confirm', 'FakeController@make');
 // 新規作成-完了   TODO : 関数名変更

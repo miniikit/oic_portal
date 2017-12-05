@@ -1,16 +1,21 @@
 @extends('template.master')
 
 @section('css')
-  <link rel="stylesheet" href="/css/event/event.css">
+  <link rel="stylesheet" href="/css/community/list.css">
 @endsection
 
 @section('main')
 
   <div class="row center-align">
     <h1 class="title">
-      イベント
+      コミュニティー
     </h1>
   </div>
+
+<div class="c_but">
+  <a href="{{ route('user_community_creat') }}" class="add_btn btn-floating btn-large waves-effect waves-light"><i class="material-icons">add</i></a>
+</div>
+
 
   <div class="row">
       <form class="col s12">
@@ -21,14 +26,14 @@
           </div>
       </form>
 
-      <div class="sort-box input-field col s4">
+      <div class="sort-box input-field col s6">
         <select>
           <option value="" disabled selected>並び替え</option>
           <option value="1">新着順</option>
           <option value="2">人気順</option>
         </select>
       </div>
-      <div class="sort-box input-field col s4">
+      <div class="sort-box input-field col s6">
         <select>
           <option value="" disabled selected>ジャンル</option>
           <option value="1">情報処理IT</option>
@@ -37,34 +42,37 @@
           <option value="4">デザイン・Web</option>
         </select>
       </div>
-      <div class="sort-box input-field col s4">
-        <select>
-          <option value="" disabled selected>開催状態</option>
-          <option value="1">未開催</option>
-          <option value="2">開催済みを含める</option>
-        </select>
-      </div>
 
       <div class="row">
-        @foreach($events as $event)
+        @for ($i=1; $i < 7; $i++)
           <div class="col s12">
             <div class="change card horizontal">
                 <div class="card-image">
-                  <a href="/event/1000"><img src="{{ $event->event_image }}"></a>
+                  <a href="/event/1000"><img src="/images/sample-{{ $i }}.jpg" class="cimg"></a>
                 </div>
                 <div class="card-stacked">
                   <div class="card-content">
-                    <span class="card-title">{{ $event->event_title }}</span>
-                    <p class="card-sentence">{{ $event->event_text }}</p>
+                    <span class="card-title">コミュニティー名</span>
+                    <p class="card-text">ここにコミュニティー情報の一部を表示ここにコミュニティー情報の一部を表示ここにコミュニティー情報の一部を表示ここにコミュニティー情報の一部を表示ここにコミュニティー情報の一部を表示ここにコミュニティー情報の一部を表示</p>
                   </div>
                   <div class="card-action">
-                    <span class="date">掲載期間 {{ $event->event_start_date_time }} ~ {{ $event->event_end_date_time }}</span>
-                    <span class="people">{{ $event->num }}/{{ $event->event_capacity }}</span>
+                    <span class="date">管理者xxxxx</span>
+                    <span class="people">xx人</span>
+                    <span class="genre">ジャンル</span>
                   </div>
                 </div>
             </div>
           </div>
-        @endforeach
+        @endfor
+      </div>
+      <div class="pager">
+        <ul class="pagination">
+          <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+          <li class="active"><a href="#!">1</a></li>
+          <li class="waves-effect"><a href="#!">2</a></li>
+          <li class="waves-effect"><a href="#!">3</a></li>
+          <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+        </ul>
       </div>
   </div>
 
