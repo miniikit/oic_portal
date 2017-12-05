@@ -116,7 +116,7 @@ class ProfilesTableSeeder extends Seeder
                 'profile_image' => '/images/profile_images/default.jpg',
                 'profile_name' => $faker->name,
                 'course_id' => rand(1,22),
-                'profile_admission_year' => Carbon::now(),
+                'profile_admission_year' => '2014-04-01 00:00:00',
                 'profile_url' => 'http://www.oic-portal.co.jp',
                 'profile_introduction' => 'Hello'
             ]);
@@ -268,6 +268,28 @@ class FriendsTableSeeder extends Seeder
             ]);
         }
         */
+        DB::table('friends_table')->insert([
+            'user_id' => 1,
+            'user2_id' => 4
+        ]);
+
+        DB::table('friends_table')->insert([
+            'user_id' => 1,
+            'user2_id' => 5
+        ]);
+
+        DB::table('friends_table')->insert([
+            'user_id' => 1,
+            'user2_id' => 6
+        ]);
+
+        DB::table('friends_table')->insert([
+            'user_id' => 1,
+            'user2_id' => 7
+        ]);
+
+
+
     }
 }
 

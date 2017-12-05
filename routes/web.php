@@ -87,13 +87,14 @@ Route::group(['middleware' => ['UserAuth']],function()
     // ブロック
     Route::get('/mypage/block', 'FakeController@fake')->name('user_mypage_block');
 
-    // CHAT
+    // チャット
     Route::get('/chat', 'MessagesController@chat')->name('user_mypage_chat');
 
-    // MESSAGE
+    // メッセージ
     Route::get('/messages', 'MessagesController@getmessages')->name('user_mypage_message');
     Route::post('/messages', 'MessagesController@postmessages');
 
+    //フォロー、フォロー解除
     Route::post('/follow/request','MypagesController@add_follow')->name('user_follow_request');
     Route::post('/unfollow/request','MypagesController@delete_follow')->name('user_unfollow_request');
 
