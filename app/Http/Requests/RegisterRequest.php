@@ -13,7 +13,7 @@ class RegisterRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -27,7 +27,7 @@ class RegisterRequest extends FormRequest
             'email' => 'required|email',
             'name' => 'required|max:50',
             'name_kana' => 'required|max:100',
-            'profile_image' => 'max:1500|mimes:jpg,jpeg',
+            'profile_image' => 'max:3000|mimes:jpg,jpeg',
             'profile_name' => 'required|max:50',
             'profile_admission_year' => 'date',
             'profile_url' => 'url',
