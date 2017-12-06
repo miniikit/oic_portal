@@ -19,40 +19,35 @@
 <div class="row_content">
   <form role="form" id="register_form" class="col s12" method="POST" action="{{ url('/register/complete') }}" enctype="multipart/form-data">
     {{ csrf_field() }}
-      <div class="input-field col s12">
-          {{--TODO : 画像書き換え実装--}}
-          <img src="/images/profile_images/default.jpg" alt="">
-          <input type="file" name="profile_image" value="" >
-          <label for="image">プロフィール画像</label>
+      <div class="icon-box file-field input-field col s12 center">
+        <div class="imgInput">
+          <img src="/images/profile_images/default.jpg" class="prf-icon imgView circle" alt="">
+          <a class="edit-btn btn-floating waves-effect waves-light green" name="profile_image"><i class="material-icons">edit</i><input type="file" name="file1"></a>
           <p>※ 拡張子: jpg png</p>
-      </div>
-
-      <div class="input-field col s12">
-          <i class="material-icons prefix">account_circle</i>
-          <input id="profile_name" type="text" class="validate" name="profile_name" value="{{ old('profile_name') }}">
-          <label for="profilename">プロフィール名</label>
+        </div><!--/.imgInput-->
       </div>
 
     <div class="input-field col s12">
-      <i class="material-icons prefix">account_circle</i>
+      <input id="profile_name" type="text" class="validate" name="profile_name" value="{{ old('profile_name') }}">
+      <label for="profilename">プロフィール名</label>
+    </div>
+
+    <div class="input-field col s12">
       <input id="name" type="text" class="validate" name="name" value="{{ old('name') }}">
       <label for="name">氏名</label>
     </div>
 
     <div class="input-field col s12">
-      <i class="material-icons prefix">edit</i>
       <input id="kana" type="text" class="validate" name="kana" value="{{ old('kana') }}">
       <label for="kana">フリガナ</label>
     </div>
 
     <div class="input-field col s12">
-      <i class="material-icons prefix">mail</i>
       <input id="email" type="email" class="validate" name="email" value="{{ $getUser->email }}">
       <label for="email">メールアドレス</label>
     </div>
 
-    <div class="row">
-      <div class="input-field rap">
+      <div class="input-field col s12 rap">
         <select name="profile_scyear" value="{{ old('profile_scyear') }}">
                <option value="" disabled selected></option>
                <option value="1" class="left circle">1</option>
@@ -130,21 +125,18 @@
 
 
     <div class="input-field col s12">
-      <i class="material-icons prefix">description</i>
       <input id="portfolio" name="profile_url" type="text" class="validate" value="{{ old('profile_url') }}">
       <label for="portfolio">ポートフォリオ</label>
     </div>
 
     <div class="input-field col s12">
-      <i class="material-icons prefix">chat</i>
       <textarea id="introduction" name="profile_introduction" class="materialize-textarea" value="{{ old('profile_introduction') }}"></textarea>
       <label for="introduction">自己紹介</label>
     </div>
 
     <div class="row">
-        <div class="col s6 right-align"><button type="button" class="waves-effect waves-light btn" onclick="history.back()">戻る</button></div>
-        <div class="col s6 left-align"><button type="submit" class="waves-effect waves-light btn">送信</button></div>
-    </div>
+        <div class="col s6 center-align"><button type="button" class="back-btn waves-effect waves-light btn" onclick="history.back()">戻る</button></div>
+        <div class="col s6 center-align"><button type="submit" class="submit-btn waves-effect waves-light btn">送信</button></div>
     </div>
   </form>
 </div>
@@ -159,5 +151,38 @@
 
         var form = document.getElementById("register_form");
         form.action = "/register/complete";
+
+// 画像差し替え処理
+        $(function(){
+    var setFileInput = $('.imgInput'),
+    setFileImg = $('.imgView');
+
+    setFileInput.each(function(){
+        var selfFile = $(this),
+        selfInput = $(this).find('input[type=file]'),
+        prevElm = selfFile.find(setFileImg),
+        orgPass = prevElm.attr('src');
+
+        selfInput.change(function(){
+            var file = $(this).prop('files')[0],
+            fileRdr = new FileReader();
+
+            if (!this.files.length){
+                prevElm.attr('src', orgPass);
+                return;
+            } else {
+                if (!file.type.match('image.*')){
+                    prevElm.attr('src', orgPass);
+                    return;
+                } else {
+                    fileRdr.onload = function() {
+                        prevElm.attr('src', fileRdr.result);
+                    }
+                    fileRdr.readAsDataURL(file);
+                }
+            }
+        });
+    });
+});
     </script>
 @endsection
