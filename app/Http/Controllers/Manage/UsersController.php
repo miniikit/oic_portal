@@ -22,9 +22,14 @@ class UsersController extends Controller
         return view('manage.user.list', compact('users'));
     }
 
-    public function show()
+    public function show($id)
     {
-        return view('manage.home');
+        $user = DB::table('profiles_table')
+            ->join('courses_master','courses_master.id','=','profiles_table.course_id')
+            ->join('users','users.profile_id','=','profiles_table.id')
+            ->first();
+
+        return view('manage.user.detail',compact('id','user'));
     }
 
     public function edit()

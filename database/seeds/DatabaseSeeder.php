@@ -61,7 +61,7 @@ class UsersSeeder extends Seeder
 
         // 管理者
         DB::table('users')->insert([
-            'email' => 'oicportalapp@gmail.com',
+            'email' => 'B5501@oic.jp',
             'name' => 'オイシー太郎',
             'name_kana' => 'オイシータロウ',
             'authority_id' => 3,
@@ -70,26 +70,18 @@ class UsersSeeder extends Seeder
 
         //サブ管理者
         DB::table('users')->insert([
-            'email' => 'oicportalapp2@gmail.com',
-            'name' => 'オイシー桜',
-            'name_kana' => 'オイシーサクラ',
+            'email' => 'B5502@oic.jp',
+            'name' => 'オイシー花子',
+            'name_kana' => 'オイシーハナコ',
             'authority_id' => 2,
-            'profile_id' => 1
-        ]);
-
-        // ユーザoic
-        DB::table('users')->insert([
-            'email' => 'oicportalapp3@gmail.com',
-            'name' => 'OIC USER',
-            'name_kana' => 'おいしー　ユーザ',
-            'authority_id' => 1,
-            'profile_id' => 1
+            'profile_id' => 2
         ]);
 
         // ユーザ
-        for ($i = 2; $i < 150; $i++) {
+        for ($i = 100; $i < 250; $i++) {
+            $email = 'B' . rand(1,9) . $i . '@oic.jp';
             DB::table('users')->insert([
-                'email' => $i.$faker->email,
+                'email' => $email,
                 'name' => $faker->name,
                 'name_kana' => $faker->kanaName,
                 'authority_id' => 1,
@@ -120,12 +112,49 @@ class ProfilesTableSeeder extends Seeder
         $faker = Faker::create('ja_JP');
 
         DB::table('profiles_table')->delete();
-        for ($i = 1; $i < 100; $i++) {
+
+        // 管理者 タロウ
+        DB::table('profiles_table')->insert([
+            'profile_image' => '/images/profile_images/default.jpg',
+            'profile_name' => 'タロウ',
+            'course_id' => rand(1,22),
+            'profile_admission_year' => '2014-04-01 00:00:00',
+            'profile_url' => 'http://www.oic-portal.co.jp',
+            'profile_introduction' => 'Hello'
+        ]);
+
+        //　サブ管理者　ハナコ
+        DB::table('profiles_table')->insert([
+            'profile_image' => '/images/profile_images/default.jpg',
+            'profile_name' => 'ハナコ',
+            'course_id' => rand(1,22),
+            'profile_admission_year' => '2014-04-01 00:00:00',
+            'profile_url' => 'http://www.oic-portal.co.jp',
+            'profile_introduction' => 'Hello'
+        ]);
+
+        $nowYear = Carbon::now()->year;
+        $baseYear = $nowYear - 4;
+        for ($i = 3; $i < 150; $i++) {
+            $year = rand($baseYear,$nowYear);
+            $month = rand(1,12);
+            $day = rand(1,30);
+
+            $incorporation = false;
+
+            // 在学中の学生を生成
+            $date = Carbon::create($year,4,1,9,0,0);
+
+            // 編入学生徒を生成
+            if($i % 30 === 0){
+                $date = Carbon::create($year , $month , $day,9,0,0);
+            }
+
             DB::table('profiles_table')->insert([
                 'profile_image' => '/images/profile_images/default.jpg',
                 'profile_name' => $faker->name,
                 'course_id' => rand(1,22),
-                'profile_admission_year' => '2014-04-01 00:00:00',
+                'profile_admission_year' => $date,
                 'profile_url' => 'http://www.oic-portal.co.jp',
                 'profile_introduction' => 'Hello'
             ]);
@@ -216,7 +245,7 @@ class ReportsTableSeeder extends Seeder
         DB::table('reports_table')->delete();
         for ($i = 0; $i < 50; $i++) {
             DB::table('reports_table')->insert([
-                'report_category_id' => rand(1,4),
+                'report_category_id' => rand(0,2),
                 'user_id' => rand(1,150),
                 'report_contents' => $reportsContents[rand(0,2)],
                 'report_deal_status_id' => rand(1,3),
