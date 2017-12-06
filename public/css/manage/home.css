@@ -18,6 +18,12 @@
 .tb-text{
   padding: 0.5rem;
 }
+tr{
+  cursor:pointer;
+}
+tr:hover{
+  background:#ccc
+}
 
 
 /*side*/

@@ -7,7 +7,7 @@
 @section('main')
   <div class="row">
     <div class="title-box center">
-      <h1 class="title">コミュニティ管理</h1>
+      <h1 class="title">ユーザー管理</h1>
     </div>
     <div class="main-content col s12">
       <form>
@@ -22,14 +22,24 @@
         <thead>
           <tr>
               <th class="tb-title">ID</th>
-              <th class="tb-title">コミュニティ名</th>
-              <th class="tb-title">コミュニティコンテンツ</th>
+              <th class="tb-title">ユーザー名</th>
+              <th class="tb-title">フリガナ</th>
+              <th class="tb-title">ユーザー画像</th>
+              <th class="tb-title">学科</th>
+              <th class="tb-title">入学年度</th>
+              <th class="tb-title">ポートフォリオ</th>
+              <th class="tb-title">自己紹介</th>
           </tr>
         </thead>
 
         <tbody>
           @for ($i=0; $i < 30; $i++)
-            <tr data-href="{{ route('manager_community_detail',1) }}">
+            <tr data-href="{{ route('manager_user_detail',1) }}">
+              <td class="tb-text">ここに内容</td>
+              <td class="tb-text">ここに内容</td>
+              <td class="tb-text">ここに内容</td>
+              <td class="tb-text">ここに内容</td>
+              <td class="tb-text">ここに内容</td>
               <td class="tb-text">ここに内容</td>
               <td class="tb-text">ここに内容</td>
               <td class="tb-text">ここに内容</td>

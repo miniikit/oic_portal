@@ -9,7 +9,6 @@
 
         <div class="profile col s12">
           <div class="profile-rap col s12 center">
-            {{-- <img class="image circle" src="{{ $profile['profile_image'] }}" alt=""> --}}
             <img class="image circle" src="{{App\Profile::find(Auth::user()->profile_id)->profile_image}}" alt="">
             <a class="edit-btn btn-floating waves-effect waves-light green"><i class="material-icons">edit</i></a>
           </div>
@@ -17,7 +16,7 @@
 
       <div class="prfbox col s12">
         <div class="username center-align">
-          <h1>{{ $profile['profile_name'] }}</h1>
+          <h1>{{ $profile->profile_name }}</h1>
           {{-- <div class="follow-button col s12 center-align">
             <a class="waves-effect waves-light btn">フォロー</a>
           </div> --}}
@@ -30,11 +29,11 @@
           </div>
           <div class="prf-content col s4">
             <a class="color" href="{{ route('user_mypage_follow') }}"><h1 class="item" id="follow">フォロー</h1></a>
-            <label class="item-sub" for="follow">XXX</label>
+            <label class="item-sub" for="follow">{{ $follow_ct }}</label>
           </div>
           <div class="prf-content col s4">
             <a class="color" href="{{ route('user_mypage_follower') }}"><h1 class="item" id="follower">フォロワー</h1></a>
-            <label class="item-sub" for="follower">XXX</label>
+            <label class="item-sub" for="follower">{{ $follower_ct }}</label>
           </div>
         </div>
 
@@ -49,16 +48,16 @@
           </div>
           <div class="prf-content col s4">
             <h1 class="item" id="year">学年</h1>
-            <label class="item-sub" for="year">{{ $profile->profile_scyear }}</label>
+            <label class="item-sub" for="year">{{ $sc_year }}年</label>
           </div>
         </div>
 
         <div class="prf-text col s12 life-align">
-          <h2 class="text">ここにポートフォリオ</h2>
+          <h2 class="text">{{ $profile->profile_url }}</h2>
         </div>
 
         <div class="prf-text col s12 left-align">
-          <h2 class="text">{{ $profile['profile_introduction'] }}</h2>
+          <h2 class="text">{{ $profile->profile_introduction }}</h2>
         </div>
       </div>
 

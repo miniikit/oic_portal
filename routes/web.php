@@ -35,9 +35,11 @@ Route::get('/like', 'LikeController@index')->name('user_like');
 // 投稿
 Route::get('/articles/write', 'ArticlesController@write')->name('user_article_write');
 // 確認
+
 Route::post('/articles/confirm', 'ArticlesController@confirm')->name('user_article_post_confirm');
 // 完了 TODO : いる？
-Route::post('/articles/post/complete', 'ArticlesController@fake')->name('user_article_post_complete');
+Route::get('/articles/post/complete', 'ArticlesController@complete')->name('user_article_post_complete');
+
 
 
 // 一覧
@@ -74,7 +76,7 @@ Route::group(['middleware' => ['UserAuth']],function()
     // マイページ
     Route::get('/mypage', 'MypagesController@show')->name('user_mypage');
     // ユーザページ
-    Route::get('/user/1000', 'MypagesController@show_user')->name('user_profile');
+    Route::get('/user/{id}', 'MypagesController@show_user')->name('user_profile');
 
     // 編集
     Route::get('/mypage/edit', 'MypagesController@edit')->name('user_mypage_edit');
@@ -87,12 +89,16 @@ Route::group(['middleware' => ['UserAuth']],function()
     // ブロック
     Route::get('/mypage/block', 'FakeController@fake')->name('user_mypage_block');
 
-    // CHAT
+    // チャット
     Route::get('/chat', 'MessagesController@chat')->name('user_mypage_chat');
 
-    // MESSAGE
+    // メッセージ
     Route::get('/messages', 'MessagesController@getmessages')->name('user_mypage_message');
     Route::post('/messages', 'MessagesController@postmessages');
+
+    //フォロー、フォロー解除
+    Route::post('/follow/request','MypagesController@add_follow')->name('user_follow_request');
+    Route::post('/unfollow/request','MypagesController@delete_follow')->name('user_unfollow_request');
 
 });
 
@@ -100,9 +106,9 @@ Route::group(['middleware' => ['UserAuth']],function()
  * コミュニティ
  */
 // 一覧
-Route::get('/community', 'FakeController@index')->name('user_community');
+Route::get('/community', 'CommunityController@index')->name('user_community');
 // 詳細
-Route::get('/community/{$id}', 'FakeController@show')->name('user_community_detail');
+Route::get('/community/1000', 'CommunityController@show')->name('user_community_detail');
 
 // 更新
 Route::get('/community/1000/edit', 'FakeController@edit');
@@ -112,7 +118,7 @@ Route::get('/community/1000/edit/confirm', 'FakeController@edit');
 Route::get('/community/1000/edit/complete', 'FakeController@edit');
 
 // 新規作成
-Route::get('/community/new', 'FakeController@make');
+Route::get('/community/new', 'CommunityController@make')->name('user_community_creat');
 // 新規作成-確認
 Route::get('/community/new/confirm', 'FakeController@make');
 // 新規作成-完了
@@ -137,7 +143,7 @@ Route::get('/event/1000/edit/confirm', 'FakeController@edit');
 Route::get('/event/1000/edit/complete', 'FakeController@edit');
 
 // 新規作成
-Route::get('/event/new', 'FakeController@make');
+Route::get('/event/new', 'EventController@make');
 // 新規作成-確認
 Route::get('/event/new/confirm', 'FakeController@make');
 // 新規作成-完了   TODO : 関数名変更

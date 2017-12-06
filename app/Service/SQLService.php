@@ -2,9 +2,8 @@
 
 namespace App\Service;
 
-use Carbon\Carbon;
 use App\User;
-use App\Course;
+use App\Friend;
 use App\profile;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -65,23 +64,27 @@ class SQLService
 
     //Eloquant
 
+    //認証しているユーザIDを取得
     public function checkAuth()
     {
         return $userId = Auth::user()->id;
     }
 
+    //ユーザデータを取得
     public function getUserData()
     {
         $userId = $this->checkAuth();
         return $user = app(User::class)::find($userId);
     }
 
+    //プロフィールデータを取得
     public function getUserProfile()
     {
         $user = $this->getUserData();
         return $profile = app(Profile::class)::where('id', $user->profile_id)->first();
     }
 
+    //所属している学科とコースを取得
     public function getUserCourse()
     {
         $profile = $this->getUserProfile();
@@ -92,4 +95,19 @@ class SQLService
             ->first();
         return $course;
     }
+
+    //フォロー数取得
+    public function getFollowCount()
+    {
+        $userId = $this->checkAuth();
+        return $follow_ct = app(Friend::class)->where('user_id',$userId)->get()->count();
+    }
+
+    //フォロワー数取得
+    public function getFollowerCount()
+    {
+        $userId = $this->checkAuth();
+        return $follower_ct = app(Friend::class)->where('user2_id',$userId)->get()->count();
+    }
+
 }

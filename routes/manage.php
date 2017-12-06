@@ -5,6 +5,8 @@
 
 // ホーム
 Route::get('/manage', 'Manage\HomeController@index')->name('manager_home');
+//詳細
+Route::get('/manage/detail', 'Manage\HomeController@show')->name('manager_detail');
 
 
 /**
