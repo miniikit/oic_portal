@@ -45,4 +45,8 @@ class MypagesController extends Controller
     {
         return view('mypage.follower');
     }
+    public function chat()
+    {
+          return view('mypage.chat');
+    }
 }
