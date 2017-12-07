@@ -61,7 +61,7 @@ class UsersSeeder extends Seeder
 
         // 管理者
         DB::table('users')->insert([
-            'email' => 'B5501@oic.jp',
+            'email' => 'oicportalapp@gmail.com',
             'name' => 'オイシー太郎',
             'name_kana' => 'オイシータロウ',
             'authority_id' => 3,
@@ -195,12 +195,13 @@ class ArticlesTableSeeder extends Seeder
     public function run()
     {
         DB::table('articles_table')->delete();
-        for ($i = 1; $i < 50; $i++) {
+        for ($i = 1; $i < 100; $i++) {
             DB::table('articles_table')->insert([
                 'article_title' => '#test'.$i,
                 'article_text' => '#test'.$i,
                 'article_image' => '/images/sample-' . rand(1,6) . '.jpg',
-                'article_url' => '/articles/' . $i,
+                'article_url' => 'http://gigazine.net/news/20171128-macbook-egpu-rx-vega-64/',
+                //'article_url' => '/articles/' . $i,
                 'news_site_id' => rand(1,20)
             ]);
         }

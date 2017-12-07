@@ -17,6 +17,7 @@ class ReportsRisksDealStatusMaster extends Migration
            $table->increments('id');//通報対処状態ID
            $table->string('report_risk_deal_status_name',30);//通報対処状態名
            $table->timestamps();
+           $table->softDeletes();
         });
     }
 

@@ -19,7 +19,7 @@ class CreateMessagesTable extends Migration
             $table->integer('user_id');
             $table->integer('user2_id')->nullable();
             $table->timestamps();
-            
+            $table->softDeletes();
         });
     }
 

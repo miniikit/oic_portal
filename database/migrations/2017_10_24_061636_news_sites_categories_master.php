@@ -17,6 +17,7 @@ class NewsSitesCategoriesMaster extends Migration
            $table->increments('id');//ニュースサイトカテゴリID
            $table->string('news_site_category_name',50);//ニュースサイトカテゴリ名
            $table->timestamps();
+           $table->softDeletes();
         });
     }
 

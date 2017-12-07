@@ -17,6 +17,8 @@ class CommunitiesCategoriesMaster extends Migration
            $table->increments('community_category_id');//コミュニティカテゴリID
            $table->string('community_category_name',255);//コミュニティカテゴリ名
            $table->timestamps();
+           $table->softDeletes();
+
         });
     }
 

@@ -19,6 +19,7 @@ class CommunitiesCommentsTable extends Migration
            $table->integer('user_id');//会員ID
            $table->string('community_comment_contents',255);//コメント内容
            $table->timestamps();
+           $table->softDeletes();
         });
     }
 
