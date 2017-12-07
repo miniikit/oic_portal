@@ -134,4 +134,6 @@ class MypagesController extends Controller
         return redirect()->route('user_profile',compact('target_id'));
 
     }
+
+
 }
