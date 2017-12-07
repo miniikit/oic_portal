@@ -1,30 +1,37 @@
 
-@media only screen and (min-width: 0px) and (max-width: 600px){
+@media only screen and (min-width: 0px) and (max-width: 1200px){
   #main{
     margin-top: 80px;
   }
   div.title p{
     font-size: 25px;
-    color: darkgray;
   }
   .row .input-field.col.s6{
     width: 100%;
   }
-  div.input-field.rap{
-    margin-left: 20%;
-    margin-right: 3%;
-  }
   .btn{
-    background-color: darkgray;
     margin-top: 30px;
+  }
+  .icon-box{
+    margin-bottom: 2rem;
+  }
+  .prf-icon{
+    max-width: 100px;
+    width: 100px;
+    height: 100px;
+    margin: 0 0 0 75px;
+  }
+  .edit-btn{
+    margin: 0 0 25px 25px;
   }
 }
 
 
-@media only screen and (min-width: 601px) {
-  div.title p{
+@media only screen and (min-width: 1201px) {
+  .title{
     font-size: 30px;
     color: darkgray;
+    margin-bottom: 1rem;
   }
   .row_content{
     text-align: center;
@@ -35,10 +42,7 @@
     bottom: 0;
     left: 0;
     margin: 0 auto;
-    width: 45%;
-  }
-  div.input-field.rap{
-    margin-left: 10%;
+    width: 50%;
   }
   .input-field .prefix.active{
     color: darkgray;
@@ -47,7 +51,6 @@
     margin-left: auto;
   }
   .btn{
-    background-color: darkgray;
     margin-top: 30px;
   }
   div.col.s6.right-align{
@@ -56,8 +59,36 @@
   div.col.s6.left-align{
     padding-left: 2rem;
   }
+  .prf-icon{
+    max-width: 200px;
+    width: 200px;
+    height: 200px;
+    margin: 0 0 0 100px;
+  }
+  .edit-btn{
+    margin: 0 0 75px 50px;
+    width: 50px;
+    height: 50px;
+    font-size: 50px;
+  }
+  .back-btn{
+    width: 200px;
+    height: 54px;
+    line-height: 54px;
+  }
+  .submit-btn{
+    width: 200px;
+    height: 54px;
+    line-height: 54px;
+  }
+  .icon-box{
+    margin-bottom: 2rem;
+  }
 }
 
 .none {
   display: none;
+}
+.imgInput{
+  display: block;
 }

@@ -23,7 +23,7 @@
         </form>
       </div>
       <div class="table-wrp">
-        <table class="table-area striped">
+        <table class="table-area">
           <thead>
             <tr>
                 <th class="tb-title">ID</th>
@@ -36,7 +36,7 @@
 
           <tbody>
             @for ($i=0; $i < 30; $i++)
-              <tr class="tb-1">
+              <tr data-href="{{ route('manager_detail') }}">
                 <td class="tb-text">ここに内容</td>
                 <td class="tb-text">ここに内容</td>
                 <td class="tb-text">ここに内容</td>
@@ -63,5 +63,14 @@
 @endsection
 
 @section('script')
-
+  <script type="text/javascript">
+  jQuery(function($) {
+  $('tr[data-href]').addClass('clickable')
+    .click(function(e) {
+      if(!$(e.target).is('a')){
+        window.location = $(e.target).closest('tr').data('href');
+      };
+  });
+  });
+  </script>
 @endsection

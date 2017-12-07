@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 
 
@@ -18,14 +18,26 @@ class ArticlesController extends Controller
     //　投稿
     public function write()
     {
-        return view('articles.post');
+        return view('articles.write');
     }
 
     // 投稿確認
     public function confirm(Request $request)
     {
         $data = $request->all();
-        return view('articles.confirm',compact('data'));
+        $carbon = Carbon::now();
+        $imgfile = $request->file('article_image');
+        $filename = $carbon->format('Y-m-d-H-i-s') . '.jpg';
+        $imgfile->move(public_path('/images/event_images/'), $filename);
+        $articles_image = '/images/event_images/' . $filename;
+        return view('articles.confirm',compact('data','articles_image'));
+    }
+
+    //投稿完了
+    public function complete(Request $request)
+    {
+        $data = $request->all();
+        return dd($data);
     }
 
     // 詳細
@@ -76,7 +88,6 @@ class ArticlesController extends Controller
         ]);
 
         return redirect()->route('user_article_detail', compact('article_id'));
-
     }
     public function complete()
     {

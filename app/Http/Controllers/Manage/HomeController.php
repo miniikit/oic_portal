@@ -14,7 +14,7 @@ class HomeController extends Controller
 
     public function show()
     {
-        return view('manage.home');
+        return view('manage.home.detail');
     }
 
     public function edit()
