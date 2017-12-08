@@ -13,11 +13,11 @@ Route::get('/manage/detail', 'Manage\HomeController@show')->name('manager_detail
  * 管理者 - レポート
  */
 // 一覧
-Route::get('/manage/report', 'Manage\ReportsController@home')->name('manager_report_list');
+Route::get('/manage/report', 'Manage\ReportsController@index')->name('manager_report_list');
 // 詳細
-Route::get('/manage/report/{id}', 'Manage\ReportsController@home')->name('manager_report_detail');
+Route::get('/manage/report/{id}', 'Manage\ReportsController@show')->name('manager_report_detail');
 // 更新
-Route::post('/manage/report/{id}/update', 'Manage\ReportsController@home')->name('manager_report_update');
+Route::post('/manage/report/{id}/update', 'Manage\ReportsController@edit')->name('manager_report_update');
 // 削除
 Route::delete('/manage/report/{id}/delete', 'Manage\ReportsController@destroy')->name('manager_report_delete');
 
