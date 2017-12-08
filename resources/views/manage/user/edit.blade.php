@@ -13,17 +13,38 @@
 @section('main')
     <div class="row">
         <div class="title-box center">
-            <h1 class="title">記事詳細</h1>
+            <h1 class="title">ユーザー詳細</h1>
         </div>
-        <form action="{{ route('manager_event_update',$id) }}" method="POST">
+        <form action="{{ route('manager_user_update',$id) }}" method="POST">
             <div class="main-content">
                 <table>
                     <thead>
                     <tr>
-                        <th class="th-box">イベント名</th>
+                        <th class="th-box">ユーザー名</th>
+                        <td class="td-box input-field">
+                            <input type="text" class="validate" name="username"
+                                   value="{{ old('username',$user->profile_name) }}">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="th-box">氏名</th>
                         <td class="td-box input-field">
                             <input type="text" class="validate" name="name"
-                                   value="{{ old('name',$event->event_title) }}">
+                                   value="{{ old('name',$user->name) }}">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="th-box">フリガナ</th>
+                        <td class="td-box input-field">
+                            <input type="text" class="validate" name="name_kana"
+                                   value="{{ old('name_kana',$user->name_kana) }}">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="th-box">メールアドレス</th>
+                        <td class="td-box input-field">
+                            <input type="text" class="validate" name="email"
+                                   value="{{ old('email',$user->email) }}">
                         </td>
                     </tr>
                     <tr>
@@ -63,7 +84,7 @@
             </div>
             <div class="btn-box col s12">
                 <div class="col s6 center">
-                    <a href="{{ route('manager_event_detail',$id) }}" class="back-btn waves-effect waves-light btn">戻る</a>
+                    <a href="{{ route('manager_user_detail',$id) }}" class="back-btn waves-effect waves-light btn">戻る</a>
                 </div>
                 <div class="col s6 center">
                     <button type="submit" class="edit-btn waves-effect waves-light btn">更新</button>
