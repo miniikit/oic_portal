@@ -36,7 +36,7 @@
                             <td class="tb-text">{{ $employee->id }}</td>
                             <td class="tb-text">{{ $employee->profile_name }}</td>
                             <td class="tb-text">{{ $employee->name }}</td>
-                            <td class="tb-text">{{ $employee->email }}</td>
+                            <td class="tb-text">{{ substr($employee->email, 0, strcspn($employee->email,'@')) }}</td>
                             <td class="tb-text">{{ $employee->authority_name }}</td>
                             <td class="tb-btn"><a class="del-btn waves-effect waves-light btn">削除</a></td>
                         </tr>

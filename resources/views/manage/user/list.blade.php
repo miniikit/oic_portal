@@ -37,7 +37,7 @@
                             <td class="tb-text">{{ $user->profile_name }}</td>
                             <td class="tb-text">{{ $user->name }}</td>
                             <td class="tb-text">{{ substr($user->email, 0, strcspn($user->email,'@')) }}</td>
-                            <td class="tb-text">{{ $user->course_name }}</td>
+                            <td class="tb-text">{{ $user->parent_course_name }}</td>
                             <td class="tb-text">{{ date('Y年',strtotime($user->profile_admission_year)) }}</td>
                             <td class="tb-btn"><a class="del-btn waves-effect waves-light btn">削除</a></td>
                         </tr>

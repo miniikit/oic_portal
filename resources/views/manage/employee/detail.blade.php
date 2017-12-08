@@ -7,7 +7,7 @@
 @section('main')
     <div class="row">
         <div class="title-box center">
-            <h1 class="title">ユーザー詳細</h1>
+            <h1 class="title">管理者詳細</h1>
         </div>
         <div class="main-content">
             <table>
@@ -17,32 +17,36 @@
                         <td class="td-box">{{ $id }}</td>
                     </tr>
                     <tr>
+                        <th class="th-box">権限</th>
+                        <td class="td-box">{{ $employee->authority_name }}</td>
+                    </tr>
+                    <tr>
                         <th class="th-box">ユーザー名</th>
-                        <td class="td-box">{{ $user->profile_name }}</td>
+                        <td class="td-box">{{ $employee->profile_name }}</td>
                     </tr>
                     <tr>
                         <th class="th-box">氏名</th>
-                        <td class="td-box">{{ $user->name }}</td>
+                        <td class="td-box">{{ $employee->name }}</td>
                     </tr>
                     <tr>
                         <th class="th-box">フリガナ</th>
-                        <td class="td-box">{{ $user->name_kana }}</td>
+                        <td class="td-box">{{ $employee->name_kana }}</td>
                     </tr>
                     <tr>
                         <th class="th-box">メールアドレス</th>
-                        <td class="td-box">{{ $user->email }}</td>
+                        <td class="td-box">{{ $employee->email }}</td>
                     </tr>
                     <tr>
                         <th class="th-box">学籍番号</th>
-                        <td class="td-box">{{ substr($user->email, 0, strcspn($user->email,'@')) }}</td>
+                        <td class="td-box">{{ substr($employee->email, 0, strcspn($employee->email,'@')) }}</td>
                     </tr>
                     <tr>
                         <th class="th-box">学科</th>
-                        <td class="td-box">{{ $user->parent_course_name }}</td>
+                        <td class="td-box">{{ $employee->parent_course_name }}</td>
                     </tr>
                     <tr>
                         <th class="th-box">コース</th>
-                        <td class="td-box">{{ $user->course_name }}</td>
+                        <td class="td-box">{{ $employee->course_name }}</td>
                     </tr>
                     <tr>
                         <th class="th-box">学年</th>
@@ -50,19 +54,19 @@
                     </tr>
                     <tr>
                         <th class="th-box">入学年度</th>
-                        <td class="td-box">{{ date('Y年',strtotime($user->profile_admission_year)) }}</td>
+                        <td class="td-box">{{ date('Y年',strtotime($employee->profile_admission_year)) }}</td>
                     </tr>
                     <tr>
                         <th class="th-box">プロフィール画像</th>
-                        <td class="td-box">{{ $user->profile_image }}</td>
+                        <td class="td-box">{{ $employee->profile_image }}</td>
                     </tr>
                     <tr>
                         <th class="th-box">URL</th>
-                        <td class="td-box">{{ $user->profile_url }}</td>
+                        <td class="td-box">{{ $employee->profile_url }}</td>
                     </tr>
                     <tr>
                         <th class="th-box">コメント</th>
-                        <td class="td-box">{{ $user->profile_introduction }}</td>
+                        <td class="td-box">{{ $employee->profile_introduction }}</td>
                     </tr>
                 </thead>
             </table>

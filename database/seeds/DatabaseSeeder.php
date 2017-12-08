@@ -171,7 +171,7 @@ class CoursesMasterSeeder extends Seeder
         for ($i = 0; $i < count($parentCourses); $i++) {
             DB::table('courses_master')->insert([
                 'course_name' => $parentCourses[$i],
-                'parent_course_id' => 3,
+                'parent_course_id' => 0,
                 'course_depth' => 0,
                 'course_year' => 0
             ]);
@@ -181,6 +181,7 @@ class CoursesMasterSeeder extends Seeder
         $year = [4,4,3,3,3,2,2,4,4,4,3,3,2,2,4,3,2,2,3,2,2,2];
         for ($i = 0; $i < count($courses); $i++) {
             DB::table('courses_master')->insert([
+
                 'course_name' => $courses[$i],
                 'parent_course_id' => $parents[$i],
                 'course_depth' => 1,
