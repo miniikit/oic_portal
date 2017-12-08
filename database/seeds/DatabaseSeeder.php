@@ -61,7 +61,7 @@ class UsersSeeder extends Seeder
 
         // 管理者
         DB::table('users')->insert([
-            'email' => 'B5501@oic.jp',
+            'email' => 'oicportalapp@gmail.com',
             'name' => 'オイシー太郎',
             'name_kana' => 'オイシータロウ',
             'authority_id' => 3,
