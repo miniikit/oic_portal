@@ -14,7 +14,7 @@ class SitesController extends Controller
 
     public function show()
     {
-
+        return view('manage.site.detail');
     }
 
     public function edit()

@@ -5,6 +5,11 @@
     <link rel="stylesheet" href="/css/manage/edit.css">
 @endsection
 
+@section('breadcrumb')
+  <a href="#!" class="breadcrumb">Second</a>
+  <a href="#!" class="breadcrumb">Third</a>
+@endsection
+
 @section('main')
     <div class="row">
         <div class="title-box center">
