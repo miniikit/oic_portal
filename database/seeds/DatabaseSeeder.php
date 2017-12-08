@@ -116,7 +116,7 @@ class ProfilesTableSeeder extends Seeder
                 'profile_image' => '/images/profile_images/default.jpg',
                 'profile_name' => $faker->name,
                 'course_id' => rand(1,22),
-                'profile_admission_year' => Carbon::now(),
+                'profile_admission_year' => '2014-04-01 00:00:00',
                 'profile_url' => 'http://www.oic-portal.co.jp',
                 'profile_introduction' => 'Hello'
             ]);
@@ -253,12 +253,44 @@ class FriendsTableSeeder extends Seeder
     public function run()
     {
         DB::table('friends_table')->delete();
-        for ($i = 0; $i < 5; $i++) {
+
+        /*
+        for ($i = 0; $i < 100; $i++) {
             DB::table('friends_table')->insert([
-                'user_id' => $i,
-                'user2_id' => $i
+                'user_id' => rand(1,10),
+                'user2_id' => rand(1,100)
             ]);
         }
+
+        for ($i = 0; $i < 300; $i++) {
+            DB::table('friends_table')->insert([
+                'user_id' => rand(1,100),
+                'user2_id' => rand(1,100)
+            ]);
+        }
+        */
+        DB::table('friends_table')->insert([
+            'user_id' => 1,
+            'user2_id' => 4
+        ]);
+
+        DB::table('friends_table')->insert([
+            'user_id' => 1,
+            'user2_id' => 5
+        ]);
+
+        DB::table('friends_table')->insert([
+            'user_id' => 1,
+            'user2_id' => 6
+        ]);
+
+        DB::table('friends_table')->insert([
+            'user_id' => 1,
+            'user2_id' => 7
+        ]);
+
+
+
     }
 }
 
