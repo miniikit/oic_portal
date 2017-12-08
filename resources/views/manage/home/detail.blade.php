@@ -4,6 +4,10 @@
   <link rel="stylesheet" href="/css/manage/detail.css">
 @endsection
 
+@section('breadcrumb')
+  <a href="#!" class="breadcrumb">Second</a>
+@endsection
+
 @section('main')
   <div class="row">
     <div class="title-box center">
