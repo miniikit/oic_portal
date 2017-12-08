@@ -2,24 +2,35 @@
 
 namespace App\Http\Controllers\Manage;
 
+use App\Service\EventService;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class EventsController extends Controller
 {
+    protected $eventService;
+
+    public function __construct(EventService $eventService)
+    {
+        $this->eventService = $eventService;
+    }
+
     public function index()
     {
-        return view('manage.event.eventmanage');
+        $events = $this->eventService->getAllEvents();
+        return view('manage.event.list',compact('events'));
     }
 
-    public function show()
+    public function show($id)
     {
-        return view('manage.home');
+        $event = $this->eventService->getEvent($id);
+        $eventParticipant = $this->eventService->getEventParticipant($id);
+        return view('manage.event.detail',compact('id','event','eventParticipant'));
     }
 
-    public function edit()
+    public function edit($id)
     {
-        return view('manage.home');
+        return view('manage.event.edit');
     }
 
     public function update($id,Request $request)

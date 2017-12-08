@@ -120,13 +120,19 @@ class CrawlService
      * @param $site_id
      * @return \Illuminate\Database\Eloquent\Model|null|static
      */
-    public function getLatestArticleUrlByDB($site_id)
+    public function getLatest2ArticleUrlByDB($site_id)
     {
-        return DB::table('articles_table')->where('news_site_id','=',$site_id)->orderBy('id','desc')->select('articles_table.article_url')->first();
+        $results = DB::table('articles_table')->where('news_site_id','=',$site_id)->orderBy('id','desc')->select('articles_table.article_url')->limit(2)->get();
+        return $results;
     }
 
     public function checkNewArticle($latest_article_url,$urls)
     {
+        // 記事があれば
+        if(array_search($latest_article_url,$urls) !== false){
+
+
+        }
 
     }
 

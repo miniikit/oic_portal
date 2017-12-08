@@ -23,25 +23,24 @@
           <tr>
               <th class="tb-title">ID</th>
               <th class="tb-title">イベントタイトル</th>
-              <th class="tb-title">詳細</th>
-              <th class="tb-title">予定日時</th>
-              <th class="tb-title">終了日時</th>
+              <th class="tb-title">予定日</th>
               <th class="tb-title">作成者</th>
+              <th class="tb-title">定員</th>
+              <th class="tb-title"></th>
           </tr>
         </thead>
 
         <tbody>
-          @for ($i=0; $i < 30; $i++)
+          @foreach($events as $event)
             <tr data-href="{{ route('manager_event_detail',1) }}">
-              <td class="tb-text">ここに内容</td>
-              <td class="tb-text">ここに内容</td>
-              <td class="tb-text">ここに内容</td>
-              <td class="tb-text">ここに内容</td>
-              <td class="tb-text">ここに内容</td>
-              <td class="tb-text">ここに内容</td>
+                <td class="tb-text">{{ $event->id }}</td>
+                <td class="tb-text">{{ $event->event_title }}</td>
+              <td class="tb-text">{{ date('Y年m月d日 H時i分' ,strtotime($event->event_start_date_time)) }}</td>
+                <td class="tb-text">{{ $event->name }}</td>
+                <td class="tb-text">{{ $event->event_capacity }}名</td>
               <td class="tb-btn"><a class="del-btn waves-effect waves-light btn">削除</a></td>
             </tr>
-          @endfor
+          @endforeach
         </tbody>
       </table>
     </div>

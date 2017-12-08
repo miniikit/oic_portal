@@ -35,9 +35,11 @@ Route::get('/like', 'LikeController@index')->name('user_like');
 // 投稿
 Route::get('/articles/write', 'ArticlesController@write')->name('user_article_write');
 // 確認
+
 Route::post('/articles/confirm', 'ArticlesController@confirm')->name('user_article_post_confirm');
 // 完了 TODO : いる？
 Route::get('/articles/post/complete', 'ArticlesController@complete')->name('user_article_post_complete');
+
 
 
 // 一覧
@@ -74,7 +76,7 @@ Route::group(['middleware' => ['UserAuth']],function()
     // マイページ
     Route::get('/mypage', 'MypagesController@show')->name('user_mypage');
     // ユーザページ
-    Route::get('/user/1000', 'MypagesController@show_user')->name('user_profile');
+    Route::get('/user/{id}', 'MypagesController@show_user')->name('user_profile');
 
     // 編集
     Route::get('/mypage/edit', 'MypagesController@edit')->name('user_mypage_edit');
@@ -87,12 +89,16 @@ Route::group(['middleware' => ['UserAuth']],function()
     // ブロック
     Route::get('/mypage/block', 'FakeController@fake')->name('user_mypage_block');
 
-    // CHAT
+    // チャット
     Route::get('/chat', 'MessagesController@chat')->name('user_mypage_chat');
 
-    // MESSAGE
+    // メッセージ
     Route::get('/messages', 'MessagesController@getmessages')->name('user_mypage_message');
     Route::post('/messages', 'MessagesController@postmessages');
+
+    //フォロー、フォロー解除
+    Route::post('/follow/request','MypagesController@add_follow')->name('user_follow_request');
+    Route::post('/unfollow/request','MypagesController@delete_follow')->name('user_unfollow_request');
 
 });
 
