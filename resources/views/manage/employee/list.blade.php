@@ -32,7 +32,7 @@
                     </thead>
                     <tbody>
                     @foreach($employees as $employee)
-                        <tr class="tb-1">
+                        <tr data-href="{{ route('manager_employee_detail',$employee->id) }}">
                             <td class="tb-text">{{ $employee->id }}</td>
                             <td class="tb-text">{{ $employee->profile_name }}</td>
                             <td class="tb-text">{{ $employee->name }}</td>
@@ -49,5 +49,14 @@
 @endsection
 
 @section('script')
-
+    <script type="text/javascript">
+        jQuery(function($) {
+            $('tr[data-href]').addClass('clickable')
+                .click(function(e) {
+                    if(!$(e.target).is('a')){
+                        window.location = $(e.target).closest('tr').data('href');
+                    };
+                });
+        });
+    </script>
 @endsection

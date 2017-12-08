@@ -32,7 +32,7 @@
 
         <tbody>
           @foreach($events as $event)
-            <tr data-href="{{ route('manager_event_detail',1) }}">
+            <tr data-href="{{ route('manager_event_detail',$id) }}">
                 <td class="tb-text">{{ $event->id }}</td>
                 <td class="tb-text">{{ $event->event_title }}</td>
               <td class="tb-text">{{ date('Y年m月d日 H時i分' ,strtotime($event->event_start_date_time)) }}</td>

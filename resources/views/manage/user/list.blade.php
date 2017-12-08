@@ -32,7 +32,7 @@
                     </thead>
                     <tbody>
                     @foreach($users as $user)
-                        <tr class="tb-1">
+                        <tr data-href="{{ route('manager_user_detail',$user->id) }}">
                             <td class="tb-text">{{ $user->id }}</td>
                             <td class="tb-text">{{ $user->profile_name }}</td>
                             <td class="tb-text">{{ $user->name }}</td>
@@ -50,5 +50,14 @@
 @endsection
 
 @section('script')
-
+    <script type="text/javascript">
+        jQuery(function($) {
+            $('tr[data-href]').addClass('clickable')
+                .click(function(e) {
+                    if(!$(e.target).is('a')){
+                        window.location = $(e.target).closest('tr').data('href');
+                    };
+                });
+        });
+    </script>
 @endsection
