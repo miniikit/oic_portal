@@ -30,11 +30,15 @@ class EventsController extends Controller
 
     public function edit($id)
     {
-        return view('manage.event.edit');
+        $event = $this->eventService->getEvent($id);
+        $eventParticipant = $this->eventService->getEventParticipant($id);
+        return view('manage.event.edit',compact('id','event','eventParticipant'));
     }
 
     public function update($id,Request $request)
     {
+        $event = $this->eventService->updateEvent($id,$request);
+
         //dd($id,$request->all());
     }
 
