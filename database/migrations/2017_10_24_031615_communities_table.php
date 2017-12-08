@@ -19,6 +19,8 @@ class CommunitiesTable extends Migration
            $table->text('community_contents');//コミュニティコンテンツ
            $table->integer('authority_id');//権限ID
            $table->timestamps();
+           $table->softDeletes();
+
         });
     }
 

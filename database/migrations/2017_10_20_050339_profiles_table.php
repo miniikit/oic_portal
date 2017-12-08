@@ -22,6 +22,7 @@ class ProfilesTable extends Migration
             $table->text('profile_url')->nullable();//URL
             $table->text('profile_introduction')->nullable();//自己紹介
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

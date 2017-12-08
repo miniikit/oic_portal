@@ -19,6 +19,7 @@ class ArticlesCommentsTable extends Migration
             $table->integer('user_id');//会員ID
             $table->string('article_comment_text',255);//記事コメント内容
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

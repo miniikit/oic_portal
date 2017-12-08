@@ -15,7 +15,7 @@ class SQLService
      * 記事
      */
     // 記事挿入
-    public function insertArticle($title,$text,$image,$article_url,$site_id)
+    public function insertArticle($title,$image,$text,$article_url,$site_id)
     {
         return DB::table('articles_table')
             ->insert([
@@ -33,7 +33,12 @@ class SQLService
     // クロールスケジュール取得
     public function getCrawlSchedules()
     {
-        return DB::table('crawler_schedule_table')->join('crawler_status_master','crawler_schedule_table.crawl_status_id','crawler_status_master.id')->get();
+        return DB::table('crawler_schedule_table')
+            ->join(
+                'crawler_status_master',
+                'crawler_schedule_table.crawl_status_id',
+                'crawler_status_master.id'
+            )->get();
     }
 
     // クロールスケジュール詳細取得

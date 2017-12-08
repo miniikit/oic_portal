@@ -17,6 +17,8 @@ class CreateArticlesExclusionTable extends Migration
             $table->increments('id');
             $table->string('exclusion_string',255);
             $table->timestamps();
+            $table->softDeletes();
+
         });
     }
 

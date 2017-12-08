@@ -20,6 +20,7 @@ class CoursesMaster extends Migration
             $table->integer('course_depth');//深さ
             $table->integer('course_year');// 何年制
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

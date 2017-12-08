@@ -23,6 +23,7 @@ class EventsTable extends Migration
            $table->integer('event_capacity');//イベント定員数
            $table->integer('event_maker_id');//イベント作成者ID
            $table->timestamps();
+           $table->softDeletes();
         });
     }
 

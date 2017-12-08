@@ -9,12 +9,12 @@ class SitesController extends Controller
 {
     public function index()
     {
-        return view('manage.site.sitemanage');
+        return view('manage.site.list');
     }
 
     public function show()
     {
-
+        return view('manage.site.detail');
     }
 
     public function edit()

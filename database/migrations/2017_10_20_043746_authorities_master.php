@@ -17,6 +17,7 @@ class AuthoritiesMaster extends Migration
             $table->increments('id');//権限ID
             $table->string('authority_name',50);//権限名
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

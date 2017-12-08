@@ -17,6 +17,7 @@ class EventsAuthoritiesTable extends Migration
            $table->increments('id');//イベント権限ID
            $table->string('event_authority_name',20);//イベント権限名
            $table->timestamps();
+           $table->softDeletes();
         });
     }
 
