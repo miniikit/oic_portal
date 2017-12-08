@@ -24,6 +24,7 @@ Route::get('/', 'HomeController@index')->name('user_home');
 
 // 問い合わせ
 Route::get('/contact','ContactsController@show')->name('user_contact');
+Route::post('/contact/complete','ContactsController@complete')->name('user_contact_complete');
 
 //お気に入り
 Route::get('/like', 'LikeController@index')->name('user_like');
