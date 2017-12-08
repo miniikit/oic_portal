@@ -26,6 +26,18 @@ nav a{
   color: darkgray;
   margin-left: 10px;
 }
+.bread-rap{
+  margin-left: 2rem;
+}
+.breadcrumb{
+  color: darkgray;
+}
+.breadcrumb:last-child{
+  color: #7f7f7f;
+}
+.breadcrumb:before{
+  color: black;
+}
 
 /* body */
 body{
