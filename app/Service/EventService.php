@@ -3,6 +3,7 @@
 namespace App\Service;
 
 use Carbon\Carbon;
+use function GuzzleHttp\default_ca_bundle;
 use Illuminate\Support\Facades\DB;
 use Goutte\Client;
 
@@ -45,4 +46,56 @@ class EventService
             ->where('deleted_at',null)
             ->count();
     }
+
+    /**
+     *
+     */
+    public function updateEvent($id,$request)
+    {
+        $request = $request->all();
+
+
+
+        dd($request);
+
+        $update = array();
+        $carbon = Carbon::now();
+
+        return DB::table('events_table')
+            ->where('event_id',$id)
+            ->where('deleted_at',null)
+            ->update([
+                'event_title' => $request[""],
+                'event_text' => $request[""],
+                'event_image' => '',    // TODO
+                'event_start_date_time' => $request[""],
+                'event_end_date_time' => $request[""],
+                'event_capacity' => $request[""],
+                'event_maker_id' => $request[""]
+            ]);
+    }
+
+    public function check($data,$format)
+    {
+        /*
+         * $format = 1(string),2(int),3(datatime)
+         */
+        if(isset($data)){
+            switch ($format){
+                case 1: // String
+                    if(is_string($data)){
+                        return true;
+                        break;
+                    }
+
+
+                default :
+                    return false;
+            }
+            return true;
+        }else{
+            return false;
+        }
+    }
+
 }

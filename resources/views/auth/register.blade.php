@@ -22,7 +22,7 @@
       <div class="icon-box file-field input-field col s12 center">
         <div class="imgInput">
           <img src="/images/profile_images/default.jpg" class="prf-icon imgView circle" alt="">
-          <a class="edit-btn btn-floating waves-effect waves-light green" name="profile_image"><i class="material-icons">edit</i><input type="file" name="file1"></a>
+          <a class="edit-btn btn-floating waves-effect waves-light green" name="profile_image"><i class="material-icons">edit</i><input type="file" name="profile_image"></a>
           <p>※ 拡張子: jpg png</p>
         </div><!--/.imgInput-->
       </div>

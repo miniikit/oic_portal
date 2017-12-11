@@ -6,7 +6,7 @@
 
 @section('main')
   <div class="content">
-    <form class="col s10" method="POST" action="{{ url('/articles/complete') }}" enctype="multipart/form-data">
+    <form class="col s10" method="POST" action="{{ url('/articles/post/complete') }}" enctype="multipart/form-data">
       {{ csrf_field() }}
       <div>
       <p class="title">確認画面</p>

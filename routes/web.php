@@ -24,6 +24,7 @@ Route::get('/', 'HomeController@index')->name('user_home');
 
 // 問い合わせ
 Route::get('/contact','ContactsController@show')->name('user_contact');
+Route::post('/contact/complete','ContactsController@complete')->name('user_contact_complete');
 
 //お気に入り
 Route::get('/like', 'LikeController@index')->name('user_like');
@@ -35,10 +36,10 @@ Route::get('/like', 'LikeController@index')->name('user_like');
 // 投稿
 Route::get('/articles/write', 'ArticlesController@write')->name('user_article_write');
 // 確認
-
 Route::post('/articles/confirm', 'ArticlesController@confirm')->name('user_article_post_confirm');
-// 完了 TODO : いる？
-Route::get('/articles/post/complete', 'ArticlesController@complete')->name('user_article_post_complete');
+// 完了
+Route::post('/articles/post/complete', 'ArticlesController@complete')->name('user_article_post_complete');
+
 
 
 
@@ -159,7 +160,7 @@ Route::get('/event/new/complete', 'FakeController@fake');
 // Googleログイン
 Route::get('/login/google', 'Auth\LoginController@getGoogleAuth')->name('user_login');
 Route::get('/oauth_callback', 'Auth\LoginController@getGoogleAuthCallback');
-//ログアウト
+// ログアウト
 Route::post('/logout', 'Auth\LoginController@logout')->name('user_logout');
 // 会員登録
 Route::post('/register/complete', 'Auth\RegisterController@complete')->name('user_register_complete');

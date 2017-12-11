@@ -38,6 +38,12 @@
              <li><a class="links" href="{{ route('manager_community_list') }}">コミュニティ管理</a></li>
            </ul>
          </div>
+         <div class="nav-wrapper">
+           <div class="bread-rap">
+            <a href="#!" class="breadcrumb">First</a>
+            @yield('breadcrumb')
+          </div>
+         </div>
         </nav>
       </div>
     </header>
