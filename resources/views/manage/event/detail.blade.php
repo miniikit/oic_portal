@@ -25,12 +25,8 @@
               <td class="td-box">{{ $event->event_text }}</td>
             </tr>
             <tr>
-              <th class="th-box">イメージ画像</th>
+              <th class="th-box">イベント画像</th>
               <td class="td-box">{{ $event->event_image }}</td>
-            </tr>
-            <tr>
-              <th class="th-box">ここにタイトル</th>
-              <td class="td-box">ここに内容</td>
             </tr>
             <tr>
               <th class="th-box">イベント開始日時</th>

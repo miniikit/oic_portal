@@ -65,7 +65,9 @@ class UsersSeeder extends Seeder
             'name' => 'オイシー太郎',
             'name_kana' => 'オイシータロウ',
             'authority_id' => 3,
-            'profile_id' => 1
+            'profile_id' => 1,
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
         ]);
 
         //サブ管理者
@@ -74,7 +76,9 @@ class UsersSeeder extends Seeder
             'name' => 'オイシー花子',
             'name_kana' => 'オイシーハナコ',
             'authority_id' => 2,
-            'profile_id' => 2
+            'profile_id' => 2,
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
         ]);
 
         // ユーザ
@@ -85,7 +89,9 @@ class UsersSeeder extends Seeder
                 'name' => $faker->name,
                 'name_kana' => $faker->kanaName,
                 'authority_id' => 1,
-                'profile_id' => $i
+                'profile_id' => $i,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
             ]);
         }
     }
@@ -99,7 +105,9 @@ class AuthoritiesMasterSeeder extends Seeder
         DB::table('authorities_master')->delete();
         for ($i = 0; $i < count($authorities); $i++) {
             DB::table('authorities_master')->insert([
-                'authority_name' => $authorities[$i]
+                'authority_name' => $authorities[$i],
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
             ]);
         }
     }
@@ -120,7 +128,9 @@ class ProfilesTableSeeder extends Seeder
             'course_id' => rand(1,22),
             'profile_admission_year' => '2014-04-01 00:00:00',
             'profile_url' => 'http://www.oic-portal.co.jp',
-            'profile_introduction' => 'Hello'
+            'profile_introduction' => 'Hello',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
         ]);
 
         //　サブ管理者　ハナコ
@@ -130,7 +140,9 @@ class ProfilesTableSeeder extends Seeder
             'course_id' => rand(1,22),
             'profile_admission_year' => '2014-04-01 00:00:00',
             'profile_url' => 'http://www.oic-portal.co.jp',
-            'profile_introduction' => 'Hello'
+            'profile_introduction' => 'Hello',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
         ]);
 
         $nowYear = Carbon::now()->year;
@@ -156,7 +168,9 @@ class ProfilesTableSeeder extends Seeder
                 'course_id' => rand(1,22),
                 'profile_admission_year' => $date,
                 'profile_url' => 'http://www.oic-portal.co.jp',
-                'profile_introduction' => 'Hello'
+                'profile_introduction' => 'Hello',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
             ]);
         }
     }
@@ -173,7 +187,9 @@ class CoursesMasterSeeder extends Seeder
                 'course_name' => $parentCourses[$i],
                 'parent_course_id' => 3,
                 'course_depth' => 0,
-                'course_year' => 0
+                'course_year' => 0,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
             ]);
         }
         $courses = ['ITスペシャリスト専攻','ネットワークセキュリティ専攻','システムエンジニア専攻','ネットワークエンジニア専攻','Webエンジニア専攻','テクニカルコース','ネットワークシステムコース','ゲームプログラマー専攻','ゲームデザイナー専攻','ゲームプランナー専攻','ゲームクリエイター専攻(PG)','ゲームクリエイター専攻(CG)','ゲームプログラムコース','ゲームCGデザインコース','CG映像クリエイター専攻','CGクリエイター専攻','CG映像コース','CGアニメーションコース','アートディレクター専攻','Webデザインコース','グラフィックデザインコース','マンガイラストコース'];
@@ -184,7 +200,9 @@ class CoursesMasterSeeder extends Seeder
                 'course_name' => $courses[$i],
                 'parent_course_id' => $parents[$i],
                 'course_depth' => 1,
-                'course_year' => $year[$i]
+                'course_year' => $year[$i],
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
             ]);
         }
     }
@@ -202,7 +220,9 @@ class ArticlesTableSeeder extends Seeder
                 'article_image' => '/images/sample-' . rand(1,6) . '.jpg',
                 'article_url' => 'http://gigazine.net/news/20171128-macbook-egpu-rx-vega-64/',
                 //'article_url' => '/articles/' . $i,
-                'news_site_id' => rand(1,20)
+                'news_site_id' => rand(1,20),
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
             ]);
         }
     }
@@ -216,7 +236,9 @@ class ArticlesLikesTableSeeder extends Seeder
         for ($i = 1; $i < 500; $i++) {
             DB::table('articles_likes_table')->insert([
                 'article_id' => rand(1,50),
-                'user_id' => rand(1,100)
+                'user_id' => rand(1,100),
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
             ]);
         }
     }
@@ -232,7 +254,9 @@ class ArticlesCommentsTableSeeder extends Seeder
             DB::table('articles_comments_table')->insert([
                 'article_id' => $i,
                 'user_id' => $i,
-                'article_comment_text' => $articlesComments[$i]
+                'article_comment_text' => $articlesComments[$i],
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
             ]);
         }
     }
@@ -267,7 +291,9 @@ class ReportsDealsTableSeeder extends Seeder
             DB::table('reports_deals_table')->insert([
                 'report_id' => $i,
                 'user_id' => $i,
-                'report_deal_comment' => $reportsComments[$i]
+                'report_deal_comment' => $reportsComments[$i],
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
             ]);
         }
     }
@@ -282,7 +308,9 @@ class ReportsCategoriesMasterSeeder extends Seeder
         for ($i = 0; $i < count($reportCategories); $i++) {
             DB::table('reports_categories_master')->insert([
                 'report_category_name' => $reportCategories[$i],
-                'report_risk_id' => $i
+                'report_risk_id' => $i,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
             ]);
         }
     }
@@ -311,22 +339,30 @@ class FriendsTableSeeder extends Seeder
         */
         DB::table('friends_table')->insert([
             'user_id' => 1,
-            'user2_id' => 4
+            'user2_id' => 4,
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
         ]);
 
         DB::table('friends_table')->insert([
             'user_id' => 1,
-            'user2_id' => 5
+            'user2_id' => 5,
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
         ]);
 
         DB::table('friends_table')->insert([
             'user_id' => 1,
-            'user2_id' => 6
+            'user2_id' => 6,
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
         ]);
 
         DB::table('friends_table')->insert([
             'user_id' => 1,
-            'user2_id' => 7
+            'user2_id' => 7,
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
         ]);
 
 
@@ -342,7 +378,9 @@ class CommunitiesCategoriesMasterSeeder extends Seeder
         DB::table('communities_categories_master')->delete();
         for ($i = 1; $i < count($communitiesCategories); $i++) {
             DB::table('communities_categories_master')->insert([
-                'community_category_name' => $communitiesCategories[$i]
+                'community_category_name' => $communitiesCategories[$i],
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
             ]);
         }
     }
@@ -357,7 +395,9 @@ class CommunitiesTableSeeder extends Seeder
             DB::table('communities_table')->insert([
                 'community_title' => '#test'.$i,
                 'community_contents' => '#test'.$i,
-                'authority_id' => rand(1,3)
+                'authority_id' => rand(1,3),
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
             ]);
         }
     }
@@ -371,7 +411,9 @@ class CommunitiesParticipantsTableSeeder extends Seeder
         for ($i = 0; $i < 5; $i++) {
             DB::table('communities_participants_table')->insert([
                 'community_id' => $i,
-                'user_id' => $i
+                'user_id' => $i,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
             ]);
         }
     }
@@ -387,7 +429,9 @@ class CommunitiesCommentsTableSeeder extends Seeder
             DB::table('communities_comments_table')->insert([
                 'community_id' => $i,
                 'user_id' => $i,
-                'community_comment_contents' => $communitiesCommentsContents[$i]
+                'community_comment_contents' => $communitiesCommentsContents[$i],
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
             ]);
         }
     }
@@ -407,7 +451,9 @@ class NewsSitesMasterSeeder extends Seeder
             'news_site_tag_url' => 'item link',
             'news_site_tag_text' => '.cntimage p',
             'news_site_tag_image' => '.cntimage img',
-            'news_site_category_id' => 1
+            'news_site_category_id' => 1,
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
         ]);
 
         // TrendMicro 技術ブログ
@@ -418,7 +464,9 @@ class NewsSitesMasterSeeder extends Seeder
             'news_site_tag_url' => 'item link',
             'news_site_tag_text' => '.post-text p',
             'news_site_tag_image' => '.post-text img',
-            'news_site_category_id' => 1
+            'news_site_category_id' => 1,
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
         ]);
 
         // ITmedia 速報
@@ -429,7 +477,9 @@ class NewsSitesMasterSeeder extends Seeder
             'news_site_tag_url' => 'item link',
             'news_site_tag_text' => '.inner p',
             'news_site_tag_image' => '.inner img',
-            'news_site_category_id' => 1
+            'news_site_category_id' => 1,
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
         ]);
 
         // ITmedia 国内記事
@@ -440,7 +490,9 @@ class NewsSitesMasterSeeder extends Seeder
             'news_site_tag_url' => 'item link',
             'news_site_tag_text' => '.inner p',
             'news_site_tag_image' => '.inner img',
-            'news_site_category_id' => 1
+            'news_site_category_id' => 1,
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
         ]);
 
         // ITmedia 海外記事
@@ -451,7 +503,9 @@ class NewsSitesMasterSeeder extends Seeder
             'news_site_tag_url' => 'item link',
             'news_site_tag_text' => '.inner p',
             'news_site_tag_image' => '.inner img',
-            'news_site_category_id' => 1
+            'news_site_category_id' => 1,
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
         ]);
 
         // ITmedia ベンチャー
@@ -462,7 +516,9 @@ class NewsSitesMasterSeeder extends Seeder
             'news_site_tag_url' => 'item link',
             'news_site_tag_text' => '.inner p',
             'news_site_tag_image' => '.inner img',
-            'news_site_category_id' => 1
+            'news_site_category_id' => 1,
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
         ]);
 
         // ITmedia 製品動向
@@ -473,7 +529,9 @@ class NewsSitesMasterSeeder extends Seeder
             'news_site_tag_url' => 'item link',
             'news_site_tag_text' => '.inner p',
             'news_site_tag_image' => '.inner img',
-            'news_site_category_id' => 1
+            'news_site_category_id' => 1,
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
         ]);
 
         // ITmedia 科学・テクノロジー
@@ -484,7 +542,9 @@ class NewsSitesMasterSeeder extends Seeder
             'news_site_tag_url' => 'item link',
             'news_site_tag_text' => '.inner p',
             'news_site_tag_image' => '.inner img',
-            'news_site_category_id' => 1
+            'news_site_category_id' => 1,
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
         ]);
 
         // ITmedia ネットトピック
@@ -495,7 +555,9 @@ class NewsSitesMasterSeeder extends Seeder
             'news_site_tag_url' => 'item link',
             'news_site_tag_text' => '.inner p',
             'news_site_tag_image' => '.inner img',
-            'news_site_category_id' => 1
+            'news_site_category_id' => 1,
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
         ]);
 
         // ITmedia 社会とIT
@@ -506,7 +568,9 @@ class NewsSitesMasterSeeder extends Seeder
             'news_site_tag_url' => 'item link',
             'news_site_tag_text' => '.inner p',
             'news_site_tag_image' => '.inner img',
-            'news_site_category_id' => 1
+            'news_site_category_id' => 1,
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
         ]);
 
         // ITmedia セキュリティ
@@ -517,7 +581,9 @@ class NewsSitesMasterSeeder extends Seeder
             'news_site_tag_url' => 'item link',
             'news_site_tag_text' => '.inner p',
             'news_site_tag_image' => '.inner img',
-            'news_site_category_id' => 1
+            'news_site_category_id' => 1,
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
         ]);
 
         // ITmedia 企業・業界動向
@@ -528,7 +594,9 @@ class NewsSitesMasterSeeder extends Seeder
             'news_site_tag_url' => 'item link',
             'news_site_tag_text' => '.inner p',
             'news_site_tag_image' => '.inner img',
-            'news_site_category_id' => 5
+            'news_site_category_id' => 5,
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
         ]);
 
         // ITmedia リサーチ
@@ -539,7 +607,9 @@ class NewsSitesMasterSeeder extends Seeder
             'news_site_tag_url' => 'item link',
             'news_site_tag_text' => '.inner p',
             'news_site_tag_image' => '.inner img',
-            'news_site_category_id' => 5
+            'news_site_category_id' => 5,
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
         ]);
 
         // ITmedia PR
@@ -550,7 +620,9 @@ class NewsSitesMasterSeeder extends Seeder
             'news_site_tag_url' => 'item link',
             'news_site_tag_text' => '.inner p',
             'news_site_tag_image' => '.inner img',
-            'news_site_category_id' => 5
+            'news_site_category_id' => 5,
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
         ]);
 
         // MdN DESIGN
@@ -561,7 +633,9 @@ class NewsSitesMasterSeeder extends Seeder
             'news_site_tag_url' => 'item link',
             'news_site_tag_text' => '.box-text',
             'news_site_tag_image' => '.text img',
-            'news_site_category_id' => 3
+            'news_site_category_id' => 3,
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
         ]);
 
         // ファミ通APP
@@ -572,7 +646,9 @@ class NewsSitesMasterSeeder extends Seeder
             'news_site_tag_url' => 'item link',
             'news_site_tag_text' => '#entry-body p',
             'news_site_tag_image' => '#entry-body td img',
-            'news_site_category_id' => 2
+            'news_site_category_id' => 2,
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
         ]);
 
         // TOKYO DESIGN WEEK
@@ -583,7 +659,9 @@ class NewsSitesMasterSeeder extends Seeder
             'news_site_tag_url' => 'article a',
             'news_site_tag_text' => '.contents .w820 p',
             'news_site_tag_image' => '.contents .w820 p img',
-            'news_site_category_id' => 3
+            'news_site_category_id' => 3,
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
         ]);
 
         // PHOTOSHOPVIP
@@ -594,7 +672,9 @@ class NewsSitesMasterSeeder extends Seeder
             'news_site_tag_url' => 'article a',
             'news_site_tag_text' => 'span p',
             'news_site_tag_image' => '.cb-entry-header .cb-mask img',
-            'news_site_category_id' => 3
+            'news_site_category_id' => 3,
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
         ]);
 
         // JDP
@@ -605,7 +685,9 @@ class NewsSitesMasterSeeder extends Seeder
             'news_site_tag_url' => 'article h1 a',
             'news_site_tag_text' => 'article p',
             'news_site_tag_image' => 'article img',
-            'news_site_category_id' => 1
+            'news_site_category_id' => 1,
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
         ]);
 
         // CGWORLD.JP
@@ -616,7 +698,9 @@ class NewsSitesMasterSeeder extends Seeder
             'news_site_tag_url' => 'article a',
             'news_site_tag_text' => '.article-body p',
             'news_site_tag_image' => '.article-thum img',
-            'news_site_category_id' => 3
+            'news_site_category_id' => 3,
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
         ]);
 
         // Gamer
@@ -627,7 +711,9 @@ class NewsSitesMasterSeeder extends Seeder
             'news_site_tag_url' => 'li p a',
             'news_site_tag_text' => 'article .box p',
             'news_site_tag_image' => 'article .box a img',
-            'news_site_category_id' => 2
+            'news_site_category_id' => 2,
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
         ]);
 
         // 3D人
@@ -638,7 +724,9 @@ class NewsSitesMasterSeeder extends Seeder
             'news_site_tag_url' => 'article h2 a',
             'news_site_tag_text' => 'article p',
             'news_site_tag_image' => 'article img',
-            'news_site_category_id' => 3
+            'news_site_category_id' => 3,
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
         ]);
 
         // 電撃オンライン
@@ -649,7 +737,9 @@ class NewsSitesMasterSeeder extends Seeder
             'news_site_tag_url' => '.artMain h3 a',
             'news_site_tag_text' => 'article section p',
             'news_site_tag_image' => '',
-            'news_site_category_id' => 2
+            'news_site_category_id' => 2,
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
         ]);
 
         // Gamespark
@@ -660,7 +750,9 @@ class NewsSitesMasterSeeder extends Seeder
             'news_site_tag_url' => 'section a.link',
             'news_site_tag_text' => 'main article',
             'news_site_tag_image' => '', //画像なし
-            'news_site_category_id' => 2
+            'news_site_category_id' => 2,
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
         ]);
 
         // doope!
@@ -671,7 +763,9 @@ class NewsSitesMasterSeeder extends Seeder
             'news_site_tag_url' => 'cont_titbox h2 a',
             'news_site_tag_text' => '.cont_article p',
             'news_site_tag_image' => '.cont_article img',
-            'news_site_category_id' => 1
+            'news_site_category_id' => 1,
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
         ]);
 
         // 東洋経済オンライン
@@ -682,7 +776,9 @@ class NewsSitesMasterSeeder extends Seeder
             'news_site_tag_url' => 'ul .title a',
             'news_site_tag_text' => '.life p',
             'news_site_tag_image' => '.life img',
-            'news_site_category_id' => 5
+            'news_site_category_id' => 5,
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
         ]);
 
         // GAME Watch
@@ -693,7 +789,9 @@ class NewsSitesMasterSeeder extends Seeder
             'news_site_tag_url' => 'article .title a',
             'news_site_tag_text' => 'article',
             'news_site_tag_image' => 'article img',
-            'news_site_category_id' => 2
+            'news_site_category_id' => 2,
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
         ]);
 
         // a
@@ -719,7 +817,9 @@ class NewsSitesCategoriesMasterSeeder extends Seeder
         DB::table('news_sites_categories_master')->delete();
         for ($i = 1; $i < count($newsSitesCategories); $i++) {
             DB::table('news_sites_categories_master')->insert([
-                'news_site_category_name' => $newsSitesCategories[$i]
+                'news_site_category_name' => $newsSitesCategories[$i],
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
             ]);
         }
     }
@@ -742,7 +842,9 @@ class EventsTableSeeder extends Seeder
                 'event_start_date_time' => Carbon::now(),
                 'event_end_date_time' => Carbon::now(),
                 'event_capacity' => rand(10,500),
-                'event_maker_id' => rand(1,$makermax)
+                'event_maker_id' => rand(1,$makermax),
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
             ]);
         }
     }
@@ -761,7 +863,9 @@ class EventsParticipantsTableSeeder extends Seeder
             DB::table('events_participants_table')->insert([
                 'event_id' => rand(1,$max),
                 'event_user_id' => rand(1,$usermax),
-                'event_authority_id' => rand(1,$authoritymax)
+                'event_authority_id' => rand(1,$authoritymax),
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
             ]);
         }
     }
@@ -775,7 +879,9 @@ class ReportsRisksDealStatusMasterSeeder extends Seeder
         DB::table('reports_risks_deal_status_master')->delete();
         for ($i = 1; $i < count($reportsRisksDealStatus); $i++) {
             DB::table('reports_risks_deal_status_master')->insert([
-                'report_risk_deal_status_name' => $reportsRisksDealStatus[$i]
+                'report_risk_deal_status_name' => $reportsRisksDealStatus[$i],
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
             ]);
         }
     }
@@ -790,7 +896,9 @@ class ReportsRisksCategoriesMasterSeeder extends Seeder
         for ($i = 1; $i < count($reportsRisksCategories); $i++) {
             DB::table('reports_risks_categories_master')->insert([
                 'report_risk_category_name' => $reportsRisksCategories[$i],
-                'report_risk_num' => $i
+                'report_risk_num' => $i,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
             ]);
         }
     }
@@ -804,7 +912,9 @@ class EventsAuthoritiesTableSeeder extends Seeder
         DB::table('events_authorities_table')->delete();
         for ($i = 1; $i < count($eventsAuthorities); $i++) {
             DB::table('events_authorities_table')->insert([
-                'event_authority_name' => $eventsAuthorities[$i]
+                'event_authority_name' => $eventsAuthorities[$i],
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
             ]);
         }
     }
@@ -823,7 +933,9 @@ class ChatsTableSeeder extends Seeder
             DB::table('chats_table')->insert([
                 'chat_user_id' => rand(1,$usermax),
                 'chat_user2_id' => rand(1,$user2max),
-                'chat_text' => $chatTexts[$i]
+                'chat_text' => $chatTexts[$i],
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
             ]);
         }
     }
@@ -837,7 +949,9 @@ class InquiriesTableSeeder extends Seeder
         DB::table('inquiries_table')->delete();
         for ($i = 1; $i < count($inquiriesTexts); $i++) {
             DB::table('inquiries_table')->insert([
-                'inquiry_text' => $inquiriesTexts[$i]
+                'inquiry_text' => $inquiriesTexts[$i],
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
             ]);
         }
     }
@@ -849,7 +963,9 @@ class ArticlesExclusionTableSeeder extends Seeder
     {
         DB::table('articles_exclusion_table')->delete();
         DB::table('articles_exclusion_table')->insert([
-           'exclusion_string' => '\n'
+           'exclusion_string' => '\n',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
         ]);
     }
 }
@@ -863,6 +979,8 @@ class CreateCrawlerStatusCategoriesMasterSeeder extends Seeder
         foreach($categories as $category) {
             DB::table('crawler_status_master')->insert([
                 'crawler_status' => $category,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
             ]);
         }
     }
@@ -897,7 +1015,9 @@ class CrawlerScheduleTableSeeder extends Seeder
                 'crawl_end_time' => $endDate,
                 'crawl_status_id' => $crawlerStatus,
                 'added_articles_count' => '31',
-                'user_id' => $user
+                'user_id' => $user,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
             ]);
         }
     }

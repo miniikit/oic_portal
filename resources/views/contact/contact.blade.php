@@ -10,27 +10,30 @@
   <p>お問い合わせ</p>
 </div>
   <div class="content">
-      <form class="col s8">
+    <form role="form" id="contact_form" class="col s8" method="POST" action="{{ url('/contact/complete') }}">
+      {{ csrf_field() }}
         <div class="input-field">
           <i class="material-icons prefix">account_circle</i>
-          <input placeholder="ユーザー名" id="name" type="text" class="validate">
+          <input placeholder="ユーザー名" id="name" name="username" type="text" class="validate">
             <label for="name">ユーザー名</label>
         </div>
         <div class="input-field">
           <i class="material-icons prefix">mail</i>
-          <input placeholder="メールアドレス" id="mail" type="text" class="validate">
+          <input placeholder="メールアドレス" id="mail" name="email" type="text" class="validate">
             <label for="mail">メールアドレス</label>
         </div>
         <div class="input-field">
           <i class="material-icons prefix">content_paste</i>
-          <textarea id="textarea1" class="materialize-textarea"></textarea>
+          <textarea id="textarea1" class="materialize-textarea" name="contents"></textarea>
             <label for="textarea1">お問い合わせ内容</label>
         </div>
-      </form>
       <div class="but">
-        <a class="waves-effect waves-light btn">送信</a>
+        <!-- <a class="waves-effect waves-light btn">送信</a> -->
+        <button type="submit" class="submit-btn waves-effect waves-light btn">送信</button>
       </div>
-  </div>
+    </form>
+      </div>
+
 
 
 @endsection
