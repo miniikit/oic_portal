@@ -1,78 +1,13 @@
 
 @media only screen and (min-width: 0px) and (max-width: 600px){
-  .page-title {
-    text-align: center;
-    letter-spacing: 1px;
-    width: 100%;
-    height: auto;
-  }
-  .title{
-    font-size: 1.5rem;
-    margin: 25px 0;
-    color: darkgray;
+
+  #main{
+    margin-top: 6rem;
   }
   /*スクロール*/
     ::-webkit-scrollbar {
-      width: 10px;
-  }
-  /*スクロールバーの軌道*/
-  ::-webkit-scrollbar-track {
-    border-radius: 10px;
-    box-shadow: inset 0 0 6px rgba(0, 0, 0, .1);
-  }
-  /*スクロールバーの動く部分*/
-  ::-webkit-scrollbar-thumb {
-    background-color: rgba(0, 0, 50, .5);
-    border-radius: 10px;
-    box-shadow:0 0 0 1px rgba(255, 255, 255, .3);
-  }
-  ::-webkit-scrollbar {
     display: none;
   }
-  .comi{
-    width: 100%;
-    height: 500px;
-    overflow: auto;
-  }
-  .comment-area{
-    width:100%;
-    height:500px;
-  }
-  div.comment-area.col.s12{
-    padding: inherit;
-  }
-  div.col.s12.m8.l8{
-    width: 100%;
-  }
-  .side_contents.col.s12.m4.l3{
-    width: 100%;
-  }
-  .wap-comment{
-    text-align: right;
-    padding: 0.5rem;
-  }
-  .comment-submit{
-    font-size: 0.5em;
-  }
-  div.but{
-    text-align: center;
-    padding: 0.5em;
-  }
-  .submit{
-    font-size: 0.5em;
-    width: 10rem;
-    height: 3rem;
-    line-height: 3rem;
-  }
-}
-@media only screen and (min-width: 601px) and (max-width: 1100px) {
-  #main {
-    margin-top: 100px;
-  }
-  /*スクロール*/
-    ::-webkit-scrollbar {
-      width: 10px;
-  }
   /*スクロールバーの軌道*/
   ::-webkit-scrollbar-track {
     border-radius: 10px;
@@ -86,21 +21,67 @@
   }
   .comi{
     width: 100%;
-    height: 600px;
+    height: 450px;
     overflow: auto;
+  }
+  .wap{
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    left: auto;
+    right: auto;
+    background-color: #cfd8dc;
   }
   .comment-area{
     width:100%;
     height:800px;
   }
-  div.comment{
-    margin-top: 1.5rem;
+  li.contact-item.avatar {
+    min-height: 84px;
+    padding-left: 10px;
+    position: relative;
   }
-  div.col.s12.m8.l8{
-    width: 100%;
+  .contact-item {
+    background-color: #fff;
+    line-height: 1.5rem;
+    padding: 10px 20px;
+    margin: 0;
   }
-  .side_contents.col.s12.m4.l3{
-    width: 100%;
+  img.yo_t.circle{
+    float: left;
+    width: 42px;
+    height: 42px;
+    margin-right: 1rem;
+    overflow: hidden;
+    left: 15px;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .conect .conect-item.avatar {
+    min-height: 84px;
+    padding-right: 10px;
+    position: relative;
+  }
+  .conect-item {
+    background-color: #fff;
+    line-height: 1.5rem;
+    padding: 10px 20px;
+    margin: 0;
+  }
+  img.my_t.circle{
+    float: right;
+    width: 42px;
+    height: 42px;
+    overflow: hidden;
+    left: 15px;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  p.mes{
+    margin-left: 3rem;
+  }
+  p.my_t_mes{
+    margin-right: 3rem;
   }
   .page-title {
     text-align: center;
@@ -110,9 +91,14 @@
     height: auto;
   }
   .title{
-    font-size: 2rem;
-    margin: 40px 0;
+    font-size: 1.5rem;
+    margin: 30px 0;
     color: darkgray;
+  }
+  .submit{
+    width: 19rem;
+    height: 3rem;
+    line-height: 3rem;
   }
   .wap-comment{
     text-align: right;
@@ -121,19 +107,10 @@
   .comment-submit{
     font-size: 0.7em;
   }
-  div.but{
-    text-align: center;
-    padding: 0.5rem;
-  }
-  .submit{
-    font-size: 0.7em;
-    width: 19rem;
-    height: 3rem;
-    line-height: 3rem;
-  }
 }
 
-@media only screen and (min-width: 1101px) {
+
+@media only screen and (min-width: 601px) {
 
   /*スクロール*/
     ::-webkit-scrollbar {
@@ -156,7 +133,7 @@
     overflow: auto;
   }
   .wap{
-    width: 66.6666666667%;
+    width: 100%;
     margin-right: auto;
     margin-left: auto;
     left: auto;
@@ -167,10 +144,38 @@
     width:100%;
     height:800px;
   }
+  ul.collection{
+    border: none;
+  }
+  li.contact-item.avatar {
+    min-height: 84px;
+    padding-left: 10px;
+    position: relative;
+    width: 40%;
+  }
+  .contact-item {
+    background-color: #fff;
+    line-height: 1.5rem;
+    padding: 10px 20px;
+    margin: 0;
+  }
+  img.yo_t.circle{
+    float: left;
+    width: 42px;
+    height: 42px;
+    margin-right: 1rem;
+    overflow: hidden;
+    left: 15px;
+    display: inline-block;
+    vertical-align: middle;
+  }
+
   .conect .conect-item.avatar {
+    float: right;
     min-height: 84px;
     padding-right: 10px;
     position: relative;
+    width: 40%;
   }
   .conect-item {
     background-color: #fff;
@@ -187,6 +192,12 @@
     display: inline-block;
     vertical-align: middle;
   }
+  p.mes{
+    margin-left: 5rem;
+  }
+  p.my_t_mes{
+    margin-right: 5rem;
+  }
   .page-title {
     text-align: center;
     font-size: 25px;
@@ -200,20 +211,6 @@
     color: darkgray;
   }
 
-  /*sidebar*/
-  .row .col.l3 {
-    padding-bottom: 20px;
-    margin-left: 1.5rem;
-  }
-  .comment{
-    margin-top: 1.5rem;
-  }
-  .article-image {
-    padding: 1rem;
-  }
-  .material-icons{
-    margin-right: 1rem;
-  }
 
   /* comment area */
   .wap-comment{

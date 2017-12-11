@@ -16,9 +16,9 @@
       <div class="comi">
         <div class="comment-area col s12">
           <ul class="collection">
-              <li class="collection-item avatar">
+              <li class="contact-item avatar">
                 <img src="/images/profile_images/default.jpg" alt="" class="yo_t circle">
-                <p>
+                <p class="mes">
                   ここにコメントを表示
                 </p>
               </li>
@@ -26,7 +26,7 @@
           <ul class="conect">
             <li class="conect-item avatar">
               <img src="/images/profile_images/default.jpg" alt="" class="my_t circle">
-              <p>
+              <p class="my_t_mes">
                 ここにコメントを表示
               </p>
             </li>
@@ -37,7 +37,6 @@
         <ul class="collection">
           <li class="collection-item avatar">
             <img src="/images/profile_images/default.jpg" alt="" class="circle">
-            <span class="name">name</span>
             <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
             <div class="wap-comment">
               <a class="comment-submit waves-effect waves-light btn"><i class="material-icons">send</i></a>
