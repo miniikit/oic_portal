@@ -6,8 +6,8 @@
 @endsection
 
 @section('breadcrumb')
-  <a href="#!" class="breadcrumb">Second</a>
-  <a href="#!" class="breadcrumb">Third</a>
+    <a href="#!" class="breadcrumb">Second</a>
+    <a href="#!" class="breadcrumb">Third</a>
 @endsection
 
 @section('main')
@@ -63,7 +63,8 @@
             </div>
             <div class="btn-box col s12">
                 <div class="col s6 center">
-                    <a href="{{ route('manager_event_detail',$id) }}" class="back-btn waves-effect waves-light btn">戻る</a>
+                    <a href="{{ route('manager_event_detail',$id) }}"
+                       class="back-btn waves-effect waves-light btn">戻る</a>
                 </div>
                 <div class="col s6 center">
                     <button type="submit" class="edit-btn waves-effect waves-light btn">更新</button>

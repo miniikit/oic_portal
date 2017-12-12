@@ -290,8 +290,8 @@ class ReportsDealsTableSeeder extends Seeder
         DB::table('reports_deals_table')->delete();
         for ($i = 0; $i < count($reportsComments); $i++) {
             DB::table('reports_deals_table')->insert([
-                'report_id' => $i,
-                'user_id' => $i,
+                'report_id' => $i + 1,
+                'user_id' => $i + 1,
                 'report_deal_comment' => $reportsComments[$i],
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
@@ -306,7 +306,7 @@ class ReportsCategoriesMasterSeeder extends Seeder
     {
         $reportCategories = ['不適切','誹謗中傷','規約違反','その他'];
         DB::table('reports_categories_master')->delete();
-        for ($i = 0; $i < count($reportCategories); $i++) {
+        for ($i = 0; $i < count($reportCategories) -1; $i++) {
             DB::table('reports_categories_master')->insert([
                 'report_category_name' => $reportCategories[$i],
                 'report_risk_id' => $i,

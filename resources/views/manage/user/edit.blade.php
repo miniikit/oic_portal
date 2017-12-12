@@ -6,14 +6,14 @@
 @endsection
 
 @section('breadcrumb')
-  <a href="#!" class="breadcrumb">Second</a>
-  <a href="#!" class="breadcrumb">Third</a>
+    <a href="#!" class="breadcrumb">Second</a>
+    <a href="#!" class="breadcrumb">Third</a>
 @endsection
 
 @section('main')
     <div class="row">
         <div class="title-box center">
-            <h1 class="title">ユーザー詳細</h1>
+            <h1 class="title">ユーザー編集</h1>
         </div>
         <form action="{{ route('manager_user_update',$id) }}" method="POST">
             <div class="main-content">
@@ -22,7 +22,7 @@
                     <tr>
                         <th class="th-box">ユーザー名</th>
                         <td class="td-box input-field">
-                            <input type="text" class="validate" name="username"
+                            <input type="text" class="validate" name="userName"
                                    value="{{ old('username',$user->profile_name) }}">
                         </td>
                     </tr>
@@ -36,55 +36,59 @@
                     <tr>
                         <th class="th-box">フリガナ</th>
                         <td class="td-box input-field">
-                            <input type="text" class="validate" name="name_kana"
-                                   value="{{ old('name_kana',$user->name_kana) }}">
+                            <input type="text" class="validate" name="nameKana"
+                                   value="{{ old('nameKana',$user->name_kana) }}">
                         </td>
                     </tr>
                     <tr>
-                        <th class="th-box">メールアドレス</th>
+                        <th class="th-box">学科</th>
                         <td class="td-box input-field">
-                            <input type="text" class="validate" name="email"
-                                   value="{{ old('email',$user->email) }}">
+                            <input type="text" class="validate" name="parentCourse"
+                                   value="{{ old('parentCourse',$user->parent_course_name) }}">
                         </td>
                     </tr>
                     <tr>
-                        <th class="th-box">イベント詳細</th>
+                        <th class="th-box">コース</th>
                         <td class="td-box input-field">
-                            <input type="text" class="validate" name="detail"
-                                   value="{{ old('detail',$event->event_text) }}">
+                            <input type="text" class="validate" name="course"
+                                   value="{{ old('course',$user->course_name) }}">
                         </td>
                     </tr>
                     <tr>
-                        <th class="th-box">イベント画像</th>
+                        <th class="th-box">学年</th>
+                        <td class="td-box input-field">
+                            <input type="text" class="validate" name="scYear"
+                                   value="{{ old('image',$scYear) }}">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="th-box">プロフィール画像</th>
                         <td class="td-box input-field">
                             <input type="text" class="validate" name="image"
-                                   value="{{ old('image',$event->event_image) }}">
+                                   value="{{ old('image',$user->profile_image) }}">
                         </td>
                     </tr>
                     <tr>
-                        <th class="th-box">イベント開始日時</th>
+                        <th class="th-box">URL</th>
                         <td class="td-box input-field">
-                            <input type="datetime-local" class="validate" name="event_start_date_time"
-                                   value="{{ old('event_start_date_time',\Carbon\Carbon::setToStringFormat($event->event_start_date_time)) }}">
+                            <input type="text" class="validate" name="url"
+                                   value="{{ old('url',$user->profile_url) }}">
                         </td>
                     </tr>
                     <tr>
-                        <th class="th-box">イベント終了日時</th>
+                        <th class="th-box">コメント</th>
                         <td class="td-box input-field">
-                            <input type="datetime-local" class="validate" name="event_end_date_time"
-                                   value="{{ old('event_end_date_time',$event->event_end_date_time) }}">
+                            <input type="text" class="validate" name="introduction"
+                                   value="{{ old('introduction',$user->profile_introduction) }}">
                         </td>
-                    </tr>
-                    <tr>
-                        <th class="th-box">イベント参加者数</th>
-                        <td class="td-box">{{ $eventParticipant }} / {{ $event->event_capacity }} 人</td>
                     </tr>
                     </thead>
                 </table>
             </div>
             <div class="btn-box col s12">
                 <div class="col s6 center">
-                    <a href="{{ route('manager_user_detail',$id) }}" class="back-btn waves-effect waves-light btn">戻る</a>
+                    <a href="{{ route('manager_user_detail',$id) }}"
+                       class="back-btn waves-effect waves-light btn">戻る</a>
                 </div>
                 <div class="col s6 center">
                     <button type="submit" class="edit-btn waves-effect waves-light btn">更新</button>
