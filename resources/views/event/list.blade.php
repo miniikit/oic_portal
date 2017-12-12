@@ -12,6 +12,10 @@
     </h1>
   </div>
 
+  <div class="c_but">
+    <a href="{{ route('user_event_creat') }}" class="add_btn btn-floating btn-large waves-effect waves-light"><i class="material-icons">add</i></a>
+  </div>
+
   <div class="row">
       <form class="col s12">
           <div class="input-field">

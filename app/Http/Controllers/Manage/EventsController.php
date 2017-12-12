@@ -3,8 +3,12 @@
 namespace App\Http\Controllers\Manage;
 
 use App\Service\EventService;
+use Carbon\Carbon;
+use Faker\Provider\DateTime;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\EventPostRequest;
+use App\Service\CommonService;
 
 class EventsController extends Controller
 {
@@ -32,13 +36,21 @@ class EventsController extends Controller
     {
         $event = $this->eventService->getEvent($id);
         $eventParticipant = $this->eventService->getEventParticipant($id);
-        return view('manage.event.edit',compact('id','event','eventParticipant'));
+
+        // フォームのvalue用フォーマットに変換
+        $cm = new CommonService();
+        $event->event_start_date_time = $cm->ChangeDateToFormFormat($event->event_start_date_time);
+        $event->event_end_date_time = $cm->ChangeDateToFormFormat($event->event_end_date_time);
+
+        return view('manage.event.edit',compact('id','event','eventParticipant','f'));
     }
 
-    public function update($id,Request $request)
+    public function update(Request $request,$id)
     {
-        $event = $this->eventService->updateEvent($id,$request);
 
+
+        $event = $this->eventService->updateEvent($id,$request);
+        return redirect()->name('manager_event_list');
         //dd($id,$request->all());
     }
 

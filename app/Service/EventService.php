@@ -54,8 +54,6 @@ class EventService
     {
         $request = $request->all();
 
-
-
         dd($request);
 
         $update = array();
@@ -81,18 +79,32 @@ class EventService
          * $format = 1(string),2(int),3(datatime)
          */
         if(isset($data)){
+
             switch ($format){
+
                 case 1: // String
+
                     if(is_string($data)){
                         return true;
                         break;
+                    } else  {
+                        return false;
+                        break;
                     }
 
+                case 2:
+
+                    if(is_int($data)){
+                        return true;
+                        break;
+                    } else {
+                        return false;
+                        break;
+                    }
 
                 default :
                     return false;
             }
-            return true;
         }else{
             return false;
         }

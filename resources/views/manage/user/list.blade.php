@@ -4,6 +4,10 @@
     <link rel="stylesheet" href="/css/manage/managetemplete.css">
 @endsection
 
+@section('breadcrumb')
+    <a href="#!" class="breadcrumb">ユーザー一覧</a>
+@endsection
+
 @section('main')
     <div class="row">
         <div class="title-box center">
@@ -51,12 +55,13 @@
 
 @section('script')
     <script type="text/javascript">
-        jQuery(function($) {
+        jQuery(function ($) {
             $('tr[data-href]').addClass('clickable')
-                .click(function(e) {
-                    if(!$(e.target).is('a')){
+                .click(function (e) {
+                    if (!$(e.target).is('a')) {
                         window.location = $(e.target).closest('tr').data('href');
-                    };
+                    }
+                    ;
                 });
         });
     </script>

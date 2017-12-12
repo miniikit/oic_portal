@@ -77,9 +77,10 @@ class ArticlesController extends Controller
     }
 
     // 編集
-    public function edit()
+    public function edit($id)
     {
-        return view('articles.detail');
+        $article = app(Article::class)->find($id);
+        return view('articles.edit',compact('article'));
     }
 
     // コメント

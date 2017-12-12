@@ -45,11 +45,11 @@
                 </li>
                 <li><a href="{{ route('user_home') }}">トップ</a></li>
                 <li><a href="{{ route('user_mypage') }}">マイページ</a></li>
-                <li><a href="#">記事投稿</a></li>
-                <li><a href="/like">お気に入り</a></li>
-                <li><a href="#">コミュニティ</a></li>
-                <li><a href="/event/">イベント</a></li>
-                <li><a href="/contact">お問い合わせ</a></li>
+                <li><a href="{{ route('user_article_write') }}">記事投稿</a></li>
+                <li><a href="{{ route('user_like') }}">お気に入り</a></li>
+                <li><a href="{{ route('user_community') }}">コミュニティ</a></li>
+                <li><a href="{{ route('user_event') }}">イベント</a></li>
+                <li><a href="{{ route('user_contact') }}">お問い合わせ</a></li>
                @endif
             </ul>
         </div>

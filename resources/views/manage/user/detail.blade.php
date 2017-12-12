@@ -5,7 +5,8 @@
 @endsection
 
 @section('breadcrumb')
-    <a href="#!" class="breadcrumb">Second</a>
+    <a href="#!" class="breadcrumb">ユーザー一覧</a>
+    <a href="#!" class="breadcrumb">ユーザー詳細</a>
 @endsection
 
 @section('main')
