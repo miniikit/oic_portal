@@ -10,7 +10,7 @@
         <div class="col s12 m8 l9">
             <div class="date_link col s12">
                 <!--  TODO : null日付  !-->
-                <p>{{ $article->created_at }}</p>
+                 <p>{{ $article->created_at }}</p>
             </div>
 
             <div class="page-title">

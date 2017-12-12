@@ -43,7 +43,23 @@ class MypagesController extends Controller
 
     public function edit()
     {
-        return view('mypage.detail');
+      if(Auth::check()){
+          $profile = $this->SQLService->getUserProfile();
+          $course = $this->SQLService->getUserCourse();
+
+          $follow_ct = $this->SQLService->getFollowCount();
+          $follower_ct = $this->SQLService->getFollowerCount();
+
+          //入学年度から現在何年生か計算
+          $get_dt = new carbon($profile->profile_admission_year);
+          $now_dt = new carbon(Carbon::now());
+
+          $sc_year = $get_dt->diffInYears($now_dt);
+
+          return view('mypage.edit', compact('course','follow_ct','follower_ct','sc_year'));
+      }else{
+          return redirect()->route('user_login');
+      }
     }
 
     public function show_user($id)

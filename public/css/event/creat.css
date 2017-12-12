@@ -68,7 +68,16 @@
 }
   button.waves-effect.waves-light.btn{
     background-color:  darkgray;
-    font-size: 20px;
+    font-size: 15px;
+    width: 200px;
+    height: 54px;
+    line-height: 54px;
+  }
+  .back-btn {
+    margin-right: 50px;
+  }
+  .creat-btn{
+    margin-left: 50px;
   }
   div.col.s6.right-align{
     padding-right: 2rem;

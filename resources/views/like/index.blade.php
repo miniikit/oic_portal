@@ -54,8 +54,18 @@
     </div>
     @endfor
     <div class="delete-form col s12 center">
-      <a id="delete-btn" class="del-btn waves-effect waves-light btn">削除</a>
+      <a id="delete-btn" class="del-btn waves-effect waves-light modal-trigger btn" href="#modal1">削除</a>
     </div>
+
+    <div id="modal1" class="modal">
+      <div class="modal-content">
+        <h1>選択した項目を削除しますか？</h1>
+      </div>
+      <div class="modal-footer">
+        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">キャンセル</a>
+        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">OK</a>
+      </div>
+  </div>
 
   </form>
   </div>
@@ -78,6 +88,13 @@
         $('.chkbox').toggle();
         $('.chip').toggle();
     });
+  });
+  </script>
+
+  <script type="text/javascript">
+  $(document).ready(function(){
+  // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
+  $('.modal').modal();
   });
   </script>
 @endsection

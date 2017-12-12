@@ -18,11 +18,11 @@
           </div>
       </form>
     <div class="table-wrp col s12">
-      <table class="table">
+      <table class="tb-table table">
         <thead class="center">
           <tr>
             <th class="tb-title">ID</th>
-            <th class="tb-title">記事タイトル</th>
+            <th class="tb-title">タイトル</th>
             <th class="tb-title">本文</th>
             <th class="tb-title">画像</th>
             <th class="tb-title">ジャンル</th>
