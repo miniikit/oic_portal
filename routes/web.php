@@ -125,7 +125,7 @@ Route::get('/community/new/complete', 'FakeController@fake');
  *  イベント
  */
 // 一覧
-Route::get('/event', 'EventController@index');
+Route::get('/event', 'EventController@index')->name('user_event');
 // 一覧(終了分)  TODO : URL考える
 Route::get('/event/kk', 'FakeController@index');
 // 詳細
@@ -139,7 +139,7 @@ Route::get('/event/1000/edit/confirm', 'FakeController@edit');
 Route::get('/event/1000/edit/complete', 'FakeController@edit');
 
 // 新規作成
-Route::get('/event/new', 'EventController@make');
+Route::get('/event/new', 'EventController@make')->name('user_event_creat');
 // 新規作成-確認
 Route::get('/event/new/confirm', 'FakeController@make');
 // 新規作成-完了   TODO : 関数名変更
