@@ -22,7 +22,7 @@ class CommunityController extends Controller
     //作成
     public function make()
     {
-      return view('community.create');
+      return view('community.creat');
     }
 
     //完了
