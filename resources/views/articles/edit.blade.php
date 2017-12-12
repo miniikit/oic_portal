@@ -41,7 +41,7 @@
 
       </div> --}}
       <div class="row">
-        <div class="input-field col s6">
+        <div class="input-field col s6" id="genre" placeholder="ジャンル">
           <select>
             <option value="" disabled selected></option>
             <option value="1">すべて</option>
@@ -50,11 +50,11 @@
             <option value="4">CG・映像・アニメーション</option>
             <option value="5">デザイン・web</option>
           </select>
-          <label>ジャンル</label>
+          <label for="genre">ジャンル</label>
         </div>
         <div class="input-field col s6">
-          <input type="text" class="datepicker">
-          <label for="password">掲載期間</label>
+          <input type="text" id="date" class="datepicker">
+          <label for="date">掲載期間</label>
         </div>
       </div>
       <div class="row">
