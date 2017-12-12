@@ -20,7 +20,7 @@
               </div>
               <div class="card-stacked">
                 <div class="border-top card-content">
-                  <a class="link_color" href=""><h1 class="card-name">ユーザー名</h1></a>
+                  <a class="link_color" href="{{ route('user_profile') }}"><h1 class="card-name">ユーザー名</h1></a>
                 </div>
                 <div class="card-content">
                   <div class="user_info">
