@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
+use App\Article;
 
 
 class ArticlesController extends Controller
@@ -37,7 +38,16 @@ class ArticlesController extends Controller
     public function complete(Request $request)
     {
         $data = $request->all();
-        return dd($data);
+        $articles_model = app(Article::class);
+        $articles_model->create([
+            'article_title' => $data['article_title'],
+            'article_image' => $data['article_image'],
+            'article_text'  => $data['article_text'],
+            'news_site_id'  => 0,  //0のときはセルフ記事
+            'article_url'   => 0,
+        ]);
+
+        return view('articles.complete');
     }
 
     // 詳細
@@ -88,9 +98,5 @@ class ArticlesController extends Controller
         ]);
 
         return redirect()->route('user_article_detail', compact('article_id'));
-    }
-    public function complete()
-    {
-      return view('articles.complete');
     }
 }

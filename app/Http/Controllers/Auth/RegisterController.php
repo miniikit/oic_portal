@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Mail\RegisterShipped;
 use Mail;
 use App\Profile;
 use App\User;
 use Carbon\Carbon;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Mail\Mailable;
 use App\Http\Requests\RegisterRequest;
 
 
@@ -63,6 +63,10 @@ class RegisterController extends Controller
             'authority_id' => 1,
             'profile_id' => $profileId,
         ]);
+
+        Mail::send('mail.register',compact('data'), function ($message) use ($request) {
+            $message->to($request->email, $request->name)->subject('会員登録完了');
+        });
 
         return view('auth.register.complete');
     }
