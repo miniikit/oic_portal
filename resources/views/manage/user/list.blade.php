@@ -5,7 +5,7 @@
 @endsection
 
 @section('breadcrumb')
-    <a href="#!" class="breadcrumb">ユーザー一覧</a>
+    <a href="{{ route('manager_user_list') }}" class="breadcrumb">ユーザー一覧</a>
 @endsection
 
 @section('main')

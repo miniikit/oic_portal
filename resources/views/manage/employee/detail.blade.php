@@ -4,6 +4,11 @@
     <link rel="stylesheet" href="/css/manage/detail.css">
 @endsection
 
+@section('breadcrumb')
+    <a href="{{ route('manager_employee_list') }}" class="breadcrumb">管理者一覧</a>
+    <a href="{{ route('manager_employee_detail',$id) }}" class="breadcrumb">管理者詳細</a>
+@endsection
+
 @section('main')
     <div class="row">
         <div class="title-box center">
@@ -73,10 +78,10 @@
         </div>
         <div class="btn-box col s12">
             <div class="col s6 center">
-                <a class="back-btn waves-effect waves-light btn">戻る</a>
+                <a class="back-btn waves-effect waves-light btn" href="{{ route('manager_employee_list') }}">戻る</a>
             </div>
             <div class="col s6 center">
-                <a class="edit-btn waves-effect waves-light btn">編集</a>
+                <a class="edit-btn waves-effect waves-light btn" href="{{ route('manager_employee_edit',$id) }}">編集</a>
             </div>
         </div>
     </div>

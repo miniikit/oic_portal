@@ -5,8 +5,8 @@
 @endsection
 
 @section('breadcrumb')
-    <a href="#!" class="breadcrumb">ユーザー一覧</a>
-    <a href="#!" class="breadcrumb">ユーザー詳細</a>
+    <a href="{{ route('manager_user_list') }}" class="breadcrumb">ユーザー一覧</a>
+    <a href="{{ route('manager_user_detail',$id) }}" class="breadcrumb">ユーザー詳細</a>
 @endsection
 
 @section('main')

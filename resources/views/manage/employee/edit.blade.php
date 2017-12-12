@@ -6,17 +6,17 @@
 @endsection
 
 @section('breadcrumb')
-    <a href="{{ route('manager_user_list') }}" class="breadcrumb">ユーザー一覧</a>
-    <a href="{{ route('manager_user_detail',$id) }}" class="breadcrumb">ユーザー詳細</a>
-    <a href="{{ route('manager_user_edit',$id) }}" class="breadcrumb">ユーザー編集</a>
+    <a href="{{ route('manager_employee_list') }}" class="breadcrumb">管理者一覧</a>
+    <a href="{{ route('manager_employee_detail',$id) }}" class="breadcrumb">管理者詳細</a>
+    <a href="{{ route('manager_employee_edit',$id) }}" class="breadcrumb">管理者編集</a>
 @endsection
 
 @section('main')
     <div class="row">
         <div class="title-box center">
-            <h1 class="title">ユーザー編集</h1>
+            <h1 class="title">管理者編集</h1>
         </div>
-        <form action="{{ route('manager_user_update',$id) }}" method="POST">
+        <form action="{{ route('manager_employee_update',$id) }}" method="POST">
             <div class="main-content">
                 <table>
                     <thead>
@@ -88,7 +88,7 @@
             </div>
             <div class="btn-box col s12">
                 <div class="col s6 center">
-                    <a href="{{ route('manager_user_detail',$id) }}"
+                    <a href="{{ route('manager_employee_detail',$id) }}"
                        class="back-btn waves-effect waves-light btn">戻る</a>
                 </div>
                 <div class="col s6 center">
