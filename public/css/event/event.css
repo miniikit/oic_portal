@@ -22,6 +22,19 @@
   .select-wrapper input.select-dropdown{
     font-size: 0.8em;
   }
+  div.c_but{
+    float: right;
+  }
+  .btn-floating.btn-large {
+    width: 40px;
+    height: 40px;
+  }
+  .btn-floating.btn-large i {
+    line-height: 40px;
+  }
+  .btn-large i {
+    font-size: 1.5rem;
+  }
 }
 
 @media only screen and (min-width: 801px) {
@@ -34,5 +47,8 @@
   .title{
     font-size: 2rem;
     color: darkgray;
+  }
+  div.c_but{
+    float: right;
   }
 }

@@ -2,21 +2,30 @@
 
 @section('css')
   <link rel="stylesheet" href="/css/mypage/mypage.css">
+  <link rel="stylesheet" href="/css/mypage/edit.css">
 @endsection
 
 @section('main')
   <div class="row">
 
-        <div class="profile col s12">
-          <div class="profile-rap col s12 center">
-            <img class="image circle" src="{{App\Profile::find(Auth::user()->profile_id)->profile_image}}" alt="">
-            <a href="{{ route('user_mypage_edit') }}" class="edit-btn btn-floating waves-effect waves-light green"><i class="material-icons">edit</i></a>
+        <div class="prf-image col s12">
+          <div class="profile-rap imgInput file-field input-field col s12 center">
+            <div class="wap">
+              <a class="clear-btn btn-floating waves-effect waves-light red"><i class="material-icons">clear</i></a>
+              <img class="image-edit imgView circle" src="{{App\Profile::find(Auth::user()->profile_id)->profile_image}}" alt="">
+              <a class="done-btn btn-floating waves-effect waves-light green"><i class="material-icons">done</i></a>
+            </div><!--/.imgInput-->
+            <div class="btn-wap center">
+              <a class="image-btn waves-effect waves-light btn" name="profile_image">画像を変更<input type="file" name="profile_image"></a>
+            </div>
           </div>
         </div>
 
-      <div class="prfbox col s12">
-        <div class="username center-align">
-          <h1>{{ $profile->profile_name }}</h1>
+      <div class="prfbox">
+        <div class="username input-field">
+          <div class="input-area">
+            <input placeholder="名前" type="text" class="input-name validate center">
+          </div>
         </div>
 
         <div class="prf col s12">
@@ -49,12 +58,16 @@
           </div>
         </div>
 
-        <div class="prf-text col s12 life-align">
-          <h2 class="text">{{ $profile->profile_url }}</h2>
+        <div class="prf-text col s12 left-align input-field">
+          <div class="input-area-other">
+            <input placeholder="ポートフォリオ" type="text" class="input-text validate center">
+          </div>
         </div>
 
-        <div class="prf-text col s12 left-align">
-          <h2 class="text">{{ $profile->profile_introduction }}</h2>
+        <div class="prf-text col s12 left-align input-field">
+          <div class="input-area-other">
+            <input placeholder="自己紹介" type="text" class="input-text validate center">
+          </div>
         </div>
       </div>
 
@@ -87,23 +100,48 @@
                     アニメーション
                   </div> --}}
                 </div>
-
-                {{-- カウンター 実装するか検討 --}}
-                {{-- <div class="counter">
-                  <i class="goodicon material-icons" id="counter">thumb_up</i>
-                  <label class="showcounter" for="counter">100</label>
-                </div>
-                <div class="counter">
-                  <i class="goodicon material-icons" id="counter">remove_red_eye</i>
-                  <label class="showcounter" for="counter">1000</label>
-                </div> --}}
-
               </div>
             </div>
           </div>
         @endfor
       </div>
-
   </div>
+@endsection
+
+@section('script')
+  <script type="text/javascript">
+  // 画像差し替え処理
+          $(function(){
+      var setFileInput = $('.imgInput'),
+      setFileImg = $('.imgView');
+
+      setFileInput.each(function(){
+          var selfFile = $(this),
+          selfInput = $(this).find('input[type=file]'),
+          prevElm = selfFile.find(setFileImg),
+          orgPass = prevElm.attr('src');
+
+          selfInput.change(function(){
+              var file = $(this).prop('files')[0],
+              fileRdr = new FileReader();
+
+              if (!this.files.length){
+                  prevElm.attr('src', orgPass);
+                  return;
+              } else {
+                  if (!file.type.match('image.*')){
+                      prevElm.attr('src', orgPass);
+                      return;
+                  } else {
+                      fileRdr.onload = function() {
+                          prevElm.attr('src', fileRdr.result);
+                      }
+                      fileRdr.readAsDataURL(file);
+                  }
+              }
+          });
+      });
+  });
+  </script>
 
 @endsection

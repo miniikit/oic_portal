@@ -48,8 +48,8 @@
       </div>
     </form>
     <div class="row">
-      <div class="col s6 right-align"><button type="button" class="waves-effect waves-light btn">戻る</button></div>
-      <div class="col s6 left-align"><button type="submit" class="waves-effect waves-light btn">作成</button></div>
+      <div class="col s6 right-align"><button type="button" class="back-btn waves-effect waves-light btn">戻る</button></div>
+      <div class="col s6 left-align"><button type="submit" class="creat-btn waves-effect waves-light btn">作成</button></div>
     </div>
   </div>
 
