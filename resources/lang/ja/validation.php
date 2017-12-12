@@ -36,6 +36,7 @@ return [
     'digits_between'       => ':attributeは:min〜:max桁にしてください。',
     'email'                => ':attributeを正しいメールアドレスにしてください。',
     'filled'               => ':attributeは必須です。',
+    'file'                 => ':attributeが壊れています。',
     'exists'               => '選択された:attributeは正しくありません。',
     'image'                => ':attributeは画像にしてください。',
     'in'                   => '選択された:attributeは正しくありません。',
