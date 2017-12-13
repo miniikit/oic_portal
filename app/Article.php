@@ -10,4 +10,9 @@ class Article extends Model
     protected $fillable = [
         'article_title','article_text','article_image','news_site_id','article_url'
     ];
+
+    public function articlelikes()
+    {
+        return $this->hasMany('App\ArticleLike');
+    }
 }
