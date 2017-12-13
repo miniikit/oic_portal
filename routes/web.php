@@ -86,6 +86,8 @@ Route::group(['middleware' => ['UserAuth']],function()
 
     // チャット
     Route::get('/chat', 'MessagesController@chat')->name('user_mypage_chat');
+    Route::get('/chat_other', 'MessagesController@chat_other')->name('user_mypage_chat_other');
+
 
     // メッセージ
     Route::get('/messages', 'MessagesController@getmessages')->name('user_mypage_message');

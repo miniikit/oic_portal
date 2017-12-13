@@ -7,11 +7,16 @@
 }
 
 
-@media only screen and (max-width: 600px){
+@media only screen and (min-width: 0px) and (max-width: 600px){
+
+  #main{
+    margin-top: 7rem;
+  }
+
   .title{
     font-size: 1.5em;
     color: darkgray;
-    margin-bottom: 50px;
+    margin-bottom: 3rem;
   }
   .user_info{
     display: flex;
@@ -19,6 +24,13 @@
   .user_stats{
     flex: 1;
     text-align: center;
+  }
+  div.change.card.horizontal{
+    height: 150px;
+  }
+  img.user-image.circle{
+    height:150px;
+    width: 150px;
   }
   strong{
     display: block;
@@ -36,13 +48,9 @@
     padding: .18em 0;
     display: inline-block;
   }
-  /*.card-image{
-    display: none;
-  }*/
 }
 
-
-@media only screen and (min-width: 601px){
+@media only screen and (min-width: 601px) and (max-width: 991px){
   .title{
     font-size: 2rem;
     color: darkgray;
@@ -54,6 +62,80 @@
   .user_stats{
     flex: 1;
     text-align: center;
+  }
+  .content .user_card{
+    float: left;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0 .75rem;
+    min-height: 1px;
+  }
+  div.user_card{
+    width: 33.3333333333%;
+    margin-left: auto;
+    left: auto;
+    right: auto;
+  }
+  strong{
+    display: block;
+    float: left;
+    clear: both;
+    width: 100%;
+    color: #B3B1B2;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: -0.1px;
+  }
+  strong.sp{
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+  .card .card-content {
+    padding: 10px;
+    border-radius: 0 0 2px 2px;
+  }
+  span{
+    font-size: 20px;
+    color: #5E5E5E;
+    padding: .18em 0;
+    display: inline-block;
+  }
+  .year{
+    padding-bottom: 50px;
+  }
+  .follow-btn{
+    font-size: 0.65em;
+    width: 130px;
+    margin: 0 10px;
+  }
+
+}
+
+@media only screen and (min-width: 992px){
+  .title{
+    font-size: 2rem;
+    color: darkgray;
+    margin-bottom: 50px;
+  }
+  .user_info{
+    display: flex;
+  }
+  .user_stats{
+    flex: 1;
+    text-align: center;
+  }
+  .content .user_card{
+    float: left;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0 .75rem;
+    min-height: 1px;
+  }
+  div.user_card{
+    width: 33.3333333333%;
+    margin-left: auto;
+    left: auto;
+    right: auto;
   }
   strong{
     display: block;
