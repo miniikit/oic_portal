@@ -27,4 +27,8 @@ class MessagesController extends Controller
         broadcast(new MessagePosted($message, $user))->toOthers();
         return ['status' => 'OK'];
     }
+    public function chat_other()
+    {
+      return view('chat_other');
+    }
 }
