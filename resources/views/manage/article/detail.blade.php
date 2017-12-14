@@ -5,8 +5,11 @@
 @endsection
 
 @section('breadcrumb')
-  <a href="#!" class="breadcrumb">Second</a>
+  {{-- TODO : 記事IDのところを変数に変更する  --}}
+  <a href="{{ route('manager_article_list') }}" class="breadcrumb">記事管理</a>
+  <a href="{{ route('manager_article_detail',1) }}" class="breadcrumb">記事詳細</a>
 @endsection
+
 
 
 @section('main')
@@ -53,7 +56,7 @@
         <a class="back-btn waves-effect waves-light btn">戻る</a>
       </div>
       <div class="col s6 center">
-        <a class="edit-btn waves-effect waves-light btn">編集</a>
+        <a class="edit-btn waves-effect waves-light btn" href="/manage/article/{id}/edit">編集</a>
       </div>
     </div>
   </div>

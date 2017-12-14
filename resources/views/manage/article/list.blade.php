@@ -4,6 +4,10 @@
   <link rel="stylesheet" href="/css/manage/managetemplete.css">
 @endsection
 
+@section('breadcrumb')
+  <a href="{{ route('manager_article_list') }}" class="breadcrumb">記事一覧</a>
+@endsection
+
 @section('main')
   <div class="row">
     <div class="title-box center">

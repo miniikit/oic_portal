@@ -22,4 +22,19 @@ class CommonService
         $new_datetime = $date . 'T' . $time;
         return $new_datetime;
     }
+
+    /**
+     * フォームのinputタグのdatetime-localのvalueから、DBのdatatimeに変換
+     * @param $datetime
+     * @return string
+     */
+    public function ChangeDateToDBFormat($datetime)
+    {
+        $date = substr($datetime,0,10);
+        $time = substr($datetime,11,5);
+        $new_datetime = $date . ' ' . $time;
+        $new_datetime = Carbon::parse($new_datetime);
+
+        return $new_datetime;
+    }
 }

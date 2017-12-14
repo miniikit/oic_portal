@@ -4,6 +4,10 @@
     <link rel="stylesheet" href="/css/manage/managetemplete.css">
 @endsection
 
+@section('breadcrumb')
+  <a href="#!" class="breadcrumb">通報一覧</a>
+@endsection
+
 @section('main')
     <div class="row">
         <div class="title-box center">
@@ -23,17 +27,16 @@
                     <tr>
                         <th class="tb-title">ID</th>
                         <th class="tb-title">危険度</th>
-                        <th class="tb-title">カテゴリ名</th>
-                        <th class="tb-title">対処者名</th>
+                        <th class="tb-title">カテゴリ</th>
+                        <th class="tb-title">対処者</th>
                         <th class="tb-title">対処状態</th>
                         <th class="tb-title">通報日時</th>
                         <th class="tb-title"></th>
-
                     </tr>
                     </thead>
                     <tbody>
                     @foreach($reports as $report)
-                        <tr class="tb-1">
+                        <tr data-href="{{ route('manager_report_detail',$report->id) }}">
                             <td class="tb-text">{{ $report->id }}</td>
                             <td class="tb-text">{{ $report->report_risk_category_name }}</td>
                             <td class="tb-text">{{ $report->report_category_name }}</td>
@@ -51,5 +54,14 @@
 @endsection
 
 @section('script')
-
+    <script type="text/javascript">
+        jQuery(function($) {
+            $('tr[data-href]').addClass('clickable')
+                .click(function(e) {
+                    if(!$(e.target).is('a')){
+                        window.location = $(e.target).closest('tr').data('href');
+                    };
+                });
+        });
+    </script>
 @endsection
