@@ -27,6 +27,6 @@ class HomeController extends Controller
         $articles = $this->SQLService->getArticle();
         $article_like = $this->SQLService->getArticleLike();
 
-        return view('home.list',compact('articles','article_like'));
+        return view('home.list', compact('articles', 'article_like'));
     }
 }
