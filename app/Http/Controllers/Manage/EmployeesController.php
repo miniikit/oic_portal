@@ -51,9 +51,10 @@ class EmployeesController extends Controller
             ->join('courses_master as cm2','cm2.parent_course_id','=','cm1.id')
             ->join('profiles_table','profiles_table.course_id','=','cm2.id')
             ->join('users','users.profile_id','=','profiles_table.id')
+            ->join('authorities_master', 'authorities_master.id', '=', 'users.authority_id')
             ->where('users.id',$id)
-            ->where('users.authority_id',1)
-            ->select('users.id','profiles_table.profile_name','users.name','users.name_kana','users.email','profiles_table.profile_admission_year','profiles_table.profile_image','profiles_table.profile_url','profiles_table.profile_introduction','cm1.course_name as parent_course_name','cm2.course_name as course_name')
+            ->where('users.authority_id',[2,3])
+            ->select('users.id','authorities_master.authority_name','profiles_table.profile_name','users.name','users.name_kana','users.email','profiles_table.profile_admission_year','profiles_table.profile_image','profiles_table.profile_url','profiles_table.profile_introduction','cm1.course_name as parent_course_name','cm2.course_name as course_name')
             ->first();
 
         $nowYear = Carbon::today()->year;
