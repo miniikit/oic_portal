@@ -48,8 +48,8 @@
                     <tr>
                         <th class="th-box">イベント画像</th>
                         <td class="td-box input-field imgInput">
-                            <img class="imgView" src="{{ old('event_image',$event->event_image) }}" alt="">
-                            <input type="file" id="getfile" name="event_image" required>
+                            <img class="imgView" src="{{ old('event_image',$event->event_image) }}">
+                            <input class="validate" type="file" id="getfile" name="event_image" required>
                             <div class="">※ 拡張子: jpg jpeg</div>
                         </td>
                     </tr>

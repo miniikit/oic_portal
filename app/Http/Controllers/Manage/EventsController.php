@@ -45,8 +45,13 @@ class EventsController extends Controller
         return view('manage.event.edit',compact('id','event','eventParticipant','f'));
     }
 
-    public function update(Request $request,$id)
+    public function update(EventPostRequest $request,$id)
     {
+        if($request->hasFile('event_image')){
+            dd(333);
+        }else {
+            dd($request->all());
+        }
 
 
         $event = $this->eventService->updateEvent($id,$request);
