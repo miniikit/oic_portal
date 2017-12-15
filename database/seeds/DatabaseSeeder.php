@@ -185,7 +185,7 @@ class CoursesMasterSeeder extends Seeder
         for ($i = 0; $i < count($parentCourses); $i++) {
             DB::table('courses_master')->insert([
                 'course_name' => $parentCourses[$i],
-                'parent_course_id' => 3,
+                'parent_course_id' => 0,
                 'course_depth' => 0,
                 'course_year' => 0,
                 'created_at' => Carbon::now(),
@@ -197,6 +197,7 @@ class CoursesMasterSeeder extends Seeder
         $year = [4,4,3,3,3,2,2,4,4,4,3,3,2,2,4,3,2,2,3,2,2,2];
         for ($i = 0; $i < count($courses); $i++) {
             DB::table('courses_master')->insert([
+
                 'course_name' => $courses[$i],
                 'parent_course_id' => $parents[$i],
                 'course_depth' => 1,
@@ -289,8 +290,8 @@ class ReportsDealsTableSeeder extends Seeder
         DB::table('reports_deals_table')->delete();
         for ($i = 0; $i < count($reportsComments); $i++) {
             DB::table('reports_deals_table')->insert([
-                'report_id' => $i,
-                'user_id' => $i,
+                'report_id' => $i + 1,
+                'user_id' => $i + 1,
                 'report_deal_comment' => $reportsComments[$i],
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
@@ -305,7 +306,7 @@ class ReportsCategoriesMasterSeeder extends Seeder
     {
         $reportCategories = ['不適切','誹謗中傷','規約違反','その他'];
         DB::table('reports_categories_master')->delete();
-        for ($i = 0; $i < count($reportCategories); $i++) {
+        for ($i = 0; $i < count($reportCategories) -1; $i++) {
             DB::table('reports_categories_master')->insert([
                 'report_category_name' => $reportCategories[$i],
                 'report_risk_id' => $i,
