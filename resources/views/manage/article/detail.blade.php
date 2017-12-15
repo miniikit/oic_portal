@@ -5,8 +5,11 @@
 @endsection
 
 @section('breadcrumb')
-  <a href="#!" class="breadcrumb">Second</a>
+  {{-- TODO : 記事IDのところを変数に変更する  --}}
+  <a href="{{ route('manager_article_list') }}" class="breadcrumb">記事管理</a>
+  <a href="{{ route('manager_article_detail',1) }}" class="breadcrumb">記事詳細</a>
 @endsection
+
 
 
 @section('main')

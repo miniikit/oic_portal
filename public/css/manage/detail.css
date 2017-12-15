@@ -43,12 +43,23 @@ table,td,th{
   height: 54px;
   line-height: 54px;
 }
-/*
-input[type=text]:not(.browser-default){
-  margin: 0;
-  border: 1px darkgray solid;
-}
-*/
 .input-field{
   margin: 0;
+}
+
+/* 通知詳細 */
+.wap-comment{
+  text-align: right;
+  margin-right: 10px;
+  margin-bottom: 8px;
+}
+.l-title{
+  font-size: 25px;
+  margin: 1rem 0;
+}
+.log-text{
+  font-size: 20px;
+  line-height: 50px;
+  letter-spacing: 3px;
+  border-bottom: 1px darkgray solid;
 }
