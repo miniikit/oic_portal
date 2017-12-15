@@ -43,5 +43,8 @@ class EventController extends Controller
     {
         return view('event.creat');
     }
+    public function edit(){
+        return view('event.edit');
+    }
 
 }
