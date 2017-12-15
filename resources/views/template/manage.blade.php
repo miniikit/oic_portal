@@ -43,7 +43,6 @@
          </div>
          <div class="nav-wrapper">
            <div class="bread-rap">
-            <a href="#!" class="breadcrumb">First</a>
             @yield('breadcrumb')
           </div>
          </div>

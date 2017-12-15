@@ -5,6 +5,10 @@
   <link rel="stylesheet" href="/css/manage/managetemplete.css">
 @endsection
 
+@section('breadcrumb')
+  <a href="{{ route('manager_home') }}" class="breadcrumb">通知一覧</a>
+@endsection
+
 @section('main')
   <div class="row">
     <div class="title-box center">

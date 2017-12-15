@@ -22,19 +22,25 @@
         <div class="nav-wrapper">
             <a href="{{ route('user_home') }}" class="brand-logo center">OIC-portal</a>
             @if (Auth::guest())
+              <div class="right login">
                 <a href="/login/google">ログイン</a>
+              </div>
             @else
+              <div class="right logout">
                 <a href="/logout" onclick="event.preventDefault();document.getElementById('logout-form').submit();">ログアウト</a>
                 <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">{{ csrf_field() }}</form>
+              </div>
+
             @endif
-            <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-            <ul class="side-nav" id="mobile-demo">
+              <a href="#" data-activates="mobile-demo" class="left button-collapse"><i class="material-icons">menu</i></a>
+              <ul class="side-nav" id="mobile-demo">
                 <li>
                     @if(Auth::guest())
                     <li><a href="{{ route('user_home') }}">トップ</a></li>
                     <li><a href="#">コミュニティ</a></li>
                     <li><a href="/event/">イベント</a></li>
                     <li><a href="/contact">お問い合わせ</a></li>
+                    <li class="in"><a href="/login/google">ログイン</a></li>
                     @else
                     <div class="user-view">
                         <div class="background"></div>
@@ -50,6 +56,7 @@
                 <li><a href="{{ route('user_community') }}">コミュニティ</a></li>
                 <li><a href="{{ route('user_event') }}">イベント</a></li>
                 <li><a href="{{ route('user_contact') }}">お問い合わせ</a></li>
+                <li class="out"><a href="">ログアウト</a></li>
                @endif
             </ul>
         </div>

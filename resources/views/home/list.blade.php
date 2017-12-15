@@ -56,7 +56,7 @@
                                 <p class="card-text">{{ $article->article_text }}</p>
                             </div>
                             <div class="card-action">
-                                <a href="{{ $article->article_url }}">READ MORE</a>
+                                <a href="{{ $article->article_url }}">続きを読む</a>
                                 <div class="tags">
                                     <div class="chip">
                                         IT
