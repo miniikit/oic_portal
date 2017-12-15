@@ -13,12 +13,13 @@ class CommunitiesParticipantsTable extends Migration
      */
     public function up()
     {
-        Schema::create('communities_participants_table', function (Blueprint $table){
-           $table->increments('id');//コミュニティ参加者ID
-           $table->integer('community_id');//コミュニティID
-           $table->integer('user_id');//会員ID
-           $table->timestamps();
-           $table->softDeletes();
+        Schema::create('communities_participants_table', function (Blueprint $table) {
+            $table->increments('id');//コミュニティ参加者ID
+            $table->integer('community_id');//コミュニティID
+            $table->integer('user_id');//会員ID
+            $table->integer('authority_id');//権限ID
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 
