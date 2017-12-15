@@ -4,6 +4,10 @@
     <link rel="stylesheet" href="/css/manage/managetemplete.css">
 @endsection
 
+@section('breadcrumb')
+    <a href="{{ route('manager_user_list') }}" class="breadcrumb">ユーザー一覧</a>
+@endsection
+
 @section('main')
     <div class="row">
         <div class="title-box center">
@@ -32,12 +36,12 @@
                     </thead>
                     <tbody>
                     @foreach($users as $user)
-                        <tr class="tb-1">
+                        <tr data-href="{{ route('manager_user_detail',$user->id) }}">
                             <td class="tb-text">{{ $user->id }}</td>
                             <td class="tb-text">{{ $user->profile_name }}</td>
                             <td class="tb-text">{{ $user->name }}</td>
                             <td class="tb-text">{{ substr($user->email, 0, strcspn($user->email,'@')) }}</td>
-                            <td class="tb-text">{{ $user->course_name }}</td>
+                            <td class="tb-text">{{ $user->parent_course_name }}</td>
                             <td class="tb-text">{{ date('Y年',strtotime($user->profile_admission_year)) }}</td>
                             <td class="tb-btn"><a class="del-btn waves-effect waves-light btn">削除</a></td>
                         </tr>
@@ -50,5 +54,15 @@
 @endsection
 
 @section('script')
-
+    <script type="text/javascript">
+        jQuery(function ($) {
+            $('tr[data-href]').addClass('clickable')
+                .click(function (e) {
+                    if (!$(e.target).is('a')) {
+                        window.location = $(e.target).closest('tr').data('href');
+                    }
+                    ;
+                });
+        });
+    </script>
 @endsection

@@ -2,23 +2,25 @@
 /*main*/
 
 .title{
-  font-size: 2em;
+  font-size: 2.5em;
   color: darkgray;
+  letter-spacing: 10px;
 }
 .title-box{
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
 }
 .main-content{
   background-color: #fff;
   margin: 1rem;
 }
 .th-box{
-  background-color: #004d40;
+  background-color: slategrey;
   color: #fff;
   padding: 0.1rem;
   text-align: center;
   width: 35%;
   vertical-align: middle;
+  letter-spacing: 6px;
 }
 .td-box{
   padding: 2rem;
@@ -28,7 +30,8 @@ table,td,th{
   border: 1px #fff solid;
 }
 .btn-box{
-  margin-top: 2rem;
+  margin-top: 3rem;
+  margin-bottom: 10rem;
 }
 .back-btn{
   width: 250px;
@@ -40,10 +43,12 @@ table,td,th{
   height: 54px;
   line-height: 54px;
 }
+/*
 input[type=text]:not(.browser-default){
   margin: 0;
   border: 1px darkgray solid;
 }
+*/
 .input-field{
   margin: 0;
 }

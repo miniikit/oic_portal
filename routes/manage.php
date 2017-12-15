@@ -92,9 +92,9 @@ Route::get('/manage/user/{id}', 'Manage\UsersController@show')->name('manager_us
 // 編集
 Route::get('/manage/user/{id}/edit', 'Manage\UsersController@edit')->name('manager_user_edit');
 // 更新
-Route::post('/manage/site/{id}/update','Manage\UsersController@update')->name('manager_user_update');
+Route::post('/manage/user/{id}/update','Manage\UsersController@update')->name('manager_user_update');
 // 削除
-Route::delete('/manage/site/{id}/delete','Manage\UsersController@destroy')->name('manager_user_delete');
+Route::delete('/manage/user/{id}/delete','Manage\UsersController@destroy')->name('manager_user_delete');
 
 
 /**

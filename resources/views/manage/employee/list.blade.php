@@ -5,7 +5,7 @@
 @endsection
 
 @section('breadcrumb')
-  <a href="{{ route('manager_employee_list') }}" class="breadcrumb">管理者一覧</a>
+    <a href="{{ route('manager_employee_list') }}" class="breadcrumb">管理者一覧</a>
 @endsection
 
 @section('main')
@@ -31,16 +31,15 @@
                         <th class="tb-title">学籍番号</th>
                         <th class="tb-title">権限名</th>
                         <th class="tb-title"></th>
-
                     </tr>
                     </thead>
                     <tbody>
                     @foreach($employees as $employee)
-                        <tr class="tb-1">
+                        <tr data-href="{{ route('manager_employee_detail',$employee->id) }}">
                             <td class="tb-text">{{ $employee->id }}</td>
                             <td class="tb-text">{{ $employee->profile_name }}</td>
                             <td class="tb-text">{{ $employee->name }}</td>
-                            <td class="tb-text">{{ $employee->email }}</td>
+                            <td class="tb-text">{{ substr($employee->email, 0, strcspn($employee->email,'@')) }}</td>
                             <td class="tb-text">{{ $employee->authority_name }}</td>
                             <td class="tb-btn"><a class="del-btn waves-effect waves-light btn">削除</a></td>
                         </tr>
@@ -53,5 +52,14 @@
 @endsection
 
 @section('script')
-
+    <script type="text/javascript">
+        jQuery(function($) {
+            $('tr[data-href]').addClass('clickable')
+                .click(function(e) {
+                    if(!$(e.target).is('a')){
+                        window.location = $(e.target).closest('tr').data('href');
+                    };
+                });
+        });
+    </script>
 @endsection
