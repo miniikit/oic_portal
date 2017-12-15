@@ -6,8 +6,14 @@
 @endsection
 
 @section('breadcrumb')
+<<<<<<< HEAD
     <a href="{{ route('manager_event_list') }}" class="breadcrumb">イベント一覧</a>
     <a href="{{ route('manager_event_detail',$id) }}" class="breadcrumb">イベント詳細</a>
+=======
+  <a href="{{ route('manager_event_list') }}" class="breadcrumb">イベント一覧</a>
+  <a href="{{ route('manager_event_detail',$id) }}" class="breadcrumb">イベント詳細</a>
+  <a href="{{ route('manager_event_edit',$id) }}" class="breadcrumb">イベント編集</a>
+>>>>>>> bf4dd0a470616a9bfc19a97d7fde0751e340c91f
 @endsection
 
 @section('main')

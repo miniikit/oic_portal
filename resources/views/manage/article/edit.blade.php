@@ -6,8 +6,9 @@
 @endsection
 
 @section('breadcrumb')
-  <a href="#!" class="breadcrumb">Second</a>
-  <a href="#!" class="breadcrumb">Third</a>
+  <a href="{{ route('manager_article_list') }}" class="breadcrumb">記事管理</a>
+  <a href="{{ route('manager_article_detail',1) }}" class="breadcrumb">記事詳細</a>
+  <a href="{{ route('manager_article_edit',1) }}" class="breadcrumb">記事編集</a>
 @endsection
 
 @section('main')

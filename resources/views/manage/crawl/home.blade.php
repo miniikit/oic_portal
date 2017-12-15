@@ -4,6 +4,10 @@
   <link rel="stylesheet" href="/css/manage/crawl/home.css">
 @endsection
 
+@section('breadcrumb')
+  <a href="{{ route('manager_crawl_home') }}" class="breadcrumb">ステータス</a>
+@endsection
+
 @section('main')
   <div class="row">
     <div class="title center">
