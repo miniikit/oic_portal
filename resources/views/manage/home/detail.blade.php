@@ -5,7 +5,8 @@
 @endsection
 
 @section('breadcrumb')
-  <a href="#!" class="breadcrumb">Second</a>
+  <a href="{{ route('manager_home') }}" class="breadcrumb">通知一覧</a>
+  <a href="{{ route('manager_detail',1) }}" class="breadcrumb">通知詳細</a>
 @endsection
 
 @section('main')

@@ -9,7 +9,7 @@ class ArticlesController extends Controller
 {
     public function index()
     {
-        return view('manage.article.articlemanage');
+        return view('manage.article.list');
     }
 
     public function show()

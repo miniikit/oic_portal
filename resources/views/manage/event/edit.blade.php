@@ -8,6 +8,7 @@
 @section('breadcrumb')
   <a href="{{ route('manager_event_list') }}" class="breadcrumb">イベント一覧</a>
   <a href="{{ route('manager_event_detail',$id) }}" class="breadcrumb">イベント詳細</a>
+  <a href="{{ route('manager_event_edit',$id) }}" class="breadcrumb">イベント編集</a>
 @endsection
 
 @section('main')
