@@ -6,14 +6,15 @@
 
 @section('main')
   <div class="row">
-    <div class="col s12 center-align">
+    <div class="page_title center-align">
       <h1 class="title">フォロー</h1>
     </div>
 
-    <div class="row">
+
+    <div class="content">
       @for ($i=1; $i < 10; $i++)
-        <div class="user_card col s4">
-          <div class="card">
+        <div class="user_card">
+          <div class="change card horizontal">
               <div class="card-image">
                 <img src="/images/profile_images/default.jpg" class="user-image circle">
               </div>
@@ -28,7 +29,7 @@
                       <span>10</span>
                     </div>
                     <div class="user_stats">
-                      <strong>follow</strong>
+                      <strong class="sp">follow</strong>
                       <span>50</span>
                     </div>
                     <div class="user_stats">
@@ -46,5 +47,20 @@
 @endsection
 
 @section('script')
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('select').material_select();
+  });
+
+  $(window).ready(function(){
+    var w = $(window).width();
+    var x = 601;
+    if (w <= x) {
+        $('.change').addClass("horizontal");
+    } else {
+        $('.change').removeClass("horizontal");
+    }
+  });
+</script>
 
 @endsection

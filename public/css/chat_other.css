@@ -1,0 +1,247 @@
+
+@media only screen and (min-width: 0px) and (max-width: 600px){
+
+  #main{
+    margin-top: 6rem;
+  }
+  /*スクロール*/
+    ::-webkit-scrollbar {
+    display: none;
+  }
+  /*スクロールバーの軌道*/
+  ::-webkit-scrollbar-track {
+    border-radius: 10px;
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, .1);
+  }
+  /*スクロールバーの動く部分*/
+  ::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 50, .5);
+    border-radius: 10px;
+    box-shadow:0 0 0 1px rgba(255, 255, 255, .3);
+  }
+  .comi{
+    width: 100%;
+    height: 450px;
+    overflow: auto;
+  }
+  .wap{
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    left: auto;
+    right: auto;
+    background-color: #cfd8dc;
+  }
+  .comment-area{
+    width:100%;
+    height:800px;
+  }
+  li.contact-item.avatar {
+    min-height: 84px;
+    padding-left: 10px;
+    position: relative;
+  }
+  .contact-item {
+    background-color: #fff;
+    line-height: 1.5rem;
+    padding: 10px 20px;
+    margin: 0;
+  }
+  img.yo_t.circle{
+    float: left;
+    width: 42px;
+    height: 42px;
+    margin-right: 1rem;
+    overflow: hidden;
+    left: 15px;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .conect .conect-item.avatar {
+    min-height: 84px;
+    padding-right: 10px;
+    position: relative;
+  }
+  .conect-item {
+    background-color: #fff;
+    line-height: 1.5rem;
+    padding: 10px 20px;
+    margin: 0;
+  }
+  img.my_t.circle{
+    float: right;
+    width: 42px;
+    height: 42px;
+    overflow: hidden;
+    left: 15px;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  p.mes{
+    margin-left: 3rem;
+  }
+  p.my_t_mes{
+    margin-right: 3rem;
+  }
+  .page-title {
+    text-align: center;
+    font-size: 25px;
+    letter-spacing: 1px;
+    width: 100%;
+    height: auto;
+  }
+  .title{
+    font-size: 1.5rem;
+    margin: 30px 0;
+    color: darkgray;
+  }
+  .submit{
+    width: 19rem;
+    height: 3rem;
+    line-height: 3rem;
+  }
+  .wap-comment{
+    text-align: right;
+    padding: 0.5rem;
+  }
+  .comment-submit{
+    font-size: 0.7em;
+  }
+}
+
+
+@media only screen and (min-width: 601px) {
+
+  /*スクロール*/
+    ::-webkit-scrollbar {
+    display: none;
+  }
+  /*スクロールバーの軌道*/
+  ::-webkit-scrollbar-track {
+    border-radius: 10px;
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, .1);
+  }
+  /*スクロールバーの動く部分*/
+  ::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 50, .5);
+    border-radius: 10px;
+    box-shadow:0 0 0 1px rgba(255, 255, 255, .3);
+  }
+  .comi{
+    width: 100%;
+    height: 600px;
+    overflow: auto;
+  }
+  .wap{
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    left: auto;
+    right: auto;
+    background-color: #cfd8dc;
+  }
+  .comment-area{
+    width:100%;
+    height:800px;
+  }
+  ul.collection{
+    border: none;
+  }
+  li.contact-item.avatar {
+    min-height: 84px;
+    padding-left: 10px;
+    position: relative;
+    width: 40%;
+  }
+  .contact-item {
+    background-color: #fff;
+    line-height: 1.5rem;
+    padding: 10px 20px;
+    margin: 0;
+  }
+  img.yo_t.circle{
+    float: left;
+    width: 42px;
+    height: 42px;
+    margin-right: 1rem;
+    overflow: hidden;
+    left: 15px;
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  .conect .conect-item.avatar {
+    float: right;
+    min-height: 84px;
+    padding-right: 10px;
+    position: relative;
+    width: 40%;
+  }
+  .conect-item {
+    background-color: #fff;
+    line-height: 1.5rem;
+    padding: 10px 20px;
+    margin: 0;
+  }
+  img.my_t.circle{
+    float: right;
+    width: 42px;
+    height: 42px;
+    overflow: hidden;
+    left: 15px;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  p.mes{
+    margin-left: 5rem;
+  }
+  p.my_t_mes{
+    margin-right: 5rem;
+  }
+  .page-title {
+    text-align: center;
+    font-size: 25px;
+    letter-spacing: 1px;
+    width: 100%;
+    height: auto;
+  }
+  .title{
+    font-size: 2rem;
+    margin: 40px 0;
+    color: darkgray;
+  }
+
+
+  /* comment area */
+  .wap-comment{
+    text-align: right;
+    padding: 0.5rem;
+  }
+  .comment-submit{
+    font-size: 0.7em;
+  }
+  div.collapsible-body{
+    padding: 1rem;
+  }
+  img.admi{
+    width: 42px;
+    height: 42px;
+    overflow: hidden;
+    left: 15px;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  p.plink{
+    line-height: 2.5rem;
+  }
+
+  div.but{
+    text-align: center;
+    display: flex;
+  }
+  .submit{
+    width: 19rem;
+    height: 3rem;
+    line-height: 3rem;
+  }
+}
