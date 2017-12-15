@@ -53,7 +53,7 @@
         <a class="back-btn waves-effect waves-light btn">戻る</a>
       </div>
       <div class="col s6 center">
-        <a class="edit-btn waves-effect waves-light btn">編集</a>
+        <a class="edit-btn waves-effect waves-light btn" href="/manage/article/{id}/edit">編集</a>
       </div>
     </div>
   </div>
