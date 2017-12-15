@@ -23,31 +23,31 @@
                 </tr>
                 <tr>
                     <th class="th-box">コミュニティ名</th>
-                    <td class="td-box">{{ $user->profile_name }}</td>
+                    <td class="td-box">{{ $community->community_title }}</td>
                 </tr>
                 <tr>
                     <th class="th-box">コミュニティコンテンツ</th>
-                    <td class="td-box">{{ $user->name }}</td>
+                    <td class="td-box">{{ $community->community_contents }}</td>
                 </tr>
                 <tr>
                     <th class="th-box">コミュニティカテゴリ名</th>
-                    <td class="td-box">{{ $user->name_kana }}</td>
+                    <td class="td-box">{{ $community->community_category_name }}</td>
                 </tr>
                 <tr>
                     <th class="th-box">管理者</th>
-                    <td class="td-box">{{ $user->email }}</td>
+                    <td class="td-box">{{ $community->name }} ( {{ $community->email }} ) </td>
                 </tr>
                 <tr>
                     <th class="th-box">サブ管理者</th>
-                    <td class="td-box">{{ substr($user->email, 0, strcspn($user->email,'@')) }}</td>
+                    <td class="td-box"></td>
                 </tr>
                 <tr>
                     <th class="th-box">参加人数</th>
-                    <td class="td-box">{{ $user->parent_course_name }}</td>
+                    <td class="td-box"></td>
                 </tr>
                 <tr>
                     <th class="th-box">作成日</th>
-                    <td class="td-box">{{ $user->course_name }}</td>
+                    <td class="td-box">{{ $community->created_at }}</td>
                 </tr>
                 </thead>
             </table>
