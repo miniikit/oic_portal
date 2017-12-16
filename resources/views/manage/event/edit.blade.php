@@ -6,8 +6,14 @@
 @endsection
 
 @section('breadcrumb')
+<<<<<<< HEAD
+    <a href="{{ route('manager_event_list') }}" class="breadcrumb">イベント一覧</a>
+    <a href="{{ route('manager_event_detail',$id) }}" class="breadcrumb">イベント詳細</a>
+=======
   <a href="{{ route('manager_event_list') }}" class="breadcrumb">イベント一覧</a>
   <a href="{{ route('manager_event_detail',$id) }}" class="breadcrumb">イベント詳細</a>
+  <a href="{{ route('manager_event_edit',$id) }}" class="breadcrumb">イベント編集</a>
+>>>>>>> bf4dd0a470616a9bfc19a97d7fde0751e340c91f
 @endsection
 
 @section('main')
@@ -27,7 +33,7 @@
             </div>
         @endif
 
-        <form action="{{ route('manager_event_update',$id) }}" method="POST">
+        <form action="{{ route('manager_event_update',$id) }}" method="POST" enctype="multipart/form-data">
             <div class="main-content">
                 <table>
                     <thead>
@@ -35,7 +41,7 @@
                         <th class="th-box">イベント名</th>
                         <td class="td-box input-field">
                             <input type="text" class="validate" name="event_name"
-                                   value="{{ old('event_title',$event->event_title) }}" required >
+                                   value="{{ old('event_title',$event->event_title) }}" required>
                         </td>
                     </tr>
                     <tr>
@@ -48,9 +54,9 @@
                     <tr>
                         <th class="th-box">イベント画像</th>
                         <td class="td-box input-field imgInput">
-                            <img class="imgView" src="{{ old('event_image',$event->event_image) }}" alt="">
-                            <input type="file" id="getfile" name="event_image" required>
-                            <div class="">※ 拡張子: jpg jpeg</div>
+                            <img id="preview" class="mb" src="{{ old('event_image',$event->event_image) }}" alt="">
+                            <input type="file" id="getfile" name="event_image" value=""/>
+                            <div class="caption mt">※ 横:366px 縦:223px 拡張子: jpg jpeg</div>
                         </td>
                     </tr>
                     <tr>
@@ -69,14 +75,27 @@
                     </tr>
                     <tr>
                         <th class="th-box">イベント参加者数</th>
-                        <td class="td-box" required>{{ $eventParticipant }} / {{ $event->event_capacity }} 人</td>
+                        <td class="td-box">{{ $eventParticipant }} 人</td>
+                    </tr>
+                    <tr>
+                        <th class="th-box">イベント定員</th>
+                        <td class="td-box" style="width: 100%;">
+                            <div style="width: 50%;">
+                                <input type="number" class="validate" name="event_capacity"
+                                       value="{{ old('event_capacity',$event->event_capacity) }}" required>
+                            </div>
+                            <div style="width: 50%; float: left">
+                                a
+                            </div>
+                        </td>
                     </tr>
                     </thead>
                 </table>
             </div>
             <div class="btn-box col s12">
                 <div class="col s6 center">
-                    <a href="{{ route('manager_event_detail',$id) }}" class="back-btn waves-effect waves-light btn">戻る</a>
+                    <a href="{{ route('manager_event_detail',$id) }}"
+                       class="back-btn waves-effect waves-light btn">戻る</a>
                 </div>
                 <div class="col s6 center">
                     <button type="submit" class="edit-btn waves-effect waves-light btn">更新</button>
@@ -99,33 +118,16 @@
             closeOnSelect: false // Close upon selecting a date,
         });
 
-        $(function(){
-            var setFileInput = $('.imgInput'),
-                setFileImg = $('.imgView');
-            setFileInput.each(function(){
-                var selfFile = $(this),
-                    selfInput = $(this).find('input[type=file]'),
-                    prevElm = selfFile.find(setFileImg),
-                    orgPass = prevElm.attr('src');
-                selfInput.change(function(){
-                    var file = $(this).prop('files')[0],
-                        fileRdr = new FileReader();
-                    if (!this.files.length){
-                        prevElm.attr('src', orgPass);
-                        return;
-                    } else {
-                        if (!file.type.match('image.*')){
-                            prevElm.attr('src', orgPass);
-                            return;
-                        } else {
-                            fileRdr.onload = function() {
-                                prevElm.attr('src', fileRdr.result);
-                            }
-                            fileRdr.readAsDataURL(file);
-                        }
-                    }
-                });
-            });
-        });
+        var file = document.querySelector('#getfile');
+        file.onchange = function () {
+            var fileList = file.files;
+            //読み込み
+            var reader = new FileReader();
+            reader.readAsDataURL(fileList[0]);
+            //読み込み後
+            reader.onload = function () {
+                document.querySelector('#preview').src = reader.result;
+            };
+        };
     </script>
 @endsection

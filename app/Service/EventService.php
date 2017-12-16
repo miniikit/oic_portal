@@ -48,27 +48,40 @@ class EventService
     }
 
     /**
-     *
+     * アップデート
      */
     public function updateEvent($id,$request)
     {
-        $request = $request->all();
-
-        dd($request);
-
         $update = array();
-        $carbon = Carbon::now();
+        $userRequest = $request->all();
+
+
+        $update['event_title'] = $userRequest['event_name'];
+        $update['event_text'] = $userRequest['event_text'];
+        $update['event_capacity'] = $userRequest['event_capacity'];
+
+
+        // 日付をDB用に変換
+        $cm = new CommonService();
+        $update['event_start_date_time'] = $cm->ChangeDateToDBFormat($userRequest['event_start_date_time']);
+        $update['event_end_date_time'] = $cm->ChangeDateToDBFormat($userRequest['event_end_date_time']);
+
+        if ($request->hasFile('event_image')) {
+            $carbon = Carbon::now();
+            $file = $request->file('event_image');
+
+            $filename = $carbon->format('Y-m-d-H-i-s') . '.jpg';
+            $filePath = 'images/event_images';
+            $file->move(public_path($filePath), $filename);
+
+            $update['event_image'] = $filePath . $filename;
+        }
+
 
         return DB::table('events_table')
-            ->where('event_id',$id)
+            ->where('id',$id)
             ->where('deleted_at',null)
             ->update([
-                'event_title' => $request[""],
-                'event_text' => $request[""],
-                'event_image' => '',    // TODO
-                'event_start_date_time' => $request[""],
-                'event_end_date_time' => $request[""],
-                'event_capacity' => $request[""],
                 'event_maker_id' => $request[""]
             ]);
     }

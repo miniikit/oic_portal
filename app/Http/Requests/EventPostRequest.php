@@ -26,7 +26,7 @@ class EventPostRequest extends FormRequest
         return [
             'event_name' => 'required|string',
             'event_text' => 'required|string',
-            'event_image' => 'required|file|mimes:jpg,jpeg|image:jpg,jpeg',
+            'event_image' => 'file|mimes:jpg,jpeg|image:jpg,jpeg',
             'event_start_date_time' => 'required',
             'event_end_date_time' => 'required'
         ];

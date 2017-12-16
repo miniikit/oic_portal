@@ -92,9 +92,9 @@ Route::get('/manage/user/{id}', 'Manage\UsersController@show')->name('manager_us
 // 編集
 Route::get('/manage/user/{id}/edit', 'Manage\UsersController@edit')->name('manager_user_edit');
 // 更新
-Route::post('/manage/site/{id}/update','Manage\UsersController@update')->name('manager_user_update');
+Route::post('/manage/user/{id}/update','Manage\UsersController@update')->name('manager_user_update');
 // 削除
-Route::delete('/manage/site/{id}/delete','Manage\UsersController@destroy')->name('manager_user_delete');
+Route::delete('/manage/user/{id}/delete','Manage\UsersController@destroy')->name('manager_user_delete');
 
 
 /**
@@ -107,9 +107,9 @@ Route::get('/manage/manager/{id}', 'Manage\EmployeesController@show')->name('man
 // 編集
 Route::get('/manage/manager/{id}/edit', 'Manage\EmployeesController@edit')->name('manager_employee_edit');
 // 更新
-Route::post('/manage/site/{id}/update','Manage\EmployeesController@update')->name('manager_employee_update');
+Route::post('/manage/manager/{id}/update','Manage\EmployeesController@update')->name('manager_employee_update');
 // 更新
-Route::delete('/manage/site/{id}/delete','Manage\EmployeesController@destroy')->name('manager_employee_delete');
+Route::delete('/manage/manager/{id}/delete','Manage\EmployeesController@destroy')->name('manager_employee_delete');
 
 
 /**
@@ -122,9 +122,9 @@ Route::get('/manage/community/{id}', 'Manage\CommunitiesController@show')->name(
 // 編集
 Route::get('/manage/community/{id}/edit', 'Manage\CommunitiesController@edit')->name('manager_community_edit');
 // 更新
-Route::post('/manage/site/{id}/update','Manage\CommunitiesController@update')->name('manager_community_update');
+Route::post('/manage/community/{id}/update','Manage\CommunitiesController@update')->name('manager_community_update');
 // 削除
-Route::delete('/manage/site/{id}/delete','Manage\CommunitiesController@destroy')->name('manager_community_delete');
+Route::delete('/manage/community/{id}/delete','Manage\CommunitiesController@destroy')->name('manager_community_delete');
 
 
 /**

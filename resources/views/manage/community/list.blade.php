@@ -5,13 +5,13 @@
 @endsection
 
 @section('breadcrumb')
-    <a href="{{ route('manager_user_list') }}" class="breadcrumb">ユーザー一覧</a>
+    <a href="{{ route('manager_community_list') }}" class="breadcrumb">コミュニティ一覧</a>
 @endsection
 
 @section('main')
     <div class="row">
         <div class="title-box center">
-            <h1 class="title">ユーザー一覧</h1>
+            <h1 class="title">コミュニティ一覧</h1>
         </div>
         <div class="main-content col s12">
             <form>
@@ -26,23 +26,17 @@
                     <thead>
                     <tr>
                         <th class="tb-title">ID</th>
-                        <th class="tb-title">ユーザー名</th>
-                        <th class="tb-title">氏名</th>
-                        <th class="tb-title">学籍番号</th>
-                        <th class="tb-title">学科</th>
-                        <th class="tb-title">入学年度</th>
+                        <th class="tb-title">コミュニティ名</th>
+                        <th class="tb-title">コミュニティカテゴリ名</th>
                         <th class="tb-title"></th>
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($users as $user)
-                        <tr data-href="{{ route('manager_user_detail',$user->id) }}">
-                            <td class="tb-text">{{ $user->id }}</td>
-                            <td class="tb-text">{{ $user->profile_name }}</td>
-                            <td class="tb-text">{{ $user->name }}</td>
-                            <td class="tb-text">{{ substr($user->email, 0, strcspn($user->email,'@')) }}</td>
-                            <td class="tb-text">{{ $user->parent_course_name }}</td>
-                            <td class="tb-text">{{ date('Y年',strtotime($user->profile_admission_year)) }}</td>
+                    @foreach($communities as $community)
+                        <tr data-href="{{ route('manager_community_detail',$community->id) }}">
+                            <td class="tb-text">{{ $community->id }}</td>
+                            <td class="tb-text">{{ $community->community_title }}</td>
+                            <td class="tb-text">{{ $community->community_category_name }}</td>
                             <td class="tb-btn"><a class="del-btn waves-effect waves-light btn">削除</a></td>
                         </tr>
                     @endforeach

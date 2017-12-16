@@ -136,7 +136,7 @@ Route::get('/event/kk', 'FakeController@index');
 Route::get('/event/1000', 'EventController@show');
 
 // 更新
-Route::get('/event/1000/edit', 'FakeController@edit');
+Route::get('/event/1000/edit', 'EventController@edit')->name('user_event_edit');
 // 更新-確認    TODO : 関数名変更
 Route::get('/event/1000/edit/confirm', 'FakeController@edit');
 // 更新-確認    TODO : 関数名変更
