@@ -46,6 +46,8 @@ Route::get('/articles/index', 'ArticlesController@index')->name('user_article_li
 Route::get('/articles/{id}', 'ArticlesController@detail')->name('user_article_detail');
 // 編集
 Route::get('/articles/{id}/edit', 'ArticlesController@edit')->name('user_article_edit');
+Route::post('/articles/edit/confirm','ArticlesController@edit_confirm')->name('user_article_edit_confirm');
+Route::post('/articles/edit/complete','ArticlesController@edit_complete')->name('user_article_edit_complete');
 // コメント投稿
 Route::post('/articles/{article_id}/comment', 'ArticlesController@store')->name('user_article_comment');
 

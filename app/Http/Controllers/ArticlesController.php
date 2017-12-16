@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use App\Article;
 
 
@@ -31,30 +32,41 @@ class ArticlesController extends Controller
         $filename = $carbon->format('Y-m-d-H-i-s') . '.jpg';
         $imgfile->move(public_path('/images/event_images/'), $filename);
         $articles_image = '/images/event_images/' . $filename;
-        return view('articles.confirm',compact('data','articles_image'));
+        return view('articles.confirm', compact('data', 'articles_image'));
     }
 
     //投稿完了
     public function complete(Request $request)
     {
+        $userId = Auth::user()->id;
         $data = $request->all();
         $articles_model = app(Article::class);
-        $articles_model->create([
+        $article = $articles_model->create([
             'article_title' => $data['article_title'],
             'article_image' => $data['article_image'],
-            'article_text'  => $data['article_text'],
-            'news_site_id'  => 0,  //0のときはセルフ記事
-            'article_url'   => 0,
+            'article_text' => $data['article_text'],
+            'news_site_id' => 1,  //0のときはセルフ記事
+            'article_url' => '/articles/'.Carbon::now(),
+            'user_id' => $userId,
         ]);
 
+        $article->save();
+
+        if($article)
+        {
+           $article_id = $article->id;
+        }
+
+        $articles_model->where('id',$article_id)->update(['article_url' => '/articles/'.$article_id]);
         return view('articles.complete');
     }
 
     // 詳細
     public function detail($id)
     {
+
         $article = DB::table('articles_table')
-            ->join('news_sites_master','news_sites_master.id','=','articles_table.news_site_id')
+            ->join('news_sites_master', 'news_sites_master.id', '=', 'articles_table.news_site_id')
             ->where('articles_table.id', $id)
             ->first();
 
@@ -67,20 +79,60 @@ class ArticlesController extends Controller
 
         $categoryId = $article->news_site_category_id;
         $relatedArticles = DB::table('news_sites_master')
-            ->join('articles_table','articles_table.news_site_id','=','news_sites_master.id')
-            ->where('news_sites_master.news_site_category_id','=',$categoryId)
-            ->orderBy('articles_table.id','DESC')
+            ->join('articles_table', 'articles_table.news_site_id', '=', 'news_sites_master.id')
+            ->where('news_sites_master.news_site_category_id', '=', $categoryId)
+            ->orderBy('articles_table.id', 'DESC')
             ->limit(3)
             ->get();
 
-        return view('articles.detail', compact('article', 'id', 'comments','relatedArticles'));
+
+        return view('articles.detail', compact('article', 'articles', 'id', 'comments', 'relatedArticles'));
     }
 
     // 編集
     public function edit($id)
     {
         $article = app(Article::class)->find($id);
-        return view('articles.edit',compact('article'));
+        return view('articles.edit', compact('article'));
+    }
+
+    // 編集確認
+    public function edit_confirm(Request $request)
+    {
+        $data = $request->all();
+        $carbon = Carbon::now();
+        $imgfile = $request->file('article_image');
+        dd($imgfile);
+        $filename = $carbon->format('Y-m-d-H-i-s') . '.jpg';
+        $imgfile->move(public_path('/images/event_images/'), $filename);
+        $articles_image = '/images/event_images/' . $filename;
+        return view('articles.confirm', compact('data', 'articles_image'));
+    }
+
+    //編集完了
+    public function edit_complete(Request $request)
+    {
+        $userId = Auth::user()->id;
+        $data = $request->all();
+        $articles_model = app(Article::class);
+        $article = $articles_model->update([
+            'article_title' => $data['article_title'],
+            'article_image' => $data['article_image'],
+            'article_text' => $data['article_text'],
+            'news_site_id' => 1,  //0のときはセルフ記事
+            'article_url' => '/articles/'.Carbon::now(),
+            'user_id' => $userId,
+        ]);
+
+        $article->save();
+
+        if($article)
+        {
+            $article_id = $article->id;
+        }
+
+        $articles_model->where('id',$article_id)->update(['article_url' => '/articles/'.$article_id]);
+        return view('articles.complete');
     }
 
     // コメント

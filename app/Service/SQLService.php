@@ -2,6 +2,8 @@
 
 namespace App\Service;
 
+use App\NewsSite;
+use App\NewsSiteCategory;
 use App\User;
 use App\Friend;
 use App\Article;
@@ -118,7 +120,7 @@ class SQLService
         return $follower_ct = app(Friend::class)->where('user2_id', $userId)->get()->count();
     }
 
-    //記事取得
+    //記事取得(新規順)
     public function getArticle()
     {
        return $article = \DB::table('articles_table')
@@ -138,6 +140,61 @@ class SQLService
             ->orderBy('count','desc')
             ->limit(21)->get();
 
+    }
+
+    //IT系の記事を表示
+    public function getArticleIt()
+    {
+        return $article = DB::table('news_sites_master')
+            ->join('articles_table','news_sites_master.id','articles_table.news_site_id')
+            ->where('news_sites_master.news_site_category_id',1)
+            ->where('articles_table.deleted_at',null)
+            ->orderBy('articles_table.id','DESC')
+            ->get();
+    }
+
+    //ゲーム系の記事を表示
+    public function getArticleGame()
+    {
+        return $article = DB::table('news_sites_master')
+            ->join('articles_table','news_sites_master.id','articles_table.news_site_id')
+            ->where('news_sites_master.news_site_category_id',2)
+            ->where('articles_table.deleted_at',null)
+            ->orderBy('articles_table.id','DESC')
+            ->get();
+    }
+
+    //IT系の記事を表示
+    public function getArticleDesign()
+    {
+        return $article = DB::table('news_sites_master')
+            ->join('articles_table','news_sites_master.id','articles_table.news_site_id')
+            ->where('news_sites_master.news_site_category_id',3)
+            ->where('articles_table.deleted_at',null)
+            ->orderBy('articles_table.id','DESC')
+            ->get();
+    }
+
+    //アート系の記事を表示
+    public function getArticleArt()
+    {
+        return $article = DB::table('news_sites_master')
+            ->join('articles_table','news_sites_master.id','articles_table.news_site_id')
+            ->where('news_sites_master.news_site_category_id',4)
+            ->where('articles_table.deleted_at',null)
+            ->orderBy('articles_table.id','DESC')
+            ->get();
+    }
+
+    //経済系の記事を表示
+    public function getArticleEconomy()
+    {
+        return $article = DB::table('news_sites_master')
+            ->join('articles_table','news_sites_master.id','articles_table.news_site_id')
+            ->where('news_sites_master.news_site_category_id',5)
+            ->where('articles_table.deleted_at',null)
+            ->orderBy('articles_table.id','DESC')
+            ->get();
     }
 
     //コメント数順に記事を取得

@@ -20,6 +20,7 @@ class ArticlesTable extends Migration
             $table->string('article_image', 100); // 記事画像
             $table->integer('news_site_id'); // ニュースサイトID
             $table->text('article_url'); // 記事URL
+            $table->integer('user_id')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

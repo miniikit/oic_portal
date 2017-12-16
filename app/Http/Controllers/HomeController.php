@@ -26,7 +26,13 @@ class HomeController extends Controller
 
         $articles = $this->SQLService->getArticle();
         $article_like = $this->SQLService->getArticleLike();
+        $article_its = $this->SQLService->getArticleIt();
+        $article_games = $this->SQLService->getArticleGame();
+        $article_designs = $this->SQLService->getArticleDesign();
+        $article_art = $this->SQLService->getArticleArt();
+        $article_economy = $this->SQLService->getArticleEconomy();
 
-        return view('home.list', compact('articles', 'article_like'));
+
+        return view('home.list', compact('articles', 'article_like','article_its','article_games','article_design','article_art','article_economy'));
     }
 }

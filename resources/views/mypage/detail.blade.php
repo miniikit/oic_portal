@@ -61,18 +61,19 @@
       <div class="border col s12"></div>
 
       <div class="wap col s12">
-        @for ($i=1; $i < 5; $i++)
+        @foreach($articles as $article)
           <div class="col s6">
             <div class="card">
               <div class="card-image">
-                <a href="{{ route('user_article_detail',1) }}"><img src="/images/sample-{{ $i }}.jpg"></a>
+                <a href="{{ $article->article_url }}"><img src="{{ $article->article_image }}"></a>
               </div>
               <div class="card-content">
-                <span class="card-title">記事タイトル</span>
-                <p class="card-text">ここに記事の内容の一部を表示 ここに記事の内容の一部を表示 ここに記事の内容の一部を表示 ここに記事の内容の一部を表示</p>
+                <span class="card-title">{{ $article->article_title }}</span>
+                <p class="card-text">{{ $article->article_text }}</p>
               </div>
               <div class="card-action">
-                <a href="{{ route('user_article_detail',1) }}">READ MORE</a>
+                <a href="{{ $article->article_url }}">READ MORE</a>
+                <a href="{{ $article->article_url.'/edit' }}">EDIT</a>
                 <div class="tags">
                   <div class="chip">
                     IT
@@ -101,7 +102,7 @@
               </div>
             </div>
           </div>
-        @endfor
+          @endforeach
       </div>
 
   </div>
