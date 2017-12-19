@@ -102,7 +102,6 @@ class ArticlesController extends Controller
         $data = $request->all();
         $carbon = Carbon::now();
         $imgfile = $request->file('article_image');
-        dd($imgfile);
         $filename = $carbon->format('Y-m-d-H-i-s') . '.jpg';
         $imgfile->move(public_path('/images/event_images/'), $filename);
         $articles_image = '/images/event_images/' . $filename;

@@ -14,7 +14,7 @@
     </div>
 @endsection
 @section('main')
-    <div id="tab1" class="row">
+    <div class="row">
         <form>
             <div class="input-field">
                 <input id="search1" class="center" type="search" required>
@@ -40,6 +40,7 @@
                 <option value="4">デザイン・Web</option>
             </select>
         </div>
+    </div>
 
 
         <!-- article tab1 -->
@@ -92,6 +93,13 @@
         <div class="row">
             @foreach($article_its as $article_it)
                 <div id="tab2" class="col s4">
+                    <form>
+                        <div class="input-field">
+                            <input id="search2" class="center" type="search" required>
+                            <label class="label-icon" for="search2"><i class="material-icons">search</i></label>
+                            <i class="material-icons">close</i>
+                        </div>
+                    </form>
                     <div class="card">
                         <div class="card-wrapper">
                             <div class="card-image">
@@ -138,6 +146,13 @@
         <div class="row">
             @foreach($article_games as $article_game)
                 <div id="tab3" class="col s4">
+                    <form>
+                        <div class="input-field">
+                            <input id="search3" class="center" type="search" required>
+                            <label class="label-icon" for="search3"><i class="material-icons">search</i></label>
+                            <i class="material-icons">close</i>
+                        </div>
+                    </form>
                     <div class="card">
                         <div class="card-wrapper">
                             <div class="card-image">
@@ -184,6 +199,13 @@
         <div class="row">
             @foreach($article_games as $article_game)
                 <div id="tab4" class="col s4">
+                    <form>
+                        <div class="input-field">
+                            <input id="search4" class="center" type="search" required>
+                            <label class="label-icon" for="search4"><i class="material-icons">search</i></label>
+                            <i class="material-icons">close</i>
+                        </div>
+                    </form>
                     <div class="card">
                         <div class="card-wrapper">
                             <div class="card-image">
@@ -225,46 +247,8 @@
                 </div>
             @endforeach
         </div>
-    </div>
 
-    <div id="tab2" class="col s12">
-        <form>
-            <div class="input-field">
-                <input id="search2" class="center" type="search" required>
-                <label class="label-icon" for="search2"><i class="material-icons">search</i></label>
-                <i class="material-icons">close</i>
-            </div>
-        </form>
-    </div>
 
-    <div id="tab3" class="col s12">
-        <form>
-            <div class="input-field">
-                <input id="search3" class="center" type="search" required>
-                <label class="label-icon" for="search3"><i class="material-icons">search</i></label>
-                <i class="material-icons">close</i>
-            </div>
-        </form>
-    </div>
-
-    <div id="tab4" class="col s12">
-        <form>
-            <div class="input-field">
-                <input id="search4" class="center" type="search" required>
-                <label class="label-icon" for="search4"><i class="material-icons">search</i></label>
-                <i class="material-icons">close</i>
-            </div>
-        </form>
-    </div>
-    <div id="tab5" class="col s12">
-        <form>
-            <div class="input-field">
-                <input id="search5" class="center" type="search" required>
-                <label class="label-icon" for="search5"><i class="material-icons">search</i></label>
-                <i class="material-icons">close</i>
-            </div>
-        </form>
-    </div>
 @endsection
 
 @section('script')
