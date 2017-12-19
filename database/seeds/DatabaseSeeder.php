@@ -375,7 +375,7 @@ class CommunitiesCategoriesMasterSeeder extends Seeder
 {
     public function run()
     {
-        $communitiesCategories = ['趣味','スポーツ',''];
+        $communitiesCategories = ['趣味','スポーツ','勉強'];
         DB::table('communities_categories_master')->delete();
         for ($i = 1; $i < count($communitiesCategories); $i++) {
             DB::table('communities_categories_master')->insert([
@@ -396,7 +396,7 @@ class CommunitiesTableSeeder extends Seeder
             DB::table('communities_table')->insert([
                 'community_title' => '#test'.$i,
                 'community_contents' => '#test'.$i,
-                'authority_id' => rand(1,3),
+                'community_category_id' => rand(1,3),
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ]);
@@ -413,6 +413,7 @@ class CommunitiesParticipantsTableSeeder extends Seeder
             DB::table('communities_participants_table')->insert([
                 'community_id' => $i,
                 'user_id' => $i,
+                'authority_id' => rand(1,3),
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ]);

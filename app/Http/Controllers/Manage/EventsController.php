@@ -22,14 +22,14 @@ class EventsController extends Controller
     public function index()
     {
         $events = $this->eventService->getAllEvents();
-        return view('manage.event.list',compact('events'));
+        return view('manage.event.list', compact('events'));
     }
 
     public function show($id)
     {
         $event = $this->eventService->getEvent($id);
         $eventParticipant = $this->eventService->getEventParticipant($id);
-        return view('manage.event.detail',compact('id','event','eventParticipant'));
+        return view('manage.event.detail', compact('id', 'event', 'eventParticipant'));
     }
 
     public function edit($id)
@@ -42,24 +42,19 @@ class EventsController extends Controller
         $event->event_start_date_time = $cm->ChangeDateToFormFormat($event->event_start_date_time);
         $event->event_end_date_time = $cm->ChangeDateToFormFormat($event->event_end_date_time);
 
-        return view('manage.event.edit',compact('id','event','eventParticipant','f'));
+        return view('manage.event.edit', compact('id', 'event', 'eventParticipant', 'f'));
     }
 
-    public function update(EventPostRequest $request,$id)
+    public function update(EventPostRequest $request, $id)
     {
-        if($request->hasFile('event_image')){
-            dd(333);
-        }else {
-            dd($request->all());
-        }
 
 
-        $event = $this->eventService->updateEvent($id,$request);
+        $event = $this->eventService->updateEvent($id, $request);
         return redirect()->name('manager_event_list');
         //dd($id,$request->all());
     }
 
-    public function delete($id,Request $request)
+    public function delete($id, Request $request)
     {
         //dd($id,$request->all());
     }
