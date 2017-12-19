@@ -6,18 +6,21 @@
 @endsection
 
 @section('breadcrumb')
-    <a href="{{ route('manager_community_list') }}" class="breadcrumb">コミュニティ一覧</a>
-    <a href="{{ route('manager_community_detail',$id) }}" class="breadcrumb">コミュニティ詳細</a>
-    <a href="{{ route('manager_community_edit',$id) }}" class="breadcrumb">コミュニティ編集</a>
+    <a href="{{ route('manager_site_list') }}" class="breadcrumb">サイト一覧</a>
+    <a href="{{ route('manager_site_detail',$id) }}" class="breadcrumb">サイト詳細</a>
+    <a href="{{ route('manager_site_edit',$id) }}" class="breadcrumb">サイト編集</a>
 @endsection
 
 @section('main')
     <div class="row">
         <div class="title-box center">
-            <h1 class="title">コニュニティ編集</h1>
+            <h1 class="title">サイト編集</h1>
         </div>
-        <form action="{{ route('manager_community_update',$id) }}" method="POST">
-            <div class="main-content">
+
+        {{--TODO : route--}}
+        {{--<form action="{{ route('manager_site_update',$id) }}" method="POST">--}}
+        <form action="/manage/site/1/update" method="POST">
+        <div class="main-content">
                 <table>
                     <thead>
                     <tr>
@@ -25,48 +28,40 @@
                         <td class="td-box">{{ $id }}</td>
                     </tr>
                     <tr>
-                        <th class="th-box">コミュニティ名</th>
+                        <th class="th-box">サイト名</th>
                         <td class="td-box input-field">
-                            <input type="text" class="validate" name="communityTitle"
-                                   value="{{ old('communityTitle',$community->community_title) }}">
+                            <input type="text" class="validate" name="siteName"
+                                   value="{{ old('siteName',$site->news_site_name) }}">
                         </td>
                     </tr>
                     <tr>
-                        <th class="th-box">コミュニティコンテンツ</th>
+                        <th class="th-box">サイトURL</th>
                         <td class="td-box input-field">
-                            <input type="text" class="validate" name="communityContents"
-                                   value="{{ old('communityContents',$community->community_contents) }}">
+                            <input type="text" class="validate" name="siteURL"
+                                   value="{{ old('siteURL',$site->news_site_url) }}">
                         </td>
                     </tr>
                     <tr>
-                        <th class="th-box">コミュニティカテゴリ</th>
+                        <th class="th-box">サイトカテゴリ</th>
                         <td class="td-box input-field">
-                            <input type="text" class="validate" name="communityCategory"
-                                   value="{{ old('communityCategory',$community->community_category_name) }}">
+                            <input type="text" class="validate" name="siteCategory"
+                                   value="{{ old('siteCategory',$site->news_site_category_name) }}">
                         </td>
                     </tr>
                     <tr>
-                        <th class="th-box">管理者</th>
-                        <td class="td-box">{{ $community->name }} ( {{ $community->email }} ) </td>
+                        <th class="th-box">記事数(月間)</th>
+                        <td class="td-box"></td>
                     </tr>
                     <tr>
-                        <th class="th-box">サブ管理者</th>
-                        <td class="td-box">{{ $subAdministrator->name }} ( {{ $subAdministrator->email }} ) </td>
-                    </tr>
-                    <tr>
-                        <th class="th-box">参加人数</th>
-                        <td class="td-box">{{ $participantsNum }}人</td>
-                    </tr>
-                    <tr>
-                        <th class="th-box">作成日</th>
-                        <td class="td-box">{{ $community->created_at }}</td>
+                        <th class="th-box">最終更新日</th>
+                        <td class="td-box"></td>
                     </tr>
                     </thead>
                 </table>
             </div>
             <div class="btn-box col s12">
                 <div class="col s6 center">
-                    <a href="{{ route('manager_community_detail',$id) }}"
+                    <a href="{{ route('manager_site_detail',$id) }}"
                        class="back-btn waves-effect waves-light btn">戻る</a>
                 </div>
                 <div class="col s6 center">
