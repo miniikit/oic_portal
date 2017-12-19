@@ -27,9 +27,8 @@
                     <tr>
                         <th class="tb-title">ID</th>
                         <th class="tb-title">記事タイトル</th>
-                        <th class="tb-title">記事URL</th>
-                        <th class="tb-title"></th>
-                        <th class="tb-title"></th>
+                        <th class="tb-title">サイト名</th>
+                        <th class="tb-title">作成日</th>
                     </tr>
                     </thead>
 
@@ -38,10 +37,8 @@
                         <tr data-href="{{ route('manager_article_detail',$article->id) }}">
                             <td class="tb-text">{{ $article->id }}</td>
                             <td class="tb-text">{{ $article->article_title }}</td>
-                            <td class="tb-text">{{ $article->article_url }}</td>
-                            <td class="tb-text"></td>
-                            <td class="tb-text"></td>
-                            <td class="tb-btn"><a class="del-btn waves-effect waves-light btn">削除</a></td>
+                            <td class="tb-text">{{ $article->news_site_name }}</td>
+                            <td class="tb-text">{{ $article->created_at }}</td>
                         </tr>
                     @endforeach
                     </tbody>
