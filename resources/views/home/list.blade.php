@@ -45,7 +45,7 @@
         <!-- article tab1 -->
         <div class="row">
             @foreach($articles as $article)
-                <div id="tab1" class="col s4">
+                <div id="" class="col s4">
                     <div class="card">
                         <div class="card-wrapper">
                             <div class="card-image">
@@ -97,6 +97,7 @@
                 <i class="material-icons">close</i>
             </div>
         </form>
+        <h1>readAsDataURL</h1>
     </div>
 
     <div id="tab3" class="col s12">
