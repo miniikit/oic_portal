@@ -29,7 +29,7 @@
             <p class="card-text">ここに記事の内容の一部を表示 ここに記事の内容の一部を表示 ここに記事の内容の一部を表示 ここに記事の内容の一部を表示</p>
           </div>
           <div class="card-action">
-            <a href="{{ route('user_article_detail',1) }}">READ MORE</a>
+            <a href="{{ route('user_article_detail',1) }}">続きを読む</a>
             <div class="tags">
               <div class="chip">
                 IT
