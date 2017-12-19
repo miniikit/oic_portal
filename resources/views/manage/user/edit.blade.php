@@ -6,15 +6,15 @@
 @endsection
 
 @section('breadcrumb')
-    <a href="{{ route('manager_user_list') }}" class="breadcrumb">ユーザー一覧</a>
-    <a href="{{ route('manager_user_detail',$id) }}" class="breadcrumb">ユーザー詳細</a>
-    <a href="{{ route('manager_user_edit',$id) }}" class="breadcrumb">ユーザー編集</a>
+    <a href="{{ route('manager_user_list') }}" class="breadcrumb">ユーザ一覧</a>
+    <a href="{{ route('manager_user_detail',$id) }}" class="breadcrumb">ユーザ詳細</a>
+    <a href="{{ route('manager_user_edit',$id) }}" class="breadcrumb">ユーザ編集</a>
 @endsection
 
 @section('main')
     <div class="row">
         <div class="title-box center">
-            <h1 class="title">ユーザー編集</h1>
+            <h1 class="title">ユーザ編集</h1>
         </div>
         <form action="{{ route('manager_user_update',$id) }}" method="POST">
             <div class="main-content">
@@ -25,7 +25,7 @@
                         <td class="td-box">{{ $id }}</td>
                     </tr>
                     <tr>
-                        <th class="th-box">ユーザー名</th>
+                        <th class="th-box">ユーザ名</th>
                         <td class="td-box input-field">
                             <input type="text" class="validate" name="userName"
                                    value="{{ old('username',$user->profile_name) }}">
