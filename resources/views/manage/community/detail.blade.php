@@ -30,7 +30,7 @@
                     <td class="td-box">{{ $community->community_contents }}</td>
                 </tr>
                 <tr>
-                    <th class="th-box">コミュニティカテゴリ名</th>
+                    <th class="th-box">コミュニティカテゴリ</th>
                     <td class="td-box">{{ $community->community_category_name }}</td>
                 </tr>
                 <tr>
@@ -39,11 +39,11 @@
                 </tr>
                 <tr>
                     <th class="th-box">サブ管理者</th>
-                    <td class="td-box"></td>
+                    <td class="td-box">{{ $subAdministrator->name }} ( {{ $subAdministrator->email }} ) </td>
                 </tr>
                 <tr>
                     <th class="th-box">参加人数</th>
-                    <td class="td-box"></td>
+                    <td class="td-box">{{ $participantsNum }}人</td>
                 </tr>
                 <tr>
                     <th class="th-box">作成日</th>
