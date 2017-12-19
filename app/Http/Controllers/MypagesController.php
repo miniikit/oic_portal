@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
+use App\Article;
 use App\Profile;
 use App\Friend;
 use App\User;
@@ -35,7 +36,10 @@ class MypagesController extends Controller
 
             $sc_year = $get_dt->diffInYears($now_dt);
 
-            return view('mypage.detail', compact('profile', 'course','follow_ct','follower_ct','sc_year'));
+            $userId = $this->SQLService->checkAuth();
+            $articles = app(Article::class)->where('user_id',$userId)->get();
+
+            return view('mypage.detail', compact('profile', 'articles','course','follow_ct','follower_ct','sc_year'));
         }else{
             return redirect()->route('user_login');
         }
@@ -96,7 +100,10 @@ class MypagesController extends Controller
         //フォロワー数
         $follower_ct = app(Friend::class)->where('user2_id',$id)->get()->count();
 
-        return view('mypage.detail_other',compact('profile','course','id','user2_id','follow_ct','follower_ct','sc_year'));
+        //記事表示
+        $articles = app(Article::class)->where('user_id',$id)->get();
+
+        return view('mypage.detail_other',compact('profile','articles','course','id','user2_id','follow_ct','follower_ct','sc_year'));
     }
 
     public function follow()

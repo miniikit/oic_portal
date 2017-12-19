@@ -14,7 +14,7 @@
   </div>
 
 <div class="content">
-    <form class="col s10" method="POST" action="{{ url('/articles/confirm') }}" enctype="multipart/form-data">
+    <form class="col s10" method="POST" action="{{ url('/articles/edit/confirm') }}" enctype="multipart/form-data">
       {{ csrf_field() }}
     <div class="input-field col s12">
       <input placeholder="タイトル" id="first_name" name="article_title" type="text" class="validate" value="{{ $article->article_title }}">
@@ -25,9 +25,9 @@
         <label for="textarea1">記事本文</label>
       </div>
       <div class="imgInput input-field col s12">
-        <input type="file" name="article_image">
+        <input type="file" name="article_image" value="{{ $article->article_image }}">
         <div class="image-area">
-          <img class="imgView" src="{{ $article->article_image }}" alt="">
+          <img class="imgView" src="{{ $article->article_image }}" alt="" >
         </div>
       </div>
       {{-- <div class="file-field input-field">
