@@ -7,25 +7,26 @@
 @section('main')
 
   <div class="page-title">
-    <h1 class="title">ユーザー名</h1>
+    <h1 class="title">{{ $user->name }}</h1>
   </div>
 
   <div class="cont">
+    <div id="app">
   <div class="row">
     <div class=" wap">
       <div class="comi">
         <div class="comment-area col s12">
           <ul class="collection">
               <li class="contact-item avatar">
-                <img src="/images/profile_images/default.jpg" alt="" class="yo_t circle">
+                <img src="{{ $profile->profile_image }}" alt="" class="yo_t circle">
                 <p class="mes">
-                  ここにコメントを表示
+                  <chat-log :messages="messages"></chat-log>
                 </p>
               </li>
           </ul>
           <ul class="conect">
             <li class="conect-item avatar">
-              <img src="/images/profile_images/default.jpg" alt="" class="my_t circle">
+              <img src="" alt="" class="my_t circle">
               <p class="my_t_mes">
                 ここにコメントを表示
               </p>
@@ -36,21 +37,24 @@
       <div class="comment">
         <ul class="collection">
           <li class="collection-item avatar">
-            <img src="/images/profile_images/default.jpg" alt="" class="circle">
-            <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
-            <div class="wap-comment">
+            <img src="{{ $profile->profile_image }}" alt="" class="circle">
+            <chat-composer v-on:messagesent="addMessage"></chat-composer>
+           <!-- <div class="wap-comment">
               <a class="comment-submit waves-effect waves-light btn"><i class="material-icons">send</i></a>
-            </div>
+            </div> -->
           </li>
         </ul>
       </div>
     </div>
   </div>
+    </div>
 </div>
+
 
 @endsection
 
 @section('script')
+  <script src="/js/app.js"></script>
   <script type="text/javascript">
     $('#icon_prefix2').trigger('autoresize');
 
