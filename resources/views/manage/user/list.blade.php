@@ -5,13 +5,13 @@
 @endsection
 
 @section('breadcrumb')
-    <a href="{{ route('manager_user_list') }}" class="breadcrumb">ユーザー一覧</a>
+    <a href="{{ route('manager_user_list') }}" class="breadcrumb">ユーザ一覧</a>
 @endsection
 
 @section('main')
     <div class="row">
         <div class="title-box center">
-            <h1 class="title">ユーザー一覧</h1>
+            <h1 class="title">ユーザ一覧</h1>
         </div>
         <div class="main-content col s12">
             <form>
@@ -26,7 +26,7 @@
                     <thead>
                     <tr>
                         <th class="tb-title">ID</th>
-                        <th class="tb-title">ユーザー名</th>
+                        <th class="tb-title">ユーザ名</th>
                         <th class="tb-title">氏名</th>
                         <th class="tb-title">学籍番号</th>
                         <th class="tb-title">学科</th>

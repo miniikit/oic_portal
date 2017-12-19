@@ -42,16 +42,20 @@ class EventsController extends Controller
         $event->event_start_date_time = $cm->ChangeDateToFormFormat($event->event_start_date_time);
         $event->event_end_date_time = $cm->ChangeDateToFormFormat($event->event_end_date_time);
 
-        return view('manage.event.edit', compact('id', 'event', 'eventParticipant', 'f'));
+        return view('manage.event.edit', compact('id', 'event', 'eventParticipant'));
     }
 
     public function update(EventPostRequest $request, $id)
     {
-
-
         $event = $this->eventService->updateEvent($id, $request);
-        return redirect()->name('manager_event_list');
-        //dd($id,$request->all());
+
+        if($event === 1){
+            $request->session()->flash('message', 'イベントの更新に成功しました');
+        } else {
+            $request->session()->flash('message', 'イベントの更新に失敗しました');
+        }
+
+        return redirect()->route('manager_event_detail',$id);
     }
 
     public function delete($id, Request $request)

@@ -1,4 +1,4 @@
-git sta<?php
+<?php
 
 use app\Http\Controllers\Crawl\CrawlController;
 use app\Http\Controllers\ArticlesController;
