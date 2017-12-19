@@ -164,7 +164,7 @@ class SQLService
             ->get();
     }
 
-    //IT系の記事を表示
+    //デザイン系の記事を表示
     public function getArticleDesign()
     {
         return $article = DB::table('news_sites_master')
