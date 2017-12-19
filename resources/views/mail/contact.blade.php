@@ -19,12 +19,10 @@
     <p>快適なOICライフをお過ごし下さいませ</p><br>
 </div>
 <br>
-<p>
     -----------------------------------------<br>
-    　OIC Portal<br>
-    URL: https://oicportal.herokuapp.com<br>
-    　Email: oicportalapp@gmail.com<br>
+     OIC Portal<br>
+　　　URL: https://oicportal.herokuapp.com<br>
+     Email: oicportalapp@gmail.com<br>
     -----------------------------------------<br>
-</p>
 </body>
 </html>

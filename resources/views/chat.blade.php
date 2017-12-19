@@ -13,6 +13,6 @@
                 <chat-log :messages="messages"></chat-log>
                 <chat-composer v-on:messagesent="addMessage"></chat-composer>
     </div>
-      <script src="/js/app.js"></script>
+
     </body>
 </html>
