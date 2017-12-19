@@ -7,7 +7,7 @@
 @section('main')
   <div class="row">
     <div class="title-box center">
-      <h1 class="title">ユーザー管理</h1>
+      <h1 class="title">ユーザー一覧</h1>
     </div>
     <div class="main-content col s12">
       <form>
