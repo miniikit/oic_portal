@@ -11,7 +11,7 @@
   </div>
 
   <div class="cont">
-    <div id="app">
+  <div id="app">
   <div class="row">
     <div class=" wap">
       <div class="comi">
@@ -23,14 +23,6 @@
                   <chat-log :messages="messages"></chat-log>
                 </p>
               </li>
-          </ul>
-          <ul class="conect">
-            <li class="conect-item avatar">
-              <img src="" alt="" class="my_t circle">
-              <p class="my_t_mes">
-                ここにコメントを表示
-              </p>
-            </li>
           </ul>
         </div>
       </div>
