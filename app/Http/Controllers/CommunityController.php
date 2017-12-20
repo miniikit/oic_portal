@@ -14,7 +14,6 @@ class CommunityController extends Controller
 
     public function show($id)
     {
-        dd(12333);
         $community = app(Community::class)->find($id);
         return view('community.detail', compact('community'));
     }
@@ -23,7 +22,6 @@ class CommunityController extends Controller
     //作成
     public function make()
     {
-        dd(123);
         return view('community.create');
     }
 
