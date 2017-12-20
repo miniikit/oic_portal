@@ -37,11 +37,15 @@ table,td,th{
   width: 250px;
   height: 54px;
   line-height: 54px;
+  letter-spacing: 20px;
+  text-indent: 20px;
 }
 .edit-btn{
   width: 250px;
   height: 54px;
   line-height: 54px;
+  letter-spacing: 20px;
+  text-indent: 20px;
 }
 .input-field{
   margin: 0;

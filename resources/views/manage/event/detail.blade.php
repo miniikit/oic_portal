@@ -6,13 +6,13 @@
 
 @section('breadcrumb')
   <a href="{{ route('manager_event_list') }}" class="breadcrumb">イベント一覧</a>
-  <a href="{{ route('manager_event_detail',1) }}" class="breadcrumb">イベント詳細</a>
+  <a href="{{ route('manager_event_detail',$id) }}" class="breadcrumb">イベント詳細</a>
 @endsection
 
 @section('main')
     <div class="row">
         <div class="title-box center">
-            <h1 class="title">サイト詳細</h1>
+            <h1 class="title">イベント詳細</h1>
         </div>
         <div class="main-content">
             <table>
@@ -27,7 +27,7 @@
                 </tr>
                 <tr>
                     <th class="th-box">イベント画像</th>
-                    <td class="td-box">{{ $event->event_image }}</td>
+                    <td class="td-box"><image src="{{ $event->event_image }}"></image></td>
                 </tr>
                 <tr>
                     <th class="th-box">イベント開始日時</th>

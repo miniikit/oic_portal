@@ -5,14 +5,14 @@
 @endsection
 
 @section('breadcrumb')
-    <a href="{{ route('manager_user_list') }}" class="breadcrumb">ユーザー一覧</a>
-    <a href="{{ route('manager_user_detail',$id) }}" class="breadcrumb">ユーザー詳細</a>
+    <a href="{{ route('manager_user_list') }}" class="breadcrumb">ユーザ一覧</a>
+    <a href="{{ route('manager_user_detail',$id) }}" class="breadcrumb">ユーザ詳細</a>
 @endsection
 
 @section('main')
     <div class="row">
         <div class="title-box center">
-            <h1 class="title">ユーザー詳細</h1>
+            <h1 class="title">ユーザ詳細</h1>
         </div>
         <div class="main-content">
             <table>
@@ -22,7 +22,7 @@
                     <td class="td-box">{{ $id }}</td>
                 </tr>
                 <tr>
-                    <th class="th-box">ユーザー名</th>
+                    <th class="th-box">ユーザ名</th>
                     <td class="td-box">{{ $user->profile_name }}</td>
                 </tr>
                 <tr>
