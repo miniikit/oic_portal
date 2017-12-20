@@ -1,11 +1,13 @@
 
 /*main*/
 .title{
-  font-size: 2em;
+  font-size: 2.5em;
   color: darkgray;
+  text-indent: 20px;
+  letter-spacing: 20px;
 }
 .title-box{
-  margin-bottom: 2rem;
+  margin-bottom: 60px;
 }
 .main-content{
   background-color: #fff;
