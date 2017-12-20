@@ -40,6 +40,23 @@ class RegisterController extends Controller
 
 
         $profile_image = '/images/profile_images/' . $filename;
+        $now_admission_year = Carbon::now()->year;
+
+        if ($data['profile_admission_year'] == 1) {
+
+            $data['profile_admission_year'] = $now_admission_year . '-04-01';
+
+        } else if ($data['profile_admission_year'] == 2) {
+
+            $data['profile_admission_year'] = $now_admission_year - 1 . '-04-01';
+
+        } else if ($data['profile_admission_year'] == 3) {
+
+            $data['profile_admission_year'] = $now_admission_year - 2 . '-04-01';
+
+        } else {
+            $data['profile_admission_year'] = $now_admission_year . '-04-01';
+        }
 
         $profile = $profileModel->create([
             'profile_image' => $profile_image,

@@ -9,7 +9,7 @@
 
         <div class="profile col s12">
           <div class="profile-rap col s12 center">
-            <a class="chat-btn btn-floating waves-effect waves-light green"><i class="material-icons">chat</i></a>
+            <a class="chat-btn btn-floating waves-effect waves-light green" href="{{ route('user_chat') }}"><i class="material-icons">chat</i></a>
 
             {{-- <img class="image circle" src="{{ $profile['profile_image'] }}" alt=""> --}}
             <img class="image circle" src="{{App\Profile::find(Auth::user()->profile_id)->profile_image}}" alt="">

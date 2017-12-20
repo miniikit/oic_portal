@@ -32,7 +32,7 @@ class MypagesController extends Controller
 
             //入学年度から現在何年生か計算
             $get_dt = new carbon($profile->profile_admission_year);
-            $now_dt = new carbon(Carbon::now());
+            $now_dt = Carbon::now();
 
             $sc_year = $get_dt->diffInYears($now_dt);
 
