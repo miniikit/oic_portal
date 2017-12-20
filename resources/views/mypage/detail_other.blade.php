@@ -21,7 +21,7 @@
                 <div id="modal1" class="modal">
                   <div class="modal-content">
                     <h4>フォローリクエスト</h4>
-                    <p>このユーザーの読者になりますか？</p>
+                    <p>このユーザの読者になりますか？</p>
                   </div>
                   <div class="modal-footer">
                     <form role="form" method="POST" action="{{ route('user_follow_request') }}">

@@ -71,19 +71,15 @@ class EventService
             $file = $request->file('event_image');
 
             $filename = $carbon->format('Y-m-d-H-i-s') . '.jpg';
-            $filePath = 'images/event_images';
+            $filePath = '/images/event_images/';
             $file->move(public_path($filePath), $filename);
-
             $update['event_image'] = $filePath . $filename;
         }
-
 
         return DB::table('events_table')
             ->where('id',$id)
             ->where('deleted_at',null)
-            ->update([
-                'event_maker_id' => $request[""]
-            ]);
+            ->update($update);
     }
 
     public function check($data,$format)

@@ -26,7 +26,7 @@
                         <td class="td-box">{{ $employee->authority_name }}</td>
                     </tr>
                     <tr>
-                        <th class="th-box">ユーザー名</th>
+                        <th class="th-box">ユーザ名</th>
                         <td class="td-box">{{ $employee->profile_name }}</td>
                     </tr>
                     <tr>

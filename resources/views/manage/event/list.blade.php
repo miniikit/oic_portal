@@ -11,7 +11,7 @@
 @section('main')
   <div class="row">
     <div class="title-box center">
-      <h1 class="title">イベント管理</h1>
+      <h1 class="title">イベント一覧</h1>
     </div>
     <div class="main-content col s12">
       <form>
@@ -36,7 +36,7 @@
 
         <tbody>
           @foreach($events as $event)
-            <tr data-href="{{ route('manager_event_detail',$id) }}">
+            <tr data-href="{{ route('manager_event_detail',$event->id) }}">
                 <td class="tb-text">{{ $event->id }}</td>
                 <td class="tb-text">{{ $event->event_title }}</td>
               <td class="tb-text">{{ date('Y年m月d日 H時i分' ,strtotime($event->event_start_date_time)) }}</td>

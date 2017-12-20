@@ -6,20 +6,15 @@
 @endsection
 
 @section('breadcrumb')
-<<<<<<< HEAD
     <a href="{{ route('manager_event_list') }}" class="breadcrumb">イベント一覧</a>
     <a href="{{ route('manager_event_detail',$id) }}" class="breadcrumb">イベント詳細</a>
-=======
-  <a href="{{ route('manager_event_list') }}" class="breadcrumb">イベント一覧</a>
-  <a href="{{ route('manager_event_detail',$id) }}" class="breadcrumb">イベント詳細</a>
-  <a href="{{ route('manager_event_edit',$id) }}" class="breadcrumb">イベント編集</a>
->>>>>>> bf4dd0a470616a9bfc19a97d7fde0751e340c91f
+    <a href="{{ route('manager_event_edit',$id) }}" class="breadcrumb">イベント編集</a>
 @endsection
 
 @section('main')
     <div class="row">
         <div class="title-box center">
-            <h1 class="title">イベント詳細</h1>
+            <h1 class="title">イベント編集</h1>
         </div>
 
         {{-- TODO : バリデーションエラーの表示 --}}
@@ -79,14 +74,9 @@
                     </tr>
                     <tr>
                         <th class="th-box">イベント定員</th>
-                        <td class="td-box" style="width: 100%;">
-                            <div style="width: 50%;">
-                                <input type="number" class="validate" name="event_capacity"
-                                       value="{{ old('event_capacity',$event->event_capacity) }}" required>
-                            </div>
-                            <div style="width: 50%; float: left">
-                                a
-                            </div>
+                        <td class="td-box">
+                            <input type="number" class="validate" name="event_capacity"
+                                   value="{{ old('event_capacity',$event->event_capacity) }}" required>
                         </td>
                     </tr>
                     </thead>
