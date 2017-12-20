@@ -52,6 +52,11 @@
 
     <main id="main">
       <div class="container">
+        <div class="col s12 center">
+          <div class="card-panel valign-wrapper red lighten-3 @yield('alert_status')">
+            <h1 class="white-text">ここに通知を表示</h1>
+          </div>
+        </div>
         @yield('main')
         <div class="push"></div>
       </div>

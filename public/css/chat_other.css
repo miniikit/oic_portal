@@ -149,9 +149,6 @@
   }
   li.contact-item.avatar {
     min-height: 84px;
-    padding-left: 10px;
-    position: relative;
-    width: 40%;
   }
   .contact-item {
     background-color: #fff;
