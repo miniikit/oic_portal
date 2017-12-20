@@ -59,8 +59,8 @@
         </div>
         @yield('main')
         <div class="push"></div>
-    </div>
-</main>
+      </div>
+    </main>
 
 <!--- Script -->
 <!--Import jQuery before materialize.js-->
