@@ -19,17 +19,19 @@
       </div>
     @for ($i=1; $i< 7; $i++)
     <div class="card-box col s4">
-      <div class="card">
+      <div class="card hoverable">
         <div class="card-wrapper">
           <div class="card-image">
             <a href="{{ route('user_article_detail',1) }}"><img src="images/sample-{{ $i }}.jpg"></a>
           </div>
+        <div class="card-stacked">
+          <a href="{{ route('user_article_detail',1) }}"></a>
           <div class="card-content">
             <span class="card-title">記事タイトル</span>
             <p class="card-text">ここに記事の内容の一部を表示 ここに記事の内容の一部を表示 ここに記事の内容の一部を表示 ここに記事の内容の一部を表示</p>
           </div>
           <div class="card-action">
-            <a href="{{ route('user_article_detail',1) }}">続きを読む</a>
+            {{-- <a href="{{ route('user_article_detail',1) }}">続きを読む</a> --}}
             <div class="tags">
               <div class="chip">
                 IT
@@ -37,18 +39,19 @@
               <div class="chip">
                 デザイン
               </div>
-              {{-- <div class="chip">
+              <div class="chip">
                 映像
               </div>
               <div class="chip">
-                アニメーション
-              </div> --}}
+                ゲーム
+              </div>
             </div>
             <div class="chkbox">
               <input type="checkbox" name="article" id="check{{ $i }}">
               <label for="check{{ $i }}"></label>
             </div>
           </div>
+        </div>
         </div>
       </div>
     </div>

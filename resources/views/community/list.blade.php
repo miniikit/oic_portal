@@ -45,20 +45,35 @@
 
       <div class="row">
         @for ($i=1; $i < 7; $i++)
-          <div class="col s12">
-            <div class="change card horizontal">
+          <div class="com-card col s12">
+            <div class="change card hoverable horizontal">
                 <div class="card-image">
                   <a href="{{ route('user_community_detail',1) }}"><img src="/images/sample-{{ $i }}.jpg" class="cimg"></a>
                 </div>
                 <div class="card-stacked">
+                  <a href="{{ route('user_community_detail',1) }}"></a>
                   <div class="card-content">
                     <span class="card-title">コミュニティー名</span>
                     <p class="card-text">ここにコミュニティー情報の一部を表示ここにコミュニティー情報の一部を表示ここにコミュニティー情報の一部を表示ここにコミュニティー情報の一部を表示ここにコミュニティー情報の一部を表示ここにコミュニティー情報の一部を表示</p>
                   </div>
                   <div class="card-action">
-                    <span class="date">管理者xxxxx</span>
-                    <span class="people">xx人</span>
-                    <span class="genre">ジャンル</span>
+                    <div class="join">
+                      <p>参加人数 ここに人数</p>
+                    </div>
+                    <div class="tags">
+                        <div class="chip">
+                            IT
+                        </div>
+                        <div class="chip">
+                            デザイン
+                        </div>
+                        <div class="chip">
+                          映像
+                        </div>
+                        <div class="chip">
+                          ゲーム
+                        </div>
+                    </div>
                   </div>
                 </div>
             </div>
