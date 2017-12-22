@@ -80,9 +80,9 @@
                     </tr>
                     <tr>
                         <th class="th-box">プロフィール画像</th>
-                        <td class="td-box input-field">
-                            <input type="text" class="validate" name="image"
-                                   value="{{ old('image',$user->profile_image) }}">
+                        <td class="td-box input-field imgInput">
+                            <img id="preview" class="mb" src="{{ old('image',$user->profile_image) }}" alt="">
+                            <input type="file" id="getfile" name="event_image" value=""/>
                         </td>
                     </tr>
                     <tr>

@@ -31,7 +31,6 @@
                         <th class="tb-title">学籍番号</th>
                         <th class="tb-title">学科</th>
                         <th class="tb-title">入学年度</th>
-                        <th class="tb-title"></th>
                     </tr>
                     </thead>
                     <tbody>
@@ -43,7 +42,6 @@
                             <td class="tb-text">{{ substr($user->email, 0, strcspn($user->email,'@')) }}</td>
                             <td class="tb-text">{{ $user->parent_course_name }}</td>
                             <td class="tb-text">{{ date('Y年',strtotime($user->profile_admission_year)) }}</td>
-                            <td class="tb-btn"><a class="del-btn waves-effect waves-light btn">削除</a></td>
                         </tr>
                     @endforeach
                     </tbody>
