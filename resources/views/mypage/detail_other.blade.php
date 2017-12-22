@@ -9,8 +9,15 @@
 
         <div class="profile col s12">
           <div class="profile-rap col s12 center">
-            <a class="chat-btn btn-floating waves-effect waves-light green"><i class="material-icons">chat</i></a>
+            {{--  chat  --}}
+            <a class="chat-btn btn-floating waves-effect waves-light modal-trigger green" href="#modal2">
+              <i class="material-icons">chat</i>
+            </a>
+            <div id="modal2" class="modal modal-fixed-footer">
+              @include('common.chat')
+            </div>
 
+            {{--  follow  --}}
             {{-- <img class="image circle" src="{{ $profile['profile_image'] }}" alt=""> --}}
             <img class="image circle" src="{{App\Profile::find(Auth::user()->profile_id)->profile_image}}" alt="">
             @if($user2_id === null)
@@ -146,5 +153,20 @@
     // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
     $('.modal').modal();
     });
+
+    $('.modal-chat').modal({
+      dismissible: true, // Modal can be dismissed by clicking outside of the modal
+      opacity: .5, // Opacity of modal background
+      inDuration: 300, // Transition in duration
+      outDuration: 200, // Transition out duration
+      startingTop: '4%', // Starting top style attribute
+      endingTop: '10%', // Ending top style attribute
+      ready: function(modal, trigger) { // Callback for Modal open. Modal and trigger parameters available.
+        alert("Ready");
+        console.log(modal, trigger);
+      },
+      complete: function() { alert('Closed'); } // Callback for Modal close
+    }
+  );
   </script>
 @endsection
