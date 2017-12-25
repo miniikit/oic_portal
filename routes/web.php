@@ -41,7 +41,7 @@ Route::post('/articles/confirm', 'ArticlesController@confirm')->name('user_artic
 Route::post('/articles/post/complete', 'ArticlesController@complete')->name('user_article_post_complete');
 
 // 一覧
-Route::get('/articles/index', 'ArticlesController@index')->name('user_article_list');
+Route::get('/articles/index', 'ArticleController@index')->name('user_article_list');
 // 詳細
 Route::get('/articles/{id}', 'ArticlesController@detail')->name('user_article_detail');
 // 編集
