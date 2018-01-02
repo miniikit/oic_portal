@@ -28,7 +28,6 @@
             <label for="textarea1">お問い合わせ内容</label>
         </div>
       <div class="but">
-        <!-- <a class="waves-effect waves-light btn">送信</a> -->
         <button type="submit" class="submit-btn waves-effect waves-light btn">送信</button>
       </div>
     </form>

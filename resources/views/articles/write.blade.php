@@ -17,18 +17,13 @@
         <textarea id="textarea1" class="materialize-textarea" name="article_text" data-length="120"></textarea>
         <label for="textarea1">記事本文</label>
       </div>
-      <div class="input-field col s12">
+      {{-- <div class="input-field col s12">
         <input type="file" name="article_image" value="" />
-      </div>
+      </div> --}}
       <div class="file-field input-field">
-         <!--
-          <input type="file" multiple>
-        <div class="file-path-wrapper">
-         <input type="text" class="file-path validate" name="article_image" placeholder="画像選択">
-          <input type="file" name="article_image" value=""/>
+          <input type="file">
+          <input class="file-path validate" type="text" name="userfile" accept="images/*" placeholder="画像選択">
           <label for="image">画像選択</label>
-        </div>
-        -->
       </div>
       <div class="row">
         <div class="input-field col s6">
@@ -48,8 +43,8 @@
         </div>
       </div>
       <div class="row">
-        <div class="col s6 right-align"><button type="button" class="waves-effect waves-light btn" onclick="history.back()">戻る</button></div>
-        <div class="col s6 left-align"><button type="submit" class="waves-effect waves-light btn">確認</button></div>
+        <div class="col s6 center"><button type="button" class="back-btn waves-effect waves-light btn" onclick="history.back()">戻る</button></div>
+        <div class="col s6 center"><button type="submit" class="submit-btn waves-effect waves-light btn">確認</button></div>
       </div>
   </form>
 </div>
@@ -72,5 +67,7 @@
   $(document).ready(function() {
   $('select').material_select();
 });
+
   </script>
+
 @endsection
