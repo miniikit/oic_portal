@@ -30,6 +30,8 @@ class MypagesController extends Controller
             $follow_ct = $this->SQLService->getFollowCount();
             $follower_ct = $this->SQLService->getFollowerCount();
 
+            $myarticle_ct = $this->SQLService->getUserArticleCount();
+
             //入学年度から現在何年生か計算
             $get_dt = new carbon($profile->profile_admission_year);
             $now_dt = Carbon::now();
@@ -39,7 +41,7 @@ class MypagesController extends Controller
             $userId = $this->SQLService->checkAuth();
             $articles = app(Article::class)->where('user_id',$userId)->get();
 
-            return view('mypage.detail', compact('profile', 'articles','course','follow_ct','follower_ct','sc_year'));
+            return view('mypage.detail', compact('profile', 'articles','course','myarticle_ct','follow_ct','follower_ct','sc_year'));
         }else{
             return redirect()->route('user_login');
         }

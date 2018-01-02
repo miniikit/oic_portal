@@ -22,7 +22,7 @@
         <div class="prf col s12">
           <div class="prf-content col s4">
             <h1 class="item" id="">投稿</h1>
-            <label class="item-sub" for="">XXX</label>
+            <label class="item-sub" for="">{{ $myarticle_ct }}</label>
           </div>
           <div class="prf-content col s4">
             <a class="color" href="{{ route('user_mypage_follow') }}"><h1 class="item" id="follow">フォロー</h1></a>
