@@ -9,9 +9,6 @@
 
         <div class="profile col s12">
           <div class="profile-rap col s12 center">
-<<<<<<< HEAD
-            <a class="chat-btn btn-floating waves-effect waves-light green" href="{{ route('user_chat') }}"><i class="material-icons">chat</i></a>
-=======
             {{--  chat  --}}
             <a class="chat-btn btn-floating waves-effect waves-light modal-trigger green" href="#modal2">
               <i class="material-icons">chat</i>
@@ -19,7 +16,6 @@
             <div id="modal2" class="modal modal-fixed-footer">
               @include('common.chat')
             </div>
->>>>>>> cb05f89701e18344b9aba3188605c03917f10800
 
             {{--  follow  --}}
             {{-- <img class="image circle" src="{{ $profile['profile_image'] }}" alt=""> --}}

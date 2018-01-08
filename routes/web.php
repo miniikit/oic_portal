@@ -46,10 +46,14 @@ Route::get('/articles/index', 'ArticleController@index')->name('user_article_lis
 Route::get('/articles/{id}', 'ArticlesController@detail')->name('user_article_detail');
 // 編集
 Route::get('/articles/{id}/edit', 'ArticlesController@edit')->name('user_article_edit');
+Route::get('/articles/{id}/delete', 'ArticlesController@delete')->name('user_article_delete');
 Route::post('/articles/edit/confirm','ArticlesController@edit_confirm')->name('user_article_edit_confirm');
 Route::post('/articles/edit/complete','ArticlesController@edit_complete')->name('user_article_edit_complete');
 // コメント投稿
 Route::post('/articles/{article_id}/comment', 'ArticlesController@store')->name('user_article_comment');
+
+Route::get('/articles/{id}/like', 'ArticlesLikesController@like')->name('user_article_like');
+Route::get('/articles/{id}/unlike', 'ArticlesLikesController@UnLike')->name('user_article_unlike');
 
 /**
  * 通報
@@ -71,6 +75,9 @@ Route::group(['middleware' => ['UserAuth']],function()
 
     // 編集
     Route::get('/mypage/edit', 'MypagesController@edit')->name('user_mypage_edit');
+
+    //編集完了
+    Route::post('/mypage/edit/complete', 'MypagesController@complete')->name('user_mypage_complete');
 
 
     /**

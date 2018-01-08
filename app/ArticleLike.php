@@ -7,11 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 class ArticleLike extends Model
 {
     protected $table = 'articles_likes_table';
-    protected $fillable = ['article_id','user_id'];
+    protected $fillable = ['user_id', 'article_id'];
 
     public function articles()
     {
         return $this->belongsTo('App\Article');
     }
-}
 
+    public function users()
+    {
+        return $this->belongsTo('App\User');
+    }
+}

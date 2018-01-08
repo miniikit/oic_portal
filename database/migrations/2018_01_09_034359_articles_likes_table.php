@@ -13,10 +13,10 @@ class ArticlesLikesTable extends Migration
      */
     public function up()
     {
-        Schema::create('articles_likes_table', function (Blueprint $table){
-            $table->increments('id');//いいねID
-            $table->integer('article_id');//記事ID
-            $table->integer('user_id');//会員ID
+        Schema::create('articles_likes_table', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('user_id')->unsigned();
+            $table->integer('article_id')->unsigned()->unique();
             $table->timestamps();
             $table->softDeletes();
         });

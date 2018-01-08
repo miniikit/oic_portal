@@ -5,12 +5,13 @@
 @endsection
 
 @section('main')
+    @include('flash::message')
     <div class="row">
 
         <div class="col s12 m8 l9">
             <div class="date_link col s12">
                 <!--  TODO : null日付  !-->
-                 <p>{{ $article->created_at }}</p>
+                <p>{{ $article->created_at }}</p>
             </div>
 
             <div class="page-title">
@@ -26,25 +27,32 @@
             </div>
 
             <div class="border"></div>
-
             <div class="icon-button col s12 right-align">
                 <a class="fav-btn waves-effect">
                     <i class="goodicon material-icons">favorite</i>
                 </a>
-                <a class="good-btn waves-effect">
-                    <i class="goodicon material-icons" id="counter">thumb_up</i>
-                    <label for="conter">1000</label>
-                </a>
+                @if($active_like == null)
+                        <a class="good-btn waves-effect" href="{{ $article->article_url.'/like' }}">
+                            <i class="goodicon material-icons" id="counter">thumb_up</i>
+                            <label for="conter">{{ $like_ct }}</label>
+                        </a>
+                @else
+                    <a class="good-btn waves-effect" href="{{ $article->article_url.'/unlike' }}">
+                        <i class="goodicon material-icons" id="counter" style="color:yellow">thumb_up</i>
+                        <label for="conter">{{ $like_ct }}</label>
+                    </a>
+                @endif
             </div>
 
             <div class="comment col s12">
                 <ul class="collection">
                     <li class="collection-item avatar">
                         {{--TODO : アイコン実装--}}
-                        <img src="/images/profile_images/default.jpg" alt="" class="circle">
-                        <span class="name">name</span>
+                        <img class="circle" src="{{App\Profile::find(Auth::user()->profile_id)->profile_image}}">
+                        <span class="name">{{ Auth::user()->name }}</span>
                         <form action="{{ route('user_article_comment',$id) }}" method="POST">
-                            <input type="text" id="icon_prefix2" class="materialize-textarea" name="comment_text" size="50">
+                            <input type="text" id="icon_prefix2" class="materialize-textarea" name="comment_text"
+                                   size="50">
                             <div class="wap-comment">
                                 <input type="submit" value="コメント" class="comment-submit waves-effect waves-light btn">
                             </div>
@@ -56,15 +64,15 @@
 
             <div class="comment-area col s12">
                 <ul class="collection">
-                        @foreach($comments as $comment)
+                    @foreach($comments as $comment)
                         <li class="collection-item avatar">
-                            <img src="{{ $comment->profile_image }}" alt="" class="circle">
-                            <span class="name">{{ $comment->name }}</span>
+                            <img class="circle" src="{{App\Profile::find(Auth::user()->profile_id)->profile_image}}">
+                            <span class="name">{{ $comment_userName }}</span>
                             <p>
                                 {{ $comment->article_comment_text }}
                             </p>
                         </li>
-                        @endforeach
+                    @endforeach
                 </ul>
             </div>
         </div>
@@ -126,5 +134,4 @@
         // $(document).ready(function() {
         // $('textarea#icon_prefix2').characterCounter();
         // });
-    </script>
 @endsection

@@ -74,6 +74,18 @@
               <div class="card-action">
                 <a href="{{ $article->article_url }}">READ MORE</a>
                 <a href="{{ $article->article_url.'/edit' }}">EDIT</a>
+                <a class="waves-effect waves-light modal-trigger" href="#modal1">DELETE</a>
+                <div id="modal1" class="modal">
+                  <div class="modal-content">
+                    <h4>削除しますか？</h4>
+                    <p>削除しますか</p>
+                  </div>
+                  <div class="modal-footer">
+                    <a href="{{ $article->article_url.'/delete' }}">OK</a>
+                  </div>
+                </div>
+              </div>
+
                 <div class="tags">
                   <div class="chip">
                     IT
@@ -101,10 +113,18 @@
 
               </div>
             </div>
-          </div>
           @endforeach
       </div>
 
   </div>
 
+@endsection
+
+@section('script')
+  <script type="text/javascript">
+      $(document).ready(function(){
+          // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
+          $('.modal').modal();
+      });
+      </script>
 @endsection

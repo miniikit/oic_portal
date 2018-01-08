@@ -51,7 +51,7 @@
                 </li>
                 <li><a href="{{ route('user_home') }}">トップ</a></li>
                 <li><a href="{{ route('user_mypage') }}">マイページ</a></li>
-                <li><a href="{{ route('user_article_write') }}">記事投稿</a></li>
+                <li><a href="{{ route('user_article_write') }}">記事を投稿する</a></li>
                 <li><a href="{{ route('user_like') }}">お気に入り</a></li>
                 <li><a href="{{ route('user_community') }}">コミュニティ</a></li>
                 <li><a href="{{ route('user_event') }}">イベント</a></li>
