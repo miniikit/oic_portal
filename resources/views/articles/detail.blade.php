@@ -27,6 +27,7 @@
             </div>
 
             <div class="border"></div>
+            @if(!Auth::guest())
             <div class="icon-button col s12 right-align">
                 @if($active_fav == null)
                     <a class="fav-btn waves-effect" href="{{ $article->article_url.'/fav' }}">
@@ -53,40 +54,42 @@
                 @endif
             </div>
 
-            <div class="comment col s12">
-                <ul class="collection">
-                    <li class="collection-item avatar">
-                        {{--TODO : アイコン実装--}}
-                        <img class="circle" src="{{App\Profile::find(Auth::user()->profile_id)->profile_image}}">
-                        <span class="name"></span>
-                        <form action="{{ route('user_article_comment',$id) }}" method="POST">
-                            <input type="text" id="icon_prefix2" class="materialize-textarea" name="comment_text"
-                                   size="50">
-                            <div class="wap-comment">
-                                <input type="submit" value="コメント" class="comment-submit waves-effect waves-light btn">
-                            </div>
-                            {!! csrf_field() !!}
-                        </form>
-                    </li>
-                </ul>
-            </div>
+                <div class="comment col s12">
+                    <ul class="collection">
+                        <li class="collection-item avatar">
+                            {{--TODO : アイコン実装--}}
+                            <img class="circle" src="{{App\Profile::find(Auth::user()->profile_id)->profile_image}}">
+                            <span class="name">{{ $comment_userName }}</span>
+                            <form action="{{ route('user_article_comment',$id) }}" method="POST">
+                                <input type="text" id="icon_prefix2" class="materialize-textarea" name="comment_text"
+                                       size="50">
+                                <div class="wap-comment">
+                                    <input type="submit" value="コメント"
+                                           class="comment-submit waves-effect waves-light btn">
+                                </div>
+                                {!! csrf_field() !!}
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+                @endif
 
-            <div class="comment-area col s12">
-                <ul class="collection">
-                    @if($comments == null)
-                    @else
-                        @foreach($comments as $comment)
-                            <li class="collection-item avatar">
-                                <img class="circle" src="{{ $comment_image }}">
-                                <span class="name">{{ $comment_userName }}</span>
-                                <p>
-                                    {{ $comment->article_comment_text }}
-                                </p>
-                            </li>
-                        @endforeach
-                    @endif
-                </ul>
-            </div>
+                <div class="comment-area col s12">
+                    <ul class="collection">
+                        @if($comments == null)
+                        @else
+                            @foreach($comments as $comment)
+                                <li class="collection-item avatar">
+                                    <img class="circle" src="{{ $comment_image }}">
+                                    <span class="name">{{ $comment_userName }}</span>
+                                    <p>
+                                        {{ $comment->article_comment_text }}
+                                    </p>
+                                </li>
+                            @endforeach
+                        @endif
+                    </ul>
+                </div>
         </div>
 
         <div class="col s12 m4 l3">

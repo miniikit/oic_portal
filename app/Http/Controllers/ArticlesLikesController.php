@@ -16,15 +16,19 @@ class ArticlesLikesController extends Controller
   {
       $userId = Auth::user()->id;
       $article_fav_model = app(ArticleFavorite::class);
+      $article_model = app(Article::class);
 
       $article_fav_lists = $article_fav_model
           ->where('user_id',$userId)
           ->orderby('id','desc')
           ->get();
 
-      dd($article_fav_lists);
+      foreach ($article_fav_lists as $article_fav_list) {
+          $article_fav_id = $article_fav_list->article_id;
+          $article_lists = $article_model->where('id',$article_fav_id)->get();
+      }
 
-      return view('like.index',compact('article_fav_lists'));
+      return view('like.index',compact('article_lists'));
   }
 
   public function like(Request $request,$id)

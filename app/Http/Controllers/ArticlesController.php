@@ -69,7 +69,6 @@ class ArticlesController extends Controller
     // 詳細
     public function detail($id)
     {
-        $userId = Auth::user()->id;
         $article_comment_model = app(ArticleComment::class);
         $article = DB::table('articles_table')
             ->join('news_sites_master', 'news_sites_master.id', '=', 'articles_table.news_site_id')
@@ -90,7 +89,7 @@ class ArticlesController extends Controller
             ->orderBy('id','desc')
             ->get();
 
-        if(!$comments) {
+        if($comments !== null) {
             foreach ($comments as $comment) {
                 $comment_userId = $comment->user_id;
             }
@@ -118,23 +117,26 @@ class ArticlesController extends Controller
             ->get();
 
         $articles_likes_model = app(ArticleLike::class);
-
-        $active_like = $articles_likes_model
-            ->where('user_id',$userId)
-            ->where('article_id',$id)
-            ->first();
-
-        $like_ct = $articles_likes_model->where('article_id',$id)->get()->count();
-
-
         $articles_fav_model = app(ArticleFavorite::class);
 
-        $active_fav = $articles_fav_model
-            ->where('user_id',$userId)
-            ->where('article_id',$id)
-            ->first();
-
+        $like_ct = $articles_likes_model->where('article_id',$id)->get()->count();
         $fav_ct = $articles_fav_model->where('article_id',$id)->get()->count();
+
+        if(!Auth::guest()) {
+            $userId = Auth::user()->id;
+
+            $active_like = $articles_likes_model
+                ->where('user_id', $userId)
+                ->where('article_id', $id)
+                ->first();
+
+            $active_fav = $articles_fav_model
+                ->where('user_id', $userId)
+                ->where('article_id', $id)
+                ->first();
+        }
+
+
 
         return view('articles.detail', compact('article', 'id', 'comments', 'relatedArticles','like_ct','active_like','comment_image','comment_userName','active_fav','fav_ct'));
     }
