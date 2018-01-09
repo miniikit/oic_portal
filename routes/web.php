@@ -132,9 +132,9 @@ Route::get('/community/1000/edit/complete', 'FakeController@edit');
 Route::get('/community/new', 'CommunityController@make')->name('user_community_create');
 
 // 新規作成-確認
-Route::get('/community/new/confirm', 'FakeController@make');
+Route::post('/community/new/confirm', 'CommunityController@confirm')->name('user_community_create_confirm');
 // 新規作成-完了
-Route::get('/community/new/complete', 'FakeController@fake');
+Route::post('/community/new/complete', 'CommunityController@comeplete')->name('user_community_create_complete');
 
 
 /**

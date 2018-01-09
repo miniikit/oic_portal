@@ -37,9 +37,9 @@
                 <li>
                     @if(Auth::guest())
                     <li><a href="{{ route('user_home') }}">トップ</a></li>
-                    <li><a href="#">コミュニティ</a></li>
-                    <li><a href="/event/">イベント</a></li>
-                    <li><a href="/contact">お問い合わせ</a></li>
+                    <li><a href="{{ route('user_community') }}">コミュニティ</a></li>
+                    <li><a href="{{ route('user_event') }}">イベント</a></li>
+                    <li><a href="{{ route('user_contact') }}">お問い合わせ</a></li>
                     <li class="in"><a href="/login/google">ログイン</a></li>
                     @else
                     <div class="user-view">
@@ -56,7 +56,7 @@
                 <li><a href="{{ route('user_community') }}">コミュニティ</a></li>
                 <li><a href="{{ route('user_event') }}">イベント</a></li>
                 <li><a href="{{ route('user_contact') }}">お問い合わせ</a></li>
-                <li class="out"><a href="">ログアウト</a></li>
+                <li class="out"><a href="/logout" onclick="event.preventDefault();document.getElementById('logout-form').submit();">ログアウト</a></li>
                @endif
             </ul>
         </div>
