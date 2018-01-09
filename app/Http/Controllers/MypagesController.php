@@ -40,7 +40,10 @@ class MypagesController extends Controller
             $sc_year = $get_dt->diffInYears($now_dt);
 
             $userId = $this->SQLService->checkAuth();
-            $articles = app(Article::class)->where('user_id',$userId)->get();
+            $articles = app(Article::class)
+                ->where('user_id',$userId)
+                ->orderby('id','desc')
+                ->get();
 
             return view('mypage.detail', compact('profile', 'articles','course','myarticle_ct','follow_ct','follower_ct','sc_year'));
         }else{

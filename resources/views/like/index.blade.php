@@ -17,7 +17,7 @@
       <div class="edit-form col s12 right-align">
         <a id="edit-btn" class="waves-effect waves-light btn">編集</a>
       </div>
-    @for ($i=1; $i< 7; $i++)
+      @foreach($article_fav_lists as $article_fav_list)
     <div class="card-box col s4">
       <div class="card">
         <div class="card-wrapper">

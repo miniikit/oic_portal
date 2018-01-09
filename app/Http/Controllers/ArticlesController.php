@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Profile;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
@@ -10,6 +11,7 @@ use App\User;
 use App\Article;
 use App\ArticleLike;
 use App\ArticleComment;
+use App\ArticleFavorite;
 
 
 class ArticlesController extends Controller
@@ -88,18 +90,24 @@ class ArticlesController extends Controller
             ->orderBy('id','desc')
             ->get();
 
-        foreach ($comments as $comment) {
-            $comment_userId = $comment->user_id;
+        if(!$comments) {
+            foreach ($comments as $comment) {
+                $comment_userId = $comment->user_id;
+            }
+            $comment_users = app(User::class)->where('id', $comment_userId)->get();
+
+            foreach ($comment_users as $comment_user) {
+                $comment_profileId = $comment_user->profile_id;
+            }
+
+            $comment_profiles = app(Profile::class)->where('id', $comment_profileId)->get();
+
+            foreach ($comment_profiles as $comment_profile) {
+                $comment_image = $comment_profile->profile_image;
+                $comment_userName = $comment_profile->profile_name;
+
+            }
         }
-
-        $comment_users = app(User::class)->where('id',$comment_userId)->get();
-
-        foreach ($comment_users as $comment_user) {
-            $comment_userName = $comment_user->name;
-        }
-
-
-
 
         $categoryId = $article->news_site_category_id;
         $relatedArticles = DB::table('news_sites_master')
@@ -119,9 +127,16 @@ class ArticlesController extends Controller
         $like_ct = $articles_likes_model->where('article_id',$id)->get()->count();
 
 
+        $articles_fav_model = app(ArticleFavorite::class);
 
+        $active_fav = $articles_fav_model
+            ->where('user_id',$userId)
+            ->where('article_id',$id)
+            ->first();
 
-        return view('articles.detail', compact('article', 'id', 'comments', 'relatedArticles','like_ct','active_like','comment_userName'));
+        $fav_ct = $articles_fav_model->where('article_id',$id)->get()->count();
+
+        return view('articles.detail', compact('article', 'id', 'comments', 'relatedArticles','like_ct','active_like','comment_image','comment_userName','active_fav','fav_ct'));
     }
 
     // 編集
@@ -194,10 +209,5 @@ class ArticlesController extends Controller
         ]);
 
         return redirect()->route('user_article_detail', compact('article_id'));
-    }
-
-    public function fav()
-    {
-
     }
 }

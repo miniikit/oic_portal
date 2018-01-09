@@ -26,9 +26,6 @@ Route::get('/', 'HomeController@index')->name('user_home');
 Route::get('/contact','ContactsController@show')->name('user_contact');
 Route::post('/contact/complete','ContactsController@complete')->name('user_contact_complete');
 
-//お気に入り
-Route::get('/like', 'LikeController@index')->name('user_like');
-
 
 /**
  * 記事
@@ -52,6 +49,12 @@ Route::post('/articles/edit/complete','ArticlesController@edit_complete')->name(
 // コメント投稿
 Route::post('/articles/{article_id}/comment', 'ArticlesController@store')->name('user_article_comment');
 
+//お気に入り
+Route::get('/favlist','ArticlesLikesController@index')->name('user_article_favlist');
+Route::get('/articles/{id}/fav', 'ArticlesLikesController@fav')->name('user_article_fav');
+Route::get('/articles/{id}/unfav', 'ArticlesLikesController@Unfav')->name('user_article_unfav');
+
+// いいね
 Route::get('/articles/{id}/like', 'ArticlesLikesController@like')->name('user_article_like');
 Route::get('/articles/{id}/unlike', 'ArticlesLikesController@UnLike')->name('user_article_unlike');
 
