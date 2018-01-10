@@ -81,9 +81,7 @@ class EventService
         return DB::table('events_table')
             ->where('id',$id)
             ->where('deleted_at',null)
-            ->update([
-                'event_maker_id' => $request[""]
-            ]);
+            ->update($update);
     }
 
     public function check($data,$format)

@@ -47,11 +47,13 @@ class EventsController extends Controller
 
     public function update(EventPostRequest $request, $id)
     {
-
-
         $event = $this->eventService->updateEvent($id, $request);
-        return redirect()->name('manager_event_list');
-        //dd($id,$request->all());
+
+        if($event === 1){
+            return redirect()->route('manager_event_list');
+        } else {
+            return redirect()->route('manager_event_list');
+        }
     }
 
     public function delete($id, Request $request)

@@ -41,10 +41,10 @@
              <li><a class="links" href="{{ route('manager_community_list') }}">コミュニティ管理</a></li>
            </ul>
          </div>
-         <div class="nav-wrapper">
-           <div class="bread-rap">
-            @yield('breadcrumb')
-          </div>
+         {{--<div class="nav-wrapper">--}}
+           {{--<div class="bread-rap">--}}
+            {{--@yield('breadcrumb')--}}
+          {{--</div>--}}
          </div>
         </nav>
       </div>
