@@ -1,7 +1,11 @@
 @media only screen and (min-width: 0px) and (max-width: 600px){
-  /*#main{
-    margin-top: 10rem;
-  }*/
+  .page_title{
+    padding-bottom: 1rem;
+  }
+  .title{
+    font-size: 1.5em;
+    color: darkgray;
+  }
   .btn-floating.btn-large {
     width: 40px;
     height: 40px;
@@ -35,8 +39,12 @@
 
 
 @media only screen and (min-width: 601px) {
-  #main{
-    margin-top: 10rem;
+  .page_title{
+    padding-bottom: 1rem;
+  }
+  .title{
+    font-size: 2em;
+    color: darkgray;
   }
   div.content{
     position: relative;

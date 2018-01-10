@@ -17,7 +17,7 @@ class CommunitiesTable extends Migration
            $table->increments('id');//コミュニティID
            $table->string('community_title',255);//コミュニティ名
            $table->text('community_contents');//コミュニティコンテンツ
-           $table->integer('authority_id');//権限ID
+           $table->integer('community_category_id');//コミュニティカテゴリID
            $table->timestamps();
            $table->softDeletes();
 

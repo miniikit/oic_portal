@@ -375,9 +375,9 @@ class CommunitiesCategoriesMasterSeeder extends Seeder
 {
     public function run()
     {
-        $communitiesCategories = ['趣味','スポーツ',''];
+        $communitiesCategories = ['趣味','スポーツ','勉強'];
         DB::table('communities_categories_master')->delete();
-        for ($i = 1; $i < count($communitiesCategories); $i++) {
+        for ($i = 0; $i < count($communitiesCategories); $i++) {
             DB::table('communities_categories_master')->insert([
                 'community_category_name' => $communitiesCategories[$i],
                 'created_at' => Carbon::now(),
@@ -396,7 +396,7 @@ class CommunitiesTableSeeder extends Seeder
             DB::table('communities_table')->insert([
                 'community_title' => '#test'.$i,
                 'community_contents' => '#test'.$i,
-                'authority_id' => rand(1,3),
+                'community_category_id' => rand(1,3),
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ]);
@@ -409,10 +409,11 @@ class CommunitiesParticipantsTableSeeder extends Seeder
     public function run()
     {
         DB::table('communities_participants_table')->delete();
-        for ($i = 0; $i < 5; $i++) {
+        for ($i = 1; $i < 250; $i++) {
             DB::table('communities_participants_table')->insert([
-                'community_id' => $i,
+                'community_id' => rand(1,50),
                 'user_id' => $i,
+                'authority_id' => rand(1,3),
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ]);
@@ -443,6 +444,19 @@ class NewsSitesMasterSeeder extends Seeder
     public function run()
     {
         DB::table('news_sites_master')->delete();
+
+        //ユーザ記事
+        DB::table('news_sites_master')->insert([
+            'news_site_name' => 'User',
+            'news_site_url' => 'User',
+            'news_site_tag_title' => 'item title',
+            'news_site_tag_url' => 'item link',
+            'news_site_tag_text' => '.cntimage p',
+            'news_site_tag_image' => '.cntimage img',
+            'news_site_category_id' => 1,
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
+        ]);
 
         // GIGAZINE
         DB::table('news_sites_master')->insert([
@@ -816,7 +830,7 @@ class NewsSitesCategoriesMasterSeeder extends Seeder
     {
         $newsSitesCategories = ['IT','ゲーム','デザイン','アート','経済'];
         DB::table('news_sites_categories_master')->delete();
-        for ($i = 1; $i < count($newsSitesCategories); $i++) {
+        for ($i = 0; $i < count($newsSitesCategories); $i++) {
             DB::table('news_sites_categories_master')->insert([
                 'news_site_category_name' => $newsSitesCategories[$i],
                 'created_at' => Carbon::now(),

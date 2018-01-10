@@ -7,6 +7,9 @@
 @section('main')
 
 <div class="content">
+  <div class="page_title center-align">
+    <h1 class="title">イベント作成</h1>
+  </div>
   <form class="col s10">
     <div class="input-field col s12">
       <input placeholder="イベント名" id="first_name" type="text" class="validate">

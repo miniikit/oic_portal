@@ -21,38 +21,54 @@
                 <table>
                     <thead>
                     <tr>
-                        <th class="th-box">ユーザー名</th>
+                        <th class="th-box">ID</th>
+                        <td class="td-box">{{ $id }}</td>
+                    </tr>
+                    <tr>
+                        <th class="th-box">権限</th>
+                        <td class="td-box">{{ $employee->authority_name }}</td>
+                    </tr>
+                    <tr>
+                        <th class="th-box">ユーザ名</th>
                         <td class="td-box input-field">
                             <input type="text" class="validate" name="userName"
-                                   value="{{ old('username',$user->profile_name) }}">
+                                   value="{{ old('username',$employee->profile_name) }}">
                         </td>
                     </tr>
                     <tr>
                         <th class="th-box">氏名</th>
                         <td class="td-box input-field">
                             <input type="text" class="validate" name="name"
-                                   value="{{ old('name',$user->name) }}">
+                                   value="{{ old('name',$employee->name) }}">
                         </td>
                     </tr>
                     <tr>
                         <th class="th-box">フリガナ</th>
                         <td class="td-box input-field">
                             <input type="text" class="validate" name="nameKana"
-                                   value="{{ old('nameKana',$user->name_kana) }}">
+                                   value="{{ old('nameKana',$employee->name_kana) }}">
                         </td>
+                    </tr>
+                    <tr>
+                        <th class="th-box">メールアドレス</th>
+                        <td class="td-box">{{ $employee->email }}</td>
+                    </tr>
+                    <tr>
+                        <th class="th-box">学籍番号</th>
+                        <td class="td-box">{{ substr($employee->email, 0, strcspn($employee->email,'@')) }}</td>
                     </tr>
                     <tr>
                         <th class="th-box">学科</th>
                         <td class="td-box input-field">
                             <input type="text" class="validate" name="parentCourse"
-                                   value="{{ old('parentCourse',$user->parent_course_name) }}">
+                                   value="{{ old('parentCourse',$employee->parent_course_name) }}">
                         </td>
                     </tr>
                     <tr>
                         <th class="th-box">コース</th>
                         <td class="td-box input-field">
                             <input type="text" class="validate" name="course"
-                                   value="{{ old('course',$user->course_name) }}">
+                                   value="{{ old('course',$employee->course_name) }}">
                         </td>
                     </tr>
                     <tr>
@@ -63,24 +79,28 @@
                         </td>
                     </tr>
                     <tr>
+                        <th class="th-box">入学年度</th>
+                        <td class="td-box">{{ date('Y年',strtotime($employee->profile_admission_year)) }}</td>
+                    </tr>
+                    <tr>
                         <th class="th-box">プロフィール画像</th>
                         <td class="td-box input-field">
                             <input type="text" class="validate" name="image"
-                                   value="{{ old('image',$user->profile_image) }}">
+                                   value="{{ old('image',$employee->profile_image) }}">
                         </td>
                     </tr>
                     <tr>
                         <th class="th-box">URL</th>
                         <td class="td-box input-field">
                             <input type="text" class="validate" name="url"
-                                   value="{{ old('url',$user->profile_url) }}">
+                                   value="{{ old('url',$employee->profile_url) }}">
                         </td>
                     </tr>
                     <tr>
                         <th class="th-box">コメント</th>
                         <td class="td-box input-field">
                             <input type="text" class="validate" name="introduction"
-                                   value="{{ old('introduction',$user->profile_introduction) }}">
+                                   value="{{ old('introduction',$employee->profile_introduction) }}">
                         </td>
                     </tr>
                     </thead>

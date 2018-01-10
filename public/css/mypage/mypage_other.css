@@ -11,6 +11,15 @@
 .color{
   color: black;
 }
+.comment{
+  position: absolute;
+    bottom: 0;
+    right: 0;
+  width: 100%;
+}
+.collection{
+  margin: 0;
+}
 
 @media only screen and (max-width: 992px) {
   .row .col.s6{

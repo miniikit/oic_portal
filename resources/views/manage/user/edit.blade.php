@@ -6,22 +6,26 @@
 @endsection
 
 @section('breadcrumb')
-    <a href="{{ route('manager_user_list') }}" class="breadcrumb">ユーザー一覧</a>
-    <a href="{{ route('manager_user_detail',$id) }}" class="breadcrumb">ユーザー詳細</a>
-    <a href="{{ route('manager_user_edit',$id) }}" class="breadcrumb">ユーザー編集</a>
+    <a href="{{ route('manager_user_list') }}" class="breadcrumb">ユーザ一覧</a>
+    <a href="{{ route('manager_user_detail',$id) }}" class="breadcrumb">ユーザ詳細</a>
+    <a href="{{ route('manager_user_edit',$id) }}" class="breadcrumb">ユーザ編集</a>
 @endsection
 
 @section('main')
     <div class="row">
         <div class="title-box center">
-            <h1 class="title">ユーザー編集</h1>
+            <h1 class="title">ユーザ編集</h1>
         </div>
         <form action="{{ route('manager_user_update',$id) }}" method="POST">
             <div class="main-content">
                 <table>
                     <thead>
                     <tr>
-                        <th class="th-box">ユーザー名</th>
+                        <th class="th-box">ID</th>
+                        <td class="td-box">{{ $id }}</td>
+                    </tr>
+                    <tr>
+                        <th class="th-box">ユーザ名</th>
                         <td class="td-box input-field">
                             <input type="text" class="validate" name="userName"
                                    value="{{ old('username',$user->profile_name) }}">
@@ -40,6 +44,14 @@
                             <input type="text" class="validate" name="nameKana"
                                    value="{{ old('nameKana',$user->name_kana) }}">
                         </td>
+                    </tr>
+                    <tr>
+                        <th class="th-box">メールアドレス</th>
+                        <td class="td-box">{{ $user->email }}</td>
+                    </tr>
+                    <tr>
+                        <th class="th-box">学籍番号</th>
+                        <td class="td-box">{{ substr($user->email, 0, strcspn($user->email,'@')) }}</td>
                     </tr>
                     <tr>
                         <th class="th-box">学科</th>
@@ -61,6 +73,10 @@
                             <input type="text" class="validate" name="scYear"
                                    value="{{ old('image',$scYear) }}">
                         </td>
+                    </tr>
+                    <tr>
+                        <th class="th-box">入学年度</th>
+                        <td class="td-box">{{ date('Y年',strtotime($user->profile_admission_year)) }}</td>
                     </tr>
                     <tr>
                         <th class="th-box">プロフィール画像</th>
@@ -110,6 +126,35 @@
             clear: 'Clear',
             close: 'Ok',
             closeOnSelect: false // Close upon selecting a date,
+        });
+
+        $(function () {
+            var setFileInput = $('.imgInput'),
+                setFileImg = $('.imgView');
+            setFileInput.each(function () {
+                var selfFile = $(this),
+                    selfInput = $(this).find('input[type=file]'),
+                    prevElm = selfFile.find(setFileImg),
+                    orgPass = prevElm.attr('src');
+                selfInput.change(function () {
+                    var file = $(this).prop('files')[0],
+                        fileRdr = new FileReader();
+                    if (!this.files.length) {
+                        prevElm.attr('src', orgPass);
+                        return;
+                    } else {
+                        if (!file.type.match('image.*')) {
+                            prevElm.attr('src', orgPass);
+                            return;
+                        } else {
+                            fileRdr.onload = function () {
+                                prevElm.attr('src', fileRdr.result);
+                            }
+                            fileRdr.readAsDataURL(file);
+                        }
+                    }
+                });
+            });
         });
     </script>
 @endsection

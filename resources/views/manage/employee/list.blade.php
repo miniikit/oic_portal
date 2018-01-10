@@ -26,7 +26,7 @@
                     <thead>
                     <tr>
                         <th class="tb-title">ID</th>
-                        <th class="tb-title">ユーザー名</th>
+                        <th class="tb-title">ユーザ名</th>
                         <th class="tb-title">氏名</th>
                         <th class="tb-title">学籍番号</th>
                         <th class="tb-title">権限名</th>
