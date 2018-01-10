@@ -24,7 +24,7 @@
       <div class="prfbox">
         <div class="username input-field">
           <div class="input-area">
-            <input placeholder="名前" type="text" class="input-name validate center">
+            <input placeholder="名前" type="text" class="input-name validate center" name="profile_name">
           </div>
         </div>
 
