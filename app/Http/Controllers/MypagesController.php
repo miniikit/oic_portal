@@ -6,6 +6,7 @@ use App\Service\SQLService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use App\Http\Requests\MypageRequest;
 use Carbon\Carbon;
 use App\Article;
 use App\Profile;
@@ -30,16 +31,21 @@ class MypagesController extends Controller
             $follow_ct = $this->SQLService->getFollowCount();
             $follower_ct = $this->SQLService->getFollowerCount();
 
+            $myarticle_ct = $this->SQLService->getUserArticleCount();
+
             //入学年度から現在何年生か計算
             $get_dt = new carbon($profile->profile_admission_year);
-            $now_dt = new carbon(Carbon::now());
+            $now_dt = Carbon::now();
 
             $sc_year = $get_dt->diffInYears($now_dt);
 
             $userId = $this->SQLService->checkAuth();
-            $articles = app(Article::class)->where('user_id',$userId)->get();
+            $articles = app(Article::class)
+                ->where('user_id',$userId)
+                ->orderby('id','desc')
+                ->get();
 
-            return view('mypage.detail', compact('profile', 'articles','course','follow_ct','follower_ct','sc_year'));
+            return view('mypage.detail', compact('profile', 'articles','course','myarticle_ct','follow_ct','follower_ct','sc_year'));
         }else{
             return redirect()->route('user_login');
         }
@@ -54,16 +60,47 @@ class MypagesController extends Controller
           $follow_ct = $this->SQLService->getFollowCount();
           $follower_ct = $this->SQLService->getFollowerCount();
 
+          $myarticle_ct = $this->SQLService->getUserArticleCount();
+
           //入学年度から現在何年生か計算
           $get_dt = new carbon($profile->profile_admission_year);
           $now_dt = new carbon(Carbon::now());
 
           $sc_year = $get_dt->diffInYears($now_dt);
 
-          return view('mypage.edit', compact('course','follow_ct','follower_ct','sc_year'));
+          $userId = $this->SQLService->checkAuth();
+          $articles = app(Article::class)->where('user_id',$userId)->get();
+
+          return view('mypage.edit', compact('course','follow_ct','follower_ct','sc_year','articles','myarticle_ct','profile'));
       }else{
           return redirect()->route('user_login');
       }
+    }
+
+    public function complete(Request $request)
+    {
+        $data = $request->all();
+        $profile = $this->SQLService->getUserProfile();
+        $request_image = $request->file('profile_image');
+
+        if($request_image == null) {
+
+        }else{
+            $carbon = Carbon::now();
+            $filename = $carbon->format('Y-m-d-H-i-s') . '.jpg';
+            $request_image->move(public_path('/images/profile_images/'), $filename);
+            $profile_image = '/images/profile_images/' . $filename;
+            $profile->profile_image = $profile_image;
+        }
+
+        $profile->profile_name = $data['profile_name'];
+        $profile->profile_url = $data['profile_url'];
+        $profile->profile_introduction = $data['profile_introduction'];
+
+        $profile->save();
+
+        return view('mypage.complete');
+
     }
 
     public function show_user($id)
