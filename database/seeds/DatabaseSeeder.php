@@ -226,6 +226,23 @@ class ArticlesTableSeeder extends Seeder
                 'updated_at' => Carbon::now()
             ]);
         }
+
+
+        for ($i = 1; $i < 20; $i++) {
+            DB::table('articles_table')->insert([
+                'article_title' => 'ユーザ記事',
+                'article_text' => '',
+                'article_image' => '/images/sample-' . rand(1,6) . '.jpg',
+                'article_url' => 'http://gigazine.net/news/20171128-macbook-egpu-rx-vega-64/',
+                //'article_url' => '/articles/' . $i,
+                'news_site_id' => rand(1,20),
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ]);
+        }
+
+
+
     }
 }
 
