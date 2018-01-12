@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class ArticleLike extends Model
+class ArticleFavorite extends Model
 {
-    protected $table = 'articles_likes_table';
+    protected $table = 'articles_favorites_table';
     protected $fillable = ['user_id', 'article_id'];
 
     public function articles()

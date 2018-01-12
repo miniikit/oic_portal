@@ -10,10 +10,12 @@
         "fabpot/goutte": "^3.2",
         "fideloper/proxy": "~3.3",
         "intervention/image": "^2.4",
+        "kanazaca/counter-cache": "1.0.*",
         "laracasts/flash": "^3.0",
         "laravel/framework": "5.5.*",
         "laravel/socialite": "^3.0",
         "laravel/tinker": "~1.0",
+        "laravelcollective/html": "^5.4.0",
         "pusher/pusher-php-server": "~3.0"
     },
     "require-dev": {

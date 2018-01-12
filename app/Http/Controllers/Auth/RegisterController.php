@@ -33,19 +33,23 @@ class RegisterController extends Controller
 
         $carbon = Carbon::now();
 
-        $imgfile = $request->file('profile_image');
+        if($data['profile_image'] == null)
+        {
+            $profile_image = '/images/default.png';
+        }else{
+            $imgfile = $request->file('profile_image');
 
-        $filename = $carbon->format('Y-m-d-H-i-s') . '.jpg';
-        $imgfile->move(public_path('/images/profile_images/'), $filename);
+            $filename = $carbon->format('Y-m-d-H-i-s') . '.jpg';
+            $imgfile->move(public_path('/images/profile_images/'), $filename);
 
-
-        $profile_image = '/images/profile_images/' . $filename;
+            $profile_image = '/images/profile_images/' . $filename;
+        }
 
         $profile = $profileModel->create([
             'profile_image' => $profile_image,
             'profile_name' => $data['profile_name'],
             'course_id' => $data['course_id'],
-            'profile_admission_year' => Carbon::now(),
+            'profile_admission_year' => $data['profile_admission_year'],
             'profile_url' => $data['profile_url'],
             'profile_introduction' => $data['profile_introduction'],
         ]);

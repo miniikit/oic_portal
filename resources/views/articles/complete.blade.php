@@ -13,7 +13,7 @@
     </div>
   </div>
   <div class="row col s12">
-    <div class="center-align"><a type="button" class="waves-effect waves-light btn" href="{{ route('user_article_list') }}">記事へ</a></div>
+    <div class="center-align"><a type="button" class="waves-effect waves-light btn" href="{{ route('user_home') }}">記事へ</a></div>
   </div>
 </div>
 

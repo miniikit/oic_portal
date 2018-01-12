@@ -25,12 +25,22 @@ class CommunityController extends Controller
         return view('community.create');
     }
 
+    public function confirm(Request $request)
+    {
+        $data = $request->all();
+        return view('community.confirm',compact('data'));
+    }
+
     //完了
     public function complete(Request $request)
     {
         $data = $request->all();
         $community_model = app(Community::class);
-        $community_model->create(['community_title' => $data['community_title'], 'community_contents' => $data['community_contents'], 'authority_id' => $data['article_text'],]);
+        $community_model->create([
+            'community_title' => $data['community_name'],
+            'community_contents' => $data['community_detail'],
+            'authority_id' => $data['article_text'],
+            ]);
 
         return view('articles.complete');
     }
