@@ -1,19 +1,21 @@
 @extends('template.master')
 
 @section('css')
-
+<link rel="stylesheet" href="/css/mypage/complete.css">
 @endsection
 
 @section('main')
 
-    <div class="row col s8">
+    <div class="row">
         <div class="content">
             <div class="center-align">
-                <p class="text">プロフィールの編集が完了しました。</p>
+                <h1 class="com-text">プロフィールの編集が完了しました。</h1>
             </div>
         </div>
-        <div class="row col s12">
-            <div class="center-align"><a type="button" class="waves-effect waves-light btn" href="{{ route('user_mypage') }}">マイページへ</a></div>
+        <div class="row">
+            <div class="center-align">
+              <a type="button" class="done-btn waves-effect waves-light btn" href="{{ route('user_mypage') }}">マイページへ</a>
+            </div>
         </div>
     </div>
 

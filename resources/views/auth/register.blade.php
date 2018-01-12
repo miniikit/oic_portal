@@ -2,6 +2,7 @@
 
 @section('css')
   <link rel="stylesheet" href="/css/auth/register.css">
+  <link rel="stylesheet" href="/css/common/form.css">
 @endsection
 
 @section('plug')
@@ -28,7 +29,7 @@
       </div>
 
     <div class="input-field col s12">
-      <input id="profile_name" type="text" class="validate" name="profile_name" value="{{ old('profile_name') }}">
+      <input id="profile_name" type="text" class="val-red validate" name="profile_name" value="{{ old('profile_name') }}">
       <label for="profilename">プロフィール名</label>
     </div>
 

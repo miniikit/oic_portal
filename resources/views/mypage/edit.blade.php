@@ -73,10 +73,11 @@
         </div>
       </div>
 
-      <div class="border col s12"></div>
-
-      <div class="col s6 center-align"><button type="button" class="back-btn waves-effect waves-light btn" onclick="history.back()">戻る</button></div>
-      <div class="col s6 center-align"><button type="submit" class="submit-btn waves-effect waves-light btn">送信</button></div>
+      {{-- <div class="border col s12"></div> --}}
+      <div class="col s12">
+        <div class="col s6 right-align"><button type="button" class="back-btn waves-effect waves-light btn" onclick="history.back()">戻る</button></div>
+        <div class="col s6 left-align"><button type="submit" class="submit-btn waves-effect waves-light btn">完了</button></div>
+      </div>
 
       </form>
   </div>

@@ -41,7 +41,6 @@
                             <td class="tb-text">{{ $site->news_site_url }}</td>
                             <td class="tb-text">{{ $site->news_site_category_name }}</td>
                             <td class="tb-text"></td>
-                            <td class="tb-btn"><a class="del-btn waves-effect waves-light btn">削除</a></td>
                         </tr>
                     @endforeach
                     </tbody>
