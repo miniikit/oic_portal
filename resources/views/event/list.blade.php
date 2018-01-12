@@ -52,18 +52,35 @@
       <div class="row">
         @foreach($events as $event)
           <div class="col s12">
-            <div class="change card horizontal">
+            <div class="change card hoverable horizontal">
                 <div class="card-image">
-                  <a href="/event/1000"><img src="{{ $event->event_image }}"></a>
+                  <a href="{{ route('user_event_detail') }}"><img src="{{ $event->event_image }}"></a>
                 </div>
                 <div class="card-stacked">
+                  <a href="{{ route('user_event_detail') }}"></a>
                   <div class="card-content">
                     <span class="card-title">{{ $event->event_title }}</span>
                     <p class="card-sentence">{{ $event->event_text }}</p>
+                    <span class="date">掲載期間 {{ $event->event_start_date_time }} ~ {{ $event->event_end_date_time }}</span>
                   </div>
                   <div class="card-action">
-                    <span class="date">掲載期間 {{ $event->event_start_date_time }} ~ {{ $event->event_end_date_time }}</span>
-                    <span class="people">{{ $event->num }}/{{ $event->event_capacity }}</span>
+                    <div class="join">
+                      <p>参加人数 {{ $event->num }}/{{ $event->event_capacity }}</p>
+                    </div>
+                    <div class="tags">
+                        <div class="chip">
+                            IT
+                        </div>
+                        <div class="chip">
+                            デザイン
+                        </div>
+                        <div class="chip">
+                          映像
+                        </div>
+                        <div class="chip">
+                          ゲーム
+                        </div>
+                    </div>
                   </div>
                 </div>
             </div>

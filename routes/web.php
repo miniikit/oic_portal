@@ -145,7 +145,7 @@ Route::get('/event', 'EventController@index')->name('user_event');
 // 一覧(終了分)  TODO : URL考える
 Route::get('/event/kk', 'FakeController@index');
 // 詳細
-Route::get('/event/1000', 'EventController@show');
+Route::get('/event/1000', 'EventController@show')->name('user_event_detail');
 
 // 更新
 Route::get('/event/1000/edit', 'EventController@edit')->name('user_event_edit');

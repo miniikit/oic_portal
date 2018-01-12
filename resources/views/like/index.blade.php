@@ -19,11 +19,13 @@
       </div>
       @foreach($article_lists as $article_list)
     <div class="card-box col s4">
-      <div class="card">
+      <div class="card hoverable">
         <div class="card-wrapper">
           <div class="card-image">
             <a href="{{ $article_list->article_url }}"><img src="{{ $article_list->article_image }}"></a>
           </div>
+        <div class="card-stacked">
+          <a href="{{ route('user_article_detail',1) }}"></a>
           <div class="card-content">
             <span class="card-title">{{ $article_list->article_title }}</span>
             <p class="card-text">{{ $article_list->article_text }}</p>
@@ -37,12 +39,12 @@
               <div class="chip">
                 デザイン
               </div>
-              {{-- <div class="chip">
+              <div class="chip">
                 映像
               </div>
               <div class="chip">
-                アニメーション
-              </div> --}}
+                ゲーム
+              </div>
             </div>
             {{--
             <div class="chkbox">
@@ -51,6 +53,7 @@
               --}}
             </div>
           </div>
+        </div>
         </div>
       </div>
     </div>

@@ -22,7 +22,6 @@
                 <i class="material-icons">close</i>
             </div>
         </form>
-
         <div class="sort-box input-field col s6">
             <select>
                 <option value="" disabled selected>並び替え</option>
@@ -40,23 +39,22 @@
                 <option value="4">デザイン・Web</option>
             </select>
         </div>
-
-
         <!-- article tab1 -->
         <div class="row">
             @foreach($articles as $article)
                 <div class="col s4">
-                    <div class="card">
+                    <div class="card hoverable">
                         <div class="card-wrapper">
                             <div class="card-image">
                                 <a href="{{ $article->article_url }}"><img src="{{ $article->article_image }}"></a>
                             </div>
+                          <div class="card-stacked">
+                            <a href="{{ $article->article_url }}"></a>
                             <div class="card-content">
                                 <span class="card-title">{{ $article->article_title }}</span>
                                 <p class="card-text">{{ $article->article_text }}</p>
                             </div>
                             <div class="card-action">
-                                <a href="{{ $article->article_url }}">続きを読む</a>
                                 <div class="tags">
                                     <div class="chip">
                                         IT
@@ -64,14 +62,13 @@
                                     <div class="chip">
                                         デザイン
                                     </div>
-                                    {{-- <div class="chip">
+                                    <div class="chip">
                                       映像
                                     </div>
                                     <div class="chip">
-                                      アニメーション
-                                    </div> --}}
+                                      ゲーム
+                                    </div>
                                 </div>
-
                                 {{-- カウンター 実装するか検討 --}}
                                 {{-- <div class="counter">
                                   <i class="goodicon material-icons" id="counter">thumb_up</i>
@@ -83,6 +80,7 @@
                                 </div> --}}
                             </div>
                         </div>
+                      </div>
                     </div>
                 </div>
             @endforeach

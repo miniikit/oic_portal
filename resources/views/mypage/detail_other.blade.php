@@ -108,16 +108,17 @@
       <div class="wap col s12">
         @foreach($articles as $article)
           <div class="col s6">
-            <div class="card">
+            <div class="card hoverable">
               <div class="card-image">
                 <a href="{{ $article->article_url }}"><img src="{{ $article->article_image }}"></a>
                 <span class="card-title">{{ $article->article_title }}</span>
               </div>
+            <div class="card-stacked">
+              <a href="{{ $article->article_image }}"></a>
               <div class="card-content">
                 <p class="card-text">{{ $article->article_text }}</p>
               </div>
               <div class="card-action">
-                <a href="{{ $article->article_image }}">READ MORE</a>
                 <div class="tags">
                   <div class="chip">
                     IT
@@ -125,8 +126,13 @@
                   <div class="chip">
                     デザイン
                   </div>
+                  <div class="chip">
+                    映像
+                  </div>
+                  <div class="chip">
+                    アニメーション
+                  </div>
                 </div>
-
                 {{-- カウンター 実装するか検討 --}}
                 {{-- <div class="counter">
                   <i class="goodicon material-icons" id="counter">thumb_up</i>
@@ -136,8 +142,8 @@
                   <i class="goodicon material-icons" id="counter">remove_red_eye</i>
                   <label class="showcounter" for="counter">1000</label>
                 </div> --}}
-
               </div>
+            </div>
             </div>
           </div>
         @endforeach
