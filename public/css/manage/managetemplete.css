@@ -54,3 +54,17 @@ tr:hover{
   height: 700px;
   overflow: auto;
 }
+
+/* alert message */
+.success{
+  background-colo: red;
+}
+.danger{
+  background-color: blue;
+}
+.display_none{
+  disp: none;
+}
+.display_on{
+  display: block;
+}

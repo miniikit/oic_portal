@@ -13,7 +13,7 @@
   <div class="cont">
   <div id="app">
   <div class="row">
-    <div class=" wap">
+    <div class="wap">
       <div class="comi">
         <div class="comment-area col s12">
           <ul class="collection">

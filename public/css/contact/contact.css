@@ -54,4 +54,9 @@
     background-color:  darkgray;
     font-size: 20px;
   }
+  .submit-btn{
+    width: 250px;
+    height: 54px;
+    line-height: 54px;
+  }
 }

@@ -48,7 +48,7 @@
           <div class="col s12">
             <div class="change card horizontal">
                 <div class="card-image">
-                  <a href="/event/1000"><img src="/images/sample-{{ $i }}.jpg" class="cimg"></a>
+                  <a href="{{ route('user_community_detail',1) }}"><img src="/images/sample-{{ $i }}.jpg" class="cimg"></a>
                 </div>
                 <div class="card-stacked">
                   <div class="card-content">
