@@ -21,8 +21,8 @@
         <input type="file" name="article_image" value="" />
       </div> --}}
       <div class="file-field input-field">
-          <input type="file" name="article_image">
-          <input class="file-path validate" type="text" accept="images/*" placeholder="画像選択" required>
+          <input type="file">
+          <input class="file-path validate" type="text" name="article_image" accept="images/*" placeholder="画像選択">
           <label for="image">画像選択</label>
       </div>
       <div class="row">
@@ -38,7 +38,7 @@
           <label>ジャンル</label>
         </div>
         <div class="input-field col s6">
-          <input type="text" class="datepicker">
+          <input type="text" class="datepicker" name="article_start_date_time">
           <label for="password">掲載期間</label>
         </div>
       </div>
