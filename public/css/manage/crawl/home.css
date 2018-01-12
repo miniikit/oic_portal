@@ -1,7 +1,9 @@
 
 .title{
+  font-size: 2.5em;
   color: darkgray;
-  font-size: 2em;
+  text-indent: 20px;
+  letter-spacing: 20px;
 }
 .state{
   font-size: 1.5em;

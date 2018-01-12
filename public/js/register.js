@@ -3,7 +3,7 @@
         $('#categories').change(function () {
             var val = $(this).val()
             var elm = $('#categories option[value=' + val +']')
-            var target = elm.attr('data-category')
+            var target = elm.attr('data-category').attr('required')
 
             $('.target__select').addClass('none')
             $('.target__select[data-category=' + target +']').removeClass('none')
