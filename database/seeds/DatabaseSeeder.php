@@ -233,6 +233,7 @@ class ArticlesLikesTableSeeder extends Seeder
 {
     public function run()
     {
+        /*
         DB::table('articles_likes_table')->delete();
         for ($i = 1; $i < 500; $i++) {
             DB::table('articles_likes_table')->insert([
@@ -242,6 +243,7 @@ class ArticlesLikesTableSeeder extends Seeder
                 'updated_at' => Carbon::now()
             ]);
         }
+        */
     }
 }
 

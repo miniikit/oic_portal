@@ -21,15 +21,24 @@ class ArticlesController extends Controller
 
     public function show($id)
     {
-        $article = DB::table('')
+        $article = DB::table('news_sites_master')
+            ->join('articles_table','articles_table.news_site_id','news_sites_master.id')
+            ->select('articles_table.id','articles_table.article_title','articles_table.article_text','articles_table.article_image','articles_table.article_url','news_sites_master.news_site_name','articles_table.created_at')
+            ->where('articles_table.id',$id)
             ->first();
 
         return view('manage.article.detail',compact('id','article'));
     }
 
-    public function edit()
+    public function edit($id)
     {
-        return view('manage.article.edit');
+        $article = DB::table('news_sites_master')
+            ->join('articles_table','articles_table.news_site_id','news_sites_master.id')
+            ->select('articles_table.id','articles_table.article_title','articles_table.article_text','articles_table.article_image','articles_table.article_url','news_sites_master.news_site_name','articles_table.created_at')
+            ->where('articles_table.id',$id)
+            ->first();
+
+        return view('manage.article.edit',compact('id','article'));
     }
 
     public function update($id,Request $request)

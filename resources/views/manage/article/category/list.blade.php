@@ -5,13 +5,13 @@
 @endsection
 
 @section('breadcrumb')
-    <a href="{{ route('manager_user_list') }}" class="breadcrumb">ユーザ一覧</a>
+    <a href="{{ route('manager_article_category_list') }}" class="breadcrumb">記事カテゴリ一覧</a>
 @endsection
 
 @section('main')
     <div class="row">
         <div class="title-box center">
-            <h1 class="title">ユーザ一覧</h1>
+            <h1 class="title">記事カテゴリ一覧</h1>
         </div>
         <div class="main-content col s12">
             <form>
@@ -22,26 +22,23 @@
                 </div>
             </form>
             <div class="table-wrp col s12">
-                <table class="table striped">
+                <table class="table">
                     <thead>
                     <tr>
                         <th class="tb-title">ID</th>
-                        <th class="tb-title">ユーザ名</th>
-                        <th class="tb-title">氏名</th>
-                        <th class="tb-title">学籍番号</th>
-                        <th class="tb-title">学科</th>
-                        <th class="tb-title">入学年度</th>
+                        <th class="tb-title"></th>
+                        <th class="tb-title"></th>
+                        <th class="tb-title"></th>
                     </tr>
                     </thead>
+
                     <tbody>
-                    @foreach($users as $user)
-                        <tr data-href="{{ route('manager_user_detail',$user->id) }}">
-                            <td class="tb-text">{{ $user->id }}</td>
-                            <td class="tb-text">{{ $user->profile_name }}</td>
-                            <td class="tb-text">{{ $user->name }}</td>
-                            <td class="tb-text">{{ substr($user->email, 0, strcspn($user->email,'@')) }}</td>
-                            <td class="tb-text">{{ $user->parent_course_name }}</td>
-                            <td class="tb-text">{{ date('Y年',strtotime($user->profile_admission_year)) }}</td>
+                    @foreach($articles as $article)
+                        <tr data-href="{{ route('manager_article_category_detail',$article->id) }}">
+                            <td class="tb-text">{{ $article->id }}</td>
+                            <td class="tb-text"></td>
+                            <td class="tb-text"></td>
+                            <td class="tb-text"></td>
                         </tr>
                     @endforeach
                     </tbody>

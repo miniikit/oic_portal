@@ -12,34 +12,38 @@
 @section('main')
     <div class="row">
         <div class="title-box center">
-            <h1 class="title">詳細</h1>
+            <h1 class="title">記事詳細</h1>
         </div>
         <div class="main-content">
             <table>
                 <thead>
                 <tr>
                     <th class="th-box">ID</th>
-                    <td class="td-box"></td>
+                    <td class="td-box">{{ $article->id }}</td>
                 </tr>
                 <tr>
                     <th class="th-box">記事タイトル</th>
-                    <td class="td-box"></td>
+                    <td class="td-box">{{ $article->article_title }}</td>
                 </tr>
                 <tr>
                     <th class="th-box">記事本文</th>
-                    <td class="td-box"></td>
+                    <td class="td-box">{{ $article->article_text }}</td>
                 </tr>
                 <tr>
                     <th class="th-box">記事画像</th>
-                    <td class="td-box"></td>
+                    <td class="td-box">{{ $article->article_image }}</td>
                 </tr>
                 <tr>
-                    <th class="th-box"></th>
-                    <td class="td-box"></td>
+                    <th class="th-box">記事URL</th>
+                    <td class="td-box">{{ $article->article_url }}</td>
                 </tr>
                 <tr>
-                    <th class="th-box"></th>
-                    <td class="td-box"></td>
+                    <th class="th-box">サイト名</th>
+                    <td class="td-box">{{ $article->news_site_name }}</td>
+                </tr>
+                <tr>
+                    <th class="th-box">作成日</th>
+                    <td class="td-box">{{ date('m月d日', strtotime($article->created_at)) }}</td>
                 </tr>
                 </thead>
             </table>

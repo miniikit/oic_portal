@@ -16,6 +16,7 @@
 <div class="content">
     <form class="col s10" method="POST" action="{{ url('/articles/edit/confirm') }}" enctype="multipart/form-data">
       {{ csrf_field() }}
+        <input type="hidden" name="article_id" value="{{$article->id}}">
     <div class="input-field col s12">
       <input placeholder="タイトル" id="first_name" name="article_title" type="text" class="validate" value="{{ $article->article_title }}">
       <label for="first_name">タイトル</label>
@@ -61,6 +62,8 @@
         <div class="btn-box-l col s6 center-align"><button type="button" class="back-btn waves-effect waves-light btn" onclick="history.back()">戻る</button></div>
         <div class="btn-box-r col s6 center-align"><button type="submit" class="update-btn waves-effect waves-light btn">更新</button></div>
       </div>
+
+
   </form>
 </div>
 </div>

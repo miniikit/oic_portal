@@ -22,7 +22,7 @@
         <div class="prf col s12">
           <div class="prf-content col s4">
             <h1 class="item" id="">投稿</h1>
-            <label class="item-sub" for="">XXX</label>
+            <label class="item-sub" for="">{{ $myarticle_ct }}</label>
           </div>
           <div class="prf-content col s4">
             <a class="color" href="{{ route('user_mypage_follow') }}"><h1 class="item" id="follow">フォロー</h1></a>
@@ -63,17 +63,30 @@
       <div class="wap col s12">
         @foreach($articles as $article)
           <div class="col s6">
-            <div class="card">
+            <div class="card hoverable">
               <div class="card-image">
                 <a href="{{ $article->article_url }}"><img src="{{ $article->article_image }}"></a>
               </div>
+            <div class="card-stacked">
+              <a href="{{ $article->article_url }}"></a>
               <div class="card-content">
                 <span class="card-title">{{ $article->article_title }}</span>
                 <p class="card-text">{{ $article->article_text }}</p>
               </div>
               <div class="card-action">
-                <a href="{{ $article->article_url }}">READ MORE</a>
                 <a href="{{ $article->article_url.'/edit' }}">EDIT</a>
+                <a class="waves-effect waves-light modal-trigger" href="#modal1">DELETE</a>
+                <div id="modal1" class="modal">
+                  <div class="modal-content">
+                    <h4>削除しますか？</h4>
+                    <p>削除しますか</p>
+                  </div>
+                  <div class="modal-footer">
+                    <a href="{{ $article->article_url.'/delete' }}">OK</a>
+                  </div>
+                </div>
+              </div>
+
                 <div class="tags">
                   <div class="chip">
                     IT
@@ -81,12 +94,12 @@
                   <div class="chip">
                     デザイン
                   </div>
-                  {{-- <div class="chip">
+                  <div class="chip">
                     映像
                   </div>
                   <div class="chip">
                     アニメーション
-                  </div> --}}
+                  </div>
                 </div>
 
                 {{-- カウンター 実装するか検討 --}}
@@ -98,8 +111,8 @@
                   <i class="goodicon material-icons" id="counter">remove_red_eye</i>
                   <label class="showcounter" for="counter">1000</label>
                 </div> --}}
-
               </div>
+            </div>
             </div>
           </div>
           @endforeach
@@ -107,4 +120,13 @@
 
   </div>
 
+@endsection
+
+@section('script')
+  <script type="text/javascript">
+      $(document).ready(function(){
+          // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
+          $('.modal').modal();
+      });
+      </script>
 @endsection

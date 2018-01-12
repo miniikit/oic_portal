@@ -14,6 +14,14 @@ class MessagesController extends Controller
     {
         $user = Auth::user();
         $profile = app(Profile::class)->find($user->id);
+        return view('chat',compact('user','profile'));
+    }
+
+    public function user_chat($id)
+    {
+        $user = app(User::class)->find($id);
+        dd($user);
+        $profile = app(Profile::class)->find($user->id);
         return view('chat_other',compact('user','profile'));
     }
 
