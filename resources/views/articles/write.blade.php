@@ -46,8 +46,8 @@
         </div>
       </div>
       <div class="row">
-        <div class="col s6 center"><button type="button" class="back-btn waves-effect waves-light btn" onclick="history.back()">戻る</button></div>
-        <div class="col s6 center"><button type="submit" class="submit-btn waves-effect waves-light btn">確認</button></div>
+        <div class="col s6 right-align"><button type="button" class="back-btn waves-effect waves-light btn" onclick="history.back()">戻る</button></div>
+        <div class="col s6 left-align"><button type="submit" class="submit-btn waves-effect waves-light btn">確認</button></div>
       </div>
   </form>
 </div>
