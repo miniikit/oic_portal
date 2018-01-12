@@ -52,7 +52,17 @@
 }
   button.waves-effect.waves-light.btn{
     background-color:  darkgray;
-    font-size: 20px;
+    font-size: 15px;
+  }
+  .back-btn{
+    width: 200px;
+    height: 54px;
+    line-height: 54px;
+  }
+  .submit-btn{
+    width: 200px;
+    height: 54px;
+    line-height: 54px;
   }
   div.col.s6.right-align{
     padding-right: 2rem;
