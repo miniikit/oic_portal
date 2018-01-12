@@ -7,6 +7,9 @@
 @section('main')
 
 <div class="content">
+    <div class="row center">
+        <h1 class="title">記事投稿</h1>
+    </div>
     <form class="col s10" method="POST" action="{{ url('/articles/confirm') }}" enctype="multipart/form-data">
       {{ csrf_field() }}
     <div class="input-field col s12">

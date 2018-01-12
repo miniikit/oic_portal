@@ -37,7 +37,7 @@ class ArticlesController extends Controller
         $filename = $carbon->format('Y-m-d-H-i-s') . '.jpg';
         $imgfile->move(public_path('/images/article_images/'), $filename);
         $articles_image = '/images/article_images/' . $filename;
-        return view('articles.confirm', compact('data', 'articles_image'));
+        return view('articles.confirm', compact('data', 'articles_image','carbon'));
     }
 
     //投稿完了
