@@ -21,9 +21,9 @@
 }
 
 @media only screen and (max-width: 992px) {
-  .row .col.s6{
+  /* .row .col.s6{
     width: 100%;
-  }
+  } */
   .image{
     height: 100px;
     width: 100px;

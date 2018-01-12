@@ -42,7 +42,6 @@
               <td class="tb-text">{{ date('Y年m月d日 H時i分' ,strtotime($event->event_start_date_time)) }}</td>
                 <td class="tb-text">{{ $event->name }}</td>
                 <td class="tb-text">{{ $event->event_capacity }}名</td>
-              <td class="tb-btn"><a class="del-btn waves-effect waves-light btn">削除</a></td>
             </tr>
           @endforeach
         </tbody>

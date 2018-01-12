@@ -37,6 +37,22 @@
   .prf-image{
     margin-bottom: 50px;
   }
+  .image-btn{
+    width: 130px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 12px;
+  }
+  .back-btn{
+    font-size: 12px;
+    margin-top: 50px;
+    margin-right: 25px;
+  }
+  .submit-btn{
+    font-size: 12px;
+    margin-top: 50px;
+    margin-left: 25px;
+  }
 
 
 }
@@ -87,5 +103,22 @@ input[type=text]:not(.browser-default){
 .prf-image{
   margin-bottom: 50px;
 }
+.back-btn{
+  width: 200px;
+  height: 54px;
+  line-height: 54px;
+  font-size: 15px;
+  margin-top: 50px;
+  margin-right: 50px;
+}
+.submit-btn{
+  width: 200px;
+  height: 54px;
+  line-height: 54px;
+  font-size: 15px;
+  margin-top: 50px;
+  margin-left: 50px;
+}
+
 
 }

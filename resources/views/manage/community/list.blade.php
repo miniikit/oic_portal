@@ -22,7 +22,7 @@
                 </div>
             </form>
             <div class="table-wrp col s12">
-                <table class="table striped">
+                <table class="table">
                     <thead>
                     <tr>
                         <th class="tb-title">ID</th>
@@ -37,7 +37,6 @@
                             <td class="tb-text">{{ $community->id }}</td>
                             <td class="tb-text">{{ $community->community_title }}</td>
                             <td class="tb-text">{{ $community->community_category_name }}</td>
-                            <td class="tb-btn"><a class="del-btn waves-effect waves-light btn">削除</a></td>
                         </tr>
                     @endforeach
                     </tbody>

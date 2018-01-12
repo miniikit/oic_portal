@@ -22,7 +22,7 @@
                 </div>
             </form>
             <div class="table-wrp col s12">
-                <table class="table striped">
+                <table class="table">
                     <thead>
                     <tr>
                         <th class="tb-title">ID</th>
