@@ -38,7 +38,7 @@
                             <td class="tb-text">{{ $article->id }}</td>
                             <td class="tb-text">{{ $article->article_title }}</td>
                             <td class="tb-text">{{ $article->news_site_name }}</td>
-                            <td class="tb-text">{{ $article->created_at }}</td>
+                            <td class="tb-text">{{ date('m月d日', strtotime($article->created_at)) }}</td>
                         </tr>
                     @endforeach
                     </tbody>

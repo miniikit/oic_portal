@@ -22,7 +22,7 @@
         <div class="prf col s12">
           <div class="prf-content col s4">
             <h1 class="item" id="">投稿</h1>
-            <label class="item-sub" for="">XXX</label>
+            <label class="item-sub" for="">{{ $myarticle_ct }}</label>
           </div>
           <div class="prf-content col s4">
             <a class="color" href="{{ route('user_mypage_follow') }}"><h1 class="item" id="follow">フォロー</h1></a>
@@ -75,6 +75,18 @@
               </div>
               <div class="card-action">
                 <a href="{{ $article->article_url.'/edit' }}">EDIT</a>
+                <a class="waves-effect waves-light modal-trigger" href="#modal1">DELETE</a>
+                <div id="modal1" class="modal">
+                  <div class="modal-content">
+                    <h4>削除しますか？</h4>
+                    <p>削除しますか</p>
+                  </div>
+                  <div class="modal-footer">
+                    <a href="{{ $article->article_url.'/delete' }}">OK</a>
+                  </div>
+                </div>
+              </div>
+
                 <div class="tags">
                   <div class="chip">
                     IT
@@ -108,4 +120,13 @@
 
   </div>
 
+@endsection
+
+@section('script')
+  <script type="text/javascript">
+      $(document).ready(function(){
+          // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
+          $('.modal').modal();
+      });
+      </script>
 @endsection

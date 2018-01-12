@@ -10,11 +10,11 @@
     <form class="col s10" method="POST" action="{{ url('/articles/confirm') }}" enctype="multipart/form-data">
       {{ csrf_field() }}
     <div class="input-field col s12">
-      <input placeholder="タイトル" id="first_name" name="article_title" type="text" class="validate">
+      <input placeholder="タイトル" id="first_name" name="article_title" type="text" class="validate" required>
       <label for="first_name">タイトル</label>
     </div>
       <div class="input-field col s12">
-        <textarea id="textarea1" class="materialize-textarea" name="article_text" data-length="120"></textarea>
+        <textarea id="textarea1" class="materialize-textarea" name="article_text" data-length="120" required></textarea>
         <label for="textarea1">記事本文</label>
       </div>
       {{-- <div class="input-field col s12">

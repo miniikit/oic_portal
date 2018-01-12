@@ -63,7 +63,7 @@
                     </tr>
                     <tr>
                         <th class="th-box">プロフィール画像</th>
-                        <td class="td-box">{{ $employee->profile_image }}</td>
+                        <td class="td-box"><image src="{{ $employee->profile_image }}"></image></td>
                     </tr>
                     <tr>
                         <th class="th-box">URL</th>

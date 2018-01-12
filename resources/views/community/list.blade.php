@@ -12,9 +12,11 @@
     </h1>
   </div>
 
+@if(!Auth::guest())
 <div class="c_but">
   <a href="{{ route('user_community_create') }}" class="add_btn btn-floating btn-large waves-effect waves-light"><i class="material-icons">add</i></a>
 </div>
+@endif
 
 
   <div class="row">

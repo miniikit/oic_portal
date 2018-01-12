@@ -98,12 +98,11 @@ class SQLService
     public function getUserCourse()
     {
         $profile = $this->getUserProfile();
-        $course = DB::table('courses_master as cm1')
-            ->join('courses_master as cm2', 'cm1.parent_course_id', '=', 'cm2.id')
-            ->select('cm1.course_name as course_major', 'cm2.course_name')
-            ->where('cm1.id', '=', $profile->course_id)
-            ->first();
-        return $course;
+        return $course = DB::table('courses_master as cm1')
+               ->join('courses_master as cm2', 'cm1.parent_course_id', '=', 'cm2.id')
+               ->select('cm1.course_name as course_major', 'cm2.course_name')
+               ->where('cm1.id', '=', $profile->course_id)
+               ->first();
     }
 
     //フォロー数取得
@@ -129,6 +128,18 @@ class SQLService
             ->limit(21)
             ->get();
     }
+
+    //ユーザの記事投稿数を取得
+    public function getUserArticleCount()
+    {
+        $userId = $this->checkAuth();
+        return $article = \DB::table('articles_table')
+            ->where('articles_table.deleted_at',null)
+            ->where('articles_table.user_id',$userId)
+            ->get()
+            ->count();
+    }
+
     //いいね順に記事を取得
     public function getArticleLike()
     {

@@ -77,9 +77,9 @@ Route::get('/manage/article/{id}', 'Manage\ArticlesController@show')->name('mana
 // 編集
 Route::get('/manage/article/{id}/edit', 'Manage\ArticlesController@edit')->name('manager_article_edit');
 // 更新
-Route::post('/manage/site/{id}/update','Manage\ArticlesController@update')->name('manager_article_update');
+Route::post('/manage/article/{id}/update','Manage\ArticlesController@update')->name('manager_article_update');
 // 削除
-Route::delete('/manage/site/{id}/delete','Manage\ArticlesController@destroy')->name('manager_article_delete');
+Route::delete('/manage/article/{id}/delete','Manage\ArticlesController@destroy')->name('manager_article_delete');
 
 
 /**

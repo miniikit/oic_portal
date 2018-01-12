@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class ArticlesLikesTable extends Migration
+class ArticlesFavoritesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class ArticlesLikesTable extends Migration
      */
     public function up()
     {
-        Schema::create('articles_likes_table', function (Blueprint $table){
-            $table->increments('id');//いいねID
-            $table->integer('article_id');//記事ID
-            $table->integer('user_id');//会員ID
+        Schema::create('articles_favorites_table', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('user_id')->unsigned();
+            $table->integer('article_id')->unsigned()->unique();
             $table->timestamps();
             $table->softDeletes();
         });
@@ -29,6 +29,6 @@ class ArticlesLikesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('articles_likes_table');
+        Schema::drop('articles_favorites_table');
     }
 }

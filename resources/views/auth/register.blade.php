@@ -48,7 +48,7 @@
     </div>
 
       <div class="input-field col s12 rap">
-        <select name="profile_scyear" value="{{ old('profile_scyear') }}">
+        <select name="profile_admission_year" value="{{ old('profile_admission_year') }}">
                <option value="" disabled selected></option>
                <option value="1" class="left circle">1</option>
                <option value="2" class="left circle">2</option>

@@ -26,9 +26,6 @@ Route::get('/', 'HomeController@index')->name('user_home');
 Route::get('/contact','ContactsController@show')->name('user_contact');
 Route::post('/contact/complete','ContactsController@complete')->name('user_contact_complete');
 
-//お気に入り
-Route::get('/like', 'LikeController@index')->name('user_like');
-
 
 /**
  * 記事
@@ -41,15 +38,25 @@ Route::post('/articles/confirm', 'ArticlesController@confirm')->name('user_artic
 Route::post('/articles/post/complete', 'ArticlesController@complete')->name('user_article_post_complete');
 
 // 一覧
-Route::get('/articles/index', 'ArticlesController@index')->name('user_article_list');
+Route::get('/articles/index', 'ArticleController@index')->name('user_article_list');
 // 詳細
 Route::get('/articles/{id}', 'ArticlesController@detail')->name('user_article_detail');
 // 編集
 Route::get('/articles/{id}/edit', 'ArticlesController@edit')->name('user_article_edit');
+Route::get('/articles/{id}/delete', 'ArticlesController@delete')->name('user_article_delete');
 Route::post('/articles/edit/confirm','ArticlesController@edit_confirm')->name('user_article_edit_confirm');
 Route::post('/articles/edit/complete','ArticlesController@edit_complete')->name('user_article_edit_complete');
 // コメント投稿
 Route::post('/articles/{article_id}/comment', 'ArticlesController@store')->name('user_article_comment');
+
+//お気に入り
+Route::get('/favlist','ArticlesLikesController@index')->name('user_article_favlist');
+Route::get('/articles/{id}/fav', 'ArticlesLikesController@fav')->name('user_article_fav');
+Route::get('/articles/{id}/unfav', 'ArticlesLikesController@Unfav')->name('user_article_unfav');
+
+// いいね
+Route::get('/articles/{id}/like', 'ArticlesLikesController@like')->name('user_article_like');
+Route::get('/articles/{id}/unlike', 'ArticlesLikesController@UnLike')->name('user_article_unlike');
 
 /**
  * 通報
@@ -72,6 +79,9 @@ Route::group(['middleware' => ['UserAuth']],function()
     // 編集
     Route::get('/mypage/edit', 'MypagesController@edit')->name('user_mypage_edit');
 
+    //編集完了
+    Route::post('/mypage/edit/complete', 'MypagesController@complete')->name('user_mypage_complete');
+
 
     /**
      * ユーザページ
@@ -89,6 +99,8 @@ Route::group(['middleware' => ['UserAuth']],function()
     // チャット
     Route::get('/chat', 'MessagesController@chat')->name('user_mypage_chat');
     Route::get('/chat_other', 'MessagesController@chat_other')->name('user_mypage_chat_other');
+
+    Route::get('/user/{id}/chat', 'MessagesController@user_chat')->name('user_chat');
 
 
     // メッセージ
@@ -120,9 +132,9 @@ Route::get('/community/1000/edit/complete', 'FakeController@edit');
 Route::get('/community/new', 'CommunityController@make')->name('user_community_create');
 
 // 新規作成-確認
-Route::get('/community/new/confirm', 'FakeController@make');
+Route::post('/community/new/confirm', 'CommunityController@confirm')->name('user_community_create_confirm');
 // 新規作成-完了
-Route::get('/community/new/complete', 'FakeController@fake');
+Route::post('/community/new/complete', 'CommunityController@comeplete')->name('user_community_create_complete');
 
 
 /**

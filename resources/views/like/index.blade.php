@@ -17,21 +17,21 @@
       <div class="edit-form col s12 right-align">
         <a id="edit-btn" class="waves-effect waves-light btn">編集</a>
       </div>
-    @for ($i=1; $i< 7; $i++)
+      @foreach($article_lists as $article_list)
     <div class="card-box col s4">
       <div class="card hoverable">
         <div class="card-wrapper">
           <div class="card-image">
-            <a href="{{ route('user_article_detail',1) }}"><img src="images/sample-{{ $i }}.jpg"></a>
+            <a href="{{ $article_list->article_url }}"><img src="{{ $article_list->article_image }}"></a>
           </div>
         <div class="card-stacked">
           <a href="{{ route('user_article_detail',1) }}"></a>
           <div class="card-content">
-            <span class="card-title">記事タイトル</span>
-            <p class="card-text">ここに記事の内容の一部を表示 ここに記事の内容の一部を表示 ここに記事の内容の一部を表示 ここに記事の内容の一部を表示</p>
+            <span class="card-title">{{ $article_list->article_title }}</span>
+            <p class="card-text">{{ $article_list->article_text }}</p>
           </div>
           <div class="card-action">
-            {{-- <a href="{{ route('user_article_detail',1) }}">続きを読む</a> --}}
+            <a href="{{ $article_list->article_url }}">続きを読む</a>
             <div class="tags">
               <div class="chip">
                 IT
@@ -46,16 +46,18 @@
                 ゲーム
               </div>
             </div>
+            {{--
             <div class="chkbox">
               <input type="checkbox" name="article" id="check{{ $i }}">
               <label for="check{{ $i }}"></label>
+              --}}
             </div>
           </div>
         </div>
         </div>
       </div>
     </div>
-    @endfor
+    @endforeach
     <div class="delete-form col s12 center">
       <a id="delete-btn" class="del-btn waves-effect waves-light modal-trigger btn" href="#modal1">削除</a>
     </div>
