@@ -21,6 +21,23 @@ class CrawlService
     }
 
     /**
+     * 初期設定
+     */
+    public function setDefault($site)
+    {
+        // TARGET PATH
+        $site_id = $site->id;
+        $url = $site->news_site_url;    // サイト自体のURL
+        $tag_for_url = $site->news_site_tag_url;    // 記事URL
+        $tag_for_title = $site->news_site_tag_title;
+        $tag_for_image = $site->news_site_tag_image;
+        $tag_for_text = $site->news_site_tag_text;
+
+        return compact('site_id','url','tag_for_url','tag_for_title','tag_for_image','tag_for_text');
+
+    }
+
+    /**
      * 記事一覧を取得
      * @param $client
      * @param $url
@@ -86,6 +103,7 @@ class CrawlService
     }
 
     /**
+     * 記事本文を取得
      * @param $contents
      * @param $tag_for_text
      * @return mixed

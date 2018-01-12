@@ -38,11 +38,34 @@ class CrawlController extends Controller
 
     }
 
+    // 1/12作りかけ
+    public function getOneSiteNewArticle($site_id)
+    {
+        $SQLService = new SQLService();
+        $site = $SQLService->getOneSite($site_id);
+
+        // 初期設定1 - サイトごとの記事取得用タグをDBから設定
+        extract($this->crawlService->setDefault($site));
+
+        $client = $this->crawlService->makeCrient();
+
+        // 初期設定2 - サイトの最新記事一覧を取得
+        $urls = $this->crawlService->getLists($client, $url, $tag_for_url);
+        $titles = $this->crawlService->getLists($client, $url, $tag_for_title);
+
+
+        dd($urls);
+
+    }
+
+
+
+
     public function getLists()
     {
 
-        $SQL = new SQLService();
-        $sites = $SQL->getSites();
+        $SQLService = new SQLService();
+        $sites = $SQLService->getAllSites();
 
 
         foreach ($sites as $site) {
@@ -186,11 +209,6 @@ class CrawlController extends Controller
         // DBに格納
 
         return view('crawl', compact('urls'));
-    }
-
-    public function getImage()
-    {
-        dd(123);
     }
 
     public function get()
