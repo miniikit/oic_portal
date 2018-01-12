@@ -8,17 +8,12 @@
   <div class="content">
     <form class="col s10" method="POST" action="{{ url('/articles/post/complete') }}" enctype="multipart/form-data">
       {{ csrf_field() }}
-      <div>
-      <p class="title">確認画面</p>
-    </div>
+      <div class="title-box">
+        <p class="title">記事プレビュー</p>
+      </div>
         <div class="row">
         <div class="date_link col s12">
-          <div class="col s6">
-            <p class="backlink"><a class="backlink">戻る</a></p>
-          </div>
-          <div class="col s6 right-align">
-            <p class="date">2017/xx/yy</p>
-          </div>
+          <p>{{ date('Y-m-d H:i' ,strtotime($carbon)) }}</p>
         </div>
 
         <div class="page-title">
@@ -44,13 +39,12 @@
             </a>
             <a class="good-btn waves-effect">
               <i class="goodicon material-icons" id="counter">thumb_up</i>
-              <label for="conter">1000</label>
             </a>
           </div>
         </div>
       <div class="row">
-          <div class="col s6 right-align"><button type="button" class="waves-effect waves-light btn" onclick="history.back()">戻る</button></div>
-          <div class="col s6 left-align"><button type="submit" class="waves-effect waves-light btn">送信</button></div>
+          <div class="col s6 right-align"><button type="button" class="back-btn waves-effect waves-light btn" onclick="history.back()">戻る</button></div>
+          <div class="col s6 left-align"><button type="submit" class="send-btn waves-effect waves-light btn">送信</button></div>
       </div>
     </form>
     </div>

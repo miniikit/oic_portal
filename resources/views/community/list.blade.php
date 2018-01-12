@@ -8,7 +8,7 @@
 
   <div class="row center-align">
     <h1 class="title">
-      コミュニティー
+      コミュニティ
     </h1>
   </div>
 
@@ -55,8 +55,8 @@
                 <div class="card-stacked">
                   <a href="{{ route('user_community_detail',1) }}"></a>
                   <div class="card-content">
-                    <span class="card-title">コミュニティー名</span>
-                    <p class="card-text">ここにコミュニティー情報の一部を表示ここにコミュニティー情報の一部を表示ここにコミュニティー情報の一部を表示ここにコミュニティー情報の一部を表示ここにコミュニティー情報の一部を表示ここにコミュニティー情報の一部を表示</p>
+                    <span class="card-title">コミュニティ名</span>
+                    <p class="card-text">ここにコミュニティ情報の一部を表示ここにコミュニティー情報の一部を表示ここにコミュニティー情報の一部を表示ここにコミュニティー情報の一部を表示ここにコミュニティー情報の一部を表示ここにコミュニティー情報の一部を表示</p>
                   </div>
                   <div class="card-action">
                     <div class="join">
