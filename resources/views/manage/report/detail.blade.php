@@ -5,7 +5,8 @@
 @endsection
 
 @section('breadcrumb')
-  <a href="#!" class="breadcrumb">Second</a>
+    <a href="{{ route('manager_report_list') }}" class="breadcrumb">通報一覧</a>
+    <a href="{{ route('manager_report_list',$id) }}" class="breadcrumb">通報詳細</a>
 @endsection
 
 @section('main')
@@ -49,10 +50,10 @@
         </div>
         <div class="btn-box col s12">
             <div class="col s6 center">
-                <a class="back-btn waves-effect waves-light btn">戻る</a>
+                <a href="{{ route('manager_report_list') }}" class="back-btn waves-effect waves-light btn">戻る</a>
             </div>
             <div class="col s6 center">
-                <a class="edit-btn waves-effect waves-light btn">編集</a>
+                <a href="{{ route('manager_report_edit',$id) }}" class="edit-btn waves-effect waves-light btn">編集</a>
             </div>
         </div>
     </div>

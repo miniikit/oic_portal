@@ -19,6 +19,8 @@
 }
 .tb-title{
   padding: 0.5rem;
+  letter-spacing: 2px;
+  text-indent: 2px;
 }
 .tb-text{
   padding: 0.5rem;

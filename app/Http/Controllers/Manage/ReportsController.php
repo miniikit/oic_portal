@@ -5,39 +5,36 @@ namespace App\Http\Controllers\Manage;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
+use App\Service\Manage\ReportService;
 
 class ReportsController extends Controller
 {
+    protected $reportService;
+
+    public function __construct(ReportService $reportService)
+    {
+        $this->reportService = $reportService;
+    }
+
     public function index()
     {
-        $reports = DB::table('reports_table')
-            ->leftJoin('reports_categories_master','reports_categories_master.id','=','reports_table.report_category_id')
-            ->leftJoin('reports_risks_categories_master','reports_risks_categories_master.id','=','reports_categories_master.report_risk_id')
-            ->leftjoin('reports_risks_deal_status_master','reports_risks_deal_status_master.id','=','reports_table.report_deal_status_id')
-            ->leftjoin('reports_deals_table','report_id','=','reports_table.id')
-            ->leftjoin('users','users.id','=','reports_deals_table.user_id')
-            ->select('reports_table.id','reports_risks_categories_master.report_risk_category_name','reports_categories_master.report_category_name','users.name','reports_risks_deal_status_master.report_risk_deal_status_name','reports_table.created_at')
-            ->get();
+        $reports = $this->reportService->getReportLists();
+        dd($reports);
 
         return view('manage.report.list',compact('reports'));
     }
 
     public function show($id)
     {
-        $report = DB::table('reports_table')
-            ->leftJoin('reports_categories_master','reports_categories_master.id','=','reports_table.report_category_id')
-            ->leftJoin('reports_risks_categories_master','reports_risks_categories_master.id','=','reports_categories_master.report_risk_id')
-            ->leftjoin('reports_risks_deal_status_master','reports_risks_deal_status_master.id','=','reports_table.report_deal_status_id')
-            ->leftjoin('reports_deals_table','report_id','=','reports_table.id')
-            ->leftjoin('users','users.id','=','reports_deals_table.user_id')
-            ->select('reports_table.id','reports_risks_categories_master.report_risk_category_name','reports_categories_master.report_category_name','users.name','reports_risks_deal_status_master.report_risk_deal_status_name','reports_table.created_at','reports_table.report_contents')
-            ->first();
+        $report = $this->reportService->getReport($id);
 
         return view('manage.report.detail',compact('id','report'));
     }
 
-    public function edit()
+    public function edit($id)
     {
+        $report = $this->reportService->getReport($id);
+
         return view('manage.report.edit');
     }
 

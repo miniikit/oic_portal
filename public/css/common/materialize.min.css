@@ -2719,9 +2719,11 @@ thead {
 td, th {
   padding: 15px 5px;
   display: table-cell;
-  text-align: left;
+  text-align: center;
   vertical-align: middle;
-  border-radius: 2px
+  border-radius: 2px;
+  letter-spacing: 2px;
+  text-indent: 2px;
 }
 
 @media only screen and (max-width: 992px) {
