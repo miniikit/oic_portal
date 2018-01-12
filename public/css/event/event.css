@@ -24,8 +24,9 @@
     float: right;
   }
   .title{
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     color: darkgray;
+    margin-bottom: 50px;
   }
   .card-sentence{
     font-size: 0.8em;
@@ -61,8 +62,9 @@
     font-size: 0.95em;
   }
   .title{
-    font-size: 2rem;
+    font-size: 2.5rem;
     color: darkgray;
+    margin-bottom: 50px;
   }
   div.c_but{
     float: right;

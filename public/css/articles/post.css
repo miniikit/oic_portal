@@ -22,21 +22,21 @@
     min-height: 10rem;
 }
   .back-btn{
-    width: 150px;
-    height: 54px;
-    line-height: 54px;
+    width: 135px;
+    height: 48px;
+    line-height: 48px;
     font-size: 15px;
     text-indent: 10px;
-    line-height: 10px;
+    letter-spacing: 10px;
     margin-top: 50px;
   }
   .submit-btn{
-    width: 150px;
-    height: 54px;
-    line-height: 54px;
+    width: 135px;
+    height: 48px;
+    line-height: 48px;
     font-size: 15px;
     text-indent: 10px;
-    line-height: 10px;
+    letter-spacing: 10px;
     margin-top: 50px;
   }
 
@@ -85,7 +85,7 @@
     line-height: 54px;
     font-size: 15px;
     text-indent: 10px;
-    line-height: 10px;
+    letter-spacing: 10px;
     margin-top: 50px;
     margin-right: 50px;
   }
@@ -95,7 +95,7 @@
     line-height: 54px;
     font-size: 15px;
     text-indent: 10px;
-    line-height: 10px;
+    letter-spacing: 10px;
     margin-top: 50px;
     margin-left: 50px;
   }
