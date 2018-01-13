@@ -21,6 +21,10 @@ use App\Events\MessagePosted;
  */
 // ホーム
 Route::get('/', 'HomeController@index')->name('user_home');
+Route::get('/home/it', 'HomeController@it')->name('user_it');
+Route::get('/home/game', 'HomeController@game')->name('user_game');
+Route::get('/home/movie', 'HomeController@movie')->name('user_movie');
+Route::get('/home/design', 'HomeController@design')->name('user_design');
 
 // 問い合わせ
 Route::get('/contact','ContactsController@show')->name('user_contact');
