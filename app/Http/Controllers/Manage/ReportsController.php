@@ -19,7 +19,6 @@ class ReportsController extends Controller
     public function index()
     {
         $reports = $this->reportService->getReportLists();
-        dd($reports);
 
         return view('manage.report.list',compact('reports'));
     }

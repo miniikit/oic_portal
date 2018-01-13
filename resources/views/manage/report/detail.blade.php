@@ -39,7 +39,7 @@
                     </tr>
                     <tr>
                         <th class="th-box">通報日時</th>
-                        <td class="td-box">{{ date('Y年m月d日', strtotime($report->created_at)) }}</td>
+                        <td class="td-box">{{ date('Y年m月d日', strtotime($report->report_created_at)) }}</td>
                     </tr>
                     <tr>
                         <th class="th-box">通報内容</th>

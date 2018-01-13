@@ -311,15 +311,16 @@ class ReportsTableSeeder extends Seeder
 {
     public function run()
     {
-        $reportsContents = ['不適切な内容です', '誹謗中傷されました', '規約違反しています'];
+        $reportsContents = ['不適切な内容を含んでいます', '攻撃的な内容を含んでいます', '利用規約・その他法令に違反しています'];
         DB::table('reports_table')->delete();
+
         for ($i = 0; $i < 50; $i++) {
             DB::table('reports_table')->insert([
                 'report_category_id' => rand(1, 4),
                 'user_id' => rand(1, 150),
                 'report_contents' => $reportsContents[rand(0, 2)],
                 'report_deal_status_id' => rand(1, 3),
-                'created_at' => Carbon::now(),
+                'created_at' => Carbon::now()->subday($i),
                 'updated_at' => Carbon::now()
             ]);
         }
@@ -330,14 +331,14 @@ class ReportsDealsTableSeeder extends Seeder
 {
     public function run()
     {
-        $reportsComments = ['対処しました', '対処済み', '対処できません'];
+        $reportsComments = ['連絡がありません', '対応を考えています', 'コンタクトを取っています'];
         DB::table('reports_deals_table')->delete();
-        for ($i = 0; $i < count($reportsComments); $i++) {
+        for ($i = 0; $i < 100; $i++) {
             DB::table('reports_deals_table')->insert([
-                'report_id' => $i + 1,
-                'user_id' => $i + 1,
-                'report_deal_comment' => $reportsComments[$i],
-                'created_at' => Carbon::now(),
+                'report_id' => rand(1,50),
+                'user_id' => rand(3,100),
+                'report_deal_comment' => $reportsComments[rand(0,2)],
+                'created_at' => Carbon::now()->subday($i),
                 'updated_at' => Carbon::now()
             ]);
         }
@@ -348,13 +349,13 @@ class ReportsCategoriesMasterSeeder extends Seeder
 {
     public function run()
     {
-        $reportCategories = ['不適切', '誹謗中傷', '規約違反', 'その他'];
+        $reportCategories = ['不適切な内容', '誹謗中傷', '規約違反', 'その他'];
         DB::table('reports_categories_master')->delete();
         for ($i = 0; $i < count($reportCategories); $i++) {
             DB::table('reports_categories_master')->insert([
                 'report_category_name' => $reportCategories[$i],
                 'report_risk_id' => rand(1, 4),
-                'created_at' => Carbon::now(),
+                'created_at' => Carbon::now()->subday($i),
                 'updated_at' => Carbon::now()
             ]);
         }
@@ -365,12 +366,12 @@ class ReportsRisksDealStatusMasterSeeder extends Seeder
 {
     public function run()
     {
-        $reportsRisksDealStatus = ['未対処', '対処中', '対処済'];
+        $reportsRisksDealStatus = ['未対処', '対処中', '完了'];
         DB::table('reports_risks_deal_status_master')->delete();
         for ($i = 0; $i < count($reportsRisksDealStatus); $i++) {
             DB::table('reports_risks_deal_status_master')->insert([
                 'report_risk_deal_status_name' => $reportsRisksDealStatus[$i],
-                'created_at' => Carbon::now(),
+                'created_at' => Carbon::now()->subday($i),
                 'updated_at' => Carbon::now()
             ]);
         }
@@ -387,7 +388,7 @@ class ReportsRisksCategoriesMasterSeeder extends Seeder
             DB::table('reports_risks_categories_master')->insert([
                 'report_risk_category_name' => $reportsRisksCategories[$i],
                 'report_risk_num' => $i + 1,
-                'created_at' => Carbon::now(),
+                'created_at' => Carbon::now()->subday($i),
                 'updated_at' => Carbon::now()
             ]);
         }

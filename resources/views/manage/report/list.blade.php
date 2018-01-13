@@ -25,21 +25,19 @@
                 <table class="table">
                     <thead>
                     <tr>
-                        <th class="tb-title">ID</th>
-                        <th class="tb-title">危険度</th>
+                        <th class="tb-title"></th>
                         <th class="tb-title">カテゴリ</th>
-                        <th class="tb-title">対処者</th>
+                        <th class="tb-title">対処優先度</th>
                         <th class="tb-title">対処状態</th>
                         <th class="tb-title">通報日時</th>
                     </tr>
                     </thead>
-                    <tbody>
+                    <tbody><?php $i = 1; ?>
                     @foreach($reports as $report)
-                        <tr data-href="{{ route('manager_report_detail',$report->id) }}">
-                            <td class="tb-text">{{ $report->id }}</td>
-                            <td class="tb-text">{{ $report->report_risk_category_name }}</td>
+                        <tr data-href="{{ route('manager_report_detail',$report->report_id) }}">
+                            <td class="tb-text">{{ $i++ }}</td>
                             <td class="tb-text">{{ $report->report_category_name }}</td>
-                            <td class="tb-text">{{ $report->name }}</td>
+                            <td class="tb-text">{{ $report->report_risk_category_name }}</td>
                             <td class="tb-text">{{ $report->report_risk_deal_status_name }}</td>
                             <td class="tb-text">{{ date('Y年m月d日', strtotime($report->created_at)) }}</td>
                         </tr>

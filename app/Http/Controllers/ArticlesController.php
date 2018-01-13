@@ -37,7 +37,7 @@ class ArticlesController extends Controller
         $filename = $carbon->format('Y-m-d-H-i-s') . '.jpg';
         $imgfile->move(public_path('/images/article_images/'), $filename);
         $articles_image = '/images/article_images/' . $filename;
-        return view('articles.confirm', compact('data', 'articles_image','carbon'));
+        return view('articles.confirm', compact('data', 'articles_image', 'carbon'));
     }
 
     //投稿完了
@@ -50,19 +50,18 @@ class ArticlesController extends Controller
             'article_title' => $data['article_title'],
             'article_image' => $data['article_image'],
             'article_text' => $data['article_text'],
-            'news_site_id' => 1,  //0のときはセルフ記事
-            'article_url' => '/articles/'.Carbon::now(),
+            'news_site_id' => null,
+            'article_url' => '/articles/' . Carbon::now(),
             'user_id' => $userId,
         ]);
 
         $article->save();
 
-        if($article)
-        {
-           $article_id = $article->id;
+        if ($article) {
+            $article_id = $article->id;
         }
 
-        $articles_model->where('id',$article_id)->update(['article_url' => '/articles/'.$article_id]);
+        $articles_model->where('id', $article_id)->update(['article_url' => '/articles/' . $article_id]);
         return view('articles.complete');
     }
 
@@ -88,16 +87,16 @@ class ArticlesController extends Controller
         */
 
         $comments = $article_comment_model
-            ->where('article_id',$id)
-            ->orderBy('id','desc')
+            ->where('article_id', $id)
+            ->orderBy('id', 'desc')
             ->get();
 
-        $getprofile_id = $user_model->where('id',$userId)->first();
-        $myprofile = $profile_model->where('id',$getprofile_id->profile_id)->first();
+        $getprofile_id = $user_model->where('id', $userId)->first();
+        $myprofile = $profile_model->where('id', $getprofile_id->profile_id)->first();
 
-        foreach ($comments as $comment){
+        foreach ($comments as $comment) {
             $user_id = $comment->user_id;
-            $profile = $profile_model->where('id',$user_id)->first();
+            $profile = $profile_model->where('id', $user_id)->first();
 
             $comment->profile_name = $profile->profile_name;
             $comment->profile_image = $profile->profile_image;
@@ -115,10 +114,10 @@ class ArticlesController extends Controller
         $articles_likes_model = app(ArticleLike::class);
         $articles_fav_model = app(ArticleFavorite::class);
 
-        $like_ct = $articles_likes_model->where('article_id',$id)->get()->count();
-        $fav_ct = $articles_fav_model->where('article_id',$id)->get()->count();
+        $like_ct = $articles_likes_model->where('article_id', $id)->get()->count();
+        $fav_ct = $articles_fav_model->where('article_id', $id)->get()->count();
 
-        if(!Auth::guest()) {
+        if (!Auth::guest()) {
             $userId = Auth::user()->id;
 
             $active_like = $articles_likes_model
@@ -133,8 +132,7 @@ class ArticlesController extends Controller
         }
 
 
-
-        return view('articles.detail', compact('article', 'id', 'comments', 'relatedArticles','like_ct','active_like','active_fav','fav_ct','myprofile'));
+        return view('articles.detail', compact('article', 'id', 'comments', 'relatedArticles', 'like_ct', 'active_like', 'active_fav', 'fav_ct', 'myprofile'));
     }
 
     // 編集
@@ -152,12 +150,11 @@ class ArticlesController extends Controller
         $carbon = Carbon::now();
         $request_image = $request->file('article_image');
 
-        if($request_image == null)
-        {
+        if ($request_image == null) {
             $article = app(Article::class)->find($id);
             $articles_image = $article->article_image;
 
-        }else{
+        } else {
             $filename = $carbon->format('Y-m-d-H-i-s') . '.jpg';
             $request_image->move(public_path('/images/event_images/'), $filename);
             $articles_image = '/images/event_images/' . $filename;
@@ -170,7 +167,7 @@ class ArticlesController extends Controller
     public function edit_complete(Request $request)
     {
         $data = $request->all();
-        $article = app(Article::class)->where('id',$data->article_id)->first();
+        $article = app(Article::class)->where('id', $data->article_id)->first();
 
         $article->article_title = $data['article_title'];
         $article->article_image = $data['article_image'];
@@ -191,7 +188,7 @@ class ArticlesController extends Controller
 
 
     // コメント
-    public function store(Request $request,$article_id)
+    public function store(Request $request, $article_id)
     {
         $userId = Auth::user()->id;
         if ($request->input('name')) {
