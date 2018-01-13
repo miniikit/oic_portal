@@ -69,7 +69,10 @@ class ArticlesController extends Controller
     // 詳細
     public function detail($id)
     {
+        $userId = Auth::user()->id;
         $article_comment_model = app(ArticleComment::class);
+        $user_model = app(User::class);
+        $profile_model = app(Profile::class);
         $article = DB::table('articles_table')
             ->join('news_sites_master', 'news_sites_master.id', '=', 'articles_table.news_site_id')
             ->where('articles_table.id', $id)
@@ -89,24 +92,17 @@ class ArticlesController extends Controller
             ->orderBy('id','desc')
             ->get();
 
-        if($comments !== null) {
-            foreach ($comments as $comment) {
-                $comment_userId = $comment->user_id;
-            }
-            $comment_users = app(User::class)->where('id', $comment_userId)->get();
+        $getprofile_id = $user_model->where('id',$userId)->first();
+        $myprofile = $profile_model->where('id',$getprofile_id->profile_id)->first();
 
-            foreach ($comment_users as $comment_user) {
-                $comment_profileId = $comment_user->profile_id;
-            }
+        foreach ($comments as $comment){
+            $user_id = $comment->user_id;
+            $profile = $profile_model->where('id',$user_id)->first();
 
-            $comment_profiles = app(Profile::class)->where('id', $comment_profileId)->get();
-
-            foreach ($comment_profiles as $comment_profile) {
-                $comment_image = $comment_profile->profile_image;
-                $comment_userName = $comment_profile->profile_name;
-
-            }
+            $comment->profile_name = $profile->profile_name;
+            $comment->profile_image = $profile->profile_image;
         }
+
 
         $categoryId = $article->news_site_category_id;
         $relatedArticles = DB::table('news_sites_master')
@@ -138,7 +134,7 @@ class ArticlesController extends Controller
 
 
 
-        return view('articles.detail', compact('article', 'id', 'comments', 'relatedArticles','like_ct','active_like','comment_image','comment_userName','active_fav','fav_ct'));
+        return view('articles.detail', compact('article', 'id', 'comments', 'relatedArticles','like_ct','active_like','active_fav','fav_ct','myprofile'));
     }
 
     // 編集
