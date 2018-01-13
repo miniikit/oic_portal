@@ -68,25 +68,25 @@
                 <a href="{{ $article->article_url }}"><img src="{{ $article->article_image }}"></a>
               </div>
             <div class="card-stacked">
-              <a href="{{ $article->article_url }}"></a>
+              <a class="link-box" href="{{ $article->article_url }}"></a>
               <div class="card-content">
                 <span class="card-title">{{ $article->article_title }}</span>
                 <p class="card-text">{{ $article->article_text }}</p>
               </div>
               <div class="card-action">
-                <a href="{{ $article->article_url.'/edit' }}">EDIT</a>
-                <a class="waves-effect waves-light modal-trigger" href="#modal1">DELETE</a>
+                <a href="{{ $article->article_url.'/edit' }}" class="btn-floating waves-effect waves-light green"><i class="material-icons">edit</i></a>
+                <a class="waves-effect waves-light modal-trigger" href="#modal1">削除</a>
                 <div id="modal1" class="modal">
                   <div class="modal-content">
-                    <h4>削除しますか？</h4>
-                    <p>削除しますか</p>
+                    <h1>削除しますか？</h1>
                   </div>
                   <div class="modal-footer">
-                    <a href="{{ $article->article_url.'/delete' }}">OK</a>
+                    <a href="{{ $article->article_url.'/delete' }}" class="modal-action modal-close waves-effect waves-green btn-flat">OK</a>
                   </div>
                 </div>
               </div>
 
+              <div class="card-action">
                 <div class="tags">
                   <div class="chip">
                     IT
@@ -101,6 +101,7 @@
                     アニメーション
                   </div>
                 </div>
+              </div>
 
                 {{-- カウンター 実装するか検討 --}}
                 {{-- <div class="counter">
