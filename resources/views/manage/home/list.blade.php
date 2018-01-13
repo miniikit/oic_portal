@@ -46,7 +46,6 @@
                 <td class="tb-text">ここに内容</td>
                 <td class="tb-text">ここに内容</td>
                 <td class="tb-text">ここに内容</td>
-                <td class="tb-btn"><a class="del-btn waves-effect waves-light btn">削除</a></td>
               </tr>
             @endfor
           </tbody>

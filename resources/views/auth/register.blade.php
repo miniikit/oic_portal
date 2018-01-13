@@ -2,6 +2,7 @@
 
 @section('css')
   <link rel="stylesheet" href="/css/auth/register.css">
+  <link rel="stylesheet" href="/css/common/form.css">
 @endsection
 
 @section('plug')
@@ -22,33 +23,33 @@
       <div class="icon-box file-field input-field col s12 center">
         <div class="imgInput">
           <img src="/images/profile_images/default.jpg" class="prf-icon imgView circle" alt="">
-          <a class="edit-btn btn-floating waves-effect waves-light green" name="profile_image"><i class="material-icons">edit</i><input type="file" name="profile_image"></a>
+          <a class="edit-btn btn-floating waves-effect waves-light green" name="profile_image"><i class="material-icons">edit</i><input type="file" name="profile_image" required="required"></a>
           <p>※ 拡張子: jpg png</p>
         </div><!--/.imgInput-->
       </div>
 
     <div class="input-field col s12">
-      <input id="profile_name" type="text" class="validate" name="profile_name" value="{{ old('profile_name') }}">
+      <input id="profile_name" type="text" class="val-red validate" name="profile_name" value="{{ old('profile_name') }}" required="required">
       <label for="profilename">プロフィール名</label>
     </div>
 
     <div class="input-field col s12">
-      <input id="name" type="text" class="validate" name="name" value="{{ old('name') }}">
+      <input id="name" type="text" class="validate" name="name" value="{{ old('name') }}" required="required">
       <label for="name">氏名</label>
     </div>
 
     <div class="input-field col s12">
-      <input id="kana" type="text" class="validate" name="kana" value="{{ old('kana') }}">
+      <input id="kana" type="text" class="validate" name="kana" value="{{ old('kana') }}" required="required">
       <label for="kana">フリガナ</label>
     </div>
 
     <div class="input-field col s12">
-      <input id="email" type="email" class="validate" name="email" value="{{ $getUser->email }}">
+      <input id="email" type="email" class="validate" disabled="disabled" name="email" value="{{ $getUser->email }}" required="required">
       <label for="email">メールアドレス</label>
     </div>
 
       <div class="input-field col s12 rap">
-        <select name="profile_admission_year" value="{{ old('profile_admission_year') }}">
+        <select name="profile_admission_year" value="{{ old('profile_admission_year') }}" required="required">
                <option value="" disabled selected></option>
                <option value="1" class="left circle">1</option>
                <option value="2" class="left circle">2</option>
@@ -60,7 +61,7 @@
 
 
     <div class="input-field rap">
-        <select id="categories" name="course_major" value="{{ old('course_major') }}">
+        <select id="categories" name="course_major" value="{{ old('course_major') }}" required="required">
             <option data-category="1" value="">学科を選択してください</option>
             <option data-category="2" value="1" class="it">情報処理IT</option>
             <option data-category="3" value="2" class="game">ゲーム</option>
@@ -71,14 +72,14 @@
     </div>
 
       <div class="target__select input-field rap" data-category="1">
-          <select  name="course_id" value="{{ old('course_id') }}">
+          <select  name="course_id" value="{{ old('course_id') }}" >
               <option value="" selected disabled>コースを選択してください</option>
           </select>
           <label>コース</label>
       </div>
 
     <div class="target__select input-field rap none" data-category="2">
-      <select  name="course_id" value="{{ old('course_id') }}">
+      <select  name="course_id" value="{{ old('course_id') }}" >
           <option value="5" class="it">ITスペシャリスト専攻</option>
           <option value="6" class="it">ネットワークセキュリティ専攻</option>
           <option value="7" class="it">システムエンジニア専攻</option>
@@ -91,7 +92,7 @@
     </div>
 
       <div class="target__select input-field rap none" data-category="3">
-          <select name="course_id" value="{{ old('course_id') }}">
+          <select name="course_id" value="{{ old('course_id') }}" >
               <option value="12" class="game">ゲームプログラマー専攻</option>
               <option value="13" class="game">ゲームデザイナー専攻</option>
               <option value="14" class="game">ゲームプランナー専攻</option>
@@ -104,7 +105,7 @@
       </div>
 
       <div class="target__select input-field rap none" data-category="4">
-          <select name="course_id" value="{{ old('course_id') }}">
+          <select name="course_id" value="{{ old('course_id') }}" >
               <option value="19" class="cg">CG映像クリエイター専攻</option>
               <option value="20"class="cg">CGクリエイター専攻</option>
               <option value="21" class="cg">CG映像コース</option>
@@ -114,7 +115,7 @@
       </div>
 
       <div class="target__select input-field rap none" data-category="5">
-          <select name="course_id" value="{{ old('course_id') }}">
+          <select name="course_id" value="{{ old('course_id') }}" >
               <option value="19" class="design">アートディレクター専攻</option>
               <option value="20" class="design">Webデザインコース</option>
               <option value="21" class="design">グラフィックデザインコース</option>

@@ -1,4 +1,11 @@
 @media only screen and (min-width: 0px) and (max-width: 600px){
+
+  .title{
+    color: darkgray;
+    font-size: 1.5em;
+    text-indent: 10px;
+    letter-spacing: 10px;
+  }
   .input-field {
     margin-bottom: 3rem;
   }
@@ -14,14 +21,36 @@
     resize: none;
     min-height: 10rem;
 }
-  button.waves-effect.waves-light.btn{
-    background-color:  darkgray;
+  .back-btn{
+    width: 135px;
+    height: 48px;
+    line-height: 48px;
     font-size: 15px;
+    text-indent: 10px;
+    letter-spacing: 10px;
+    margin-top: 50px;
   }
+  .submit-btn{
+    width: 135px;
+    height: 48px;
+    line-height: 48px;
+    font-size: 15px;
+    text-indent: 10px;
+    letter-spacing: 10px;
+    margin-top: 50px;
+  }
+
 }
 
 
 @media only screen and (min-width: 601px) {
+
+  .title{
+    color: darkgray;
+    font-size: 2.5em;
+    text-indent: 10px;
+    letter-spacing: 10px;
+  }
   div.content{
     position: relative;
   }
@@ -50,24 +79,25 @@
     resize: none;
     min-height: 10rem;
 }
-  button.waves-effect.waves-light.btn{
-    background-color:  darkgray;
-    font-size: 15px;
-  }
   .back-btn{
     width: 200px;
     height: 54px;
     line-height: 54px;
+    font-size: 15px;
+    text-indent: 10px;
+    letter-spacing: 10px;
+    margin-top: 50px;
+    margin-right: 50px;
   }
   .submit-btn{
     width: 200px;
     height: 54px;
     line-height: 54px;
+    font-size: 15px;
+    text-indent: 10px;
+    letter-spacing: 10px;
+    margin-top: 50px;
+    margin-left: 50px;
   }
-  div.col.s6.right-align{
-    padding-right: 2rem;
-  }
-  div.col.s6.left-align{
-    padding-left: 2rem;
-  }
+
 }

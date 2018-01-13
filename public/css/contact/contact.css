@@ -15,10 +15,28 @@
   a.waves-effect.waves-light.btn{
     background-color:  darkgray;
   }
+  .page_title{
+    padding-bottom: 50px;
+  }
+  .title{
+    font-size: 1.5em;
+    color: darkgray;
+    letter-spacing: 10px;
+    text-indent: 10px;
+  }
 }
 
 
 @media only screen and (min-width: 601px) {
+  .page_title{
+    padding-bottom: 50px;
+  }
+  .title{
+    font-size: 2.5em;
+    color: darkgray;
+    letter-spacing: 10px;
+    text-indent: 10px;
+  }
   div.content{
     position: relative;
   }

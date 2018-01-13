@@ -22,7 +22,7 @@
                 </div>
             </form>
             <div class="table-wrp col s12">
-                <table class="table striped">
+                <table class="table">
                     <thead>
                     <tr>
                         <th class="tb-title">ID</th>
@@ -31,7 +31,6 @@
                         <th class="tb-title">対処者</th>
                         <th class="tb-title">対処状態</th>
                         <th class="tb-title">通報日時</th>
-                        <th class="tb-title"></th>
                     </tr>
                     </thead>
                     <tbody>
@@ -43,7 +42,6 @@
                             <td class="tb-text">{{ $report->name }}</td>
                             <td class="tb-text">{{ $report->report_risk_deal_status_name }}</td>
                             <td class="tb-text">{{ date('Y年m月d日', strtotime($report->created_at)) }}</td>
-                            <td class="tb-btn"><a class="del-btn waves-effect waves-light btn">削除</a></td>
                         </tr>
                     @endforeach
                     </tbody>

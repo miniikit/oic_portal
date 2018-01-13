@@ -226,6 +226,23 @@ class ArticlesTableSeeder extends Seeder
                 'updated_at' => Carbon::now()
             ]);
         }
+
+
+        for ($i = 1; $i < 20; $i++) {
+            DB::table('articles_table')->insert([
+                'article_title' => 'ユーザ記事',
+                'article_text' => '',
+                'article_image' => '/images/sample-' . rand(1,6) . '.jpg',
+                'article_url' => 'http://gigazine.net/news/20171128-macbook-egpu-rx-vega-64/',
+                //'article_url' => '/articles/' . $i,
+                'news_site_id' => rand(1,20),
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ]);
+        }
+
+
+
     }
 }
 
@@ -273,7 +290,7 @@ class ReportsTableSeeder extends Seeder
         DB::table('reports_table')->delete();
         for ($i = 0; $i < 50; $i++) {
             DB::table('reports_table')->insert([
-                'report_category_id' => rand(0,2),
+                'report_category_id' => rand(1,4),
                 'user_id' => rand(1,150),
                 'report_contents' => $reportsContents[rand(0,2)],
                 'report_deal_status_id' => rand(1,3),
@@ -308,10 +325,43 @@ class ReportsCategoriesMasterSeeder extends Seeder
     {
         $reportCategories = ['不適切','誹謗中傷','規約違反','その他'];
         DB::table('reports_categories_master')->delete();
-        for ($i = 0; $i < count($reportCategories) -1; $i++) {
+        for ($i = 0; $i < count($reportCategories); $i++) {
             DB::table('reports_categories_master')->insert([
                 'report_category_name' => $reportCategories[$i],
-                'report_risk_id' => $i,
+                'report_risk_id' => rand(1,4),
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ]);
+        }
+    }
+}
+
+class ReportsRisksDealStatusMasterSeeder extends Seeder
+{
+    public function run()
+    {
+        $reportsRisksDealStatus = ['未対処', '対処中', '対処済'];
+        DB::table('reports_risks_deal_status_master')->delete();
+        for ($i = 0; $i < count($reportsRisksDealStatus); $i++) {
+            DB::table('reports_risks_deal_status_master')->insert([
+                'report_risk_deal_status_name' => $reportsRisksDealStatus[$i],
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ]);
+        }
+    }
+}
+
+class ReportsRisksCategoriesMasterSeeder extends Seeder
+{
+    public function run()
+    {
+        $reportsRisksCategories = ['低', '中', '高','最高'];
+        DB::table('reports_risks_categories_master')->delete();
+        for ($i = 0; $i < count($reportsRisksCategories); $i++) {
+            DB::table('reports_risks_categories_master')->insert([
+                'report_risk_category_name' => $reportsRisksCategories[$i],
+                'report_risk_num' => $i + 1,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ]);
@@ -881,39 +931,6 @@ class EventsParticipantsTableSeeder extends Seeder
                 'event_id' => rand(1,$max),
                 'event_user_id' => rand(1,$usermax),
                 'event_authority_id' => rand(1,$authoritymax),
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ]);
-        }
-    }
-}
-
-class ReportsRisksDealStatusMasterSeeder extends Seeder
-{
-    public function run()
-    {
-        $reportsRisksDealStatus = ['未対処', '対処中', '対処済'];
-        DB::table('reports_risks_deal_status_master')->delete();
-        for ($i = 1; $i < count($reportsRisksDealStatus); $i++) {
-            DB::table('reports_risks_deal_status_master')->insert([
-                'report_risk_deal_status_name' => $reportsRisksDealStatus[$i],
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ]);
-        }
-    }
-}
-
-class ReportsRisksCategoriesMasterSeeder extends Seeder
-{
-    public function run()
-    {
-        $reportsRisksCategories = ['ちょっと危険', '危険', 'かなり危険'];
-        DB::table('reports_risks_categories_master')->delete();
-        for ($i = 1; $i < count($reportsRisksCategories); $i++) {
-            DB::table('reports_risks_categories_master')->insert([
-                'report_risk_category_name' => $reportsRisksCategories[$i],
-                'report_risk_num' => $i,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ]);

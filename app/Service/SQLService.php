@@ -56,8 +56,14 @@ class SQLService
     /*
      * クローラー
      */
-    // サイト取得
-    public function getSites()
+    // サイト 取得
+    public function getOneSite($site_id)
+    {
+        return DB::table('news_sites_master')->where('id',$site_id)->whereNull('deleted_at')->first();
+    }
+
+    // サイト一覧 取得
+    public function getAllSites()
     {
         return DB::table('news_sites_master')->whereNull('deleted_at')->get();//->where('deleted_at','=','null')->get();
     }

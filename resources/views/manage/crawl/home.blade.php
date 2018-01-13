@@ -10,8 +10,8 @@
 
 @section('main')
   <div class="row">
-    <div class="title center">
-      <h1>ステータス</h1>
+    <div class="center">
+      <h1 class="title">ステータス</h1>
     </div>
   </div>
 

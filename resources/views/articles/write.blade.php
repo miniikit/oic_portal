@@ -7,6 +7,9 @@
 @section('main')
 
 <div class="content">
+    <div class="row center">
+        <h1 class="title">記事投稿</h1>
+    </div>
     <form class="col s10" method="POST" action="{{ url('/articles/confirm') }}" enctype="multipart/form-data">
       {{ csrf_field() }}
     <div class="input-field col s12">
@@ -43,8 +46,8 @@
         </div>
       </div>
       <div class="row">
-        <div class="col s6 center"><button type="button" class="back-btn waves-effect waves-light btn" onclick="history.back()">戻る</button></div>
-        <div class="col s6 center"><button type="submit" class="submit-btn waves-effect waves-light btn">確認</button></div>
+        <div class="col s6 right-align"><button type="button" class="back-btn waves-effect waves-light btn" onclick="history.back()">戻る</button></div>
+        <div class="col s6 left-align"><button type="submit" class="submit-btn waves-effect waves-light btn">確認</button></div>
       </div>
   </form>
 </div>

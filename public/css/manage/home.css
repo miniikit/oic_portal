@@ -3,7 +3,8 @@
 .title{
   font-size: 2em;
   color: darkgray;
-  letter-spacing: 5px;
+  letter-spacing: 20px;
+  text-indent: 20px;
 }
 .title-box{
   margin-bottom: 2rem;

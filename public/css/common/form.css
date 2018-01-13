@@ -1,0 +1,44 @@
+
+/*  */
+
+/* input[type=text]:not(.browser-default){
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid red;
+  border-radius: 0;
+  outline: none;
+  height: 3rem;
+  width: 100%;
+  font-size: 1rem;
+  margin: 0 0 20px 0;
+  padding: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+} */
+/*
+.val-red{
+  border-bottom: 1px solid red;
+} */
+
+/* .val-red{
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid red;
+  border-radius: 0;
+  outline: none;
+  height: 3rem;
+  width: 100%;
+  font-size: 1rem;
+  margin: 0 0 20px 0;
+  padding: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+} */

@@ -1,10 +1,12 @@
 @media only screen and (min-width: 0px) and (max-width: 600px){
   .page_title{
-    padding-bottom: 1rem;
+    padding-bottom: 50px;
   }
   .title{
     font-size: 1.5em;
     color: darkgray;
+    letter-spacing: 10px;
+    text-indent: 10px;
   }
   .btn-floating.btn-large {
     width: 40px;
@@ -31,20 +33,36 @@
     resize: none;
     min-height: 10rem;
 }
-  button.waves-effect.waves-light.btn{
-    background-color:  darkgray;
+  .back-btn{
+    width: 135px;
+    height: 48px;
+    line-height: 48px;
     font-size: 15px;
+    text-indent: 10px;
+    letter-spacing: 10px;
+    margin-top: 50px;
+  }
+  .creat-btn{
+    width: 135px;
+    height: 48px;
+    line-height: 48px;
+    font-size: 15px;
+    text-indent: 10px;
+    letter-spacing: 10px;
+    margin-top: 50px;
   }
 }
 
 
 @media only screen and (min-width: 601px) {
   .page_title{
-    padding-bottom: 1rem;
+    padding-bottom: 50px;
   }
   .title{
-    font-size: 2em;
+    font-size: 2.5em;
     color: darkgray;
+    letter-spacing: 10px;
+    text-indent: 10px;
   }
   div.content{
     position: relative;
@@ -80,17 +98,25 @@
     height: 54px;
     line-height: 54px;
   }
-  .back-btn {
+  .back-btn{
+    width: 200px;
+    height: 54px;
+    line-height: 54px;
+    font-size: 15px;
+    margin-top: 50px;
     margin-right: 50px;
+    letter-spacing: 20px;
+    text-indent: 20px;
   }
   .creat-btn{
+    width: 200px;
+    height: 54px;
+    line-height: 54px;
+    font-size: 15px;
+    margin-top: 50px;
     margin-left: 50px;
-  }
-  div.col.s6.right-align{
-    padding-right: 2rem;
-  }
-  div.col.s6.left-align{
-    padding-left: 2rem;
+    letter-spacing: 20px;
+    text-indent: 20px;
   }
 
 }
