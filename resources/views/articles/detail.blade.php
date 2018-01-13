@@ -28,38 +28,38 @@
 
             <div class="border"></div>
             @if(!Auth::guest())
-            <div class="icon-button col s12 right-align">
-                @if($active_fav == null)
-                    <a class="fav-btn waves-effect" href="{{ $article->article_url.'/fav' }}">
-                        <i class="goodicon material-icons">favorite</i>
-                        <label for="conter">{{ $fav_ct }}</label>
-                    </a>
-                @else
-                    <a class="fav-btn waves-effect" href="{{ $article->article_url.'/unfav' }}">
-                        <i class="goodicon material-icons" style="color:red">favorite</i>
-                        <label for="conter">{{ $fav_ct }}</label>
-                    </a>
-                @endif
+                <div class="icon-button col s12 right-align">
+                    @if($active_fav == null)
+                        <a class="fav-btn waves-effect" href="{{ $article->article_url.'/fav' }}">
+                            <i class="goodicon material-icons">favorite</i>
+                            <label for="conter">{{ $fav_ct }}</label>
+                        </a>
+                    @else
+                        <a class="fav-btn waves-effect" href="{{ $article->article_url.'/unfav' }}">
+                            <i class="goodicon material-icons" style="color:red">favorite</i>
+                            <label for="conter">{{ $fav_ct }}</label>
+                        </a>
+                    @endif
 
-                @if($active_like == null)
-                    <a class="good-btn waves-effect" href="{{ $article->article_url.'/like' }}">
-                        <i class="goodicon material-icons" id="counter">thumb_up</i>
-                        <label for="conter">{{ $like_ct }}</label>
-                    </a>
-                @else
-                    <a class="good-btn waves-effect" href="{{ $article->article_url.'/unlike' }}">
-                        <i class="goodicon material-icons" id="counter" style="color:yellow">thumb_up</i>
-                        <label for="conter">{{ $like_ct }}</label>
-                    </a>
-                @endif
-            </div>
+                    @if($active_like == null)
+                        <a class="good-btn waves-effect" href="{{ $article->article_url.'/like' }}">
+                            <i class="goodicon material-icons" id="counter">thumb_up</i>
+                            <label for="conter">{{ $like_ct }}</label>
+                        </a>
+                    @else
+                        <a class="good-btn waves-effect" href="{{ $article->article_url.'/unlike' }}">
+                            <i class="goodicon material-icons" id="counter" style="color:yellow">thumb_up</i>
+                            <label for="conter">{{ $like_ct }}</label>
+                        </a>
+                    @endif
+                </div>
 
                 <div class="comment col s12">
                     <ul class="collection">
                         <li class="collection-item avatar">
                             {{--TODO : アイコン実装--}}
-                            <img class="circle" src="{{App\Profile::find(Auth::user()->profile_id)->profile_image}}">
-                            <span class="name">{{ $comment_userName }}</span>
+                            <img class="circle" src="{{$myprofile->profile_image}}">
+                            <span class="name">{{ $myprofile->profile_name }}</span>
                             <form action="{{ route('user_article_comment',$id) }}" method="POST">
                                 <input type="text" id="icon_prefix2" class="materialize-textarea" name="comment_text"
                                        size="50">
@@ -72,24 +72,26 @@
                         </li>
                     </ul>
                 </div>
-                @endif
+            @endif
 
-                <div class="comment-area col s12">
-                    <ul class="collection">
-                        @if($comments == null)
-                        @else
-                            @foreach($comments as $comment)
-                                <li class="collection-item avatar">
-                                    <img class="circle" src="{{ $comment_image }}">
-                                    <span class="name">{{ $comment_userName }}</span>
-                                    <p>
-                                        {{ $comment->article_comment_text }}
-                                    </p>
-                                </li>
-                            @endforeach
-                        @endif
-                    </ul>
-                </div>
+
+            @if(count($comments) > 0)
+            <div class="comment-area col s12">
+                <ul class="collection">
+                    @foreach($comments as $comment)
+                        <li class="collection-item avatar">
+                            <img class="circle" src="{{ $comment->profile_image }}">
+                            <span class="name">{{ $comment->profile_name }}</span>
+                            <p>
+                                {{ $comment->article_comment_text }}
+                            </p>
+                        </li>
+                    @endforeach
+                </ul>
+            </div>
+            @endif
+
+
         </div>
 
         <div class="col s12 m4 l3">
