@@ -24,12 +24,12 @@ class RegisterRequest extends FormRequest
     public function rules()
     {
         return [
-            'email' => 'required|email',
+            'email' => 'email',
             'name' => 'required|max:50',
             'name_kana' => 'required|max:100',
             'profile_image' => 'max:3000|mimes:jpg,jpeg',
             'profile_name' => 'required|max:50',
-            'profile_admission_year' => 'date',
+            'profile_admission_year' => 'int',
             'profile_url' => 'url',
             'profile_introduction' => 'max:200',
         ];

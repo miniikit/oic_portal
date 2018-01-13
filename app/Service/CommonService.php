@@ -11,7 +11,8 @@ use Goutte\Client;
 class CommonService
 {
     /**
-     * フォームのinputタグのdatetime-localのvalue用に、DBのdatatimeを変換
+     * DBのdatatime形式から、フォームのinputタグ内datetime-localのvalue用に変換
+     * ex) DB(datatime) →  <input type="datatime-local" value="$">
      * @param $datetime
      * @return string
      */
@@ -20,6 +21,7 @@ class CommonService
         $date = substr($datetime,0,10);
         $time = substr($datetime,11,5);
         $new_datetime = $date . 'T' . $time;
+
         return $new_datetime;
     }
 

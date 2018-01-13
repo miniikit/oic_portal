@@ -23,7 +23,7 @@
       {{-- <div class="input-field col s12">
         <input type="file" name="article_image" value="" />
       </div> --}}
-      <div class="file-field input-field"ƒ>
+      <div class="file-field input-field">
           <input type="file" name="article_image">
           <input class="file-path validate" type="text" name="article_image" accept="images/*" placeholder="画像選択">
           <label for="image">画像選択</label>
