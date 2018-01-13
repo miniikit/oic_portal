@@ -102,7 +102,7 @@
                 @foreach($relatedArticles as $relatedArticle)
                     <div class="relation card">
                         <div class="card-image">
-                            <a href="details"><img src="{{ $relatedArticle->article_image }}"></a>
+                            <a href="{{ route('user_article_detail',$relatedArticle->id) }}"><img src="{{ $relatedArticle->article_image }}"></a>
                         </div>
                         <div class="card-contents">
                             <p class="side-contents-text">{{ $relatedArticle->article_title }}</p>

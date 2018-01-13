@@ -146,9 +146,9 @@
   }
 
   /* side-contents */
-  .card-panel {
-    margin-top: 15px;
-  }
+  /*.card-panel {*/
+    /*margin-top: 15px;*/
+  /*}*/
   .card-contents {
     padding: 10px;
   }
