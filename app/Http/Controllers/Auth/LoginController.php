@@ -67,12 +67,12 @@ class LoginController extends Controller
             return redirect()->route('user_home');
         }
 
-
+        /*
         if(!str_contains($getUser->email,'@oic.jp')){
             flash('メールアドレスがoic.jpではありません。学生アカウントでログインしてください。','danger');
             return redirect('/',compact('user->id','user->name'));
         }
-
+        */
 
         $userModel = app(User::class);
         $user = $userModel->where('email', $getUser->email)->first();

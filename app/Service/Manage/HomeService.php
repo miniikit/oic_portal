@@ -23,4 +23,9 @@ class HomeService
             ->orderBy('report_risk_num','DESC')
             ->get();
     }
+
+    public function getGraphData()
+    {
+
+    }
 }
