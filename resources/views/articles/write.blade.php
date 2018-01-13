@@ -13,11 +13,11 @@
     <form class="col s10" method="POST" action="{{ url('/articles/confirm') }}" enctype="multipart/form-data">
       {{ csrf_field() }}
     <div class="input-field col s12">
-      <input placeholder="タイトル" id="first_name" name="article_title" type="text" class="validate" required>
+      <input placeholder="タイトル" id="first_name" name="article_title" type="text" class="validate" required="required">
       <label for="first_name">タイトル</label>
     </div>
       <div class="input-field col s12">
-        <textarea id="textarea1" class="materialize-textarea" name="article_text" data-length="120" required></textarea>
+        <textarea id="textarea1" class="materialize-textarea" name="article_text" data-length="120" required="required"></textarea>
         <label for="textarea1">記事本文</label>
       </div>
       {{-- <div class="input-field col s12">
@@ -30,7 +30,7 @@
       </div>
       <div class="row">
         <div class="input-field col s6">
-          <select>
+          <select required="required">
             <option value="" disabled selected></option>
             <option value="1">すべて</option>
             <option value="2">情報処理・IT</option>
@@ -41,7 +41,7 @@
           <label>ジャンル</label>
         </div>
         <div class="input-field col s6">
-          <input type="text" class="datepicker" name="article_start_date_time">
+          <input type="text" class="datepicker" name="article_start_date_time" required="required">
           <label for="password">掲載期間</label>
         </div>
       </div>

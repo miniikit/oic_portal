@@ -11,7 +11,7 @@
 .color{
   color: black;
 }
-.card-stacked a{
+.card-stacked .link-box{
   display: block;
   position: absolute;
   top: 0;
