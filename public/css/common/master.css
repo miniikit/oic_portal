@@ -20,6 +20,9 @@ nav a{
 }
 .brand-logo{
   color: darkgray;
+  text-indent: 2px;
+  letter-spacing: 2px;
+  font-weight: bold;
 }
 @media only screen and (min-width: 0px) and (max-width: 600px){
   nav .brand-logo{
