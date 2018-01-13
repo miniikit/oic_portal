@@ -48,39 +48,32 @@
                             <div class="card-image">
                                 <a href="{{ $article->article_url }}"><img src="{{ $article->article_image }}"></a>
                             </div>
-                          <div class="card-stacked">
-                            <a href="{{ $article->article_url }}"></a>
-                            <div class="card-content">
-                                <span class="card-title">{{ $article->article_title }}</span>
-                                <p class="card-text">{{ mb_strimwidth($article->article_text,0,132,"...") }}</p>
-                            </div>
-                            <div class="card-action">
-                                <div class="tags">
-                                    <div class="chip">
-                                        IT
-                                    </div>
-                                    <div class="chip">
-                                        デザイン
-                                    </div>
-                                    <div class="chip">
-                                      映像
-                                    </div>
-                                    <div class="chip">
-                                      ゲーム
-                                    </div>
+                            <div class="card-stacked">
+                                <a href="{{ $article->article_url }}"></a>
+                                <div class="card-content">
+                                    <span class="card-title">{{ $article->article_title }}</span>
+                                    <p class="card-text">{{ mb_strimwidth($article->article_text,0,130,"...") }}</p>
                                 </div>
-                                {{-- カウンター 実装するか検討 --}}
-                                {{-- <div class="counter">
-                                  <i class="goodicon material-icons" id="counter">thumb_up</i>
-                                  <label class="showcounter" for="counter">100</label>
+                                <div class="card-action">
+                                    <div class="tags">
+                                        @if($article->news_site_category_name)
+                                        <div class="chip">
+                                            {{ $article->news_site_category_name }}
+                                        </div>
+                                        @endif
+                                    </div>
+                                    {{-- カウンター 実装するか検討 --}}
+                                    {{-- <div class="counter">
+                                      <i class="goodicon material-icons" id="counter">thumb_up</i>
+                                      <label class="showcounter" for="counter">100</label>
+                                    </div>
+                                    <div class="counter">
+                                      <i class="goodicon material-icons" id="counter">remove_red_eye</i>
+                                      <label class="showcounter" for="counter">1000</label>
+                                    </div> --}}
                                 </div>
-                                <div class="counter">
-                                  <i class="goodicon material-icons" id="counter">remove_red_eye</i>
-                                  <label class="showcounter" for="counter">1000</label>
-                                </div> --}}
                             </div>
                         </div>
-                      </div>
                     </div>
                 </div>
             @endforeach
@@ -125,7 +118,8 @@
                     <div class="card">
                         <div class="card-wrapper">
                             <div class="card-image">
-                                <a href="{{ $article_it->article_url }}"><img src="{{ $article_it->article_image }}"></a>
+                                <a href="{{ $article_it->article_url }}"><img
+                                            src="{{ $article_it->article_image }}"></a>
                             </div>
                             <div class="card-content">
                                 <span class="card-title">{{ $article_it->article_title }}</span>
@@ -202,7 +196,8 @@
                     <div class="card">
                         <div class="card-wrapper">
                             <div class="card-image">
-                                <a href="{{ $article_game->article_url }}"><img src="{{ $article_game->article_image }}"></a>
+                                <a href="{{ $article_game->article_url }}"><img
+                                            src="{{ $article_game->article_image }}"></a>
                             </div>
                             <div class="card-content">
                                 <span class="card-title">{{ $article_game->article_title }}</span>
@@ -279,7 +274,8 @@
                     <div class="card">
                         <div class="card-wrapper">
                             <div class="card-image">
-                                <a href="{{ $article_design->article_url }}"><img src="{{ $article_design->article_image }}"></a>
+                                <a href="{{ $article_design->article_url }}"><img
+                                            src="{{ $article_design->article_image }}"></a>
                             </div>
                             <div class="card-content">
                                 <span class="card-title">{{ $article_design->article_title }}</span>
