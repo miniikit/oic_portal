@@ -16,10 +16,13 @@
   justify-content: space-between;
   align-items: center;
 }
+.card-content{
+  height: 175px;
+}
 .tags{
   display: flex;
 }
-.chip:first-child{
+.chip{
   margin-right: 8px;
 }
 .card-stacked a{
@@ -29,4 +32,14 @@
   left: 0;
   width: 100%;
   height: 100%;
+}
+@media only screen and (min-width: 1000px) {
+  .card-image img{
+    height: 200px;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .card-image img{
+    height: 230px;
+  }
 }

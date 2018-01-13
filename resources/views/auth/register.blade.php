@@ -13,10 +13,9 @@
 
 @section('main')
 
-    <div class="title">
-        <p class="center-align">新規登録</p>
+    <div class="center-align">
+        <p class="title">新規登録</p>
     </div>
-
 
     {{-- TODO : バリデーションエラーの表示 --}}
     @if (count($errors) > 0)
