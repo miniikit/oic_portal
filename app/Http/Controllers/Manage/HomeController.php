@@ -17,8 +17,9 @@ class HomeController extends Controller
 
     public function index()
     {
-
-        return view('manage.home.list');
+        $reports = $this->homesService->getNewReports();
+       // dd($reports);
+        return view('manage.home.list',compact('reports'));
     }
 
     public function show()
