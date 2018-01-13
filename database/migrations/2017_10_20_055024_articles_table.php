@@ -18,7 +18,7 @@ class ArticlesTable extends Migration
             $table->string('article_title', 255); // 記事タイトル
             $table->text('article_text'); // 記事本文
             $table->string('article_image', 100); // 記事画像
-            $table->integer('news_site_id'); // ニュースサイトID
+            $table->integer('news_site_id')->nullable(); // ニュースサイトID
             $table->text('article_url'); // 記事URL
             $table->integer('likes_count')->default(0); //Likeカウント
             $table->integer('user_id')->nullable();

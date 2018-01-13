@@ -62,8 +62,8 @@ class UsersSeeder extends Seeder
         // 管理者
         DB::table('users')->insert([
             'email' => 'oicportalapp@gmail.com',
-            'name' => 'オイシー太郎',
-            'name_kana' => 'オイシータロウ',
+            'name' => '管理者',
+            'name_kana' => 'カンリシャ',
             'authority_id' => 3,
             'profile_id' => 1,
             'created_at' => Carbon::now(),
@@ -73,8 +73,8 @@ class UsersSeeder extends Seeder
         //サブ管理者
         DB::table('users')->insert([
             'email' => 'B5502@oic.jp',
-            'name' => 'オイシー花子',
-            'name_kana' => 'オイシーハナコ',
+            'name' => 'サブ管理者',
+            'name_kana' => 'サブカンリシャ',
             'authority_id' => 2,
             'profile_id' => 2,
             'created_at' => Carbon::now(),
@@ -83,7 +83,7 @@ class UsersSeeder extends Seeder
 
         // ユーザ
         for ($i = 100; $i < 250; $i++) {
-            $email = 'B' . rand(1,9) . $i . '@oic.jp';
+            $email = 'B' . rand(1, 9) . $i . '@oic.jp';
             DB::table('users')->insert([
                 'email' => $email,
                 'name' => $faker->name,
@@ -101,7 +101,7 @@ class AuthoritiesMasterSeeder extends Seeder
 {
     public function run()
     {
-        $authorities = ['一般','サブ管理者','管理者'];
+        $authorities = ['一般', 'サブ管理者', '管理者'];
         DB::table('authorities_master')->delete();
         for ($i = 0; $i < count($authorities); $i++) {
             DB::table('authorities_master')->insert([
@@ -125,7 +125,7 @@ class ProfilesTableSeeder extends Seeder
         DB::table('profiles_table')->insert([
             'profile_image' => '/images/profile_images/default.jpg',
             'profile_name' => 'タロウ',
-            'course_id' => rand(1,22),
+            'course_id' => rand(1, 22),
             'profile_admission_year' => '2014-04-01 00:00:00',
             'profile_url' => 'http://www.oic-portal.co.jp',
             'profile_introduction' => 'Hello',
@@ -137,7 +137,7 @@ class ProfilesTableSeeder extends Seeder
         DB::table('profiles_table')->insert([
             'profile_image' => '/images/profile_images/default.jpg',
             'profile_name' => 'ハナコ',
-            'course_id' => rand(1,22),
+            'course_id' => rand(1, 22),
             'profile_admission_year' => '2014-04-01 00:00:00',
             'profile_url' => 'http://www.oic-portal.co.jp',
             'profile_introduction' => 'Hello',
@@ -148,24 +148,24 @@ class ProfilesTableSeeder extends Seeder
         $nowYear = Carbon::now()->year;
         $baseYear = $nowYear - 4;
         for ($i = 3; $i < 150; $i++) {
-            $year = rand($baseYear,$nowYear);
-            $month = rand(1,12);
-            $day = rand(1,30);
+            $year = rand($baseYear, $nowYear);
+            $month = rand(1, 12);
+            $day = rand(1, 30);
 
             $incorporation = false;
 
             // 在学中の学生を生成
-            $date = Carbon::create($year,4,1,9,0,0);
+            $date = Carbon::create($year, 4, 1, 9, 0, 0);
 
             // 編入学生徒を生成
-            if($i % 30 === 0){
-                $date = Carbon::create($year , $month , $day,9,0,0);
+            if ($i % 30 === 0) {
+                $date = Carbon::create($year, $month, $day, 9, 0, 0);
             }
 
             DB::table('profiles_table')->insert([
                 'profile_image' => '/images/profile_images/default.jpg',
                 'profile_name' => $faker->name,
-                'course_id' => rand(1,22),
+                'course_id' => rand(1, 22),
                 'profile_admission_year' => $date,
                 'profile_url' => 'http://www.oic-portal.co.jp',
                 'profile_introduction' => 'Hello',
@@ -180,7 +180,7 @@ class CoursesMasterSeeder extends Seeder
 {
     public function run()
     {
-        $parentCourses = ['情報処理IT','ゲーム','CG・映像・アニメーション','デザイン・Web'];
+        $parentCourses = ['情報処理IT', 'ゲーム', 'CG・映像・アニメーション', 'デザイン・Web'];
         DB::table('courses_master')->delete();
         for ($i = 0; $i < count($parentCourses); $i++) {
             DB::table('courses_master')->insert([
@@ -192,9 +192,9 @@ class CoursesMasterSeeder extends Seeder
                 'updated_at' => Carbon::now()
             ]);
         }
-        $courses = ['ITスペシャリスト専攻','ネットワークセキュリティ専攻','システムエンジニア専攻','ネットワークエンジニア専攻','Webエンジニア専攻','テクニカルコース','ネットワークシステムコース','ゲームプログラマー専攻','ゲームデザイナー専攻','ゲームプランナー専攻','ゲームクリエイター専攻(PG)','ゲームクリエイター専攻(CG)','ゲームプログラムコース','ゲームCGデザインコース','CG映像クリエイター専攻','CGクリエイター専攻','CG映像コース','CGアニメーションコース','アートディレクター専攻','Webデザインコース','グラフィックデザインコース','マンガイラストコース'];
-        $parents = [1,1,1,1,1,1,1,2,2,2,2,2,2,2,3,3,3,3,4,4,4,4];
-        $year = [4,4,3,3,3,2,2,4,4,4,3,3,2,2,4,3,2,2,3,2,2,2];
+        $courses = ['ITスペシャリスト専攻', 'ネットワークセキュリティ専攻', 'システムエンジニア専攻', 'ネットワークエンジニア専攻', 'Webエンジニア専攻', 'テクニカルコース', 'ネットワークシステムコース', 'ゲームプログラマー専攻', 'ゲームデザイナー専攻', 'ゲームプランナー専攻', 'ゲームクリエイター専攻(PG)', 'ゲームクリエイター専攻(CG)', 'ゲームプログラムコース', 'ゲームCGデザインコース', 'CG映像クリエイター専攻', 'CGクリエイター専攻', 'CG映像コース', 'CGアニメーションコース', 'アートディレクター専攻', 'Webデザインコース', 'グラフィックデザインコース', 'マンガイラストコース'];
+        $parents = [1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4];
+        $year = [4, 4, 3, 3, 3, 2, 2, 4, 4, 4, 3, 3, 2, 2, 4, 3, 2, 2, 3, 2, 2, 2];
         for ($i = 0; $i < count($courses); $i++) {
             DB::table('courses_master')->insert([
 
@@ -213,34 +213,59 @@ class ArticlesTableSeeder extends Seeder
 {
     public function run()
     {
+        //
         DB::table('articles_table')->delete();
         for ($i = 1; $i < 100; $i++) {
             DB::table('articles_table')->insert([
-                'article_title' => '#test'.$i,
-                'article_text' => '#test'.$i,
-                'article_image' => '/images/sample-' . rand(1,6) . '.jpg',
-                'article_url' => 'http://gigazine.net/news/20171128-macbook-egpu-rx-vega-64/',
-                //'article_url' => '/articles/' . $i,
-                'news_site_id' => rand(1,20),
+                'article_title' => '記事' . $i,
+                'article_text' => '記事' . $i,
+                'article_image' => '/images/sample-' . rand(1, 6) . '.jpg',
+                'article_url' => '/articles/' . $i,
+                'news_site_id' => rand(1, 20),
+                'user_id' => null,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ]);
         }
 
 
-        for ($i = 1; $i < 20; $i++) {
+        for ($i = 101; $i < 120; $i++) {
             DB::table('articles_table')->insert([
                 'article_title' => 'ユーザ記事',
-                'article_text' => '',
-                'article_image' => '/images/sample-' . rand(1,6) . '.jpg',
-                'article_url' => 'http://gigazine.net/news/20171128-macbook-egpu-rx-vega-64/',
-                //'article_url' => '/articles/' . $i,
-                'news_site_id' => rand(1,20),
+                'article_text' => '去年きょねんの寒さむい冬ふゆのころから、今年ことしの春はるにかけて、たった一ぴきしか金魚きんぎょが生いき残のこっていませんでした。その金魚きんぎょは友ともだちもなく、親おやや、兄弟きょうだいというものもなく、まったくの独ひとりぼっちで、さびしそうに水盤すいばんの中なかを泳およぎまわっていました。
+「兄にいさん、この金魚きんぎょは、ほんとうに強つよい金魚きんぎょですこと。たった一つになっても、元気げんきよく遊あそんでいますのね。」と、妹いもうとがいいました。
+「ああ、金魚屋きんぎょやがきたら、五、六ぴき買かって、入いれてやろうね。」と、兄あには答こたえました。
+　ある日ひのこと、あちらの横道よこみちを、金魚売きんぎょうりの通とおる呼よび声ごえが聞きこえました。
+「兄にいさん、金魚売きんぎょうりですよ。」と、妹いもうとは耳みみを立たてながらいいました。
+「金魚きんぎょやい――金魚きんぎょやい――。」
+「早はやくいって、呼よんでおいでよ。」と、兄あにはいいました。
+　妹いもうとは、急いそいで馳かけてゆきました。やがて金魚屋きんぎょやがおけをかついでやってきました。そのとき、お母かあさんも、いちばん末すえの弟おとうとも、戸口とぐちまで出でて金魚きんぎょを見みました。そして、小ちいさな金魚きんぎょを五ひき買かいました。
+　水盤すいばんの中なかに、五ひきの金魚きんぎょを入いれてやりますと、去年きょねんからいた金魚きんぎょは、にわかににぎやかになったのでたいへんに喜よろこんだように見みえました。しかし、自分じぶんがその中なかでいちばん大おおきなものですから、王おうさまのごとく先頭せんとうに立たって水みずの中なかを泳およいでいました。後あとから、その子供こどものように、小ちいさな五ひきの金魚きんぎょが泳およいでいたのです。これがため水盤すいばんの中なかまでが明あかるくなったのであります。
+「兄にいさん、ほんとうに楽たのしそうなのね。」と、妹いもうとは、水盤すいばんの中なかをのぞいていいました。
+「今度こんど、金魚屋きんぎょやがきたら、もっと大おおきいのを買かって入いれよう。」と、兄あにはちょうど、金魚きんぎょの背中せなかが日ひの光ひかりに輝かがやいているのを見みながらいいました。
+「けんかをしないでしょうか？」と、妹いもうとは、そのことを気遣きづかったのであります。しかし、兄あには、もっと美うつくしい金魚きんぎょを買かって入いれるということより、ほかのことは考かんがえていませんでした。
+「金魚きんぎょやい――金魚きんぎょやい――。」
+　二度どめに、金魚屋きんぎょやがやってきたときに、兄あには、お母かあさんから三びきの大おおきい金魚きんぎょを買かってもらいました。それらは、いままでいた大おおきな金魚きんぎょよりも、みんな大おおきかったのです。かえって、水盤すいばんの中なかはそうぞうしくなりました。けれど、去年きょねんからいた一ぴきの金魚きんぎょは、この家うちは、やはり自分じぶんの家うちだというふうに、悠々ゆうゆうとして水みずの面おもてを泳およいでいました。五ひきの小ちいさな金魚きんぎょは、おそれたのであるか、すみの方ほうに寄よってじっとしていました。三びきの新あたらしく仲間なかま入いりをした金魚きんぎょのうち二ひきは、ちょいとようすが変かわったので驚おどろいたというふうで、ぼんやりとしていましたが、その中うち一ぴきは生うまれつきの乱暴者らんぼうものとみえて、遠慮えんりょもなく水みずの中なかを走はしりまわっていました。
+　三びきの金魚きんぎょの入はいってきたのをあまり気きにも止とめないようすで、前まえからいた一ぴきの金魚きんぎょは、長ながい間あいだすみ慣なれた水盤すいばんの中なかを、さも自分じぶんの家うちでも歩あるくように泳およいでいますと、ふいに不遠慮ぶえんりょな一ぴきが横合よこあいから、その金魚きんぎょをつつきました。
+「あんまり威張いばるものでない。だれの家うちと、きまったわけではないだろう。そんなにすまさなくてもいいはずだ。」と、ののしるごとく思おもわれました。
+　前まえからいた金魚きんぎょは、相手あいてにならないで、やはりすましたふうで泳およいでいますと、乱暴者らんぼうものは、ますます意地悪いじわるくその後あとを追おいかけたのです。こんな有あり様さまでありましたから、いつしか五ひきの小ちいさな金魚きんぎょは夜よるのうちに、みんな乱暴者らんぼうもののために殺ころされてしまいました。一月ひとつきばかり後あとまで、生いき残のこっていたのは、前まえからいる金魚きんぎょと乱暴者らんぼうものと、もう一ぴきの金魚きんぎょと、わずかに三びきでありました。
+「兄にいさん、金魚きんぎょは弱よわいものね。今度こんど死しんでしまったら、もう飼かうことはよしましょうね。」と、妹いもうとはいいました。
+「ああ、金魚きんぎょよりこいのほうが強つよいかもしれないよ。」と、兄あには答こたえました。
+「兄にいさん、こいを買かっておくれ、毎晩まいばん、夜店よみせに売うっているから。」と、末すえの弟おとうとがいいました。
+　その日ひのことであります。暮くれ方がた、妹いもうとは、末すえの弟おとうとをつれて夜店よみせを見みにいって、帰かえりに三寸ずんばかりの強つよそうな赤あかと黒くろと斑ぶちのこいを二ひき買かってきました。そして、それを水盤すいばんの中なかに放はなったのです。
+　月つきの照てらす下したで、水面すいめんにさざなみをたてて、こいの跳おどる音おとを聞ききました。それから四、五日にちもたつと、三びきの金魚きんぎょは、みんなこいのために、つつかれて殺ころされてしまいました。後あとには、二ひきのこいだけが元気げんきよく泳およぎまわっていました。
+「とうとう、こいが天下てんかを取とってしまった。」と、兄あにはいいました。
+「ほんとうに憎にくいこいですこと。」と、妹いもうとはいいました。
+　一日にち、兄あには留守るすでした。妹いもうとは憎にくらしいこいだからといって、毎日まいにち換かえてやる水みずを怠おこたりました。たった、一日にちでしたけれど、あつい日ひであったもので、水みずが煮にえて、さすがに威張いばっていたこいも死しんでしまいました。そのときからすでに幾日いくちにもたちました。いまだに水盤すいばんの中なかはだれの天下てんかでもなく、まったく空からになっています。
+',
+                'article_image' => '/images/sample-' . rand(1, 6) . '.jpg',
+                'article_url' => '/articles/' . $i,
+                'user_id' => rand(3,100),
+                'news_site_id' => null,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ]);
         }
-
 
 
     }
@@ -268,7 +293,7 @@ class ArticlesCommentsTableSeeder extends Seeder
 {
     public function run()
     {
-        $articlesComments = ['good','like','Hello'];
+        $articlesComments = ['good', 'like', 'Hello'];
         DB::table('articles_comments_table')->delete();
         for ($i = 1; $i < count($articlesComments); $i++) {
             DB::table('articles_comments_table')->insert([
@@ -286,14 +311,14 @@ class ReportsTableSeeder extends Seeder
 {
     public function run()
     {
-        $reportsContents = ['不適切な内容です','誹謗中傷されました','規約違反しています'];
+        $reportsContents = ['不適切な内容です', '誹謗中傷されました', '規約違反しています'];
         DB::table('reports_table')->delete();
         for ($i = 0; $i < 50; $i++) {
             DB::table('reports_table')->insert([
-                'report_category_id' => rand(1,4),
-                'user_id' => rand(1,150),
-                'report_contents' => $reportsContents[rand(0,2)],
-                'report_deal_status_id' => rand(1,3),
+                'report_category_id' => rand(1, 4),
+                'user_id' => rand(1, 150),
+                'report_contents' => $reportsContents[rand(0, 2)],
+                'report_deal_status_id' => rand(1, 3),
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ]);
@@ -305,7 +330,7 @@ class ReportsDealsTableSeeder extends Seeder
 {
     public function run()
     {
-        $reportsComments = ['対処しました','対処済み','対処できません'];
+        $reportsComments = ['対処しました', '対処済み', '対処できません'];
         DB::table('reports_deals_table')->delete();
         for ($i = 0; $i < count($reportsComments); $i++) {
             DB::table('reports_deals_table')->insert([
@@ -323,12 +348,12 @@ class ReportsCategoriesMasterSeeder extends Seeder
 {
     public function run()
     {
-        $reportCategories = ['不適切','誹謗中傷','規約違反','その他'];
+        $reportCategories = ['不適切', '誹謗中傷', '規約違反', 'その他'];
         DB::table('reports_categories_master')->delete();
         for ($i = 0; $i < count($reportCategories); $i++) {
             DB::table('reports_categories_master')->insert([
                 'report_category_name' => $reportCategories[$i],
-                'report_risk_id' => rand(1,4),
+                'report_risk_id' => rand(1, 4),
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ]);
@@ -356,7 +381,7 @@ class ReportsRisksCategoriesMasterSeeder extends Seeder
 {
     public function run()
     {
-        $reportsRisksCategories = ['低', '中', '高','最高'];
+        $reportsRisksCategories = ['低', '中', '高', '最高'];
         DB::table('reports_risks_categories_master')->delete();
         for ($i = 0; $i < count($reportsRisksCategories); $i++) {
             DB::table('reports_risks_categories_master')->insert([
@@ -419,7 +444,6 @@ class FriendsTableSeeder extends Seeder
         ]);
 
 
-
     }
 }
 
@@ -427,7 +451,7 @@ class CommunitiesCategoriesMasterSeeder extends Seeder
 {
     public function run()
     {
-        $communitiesCategories = ['趣味','スポーツ','勉強'];
+        $communitiesCategories = ['趣味', 'スポーツ', '勉強'];
         DB::table('communities_categories_master')->delete();
         for ($i = 0; $i < count($communitiesCategories); $i++) {
             DB::table('communities_categories_master')->insert([
@@ -446,9 +470,9 @@ class CommunitiesTableSeeder extends Seeder
         DB::table('communities_table')->delete();
         for ($i = 1; $i < 50; $i++) {
             DB::table('communities_table')->insert([
-                'community_title' => '#test'.$i,
-                'community_contents' => '#test'.$i,
-                'community_category_id' => rand(1,3),
+                'community_title' => '#test' . $i,
+                'community_contents' => '#test' . $i,
+                'community_category_id' => rand(1, 3),
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ]);
@@ -463,9 +487,9 @@ class CommunitiesParticipantsTableSeeder extends Seeder
         DB::table('communities_participants_table')->delete();
         for ($i = 1; $i < 250; $i++) {
             DB::table('communities_participants_table')->insert([
-                'community_id' => rand(1,50),
+                'community_id' => rand(1, 50),
                 'user_id' => $i,
-                'authority_id' => rand(1,3),
+                'authority_id' => rand(1, 3),
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ]);
@@ -477,7 +501,7 @@ class CommunitiesCommentsTableSeeder extends Seeder
 {
     public function run()
     {
-        $communitiesCommentsContents = ['Hello','welcome','goodnight'];
+        $communitiesCommentsContents = ['Hello', 'welcome', 'goodnight'];
         DB::table('communities_comments_table')->delete();
         for ($i = 0; $i < count($communitiesCommentsContents); $i++) {
             DB::table('communities_comments_table')->insert([
@@ -880,7 +904,7 @@ class NewsSitesCategoriesMasterSeeder extends Seeder
 {
     public function run()
     {
-        $newsSitesCategories = ['IT','ゲーム','デザイン','アート','経済'];
+        $newsSitesCategories = ['IT', 'ゲーム', 'デザイン', 'アート', '経済'];
         DB::table('news_sites_categories_master')->delete();
         for ($i = 0; $i < count($newsSitesCategories); $i++) {
             DB::table('news_sites_categories_master')->insert([
@@ -898,18 +922,18 @@ class EventsTableSeeder extends Seeder
     {
         $makermax = 5;
 
-        $eventTitle = ['#test1','#test2','#test3','#test4','#test5','#test6','#test7','#test8','#test9','#test10'];
-        $eventTexts = ['#test1','#test2','#test3','#test4','#test5','#test6','#test7','#test8','#test9','#test10'];
+        $eventTitle = ['#test1', '#test2', '#test3', '#test4', '#test5', '#test6', '#test7', '#test8', '#test9', '#test10'];
+        $eventTexts = ['#test1', '#test2', '#test3', '#test4', '#test5', '#test6', '#test7', '#test8', '#test9', '#test10'];
         DB::table('events_table')->delete();
         for ($i = 1; $i < 10; $i++) {
             DB::table('events_table')->insert([
                 'event_title' => $eventTitle[$i],
                 'event_text' => $eventTexts[$i],
-                'event_image' => '/images/sample-' . rand(1,6) . '.jpg',
+                'event_image' => '/images/sample-' . rand(1, 6) . '.jpg',
                 'event_start_date_time' => Carbon::now(),
                 'event_end_date_time' => Carbon::now(),
-                'event_capacity' => rand(10,500),
-                'event_maker_id' => rand(1,$makermax),
+                'event_capacity' => rand(10, 500),
+                'event_maker_id' => rand(1, $makermax),
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ]);
@@ -928,9 +952,9 @@ class EventsParticipantsTableSeeder extends Seeder
         DB::table('events_participants_table')->delete();
         for ($i = 1; $i < 50; $i++) {
             DB::table('events_participants_table')->insert([
-                'event_id' => rand(1,$max),
-                'event_user_id' => rand(1,$usermax),
-                'event_authority_id' => rand(1,$authoritymax),
+                'event_id' => rand(1, $max),
+                'event_user_id' => rand(1, $usermax),
+                'event_authority_id' => rand(1, $authoritymax),
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ]);
@@ -942,7 +966,7 @@ class EventsAuthoritiesTableSeeder extends Seeder
 {
     public function run()
     {
-        $eventsAuthorities = ['管理者','ユーザ'];
+        $eventsAuthorities = ['管理者', 'ユーザ'];
         DB::table('events_authorities_table')->delete();
         for ($i = 1; $i < count($eventsAuthorities); $i++) {
             DB::table('events_authorities_table')->insert([
@@ -961,12 +985,12 @@ class ChatsTableSeeder extends Seeder
         $usermax = 5;
         $user2max = 5;
 
-        $chatTexts = ['hello', 'goodnight','sleepy','hello', 'goodnight','sleepy','hello', 'goodnight','sleepy','hello', 'goodnight','sleepy','hello', 'goodnight','sleepy'];
+        $chatTexts = ['hello', 'goodnight', 'sleepy', 'hello', 'goodnight', 'sleepy', 'hello', 'goodnight', 'sleepy', 'hello', 'goodnight', 'sleepy', 'hello', 'goodnight', 'sleepy'];
         DB::table('chats_table')->delete();
         for ($i = 1; $i < count($chatTexts); $i++) {
             DB::table('chats_table')->insert([
-                'chat_user_id' => rand(1,$usermax),
-                'chat_user2_id' => rand(1,$user2max),
+                'chat_user_id' => rand(1, $usermax),
+                'chat_user2_id' => rand(1, $user2max),
                 'chat_text' => $chatTexts[$i],
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
@@ -997,7 +1021,7 @@ class ArticlesExclusionTableSeeder extends Seeder
     {
         DB::table('articles_exclusion_table')->delete();
         DB::table('articles_exclusion_table')->insert([
-           'exclusion_string' => '\n',
+            'exclusion_string' => '\n',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
@@ -1008,9 +1032,9 @@ class CreateCrawlerStatusCategoriesMasterSeeder extends Seeder
 {
     public function run()
     {
-        $categories = ["予約","実行中","実行完了","キャンセル"];
+        $categories = ["予約", "実行中", "実行完了", "キャンセル"];
         DB::table('crawler_status_master')->delete();
-        foreach($categories as $category) {
+        foreach ($categories as $category) {
             DB::table('crawler_status_master')->insert([
                 'crawler_status' => $category,
                 'created_at' => Carbon::now(),
@@ -1031,18 +1055,18 @@ class CrawlerScheduleTableSeeder extends Seeder
         $user = 0;
 
         DB::table('crawler_schedule_table')->delete();
-        for($i=0; $i<$max; $i++) {
+        for ($i = 0; $i < $max; $i++) {
             $date = $baseDate;
             $date = $date->addDay(++$count);
             $endDate = $date;
             $endDate = $endDate->addHour();
 
             // 時々ユーザが実行したことに
-            if($i % 4 === 0){
-                $user = rand(1,50);
+            if ($i % 4 === 0) {
+                $user = rand(1, 50);
             }
 
-            $crawlerStatus = rand(1,4);
+            $crawlerStatus = rand(1, 4);
 
             DB::table('crawler_schedule_table')->insert([
                 'crawl_start_time' => $date,
