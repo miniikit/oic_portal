@@ -209,7 +209,7 @@ class SQLService
             ->get();
     }
 
-    //デザイン系の記事を表示
+    //CG・映像・アニメーション系の記事を表示
     public function getArticleDesign()
     {
         return $article = DB::table('news_sites_master')
@@ -220,7 +220,7 @@ class SQLService
             ->get();
     }
 
-    //アート系の記事を表示
+    //デザイン・web系の記事を表示
     public function getArticleArt()
     {
         return $article = DB::table('news_sites_master')
@@ -237,6 +237,17 @@ class SQLService
         return $article = DB::table('news_sites_master')
             ->join('articles_table', 'news_sites_master.id', 'articles_table.news_site_id')
             ->where('news_sites_master.articles_categories_id', 5)
+            ->where('articles_table.deleted_at', null)
+            ->orderBy('articles_table.id', 'DESC')
+            ->get();
+    }
+
+    //その他系の記事を表示
+    public function getArticleOther()
+    {
+        return $article = DB::table('news_sites_master')
+            ->join('articles_table', 'news_sites_master.id', 'articles_table.news_site_id')
+            ->where('news_sites_master.articles_categories_id', 6)
             ->where('articles_table.deleted_at', null)
             ->orderBy('articles_table.id', 'DESC')
             ->get();
