@@ -230,7 +230,7 @@ class ArticlesTableSeeder extends Seeder
         }
 
 
-        for ($i = 101; $i < 120; $i++) {
+        for ($i = 100; $i < 120; $i++) {
             DB::table('articles_table')->insert([
                 'article_title' => 'ユーザ記事',
                 'article_text' => '去年きょねんの寒さむい冬ふゆのころから、今年ことしの春はるにかけて、たった一ぴきしか金魚きんぎょが生いき残のこっていませんでした。その金魚きんぎょは友ともだちもなく、親おやや、兄弟きょうだいというものもなく、まったくの独ひとりぼっちで、さびしそうに水盤すいばんの中なかを泳およぎまわっていました。
@@ -277,17 +277,17 @@ class ArticlesLikesTableSeeder extends Seeder
 {
     public function run()
     {
-        /*
+
         DB::table('articles_likes_table')->delete();
         for ($i = 1; $i < 500; $i++) {
             DB::table('articles_likes_table')->insert([
-                'article_id' => rand(1,50),
+                'article_id' => rand(1,120),
                 'user_id' => rand(1,100),
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ]);
         }
-        */
+
     }
 }
 

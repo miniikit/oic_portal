@@ -10,6 +10,7 @@ use App\Article;
 use App\Profile;
 use App\ArticleLike;
 use App\ArticleComment;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
@@ -50,6 +51,28 @@ class SQLService
     public function getCrawlSchedule($id)
     {
         return DB::table('crawler_schedule_table')->where('id', $id)->get();
+    }
+
+    // クローラーの動作有無を確認
+    public function checkCrawlStatus()
+    {
+        return  DB::table('crawler_schedule_table')->where('crawl_status_id',2)->first();
+    }
+
+    // クローラースケジュールを登録
+    public function addCrawler()
+    {
+        $now = Carbon::now();
+        $userId = Auth::user()->id;
+
+        return DB::table('crawler_schedule_table')->insert([
+            'crawl_start_time' => $now,
+            'crawl_end_time' => null,
+            'crawl_status_id' => 1, // 予約中
+            'added_articles_count' => 0,
+            'user_id' => $userId,
+            'created_at' => $now
+        ]);
     }
 
 
@@ -154,14 +177,17 @@ class SQLService
     //いいね順に記事を取得
     public function getArticleLike()
     {
-        return $article = DB::table('articles_likes_table')
-            ->select(DB::raw('count(*) as count,article_id,articles_table.id,article_title,article_text,article_image,news_site_id,article_url,articles_table.deleted_at'))
-            ->join('articles_table', 'article_id', 'articles_table.id')
-            ->where('articles_table.deleted_at', null)
-            ->groupBy('article_id')
-            ->orderBy('count', 'desc')
-            ->limit(21)->get();
+         $article = DB::table('articles_likes_table')
+             ->join('articles_table', 'articles_likes_table.article_id', 'articles_table.id')
 
+
+             //->select(DB::raw('count(*) as count,article_id,articles_table.id,article_title,article_text,article_image,news_site_id,article_url,articles_table.deleted_at'))
+//            ->where('articles_table.deleted_at', null)
+            //->groupBy('article_id')
+            //->orderBy('count', 'desc')
+            //->limit(21)
+        ->get();
+        dd($article);
     }
 
     //IT系の記事を表示

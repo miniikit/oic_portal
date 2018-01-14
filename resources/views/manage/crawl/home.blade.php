@@ -5,21 +5,25 @@
 @endsection
 
 @section('breadcrumb')
-    <a href="{{ route('manager_crawl_home') }}" class="breadcrumb">ステータス</a>
+    <a href="{{ route('manager_crawl_home') }}" class="breadcrumb">クローラー</a>
 @endsection
 
 @section('main')
     <div class="row">
         <div class="center">
-            <h1 class="title">ステータス</h1>
+            <h1 class="title">クローラー</h1>
         </div>
     </div>
 
     <div class="row">
         <div class="col s12">
-            <div class="card-panel teal white center">
-                <h1 class="state">現在の状態:実行中</h1>
-                <h1 class="state">次回XX時予定</h1>
+            <div class="card-panel center">
+                <h1 class="state">現在の状態</h1>
+                @if($status_message === "実行中")
+                    <h1 class="state">{{ $status_message }}</h1>
+                @else
+                    <h2 class="state">{{ $status_message }}</h2>
+                @endif
             </div>
         </div>
         <div class="col s6">
@@ -55,16 +59,25 @@
         </div>
         <div class="col s6">
             <div class="schedule-set card-panel teal white center">
-                <form class="" action="index.html" method="post">
-                    <h2 class="s-title">手動更新</h2>
+                <form action="{{ route('manager_crawl_form_execute') }}" method="post">
+                    <h2 class="s-title">直ちに実行</h2>
                     <div class="switch">
                         <label>
-                            Off
-                            <input type="checkbox">
+                            <input type="checkbox" name="execute" onchange="submit()">
                             <span class="lever"></span>
-                            On
                         </label>
                     </div>
+                    {{ csrf_field() }}
+                </form>
+                <form action="{{ route('manager_crawl_form_cancel') }}" method="post">
+                    <h2 class="s-title">直ちにキャンセル</h2>
+                    <div class="switch">
+                        <label>
+                            <input type="checkbox" name="cancel" onchange="submit()">
+                            <span class="lever"></span>
+                        </label>
+                    </div>
+                    {{ csrf_field() }}
                 </form>
             </div>
         </div>
@@ -88,10 +101,17 @@
                                 <tr data-href="{{ route('manager_event_detail',$task->crawler_id) }}" class="log-text">
                                     <td class="tb-text">{{ $task->name }}</td>
                                     <td class="tb-text">{{ date('Y年m月d日 H時i分' ,strtotime($task->crawl_start_time)) }}</td>
-                                    @if()
-                                    <td class="tb-text">{{ date('Y年m月d日 H時i分' ,strtotime($task->crawl_end_time)) }}</td>
-                                    <td class="tb-text">{{ $task->crawler_status }}</td>
-                                    <th class="tb-title">{{ $task->added_articles_count }}</th>
+                                    @if(is_null($task->crawl_end_time))
+                                        <td class="tb-text"> - </td>
+                                    @else
+                                        <td class="tb-text">{{ date('Y年m月d日 H時i分' ,strtotime($task->crawl_end_time)) }}</td>
+                                    @endif
+                                        <td class="tb-text">{{ $task->crawler_status }}</td>
+                                    @if($task->crawler_status === "予約")
+                                        <th class="tb-title"> - </th>
+                                    @else
+                                        <th class="tb-title">{{ $task->added_articles_count }}</th>
+                                    @endif
                                 </tr>
                             @endforeach
                         </div>
