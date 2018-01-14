@@ -54,15 +54,15 @@
                                 <span class="card-title">{{ $article->article_title }}</span>
                                 <p class="card-text">{{ mb_strimwidth($article->article_text,0,132,"...") }}</p>
                             </div>
-                            <div class="card-action">
-                                <div class="tags">
+                            {{--<div class="card-action">--}}
+                                {{--<div class="tags">--}}
                                     {{--@if($article->news_site_category_name)--}}
                                     {{--<div class="chip">--}}
                                     {{--{{ $article->news_site_category_name }}--}}
                                     {{--</div>--}}
                                     {{--@endif--}}
-                                </div>
-                            </div>
+                                {{--</div>--}}
+                            {{--</div>--}}
                         </div>
                     </div>
                 </div>
