@@ -3,13 +3,14 @@
 namespace App\Service;
 
 use App\NewsSite;
-use App\NewsSiteCategory;
+use App\ArticleCategory;
 use App\User;
 use App\Friend;
 use App\Article;
 use App\Profile;
 use App\ArticleLike;
 use App\ArticleComment;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
@@ -38,18 +39,40 @@ class SQLService
     // クロールスケジュール取得
     public function getCrawlSchedules()
     {
-        return DB::table('crawler_schedule_table')
-            ->join(
-                'crawler_status_master',
-                'crawler_schedule_table.crawl_status_id',
-                'crawler_status_master.id'
-            )->get();
+        return DB::table('crawler_status_master as cStatus')
+            ->join('crawler_schedule_table as cSchedule', 'cSchedule.crawl_status_id', 'cStatus.id')
+            ->join('users','users.id','cSchedule.user_id')
+            ->select('cSchedule.id as crawler_id','cStatus.crawler_status','cSchedule.crawl_start_time','cSchedule.crawl_end_time','cSchedule.added_articles_count','users.name')
+            ->orderBy('crawl_start_time','DESC')
+            ->get();
     }
 
     // クロールスケジュール詳細取得
     public function getCrawlSchedule($id)
     {
         return DB::table('crawler_schedule_table')->where('id', $id)->get();
+    }
+
+    // クローラーの動作有無を確認
+    public function checkCrawlStatus()
+    {
+        return  DB::table('crawler_schedule_table')->where('crawl_status_id',2)->first();
+    }
+
+    // クローラースケジュールを登録
+    public function addCrawler()
+    {
+        $now = Carbon::now();
+        $userId = Auth::user()->id;
+
+        return DB::table('crawler_schedule_table')->insert([
+            'crawl_start_time' => $now,
+            'crawl_end_time' => null,
+            'crawl_status_id' => 1, // 予約中
+            'added_articles_count' => 0,
+            'user_id' => $userId,
+            'created_at' => $now
+        ]);
     }
 
 
@@ -59,7 +82,7 @@ class SQLService
     // サイト 取得
     public function getOneSite($site_id)
     {
-        return DB::table('news_sites_master')->where('id',$site_id)->whereNull('deleted_at')->first();
+        return DB::table('news_sites_master')->where('id', $site_id)->whereNull('deleted_at')->first();
     }
 
     // サイト一覧 取得
@@ -105,10 +128,10 @@ class SQLService
     {
         $profile = $this->getUserProfile();
         return $course = DB::table('courses_master as cm1')
-               ->join('courses_master as cm2', 'cm1.parent_course_id', '=', 'cm2.id')
-               ->select('cm1.course_name as course_major', 'cm2.course_name')
-               ->where('cm1.id', '=', $profile->course_id)
-               ->first();
+            ->join('courses_master as cm2', 'cm1.parent_course_id', '=', 'cm2.id')
+            ->select('cm1.course_name as course_major', 'cm2.course_name')
+            ->where('cm1.id', '=', $profile->course_id)
+            ->first();
     }
 
     //フォロー数取得
@@ -125,12 +148,17 @@ class SQLService
         return $follower_ct = app(Friend::class)->where('user2_id', $userId)->get()->count();
     }
 
-    //記事取得(新規順)
+    /**
+     * 新着記事取得（ユーザ・ニュースサイトの両方
+     * @return \Illuminate\Support\Collection
+     */
     public function getArticle()
     {
-       return $article = \DB::table('articles_table')
-            ->where('articles_table.deleted_at',null)
-            ->orderBy('articles_table.id','DESC')
+        return $article = \DB::table('articles_categories_master')
+            ->join('news_sites_master', 'news_sites_master.articles_categories_id', 'articles_categories_master.id')
+            ->rightJoin('articles_table', 'articles_table.news_site_id', 'news_sites_master.id')
+            ->where('articles_table.deleted_at', null)
+            ->orderBy('articles_table.id', 'DESC')
             ->limit(21)
             ->get();
     }
@@ -140,8 +168,8 @@ class SQLService
     {
         $userId = $this->checkAuth();
         return $article = \DB::table('articles_table')
-            ->where('articles_table.deleted_at',null)
-            ->where('articles_table.user_id',$userId)
+            ->where('articles_table.deleted_at', null)
+            ->where('articles_table.user_id', $userId)
             ->get()
             ->count();
     }
@@ -151,10 +179,10 @@ class SQLService
     {
         return $article = DB::table('articles_likes_table')
             ->select(DB::raw('count(*) as count,article_id,articles_table.id,article_title,article_text,article_image,news_site_id,article_url,articles_table.deleted_at'))
-            ->join('articles_table','article_id','articles_table.id')
-            ->where('articles_table.deleted_at',null)
+            ->join('articles_table', 'article_id', 'articles_table.id')
+            ->where('articles_table.deleted_at', null)
             ->groupBy('article_id')
-            ->orderBy('count','desc')
+            ->orderBy('count', 'desc')
             ->limit(21)->get();
 
     }
@@ -163,10 +191,10 @@ class SQLService
     public function getArticleIt()
     {
         return $article = DB::table('news_sites_master')
-            ->join('articles_table','news_sites_master.id','articles_table.news_site_id')
-            ->where('news_sites_master.news_site_category_id',1)
-            ->where('articles_table.deleted_at',null)
-            ->orderBy('articles_table.id','DESC')
+            ->join('articles_table', 'news_sites_master.id', 'articles_table.news_site_id')
+            ->where('news_sites_master.articles_categories_id', 1)
+            ->where('articles_table.deleted_at', null)
+            ->orderBy('articles_table.id', 'DESC')
             ->get();
     }
 
@@ -174,10 +202,10 @@ class SQLService
     public function getArticleGame()
     {
         return $article = DB::table('news_sites_master')
-            ->join('articles_table','news_sites_master.id','articles_table.news_site_id')
-            ->where('news_sites_master.news_site_category_id',2)
-            ->where('articles_table.deleted_at',null)
-            ->orderBy('articles_table.id','DESC')
+            ->join('articles_table', 'news_sites_master.id', 'articles_table.news_site_id')
+            ->where('news_sites_master.articles_categories_id', 2)
+            ->where('articles_table.deleted_at', null)
+            ->orderBy('articles_table.id', 'DESC')
             ->get();
     }
 
@@ -185,10 +213,10 @@ class SQLService
     public function getArticleDesign()
     {
         return $article = DB::table('news_sites_master')
-            ->join('articles_table','news_sites_master.id','articles_table.news_site_id')
-            ->where('news_sites_master.news_site_category_id',3)
-            ->where('articles_table.deleted_at',null)
-            ->orderBy('articles_table.id','DESC')
+            ->join('articles_table', 'news_sites_master.id', 'articles_table.news_site_id')
+            ->where('news_sites_master.articles_categories_id', 3)
+            ->where('articles_table.deleted_at', null)
+            ->orderBy('articles_table.id', 'DESC')
             ->get();
     }
 
@@ -196,10 +224,10 @@ class SQLService
     public function getArticleArt()
     {
         return $article = DB::table('news_sites_master')
-            ->join('articles_table','news_sites_master.id','articles_table.news_site_id')
-            ->where('news_sites_master.news_site_category_id',4)
-            ->where('articles_table.deleted_at',null)
-            ->orderBy('articles_table.id','DESC')
+            ->join('articles_table', 'news_sites_master.id', 'articles_table.news_site_id')
+            ->where('news_sites_master.articles_categories_id', 4)
+            ->where('articles_table.deleted_at', null)
+            ->orderBy('articles_table.id', 'DESC')
             ->get();
     }
 
@@ -207,10 +235,10 @@ class SQLService
     public function getArticleEconomy()
     {
         return $article = DB::table('news_sites_master')
-            ->join('articles_table','news_sites_master.id','articles_table.news_site_id')
-            ->where('news_sites_master.news_site_category_id',5)
-            ->where('articles_table.deleted_at',null)
-            ->orderBy('articles_table.id','DESC')
+            ->join('articles_table', 'news_sites_master.id', 'articles_table.news_site_id')
+            ->where('news_sites_master.articles_categories_id', 5)
+            ->where('articles_table.deleted_at', null)
+            ->orderBy('articles_table.id', 'DESC')
             ->get();
     }
 
@@ -218,9 +246,9 @@ class SQLService
     public function getArticleComment()
     {
         return $article = app(ArticleComment::class)
-                ->where(app(Article::class), 'deleted_at', null)
-                ->orderby('article_id', 'desc')
-                ->get();
+            ->where(app(Article::class), 'deleted_at', null)
+            ->orderby('article_id', 'desc')
+            ->get();
     }
 
     //閲覧数順に記事を取得

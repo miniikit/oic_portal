@@ -30,12 +30,12 @@
             @if(!Auth::guest())
                 <div class="icon-button col s12 right-align">
                     @if($active_fav == null)
-                        <a class="fav-btn waves-effect" href="{{ $article->article_url.'/fav' }}">
+                        <a class="fav-btn waves-effect" href="{{ $article->article_url.'/favorite' }}">
                             <i class="goodicon material-icons">favorite</i>
                             <label for="conter">{{ $fav_ct }}</label>
                         </a>
                     @else
-                        <a class="fav-btn waves-effect" href="{{ $article->article_url.'/unfav' }}">
+                        <a class="fav-btn waves-effect" href="{{ $article->article_url.'/unfavorite' }}">
                             <i class="goodicon material-icons" style="color:red">favorite</i>
                             <label for="conter">{{ $fav_ct }}</label>
                         </a>

@@ -34,7 +34,7 @@ class DatabaseSeeder extends Seeder
         $this->call('CommunitiesParticipantsTableSeeder');
         $this->call('CommunitiesCommentsTableSeeder');
         $this->call('NewsSitesMasterSeeder');
-        $this->call('NewsSitesCategoriesMasterSeeder');
+        $this->call('ArticlesCategoriesMasterSeeder');
         $this->call('EventsTableSeeder');
         $this->call('EventsParticipantsTableSeeder');
         $this->call('ReportsRisksDealStatusMasterSeeder');
@@ -223,6 +223,7 @@ class ArticlesTableSeeder extends Seeder
                 'article_url' => '/articles/' . $i,
                 'news_site_id' => rand(1, 20),
                 'user_id' => null,
+                'articles_categories_id' => rand(1, 5),
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ]);
@@ -259,9 +260,10 @@ class ArticlesTableSeeder extends Seeder
 　一日にち、兄あには留守るすでした。妹いもうとは憎にくらしいこいだからといって、毎日まいにち換かえてやる水みずを怠おこたりました。たった、一日にちでしたけれど、あつい日ひであったもので、水みずが煮にえて、さすがに威張いばっていたこいも死しんでしまいました。そのときからすでに幾日いくちにもたちました。いまだに水盤すいばんの中なかはだれの天下てんかでもなく、まったく空からになっています。
 ',
                 'article_image' => '/images/sample-' . rand(1, 6) . '.jpg',
-                'article_url' => '/articles/' . $i,
+                'article_url' => '/articles/user/' . $i,
                 'user_id' => rand(3,100),
                 'news_site_id' => null,
+                'articles_categories_id' => rand(1, 5),
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ]);
@@ -530,7 +532,7 @@ class NewsSitesMasterSeeder extends Seeder
             'news_site_tag_url' => 'item link',
             'news_site_tag_text' => '.cntimage p',
             'news_site_tag_image' => '.cntimage img',
-            'news_site_category_id' => 1,
+            'articles_categories_id' => 1,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
@@ -543,7 +545,7 @@ class NewsSitesMasterSeeder extends Seeder
             'news_site_tag_url' => 'item link',
             'news_site_tag_text' => '.cntimage p',
             'news_site_tag_image' => '.cntimage img',
-            'news_site_category_id' => 1,
+            'articles_categories_id' => 1,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
@@ -556,7 +558,7 @@ class NewsSitesMasterSeeder extends Seeder
             'news_site_tag_url' => 'item link',
             'news_site_tag_text' => '.post-text p',
             'news_site_tag_image' => '.post-text img',
-            'news_site_category_id' => 1,
+            'articles_categories_id' => 1,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
@@ -569,7 +571,7 @@ class NewsSitesMasterSeeder extends Seeder
             'news_site_tag_url' => 'item link',
             'news_site_tag_text' => '.inner p',
             'news_site_tag_image' => '.inner img',
-            'news_site_category_id' => 1,
+            'articles_categories_id' => 1,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
@@ -582,7 +584,7 @@ class NewsSitesMasterSeeder extends Seeder
             'news_site_tag_url' => 'item link',
             'news_site_tag_text' => '.inner p',
             'news_site_tag_image' => '.inner img',
-            'news_site_category_id' => 1,
+            'articles_categories_id' => 1,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
@@ -595,7 +597,7 @@ class NewsSitesMasterSeeder extends Seeder
             'news_site_tag_url' => 'item link',
             'news_site_tag_text' => '.inner p',
             'news_site_tag_image' => '.inner img',
-            'news_site_category_id' => 1,
+            'articles_categories_id' => 1,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
@@ -608,7 +610,7 @@ class NewsSitesMasterSeeder extends Seeder
             'news_site_tag_url' => 'item link',
             'news_site_tag_text' => '.inner p',
             'news_site_tag_image' => '.inner img',
-            'news_site_category_id' => 1,
+            'articles_categories_id' => 1,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
@@ -621,7 +623,7 @@ class NewsSitesMasterSeeder extends Seeder
             'news_site_tag_url' => 'item link',
             'news_site_tag_text' => '.inner p',
             'news_site_tag_image' => '.inner img',
-            'news_site_category_id' => 1,
+            'articles_categories_id' => 1,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
@@ -634,7 +636,7 @@ class NewsSitesMasterSeeder extends Seeder
             'news_site_tag_url' => 'item link',
             'news_site_tag_text' => '.inner p',
             'news_site_tag_image' => '.inner img',
-            'news_site_category_id' => 1,
+            'articles_categories_id' => 1,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
@@ -647,7 +649,7 @@ class NewsSitesMasterSeeder extends Seeder
             'news_site_tag_url' => 'item link',
             'news_site_tag_text' => '.inner p',
             'news_site_tag_image' => '.inner img',
-            'news_site_category_id' => 1,
+            'articles_categories_id' => 1,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
@@ -660,7 +662,7 @@ class NewsSitesMasterSeeder extends Seeder
             'news_site_tag_url' => 'item link',
             'news_site_tag_text' => '.inner p',
             'news_site_tag_image' => '.inner img',
-            'news_site_category_id' => 1,
+            'articles_categories_id' => 1,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
@@ -673,7 +675,7 @@ class NewsSitesMasterSeeder extends Seeder
             'news_site_tag_url' => 'item link',
             'news_site_tag_text' => '.inner p',
             'news_site_tag_image' => '.inner img',
-            'news_site_category_id' => 1,
+            'articles_categories_id' => 1,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
@@ -686,7 +688,7 @@ class NewsSitesMasterSeeder extends Seeder
             'news_site_tag_url' => 'item link',
             'news_site_tag_text' => '.inner p',
             'news_site_tag_image' => '.inner img',
-            'news_site_category_id' => 5,
+            'articles_categories_id' => 5,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
@@ -699,7 +701,7 @@ class NewsSitesMasterSeeder extends Seeder
             'news_site_tag_url' => 'item link',
             'news_site_tag_text' => '.inner p',
             'news_site_tag_image' => '.inner img',
-            'news_site_category_id' => 5,
+            'articles_categories_id' => 5,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
@@ -712,7 +714,7 @@ class NewsSitesMasterSeeder extends Seeder
             'news_site_tag_url' => 'item link',
             'news_site_tag_text' => '.inner p',
             'news_site_tag_image' => '.inner img',
-            'news_site_category_id' => 5,
+            'articles_categories_id' => 5,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
@@ -725,7 +727,7 @@ class NewsSitesMasterSeeder extends Seeder
             'news_site_tag_url' => 'item link',
             'news_site_tag_text' => '.box-text',
             'news_site_tag_image' => '.text img',
-            'news_site_category_id' => 3,
+            'articles_categories_id' => 3,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
@@ -738,7 +740,7 @@ class NewsSitesMasterSeeder extends Seeder
             'news_site_tag_url' => 'item link',
             'news_site_tag_text' => '#entry-body p',
             'news_site_tag_image' => '#entry-body td img',
-            'news_site_category_id' => 2,
+            'articles_categories_id' => 2,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
@@ -751,7 +753,7 @@ class NewsSitesMasterSeeder extends Seeder
             'news_site_tag_url' => 'article a',
             'news_site_tag_text' => '.contents .w820 p',
             'news_site_tag_image' => '.contents .w820 p img',
-            'news_site_category_id' => 3,
+            'articles_categories_id' => 3,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
@@ -764,7 +766,7 @@ class NewsSitesMasterSeeder extends Seeder
             'news_site_tag_url' => 'article a',
             'news_site_tag_text' => 'span p',
             'news_site_tag_image' => '.cb-entry-header .cb-mask img',
-            'news_site_category_id' => 3,
+            'articles_categories_id' => 3,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
@@ -777,7 +779,7 @@ class NewsSitesMasterSeeder extends Seeder
             'news_site_tag_url' => 'article h1 a',
             'news_site_tag_text' => 'article p',
             'news_site_tag_image' => 'article img',
-            'news_site_category_id' => 1,
+            'articles_categories_id' => 1,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
@@ -790,7 +792,7 @@ class NewsSitesMasterSeeder extends Seeder
             'news_site_tag_url' => 'article a',
             'news_site_tag_text' => '.article-body p',
             'news_site_tag_image' => '.article-thum img',
-            'news_site_category_id' => 3,
+            'articles_categories_id' => 3,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
@@ -803,7 +805,7 @@ class NewsSitesMasterSeeder extends Seeder
             'news_site_tag_url' => 'li p a',
             'news_site_tag_text' => 'article .box p',
             'news_site_tag_image' => 'article .box a img',
-            'news_site_category_id' => 2,
+            'articles_categories_id' => 2,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
@@ -816,7 +818,7 @@ class NewsSitesMasterSeeder extends Seeder
             'news_site_tag_url' => 'article h2 a',
             'news_site_tag_text' => 'article p',
             'news_site_tag_image' => 'article img',
-            'news_site_category_id' => 3,
+            'articles_categories_id' => 3,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
@@ -829,7 +831,7 @@ class NewsSitesMasterSeeder extends Seeder
             'news_site_tag_url' => '.artMain h3 a',
             'news_site_tag_text' => 'article section p',
             'news_site_tag_image' => '',
-            'news_site_category_id' => 2,
+            'articles_categories_id' => 2,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
@@ -842,7 +844,7 @@ class NewsSitesMasterSeeder extends Seeder
             'news_site_tag_url' => 'section a.link',
             'news_site_tag_text' => 'main article',
             'news_site_tag_image' => '', //画像なし
-            'news_site_category_id' => 2,
+            'articles_categories_id' => 2,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
@@ -855,7 +857,7 @@ class NewsSitesMasterSeeder extends Seeder
             'news_site_tag_url' => 'cont_titbox h2 a',
             'news_site_tag_text' => '.cont_article p',
             'news_site_tag_image' => '.cont_article img',
-            'news_site_category_id' => 1,
+            'articles_categories_id' => 1,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
@@ -868,7 +870,7 @@ class NewsSitesMasterSeeder extends Seeder
             'news_site_tag_url' => 'ul .title a',
             'news_site_tag_text' => '.life p',
             'news_site_tag_image' => '.life img',
-            'news_site_category_id' => 5,
+            'articles_categories_id' => 5,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
@@ -881,7 +883,7 @@ class NewsSitesMasterSeeder extends Seeder
             'news_site_tag_url' => 'article .title a',
             'news_site_tag_text' => 'article',
             'news_site_tag_image' => 'article img',
-            'news_site_category_id' => 2,
+            'articles_categories_id' => 2,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
@@ -894,22 +896,22 @@ class NewsSitesMasterSeeder extends Seeder
             'news_site_tag_url' => '',
             'news_site_tag_text' => '',
             'news_site_tag_image' => '',
-            'news_site_category_id' => 1
+            'articles_categories_id' => 1
         ]);
         */
     }
 
 }
 
-class NewsSitesCategoriesMasterSeeder extends Seeder
+class ArticlesCategoriesMasterSeeder extends Seeder
 {
     public function run()
     {
-        $newsSitesCategories = ['IT', 'ゲーム', 'デザイン', 'アート', '経済'];
-        DB::table('news_sites_categories_master')->delete();
-        for ($i = 0; $i < count($newsSitesCategories); $i++) {
-            DB::table('news_sites_categories_master')->insert([
-                'news_site_category_name' => $newsSitesCategories[$i],
+        $ArticlesCategories = ['IT', 'ゲーム', 'CG・映像・アニメーション','デザイン・web', '経済','その他'];
+        DB::table('articles_categories_master')->delete();
+        for ($i = 0; $i < count($ArticlesCategories); $i++) {
+            DB::table('articles_categories_master')->insert([
+                'articles_category_name' => $ArticlesCategories[$i],
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ]);
@@ -1050,30 +1052,45 @@ class CrawlerScheduleTableSeeder extends Seeder
     public function run()
     {
         $max = 20;
-        $baseDate = Carbon::now()->subDay($max);
-        $count = -1;
+        $baseDate = Carbon::now()->subDay($max-4);
+        $now = Carbon::now();
+        $today = Carbon::today();
 
         $user = 0;
 
         DB::table('crawler_schedule_table')->delete();
         for ($i = 0; $i < $max; $i++) {
             $date = $baseDate;
-            $date = $date->addDay(++$count);
+            $date = $date->addDay(1);
             $endDate = $date;
-            $endDate = $endDate->addHour();
+            $endDate = $endDate->addMinute(rand(10,50)); // $dateにもaddHourが反映されてしまう
 
             // 時々ユーザが実行したことに
             if ($i % 4 === 0) {
                 $user = rand(1, 50);
             }
 
-            $crawlerStatus = rand(1, 4);
+
+            // 追加記事数
+            $addedArticlesCount = rand(20,40);
+
+            // 実行状態を指定
+            if($date >= $now){  // 未来
+                $crawlerStatus = 1; // 予約
+                $addedArticlesCount = 0;
+                $endDate = null;
+            } else if($date >= $today){   // 本日
+                $crawlerStatus = 2;   // 実行中
+            } else {
+                $crawlerStatus = rand(3,4); //完了、キャンセル
+            }
+
 
             DB::table('crawler_schedule_table')->insert([
                 'crawl_start_time' => $date,
                 'crawl_end_time' => $endDate,
                 'crawl_status_id' => $crawlerStatus,
-                'added_articles_count' => '31',
+                'added_articles_count' => $addedArticlesCount,
                 'user_id' => $user,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()

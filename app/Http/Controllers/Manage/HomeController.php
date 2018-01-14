@@ -20,7 +20,7 @@ class HomeController extends Controller
         $reports = $this->homesService->getNewReports();
         $graphsData = $this->homesService->getGraphData();
 
-        return view('manage.home.list',compact('reports'));
+        return view('manage.home.list',compact('reports','graphsData'));
     }
 
     public function show()
