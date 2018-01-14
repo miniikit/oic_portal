@@ -61,8 +61,11 @@
   }
   .card-action{
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     align-items: center;
+  }
+  .card-action a{
+    margin-right: 10px;
   }
   .tags{
     display: flex;
@@ -118,8 +121,11 @@
   }
   .card-action{
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     align-items: center;
+  }
+  .card-action a{
+    margin-right: 10px;
   }
   .tags{
     display: flex;
