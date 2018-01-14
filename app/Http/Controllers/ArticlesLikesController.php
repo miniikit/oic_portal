@@ -23,6 +23,11 @@ class ArticlesLikesController extends Controller
           ->orderby('id','desc')
           ->get();
 
+      // お気に入り記事が存在しない場合
+      if(count($article_fav_lists) < 1) {
+        $article_lists = null;
+      }
+
       foreach ($article_fav_lists as $article_fav_list) {
           $article_fav_id = $article_fav_list->article_id;
           $article_lists = $article_model->where('id',$article_fav_id)->get();

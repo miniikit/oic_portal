@@ -24,7 +24,7 @@
                 <option value="" disabled>カテゴリ</option>
             @foreach($categories as $category)
                     @if(isset($categoryId))
-                        @if($categoryId == $category->id)
+                        @if($categoryId === $category->id)
                             <option value="{{ $category->id }}" selected> {{ $category->articles_category_name }} </option>
                         @else
                             <option value="{{ $category->id }}"> {{ $category->articles_category_name }} </option>
@@ -53,18 +53,11 @@
                             </div>
                             <div class="card-action">
                                 <div class="tags">
-                                    <div class="chip">
-                                        IT
-                                    </div>
-                                    <div class="chip">
-                                        デザイン
-                                    </div>
-                                    <div class="chip">
-                                        映像
-                                    </div>
-                                    <div class="chip">
-                                        ゲーム
-                                    </div>
+                                    {{--@if($article->news_site_category_name)--}}
+                                        {{--<div class="chip">--}}
+                                            {{--{{ $article->news_site_category_name }}--}}
+                                        {{--</div>--}}
+                                    {{--@endif--}}
                                 </div>
                             </div>
                         </div>

@@ -86,12 +86,16 @@ class CrawlController extends Controller
             // サイトに更新があるか確認
             $latest_2_article_urls = $this->crawlService->getLatest2ArticleUrlByDB($site_id);
             //$latest_article_url = "http://gigazine.net/news/20171128-dennys-cheese-dak-galbi/";
-            dd($latest_2_article_urls);
+            //dd($latest_2_article_urls);
+
+
+            $a = \DB::table('articles_table')->where('news_site_id','=',2)->orderBy('id','desc')->limit(2)->select('articles_table.article_url')->get();
+
 
             // $urlsの中にDBの最終URLが含まれているか確認
             if(in_array($latest_2_article_urls[0]->article_url,$urls)){
 
-                $resul = $this->crawlService->checkNewArticle($latest_2_article_urls,$urls);
+                $result = $this->crawlService->checkNewArticle($latest_2_article_urls,$urls);
 
             } else {
                 //dd($latest_2_article_urls,"false",$urls);
@@ -117,12 +121,12 @@ class CrawlController extends Controller
 
                 // DB挿入
                // $query = $SQL->insertArticle($title, $image[0], $resultText,$urls[$i], $site_id);
-                $query = $SQL->insertArticle($title, "image path",$resultText,$urls[$i],$site_id);
+                $query = $SQLService->insertArticle($title, "image path",$resultText,$urls[$i],$site_id);
             }
         }
 
 
-        $articles = $SQL->getArticlesTEST();
+        $articles = $SQLService->getArticlesTEST();
         dd(555, $articles);
 
 //

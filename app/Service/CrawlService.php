@@ -146,11 +146,20 @@ class CrawlService
 
     public function checkNewArticle($latest_article_url,$urls)
     {
-        // 記事があれば
-        if(array_search($latest_article_url,$urls) !== false){
+        // 記事がなければ
+        if(array_search($latest_article_url[0]->article_url,$urls) === false){
+            // 記事がなかった時の処理
+        }
 
+        $id = DB::table('articles_table')->where('article_url')->select('id')->first();
+        dd($id);
+
+        if(array_search($latest_article_url[1]->article_url,$urls) === false){
+            // 記事２がなかった場合の処理
 
         }
+
+
 
     }
 
