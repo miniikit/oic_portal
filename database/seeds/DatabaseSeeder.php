@@ -1052,30 +1052,45 @@ class CrawlerScheduleTableSeeder extends Seeder
     public function run()
     {
         $max = 20;
-        $baseDate = Carbon::now()->subDay($max);
-        $count = -1;
+        $baseDate = Carbon::now()->subDay($max-4);
+        $now = Carbon::now();
+        $today = Carbon::today();
 
         $user = 0;
 
         DB::table('crawler_schedule_table')->delete();
         for ($i = 0; $i < $max; $i++) {
             $date = $baseDate;
-            $date = $date->addDay(++$count);
+            $date = $date->addDay(1);
             $endDate = $date;
-            $endDate = $endDate->addHour();
+            $endDate = $endDate->addMinute(rand(10,50)); // $dateにもaddHourが反映されてしまう
 
             // 時々ユーザが実行したことに
             if ($i % 4 === 0) {
                 $user = rand(1, 50);
             }
 
-            $crawlerStatus = rand(1, 4);
+
+            // 追加記事数
+            $addedArticlesCount = rand(20,40);
+
+            // 実行状態を指定
+            if($date >= $now){  // 未来
+                $crawlerStatus = 1; // 予約
+                $addedArticlesCount = 0;
+                $endDate = null;
+            } else if($date >= $today){   // 本日
+                $crawlerStatus = 2;   // 実行中
+            } else {
+                $crawlerStatus = rand(3,4); //完了、キャンセル
+            }
+
 
             DB::table('crawler_schedule_table')->insert([
                 'crawl_start_time' => $date,
                 'crawl_end_time' => $endDate,
                 'crawl_status_id' => $crawlerStatus,
-                'added_articles_count' => '31',
+                'added_articles_count' => $addedArticlesCount,
                 'user_id' => $user,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()

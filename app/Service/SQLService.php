@@ -38,12 +38,12 @@ class SQLService
     // クロールスケジュール取得
     public function getCrawlSchedules()
     {
-        return DB::table('crawler_schedule_table')
-            ->join(
-                'crawler_status_master',
-                'crawler_schedule_table.crawl_status_id',
-                'crawler_status_master.id'
-            )->get();
+        return DB::table('crawler_status_master as cStatus')
+            ->join('crawler_schedule_table as cSchedule', 'cSchedule.crawl_status_id', 'cStatus.id')
+            ->join('users','users.id','cSchedule.user_id')
+            ->select('cSchedule.id as crawler_id','cStatus.crawler_status','cSchedule.crawl_start_time','cSchedule.crawl_end_time','cSchedule.added_articles_count','users.name')
+            ->orderBy('crawl_start_time','DESC')
+            ->get();
     }
 
     // クロールスケジュール詳細取得

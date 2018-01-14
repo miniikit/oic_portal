@@ -33,24 +33,26 @@ class CrawlScheduleController extends Controller
     {
         // 全スケジュール
         $tasks = $this->sqlService->getCrawlSchedules();
-        // 未実行
-        $scheduled = array();
 
-        // 開始時刻を過ぎているもの
-        $finished = array();
-
-        $now = Carbon::now();
-
-        // 未実行と実行完了を切り分け
-        foreach($tasks as $task)
-        {
-            if($task->crawl_start_time >= $now) {
-                $scheduled[] = $task;
-            } else {
-                $finished[] = $task;
-            }
-        }
-        return view('manage.crawl.home',compact('tasks','scheduled','finished'));
+//        // 未実行
+//        $scheduled = array();
+//
+//        // 開始時刻を過ぎているもの
+//        $finished = array();
+//
+//        $now = Carbon::now();
+////        dd($tasks);
+//
+//        // 未実行と実行完了を切り分け
+//        foreach($tasks as $task)
+//        {
+//            if($task->crawl_start_time >= $now) {
+//                $scheduled[] = $task;
+//            } else {
+//                $finished[] = $task;
+//            }
+//        }
+        return view('manage.crawl.home',compact('tasks'));
     }
 
     public function index()
