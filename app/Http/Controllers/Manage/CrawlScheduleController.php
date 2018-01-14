@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Manage;
 
+use App\Service\CrawlerScheduleService;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -9,14 +10,13 @@ use App\Jobs\CheckNewArticles;
 
 use App\Service\SQLService;
 
-
 class CrawlScheduleController extends Controller
 {
-    protected $sqlService;
+    protected $crawlerScheduleService;
 
-    public function __construct(SQLService $sqlService)
+    public function __construct(CrawlerScheduleService $crawlerScheduleService)
     {
-        $this->sqlService = $sqlService;
+        $this->crawlerScheduleService = $crawlerScheduleService;
     }
 
 
@@ -31,28 +31,41 @@ class CrawlScheduleController extends Controller
      */
     public function home()
     {
-        // 全スケジュール
-        $tasks = $this->sqlService->getCrawlSchedules();
+        $SQLService = new SQLService();
 
-//        // 未実行
-//        $scheduled = array();
-//
-//        // 開始時刻を過ぎているもの
-//        $finished = array();
-//
-//        $now = Carbon::now();
-////        dd($tasks);
-//
-//        // 未実行と実行完了を切り分け
-//        foreach($tasks as $task)
-//        {
-//            if($task->crawl_start_time >= $now) {
-//                $scheduled[] = $task;
-//            } else {
-//                $finished[] = $task;
-//            }
-//        }
-        return view('manage.crawl.home',compact('tasks'));
+
+        // 全スケジュール
+        $tasks = $SQLService->getCrawlSchedules();
+        $status = $this->crawlerScheduleService->check();
+
+        if($status === true){
+            $status_message = "実行中";
+        } else {
+            $status_message = "停止中";
+        }
+
+        return view('manage.crawl.home',compact('tasks','status_message'));
+    }
+
+    public function execute(Request $request)
+    {
+        if(!$request->has('execute') && $request->input('execute') == "execute"){
+            return redirect()->route('manager_crawl_home');
+        }
+
+        $SQLService = new SQLService();
+        $result = $SQLService->addCrawler();
+    }
+
+    public function cancel(Request $request)
+    {
+        $data = $request->all();
+        if(!$request->has('cancel')){
+            return redirect()->route('manager_crawl_home');
+        }
+
+
+
     }
 
     public function index()
@@ -68,8 +81,9 @@ class CrawlScheduleController extends Controller
      */
     public function show($id)
     {
+        $SQLService = new SQLService();
         // TODO : 画面埋め込み
-        $task = $this->sqlService->getCrawlSchedule($id);
+        $task = $SQLService->getCrawlSchedule($id);
 
         return view('manage.home',compact('id','task'));
     }

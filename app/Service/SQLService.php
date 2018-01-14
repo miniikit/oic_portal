@@ -10,6 +10,7 @@ use App\Article;
 use App\Profile;
 use App\ArticleLike;
 use App\ArticleComment;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
@@ -50,6 +51,28 @@ class SQLService
     public function getCrawlSchedule($id)
     {
         return DB::table('crawler_schedule_table')->where('id', $id)->get();
+    }
+
+    // クローラーの動作有無を確認
+    public function checkCrawlStatus()
+    {
+        return  DB::table('crawler_schedule_table')->where('crawl_status_id',2)->first();
+    }
+
+    // クローラースケジュールを登録
+    public function addCrawler()
+    {
+        $now = Carbon::now();
+        $userId = Auth::user()->id;
+
+        return DB::table('crawler_schedule_table')->insert([
+            'crawl_start_time' => $now,
+            'crawl_end_time' => null,
+            'crawl_status_id' => 1, // 予約中
+            'added_articles_count' => 0,
+            'user_id' => $userId,
+            'created_at' => $now
+        ]);
     }
 
 
