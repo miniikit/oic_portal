@@ -41,9 +41,9 @@ class SQLService
     {
         return DB::table('crawler_status_master as cStatus')
             ->join('crawler_schedule_table as cSchedule', 'cSchedule.crawl_status_id', 'cStatus.id')
-            ->join('users','users.id','cSchedule.user_id')
-            ->select('cSchedule.id as crawler_id','cStatus.crawler_status','cSchedule.crawl_start_time','cSchedule.crawl_end_time','cSchedule.added_articles_count','users.name')
-            ->orderBy('crawl_start_time','DESC')
+            ->join('users', 'users.id', 'cSchedule.user_id')
+            ->select('cSchedule.id as crawler_id', 'cStatus.crawler_status', 'cSchedule.crawl_start_time', 'cSchedule.crawl_end_time', 'cSchedule.added_articles_count', 'users.name')
+            ->orderBy('crawl_start_time', 'DESC')
             ->get();
     }
 
@@ -56,7 +56,7 @@ class SQLService
     // クローラーの動作有無を確認
     public function checkCrawlStatus()
     {
-        return  DB::table('crawler_schedule_table')->where('crawl_status_id',2)->first();
+        return DB::table('crawler_schedule_table')->where('crawl_status_id', 2)->first();
     }
 
     // クローラースケジュールを登録
@@ -177,17 +177,14 @@ class SQLService
     //いいね順に記事を取得
     public function getArticleLike()
     {
-         $article = DB::table('articles_likes_table')
-             ->join('articles_table', 'articles_likes_table.article_id', 'articles_table.id')
-
-
-             //->select(DB::raw('count(*) as count,article_id,articles_table.id,article_title,article_text,article_image,news_site_id,article_url,articles_table.deleted_at'))
-//            ->where('articles_table.deleted_at', null)
-            //->groupBy('article_id')
-            //->orderBy('count', 'desc')
-            //->limit(21)
-        ->get();
-        dd($article);
+        return $article = DB::table('articles_likes_table')
+            ->join('articles_table', 'articles_likes_table.article_id', 'articles_table.id')
+            ->select(DB::raw('count(*) as count,article_id,articles_table.id,article_title,article_text,article_image,news_site_id,article_url,articles_table.deleted_at'))
+            ->where('articles_table.deleted_at', null)
+            ->groupBy('article_id')
+            ->orderBy('count', 'desc')
+            ->limit(21)
+            ->get();
     }
 
     //IT系の記事を表示
