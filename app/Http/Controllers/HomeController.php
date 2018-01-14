@@ -69,6 +69,8 @@ class HomeController extends Controller
 
         $categories = $category_model->get();
 
+        $categoryId = $data['category'];
+
         if($data['category'] == 1){
             $articles = $this->SQLService->getArticleIt();
         }else if($data['category'] == 2){
@@ -83,7 +85,7 @@ class HomeController extends Controller
             $articles = $this->SQLService->getArticleOther();
         }
 
-        return view('home.list',compact('articles','categories','postCategory'));
+        return view('home.list',compact('articles','categories','postCategory','categoryId'));
     }
 
 }

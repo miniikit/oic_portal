@@ -21,8 +21,17 @@
         <form action="{{ route('user_genre') }}" method="post">
             {{ csrf_field() }}
             <select required="required" name="category" onchange="submit()">
-                @foreach($categories as $category)
-                        <option value="{{ $category->id }}" selected> {{ $category->articles_category_name }} </option>
+                <option value="" disabled>カテゴリ</option>
+            @foreach($categories as $category)
+                    @if(isset($categoryId))
+                        @if($categoryId == $category->id)
+                            <option value="{{ $category->id }}" selected> {{ $category->articles_category_name }} </option>
+                        @else
+                            <option value="{{ $category->id }}"> {{ $category->articles_category_name }} </option>
+                        @endif
+                    @else
+                        <option value="{{ $category->id }}"> {{ $category->articles_category_name }} </option>
+                    @endif
                 @endforeach
             </select>
         </form>
