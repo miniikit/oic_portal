@@ -40,6 +40,7 @@ class CrawlScheduleController extends Controller
         $finished = array();
 
         $now = Carbon::now();
+//        dd($tasks);
 
         // 未実行と実行完了を切り分け
         foreach($tasks as $task)
