@@ -10,20 +10,20 @@
             <li class="tab_link"><a href="{{ route('user_game') }}">ゲーム系</a></li>
             <li class="tab_link"><a href="{{ route('user_movie') }}">映像・CG・アニメーション</a></li>
             <li class="tab_link"><a href="{{ route('user_design') }}">デザイン・WEB系</a></li>
-            <li class="tab_link_drb"><a class="dropdown-button" href="#!" data-activates="dropdown1">表示する記事ジャンルを選択<i class="material-icons right">arrow_drop_down</i></a></li>
+            <li class="tab_link_drb"><a class="dropdown-button" href="#!" data-activates="dropdown1">表示する記事ジャンルを選択<i
+                            class="material-icons right">arrow_drop_down</i></a></li>
         </ul>
 
         <ul id="dropdown1" class="dropdown-content">
-          <li class="active"><a href="{{ route('user_home') }}">新着ニュース</a></li>
-          <li><a href="{{ route('user_it') }}">IT・ビジネス系</a></li>
-          <li><a href="{{ route('user_game') }}">ゲーム系</a></li>
-          <li><a href="{{ route('user_movie') }}">映像・CG・アニメーション</a></li>
-          <li><a href="{{ route('user_design') }}">デザイン・WEB系</a></li>
+            <li class="active"><a href="{{ route('user_home') }}">新着ニュース</a></li>
+            <li><a href="{{ route('user_it') }}">IT・ビジネス系</a></li>
+            <li><a href="{{ route('user_game') }}">ゲーム系</a></li>
+            <li><a href="{{ route('user_movie') }}">映像・CG・アニメーション</a></li>
+            <li><a href="{{ route('user_design') }}">デザイン・WEB系</a></li>
         </ul>
     </div>
 @endsection
 @section('main')
-<<<<<<< HEAD
     <div id="tab1" class="row">
         <form>
             <div class="input-field">
@@ -34,21 +34,27 @@
         </form>
 
         <div class="sort-box input-field col s6">
-            <select name="sort" onChange="submit()">
-                <option value="" disabled selected>並び替え</option>
-                <option value="1">いいね順</option>
-                <option value="2">コメント順</option>
-                <option value="3">閲覧数順</option>
-            </select>
+            <form method="post" action="{{ route('user_sort') }}">
+                {{ csrf_field() }}
+                <select name="sort" onchange="submit(this.form)">
+                    <option value="" disabled selected>並び替え</option>
+                    <option value="1">いいね順</option>
+                    <option value="2">コメント順</option>
+                    <option value="3">閲覧数順</option>
+                </select>
+            </form>
         </div>
         <div class="sort-box input-field col s6">
-            <select name="junle" onChange="submit()">
+            <form method="post" action="{{ url('user_genre') }}">
+                {{ csrf_field() }}
+            <select name="genre" onchange="submit(this.form)">
                 <option value="" disabled selected>ジャンル</option>
                 <option value="1">情報処理IT</option>
                 <option value="2">ゲーム</option>
                 <option value="3">CG・映像・アニメーション</option>
                 <option value="4">デザイン・Web</option>
             </select>
+            </form>
         </div>
         <!-- article tab1 -->
         <div class="row">
@@ -59,39 +65,39 @@
                             <div class="card-image">
                                 <a href="{{ $article->article_url }}"><img src="{{ $article->article_image }}"></a>
                             </div>
-                          <div class="card-stacked">
-                            <a href="{{ $article->article_url }}"></a>
-                            <div class="card-content">
-                                <span class="card-title">{{ $article->article_title }}</span>
-                                <p class="card-text">{{ mb_strimwidth($article->article_text,0,132,"...") }}</p>
-                            </div>
-                            <div class="card-action">
-                                <div class="tags">
-                                    <div class="chip">
-                                        IT
-                                    </div>
-                                    <div class="chip">
-                                        デザイン
-                                    </div>
-                                    <div class="chip">
-                                      映像
-                                    </div>
-                                    <div class="chip">
-                                      ゲーム
-                                    </div>
+                            <div class="card-stacked">
+                                <a href="{{ $article->article_url }}"></a>
+                                <div class="card-content">
+                                    <span class="card-title">{{ $article->article_title }}</span>
+                                    <p class="card-text">{{ mb_strimwidth($article->article_text,0,132,"...") }}</p>
                                 </div>
-                                {{-- カウンター 実装するか検討 --}}
-                                {{-- <div class="counter">
-                                  <i class="goodicon material-icons" id="counter">thumb_up</i>
-                                  <label class="showcounter" for="counter">100</label>
+                                <div class="card-action">
+                                    <div class="tags">
+                                        <div class="chip">
+                                            IT
+                                        </div>
+                                        <div class="chip">
+                                            デザイン
+                                        </div>
+                                        <div class="chip">
+                                            映像
+                                        </div>
+                                        <div class="chip">
+                                            ゲーム
+                                        </div>
+                                    </div>
+                                    {{-- カウンター 実装するか検討 --}}
+                                    {{-- <div class="counter">
+                                      <i class="goodicon material-icons" id="counter">thumb_up</i>
+                                      <label class="showcounter" for="counter">100</label>
+                                    </div>
+                                    <div class="counter">
+                                      <i class="goodicon material-icons" id="counter">remove_red_eye</i>
+                                      <label class="showcounter" for="counter">1000</label>
+                                    </div> --}}
                                 </div>
-                                <div class="counter">
-                                  <i class="goodicon material-icons" id="counter">remove_red_eye</i>
-                                  <label class="showcounter" for="counter">1000</label>
-                                </div> --}}
                             </div>
                         </div>
-                      </div>
                     </div>
                 </div>
             @endforeach
@@ -136,7 +142,8 @@
                     <div class="card">
                         <div class="card-wrapper">
                             <div class="card-image">
-                                <a href="{{ $article_it->article_url }}"><img src="{{ $article_it->article_image }}"></a>
+                                <a href="{{ $article_it->article_url }}"><img
+                                            src="{{ $article_it->article_image }}"></a>
                             </div>
                             <div class="card-content">
                                 <span class="card-title">{{ $article_it->article_title }}</span>
@@ -213,7 +220,8 @@
                     <div class="card">
                         <div class="card-wrapper">
                             <div class="card-image">
-                                <a href="{{ $article_game->article_url }}"><img src="{{ $article_game->article_image }}"></a>
+                                <a href="{{ $article_game->article_url }}"><img
+                                            src="{{ $article_game->article_image }}"></a>
                             </div>
                             <div class="card-content">
                                 <span class="card-title">{{ $article_game->article_title }}</span>
@@ -290,7 +298,8 @@
                     <div class="card">
                         <div class="card-wrapper">
                             <div class="card-image">
-                                <a href="{{ $article_design->article_url }}"><img src="{{ $article_design->article_image }}"></a>
+                                <a href="{{ $article_design->article_url }}"><img
+                                            src="{{ $article_design->article_image }}"></a>
                             </div>
                             <div class="card-content">
                                 <span class="card-title">{{ $article_design->article_title }}</span>
@@ -406,9 +415,8 @@
             @endforeach
         </div>
     </div>
-=======
-  @include('common.top_card')
->>>>>>> 7907a7f52f43d858f75f2462aeb151ddd385c052
+
+    @include('common.top_card')
 
 @endsection
 

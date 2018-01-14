@@ -13,7 +13,7 @@ use App\ArticleLike;
 use App\ArticleComment;
 use App\ArticleFavorite;
 use App\NewsSite;
-use App\NewsSiteCategory;
+use App\ArticleCategory;
 
 
 class ArticlesController extends Controller
@@ -30,7 +30,7 @@ class ArticlesController extends Controller
         return view('articles.write');
     }
 
-    // 投稿確認
+    //投稿確認
     public function confirm(Request $request)
     {
         $data = $request->all();
@@ -47,13 +47,15 @@ class ArticlesController extends Controller
     {
         $userId = Auth::user()->id;
         $data = $request->all();
+
         $articles_model = app(Article::class);
         $article = $articles_model->create([
             'article_title' => $data['article_title'],
             'article_image' => $data['article_image'],
             'article_text' => $data['article_text'],
             'news_site_id' => null,
-            'article_url' => '/articles/' . Carbon::now(),
+            'articles_categories_id' => $data['category'],
+            'article_url' => '/articles/user/' . Carbon::now(),
             'user_id' => $userId,
         ]);
 
@@ -63,7 +65,7 @@ class ArticlesController extends Controller
             $article_id = $article->id;
         }
 
-        $articles_model->where('id', $article_id)->update(['article_url' => '/articles/' . $article_id]);
+        $articles_model->where('id', $article_id)->update(['article_url' => '/articles/user/' . $article_id]);
         return view('articles.complete');
     }
 
@@ -77,7 +79,7 @@ class ArticlesController extends Controller
         $articles_likes_model = app(ArticleLike::class);
         $articles_fav_model = app(ArticleFavorite::class);
         $newssite_model = app(NewsSite::class);
-        $newssite_category_model = app(NewsSiteCategory::class);
+        $newssite_category_model = app(ArticleCategory::class);
 
         /*
         $article = DB::table('articles_table')
@@ -87,20 +89,16 @@ class ArticlesController extends Controller
         */
 
         $article = $article_model
-        ->where('id',$id)
-        ->first();
+            ->where('id', $id)
+            ->first();
 
-        dd($article);
-
-        if($article->news_site_id !== null) {
-            $categoryId = $article->news_site_category_id;
-            $relatedArticles = DB::table('news_sites_master')
-                ->join('articles_table', 'articles_table.news_site_id', '=', 'news_sites_master.id')
-                ->where('news_sites_master.news_site_category_id', '=', $categoryId)
-                ->orderBy('articles_table.id', 'DESC')
-                ->limit(3)
-                ->get();
-        }
+        $categoryId = $article->articles_categories_id;
+        $relatedArticles = DB::table('news_sites_master')
+            ->join('articles_table', 'articles_table.news_site_id', '=', 'news_sites_master.id')
+            ->where('news_sites_master.articles_categories_id', '=', $categoryId)
+            ->orderBy('articles_table.id', 'DESC')
+            ->limit(3)
+            ->get();
 
         /*
         $comments = DB::table('articles_comments_table')
@@ -124,18 +122,22 @@ class ArticlesController extends Controller
             $comment->profile_image = $profile->profile_image;
         }
 
+
         if(!Auth::guest()) {
+            $userId = Auth::user()->id;
+            $getprofile_id = $user_model->where('id',$userId)->first();
+            $myprofile = $profile_model->where('id',$getprofile_id->profile_id)->first();
 
-        $categoryId = $article->news_site_category_id;
-        $relatedArticles = DB::table('news_sites_master')
-            ->join('articles_table', 'articles_table.news_site_id', '=', 'news_sites_master.id')
-            ->where('news_sites_master.news_site_category_id', '=', $categoryId)
-            ->orderBy('articles_table.id', 'DESC')
-            ->limit(3)
-            ->get();
+            $active_like = $articles_likes_model
+                ->where('user_id', $userId)
+                ->where('article_id', $id)
+                ->first();
 
-        $articles_likes_model = app(ArticleLike::class);
-        $articles_fav_model = app(ArticleFavorite::class);
+            $active_fav = $articles_fav_model
+                ->where('user_id', $userId)
+                ->where('article_id', $id)
+                ->first();
+            }
 
         $like_ct = $articles_likes_model->where('article_id', $id)->get()->count();
         $fav_ct = $articles_fav_model->where('article_id', $id)->get()->count();
@@ -147,7 +149,10 @@ class ArticlesController extends Controller
     public function edit($id)
     {
         $article = app(Article::class)->find($id);
-        return view('articles.edit', compact('article'));
+        $categories = app(ArticleCategory::class)->get();
+        $article_category = app(ArticleCategory::class)->where('id',$article->articles_categories_id)->first();
+
+        return view('articles.edit', compact('article','article_category','categories'));
     }
 
     // 編集確認
@@ -168,18 +173,18 @@ class ArticlesController extends Controller
             $articles_image = '/images/event_images/' . $filename;
         }
 
-        return view('articles.confirm', compact('data', 'articles_image'));
+        return view('articles.edit_confirm', compact('data', 'articles_image','carbon'));
     }
 
     //編集完了
     public function edit_complete(Request $request)
     {
         $data = $request->all();
-        $article = app(Article::class)->where('id', $data->article_id)->first();
+        $article = app(Article::class)->where('id', $data['article_id'])->first();
 
         $article->article_title = $data['article_title'];
         $article->article_image = $data['article_image'];
-        $article->articlearticle_text = $data['article_text'];
+        $article->article_text = $data['article_text'];
 
         $article->save();
         return view('articles.complete');

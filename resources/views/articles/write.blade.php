@@ -10,7 +10,7 @@
     <div class="row center">
         <h1 class="title">記事投稿</h1>
     </div>
-    <form class="col s10" method="POST" action="{{ url('/articles/confirm') }}" enctype="multipart/form-data">
+    <form class="col s10" method="POST" action="{{ url('/articles/user/confirm') }}" enctype="multipart/form-data">
       {{ csrf_field() }}
     <div class="input-field col s12">
       <input placeholder="タイトル" id="first_name" name="article_title" type="text" class="validate" required="required">
@@ -30,20 +30,23 @@
       </div>
       <div class="row">
         <div class="input-field col s6">
-          <select required="required">
+          <select required="required" name="category">
             <option value="" disabled selected></option>
-            <option value="1">すべて</option>
-            <option value="2">情報処理・IT</option>
-            <option value="3">ゲーム</option>
-            <option value="4">CG・映像・アニメーション</option>
-            <option value="5">デザイン・web</option>
+            <option value="1">情報処理・IT</option>
+            <option value="2">ゲーム</option>
+            <option value="3">CG・映像・アニメーション</option>
+            <option value="4">デザイン・web</option>
+            <option value="5">経済</option>
+            <option value="6">その他</option>
           </select>
           <label>ジャンル</label>
         </div>
+        <!--
         <div class="input-field col s6">
           <input type="text" class="datepicker" name="article_start_date_time" required="required">
           <label for="password">掲載期間</label>
         </div>
+        -->
       </div>
       <div class="row">
         <div class="col s6 right-align"><button type="button" class="back-btn waves-effect waves-light btn" onclick="history.back()">戻る</button></div>

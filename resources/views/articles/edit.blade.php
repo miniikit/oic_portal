@@ -14,7 +14,7 @@
   </div>
 
 <div class="content">
-    <form class="col s10" method="POST" action="{{ url('/articles/edit/confirm') }}" enctype="multipart/form-data">
+    <form class="col s10" method="POST" action="{{ url('/articles/user/edit/confirm') }}" enctype="multipart/form-data">
       {{ csrf_field() }}
         <input type="hidden" name="article_id" value="{{$article->id}}">
     <div class="input-field col s12">
@@ -43,20 +43,24 @@
       </div> --}}
       <div class="row">
         <div class="input-field col s6" id="genre" placeholder="ジャンル">
-          <select>
-            <option value="" disabled selected></option>
-            <option value="1">すべて</option>
-            <option value="2">情報処理・IT</option>
-            <option value="3">ゲーム</option>
-            <option value="4">CG・映像・アニメーション</option>
-            <option value="5">デザイン・web</option>
-          </select>
+            <select required="required" name="category">
+                @foreach($categories as $category)
+                    @if($category->id == $article_category->id)
+                        <option value={{ $category->id }} selected> {{ $category->articles_category_name }} </option>
+                    @else
+                        <option value={{ $category->id }}> {{ $category->articles_category_name }} </option>
+
+                    @endif
+                    @endforeach
+            </select>
           <label for="genre">ジャンル</label>
         </div>
+          <!--
         <div class="input-field col s6">
-          <input type="text" id="date" class="datepicker">
+          <input type="text" id="date" class="datepicker" value="">
           <label for="date">掲載期間</label>
         </div>
+        -->
       </div>
       <div class="row">
         <div class="btn-box-l col s6 center-align"><button type="button" class="back-btn waves-effect waves-light btn" onclick="history.back()">戻る</button></div>
