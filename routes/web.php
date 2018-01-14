@@ -28,6 +28,9 @@ Route::post('/sort','HomeController@sort')->name('user_sort');
 //ジャンルでソート
 Route::post('/genre','HomeController@genre')->name('user_genre');
 
+//検索
+Route::get('/search','HomeController@search')->name('user_search');
+
 
 // 問い合わせ
 Route::get('/contact','ContactsController@show')->name('user_contact');

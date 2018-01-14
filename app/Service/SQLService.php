@@ -184,7 +184,6 @@ class SQLService
             ->rightJoin('articles_table', 'articles_table.news_site_id', 'news_sites_master.id')
             ->where('articles_table.deleted_at', null)
             ->orderBy('articles_table.id', 'DESC')
-            ->limit(21)
             ->get();
     }
 
@@ -197,19 +196,6 @@ class SQLService
             ->where('articles_table.user_id', $userId)
             ->get()
             ->count();
-    }
-
-    //いいね順に記事を取得
-    public function getArticleLike()
-    {
-        return $article = DB::table('articles_likes_table')
-            ->join('articles_table', 'articles_likes_table.article_id', 'articles_table.id')
-            ->select(DB::raw('count(*) as count,article_id,articles_table.id,article_title,article_text,article_image,news_site_id,article_url,articles_table.deleted_at'))
-            ->where('articles_table.deleted_at', null)
-            ->groupBy('article_id')
-            ->orderBy('count', 'desc')
-            ->limit(21)
-            ->get();
     }
 
     //IT系の記事を表示
@@ -282,8 +268,23 @@ class SQLService
     public function getArticleComment()
     {
         return $article = app(ArticleComment::class)
-            ->where(app(Article::class), 'deleted_at', null)
-            ->orderby('article_id', 'desc')
+            ->select(DB::raw('count(*) as count,article_id'))
+            ->where('articles_table.deleted_at', null)
+            ->groupBy('article_id')
+            ->orderBy('count', 'desc')
+            ->get();
+    }
+
+    //いいね順に記事を取得
+    public function getArticleLike()
+    {
+        return $article = DB::table('articles_likes_table')
+            ->join('articles_table', 'articles_likes_table.article_id', 'articles_table.id')
+            ->select(DB::raw('count(*) as count,article_id,articles_table.id,article_title,article_text,article_image,news_site_id,article_url,articles_table.deleted_at'))
+            ->where('articles_table.deleted_at', null)
+            ->groupBy('article_id')
+            ->orderBy('count', 'desc')
+            ->limit(21)
             ->get();
     }
 

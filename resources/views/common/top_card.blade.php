@@ -1,11 +1,12 @@
 <div class="row">
-    <form>
         <div class="input-field">
-            <input id="search1" class="center" type="search" required>
+            <form action="{{ route('user_search') }}" method="get">
+            {{ csrf_field() }}
+            <input id="search1" class="center" type="search" name="keyword" required>
             <label class="label-icon" for="search1"><i class="material-icons">search</i></label>
             <i class="material-icons">close</i>
+            </form>
         </div>
-    </form>
     <div class="sort-box input-field col s6">
         <form action="{{ route('user_sort') }}" method="post">
             {{ csrf_field() }}
