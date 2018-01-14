@@ -45,8 +45,7 @@
                     <div class="card-wrapper">
                         <div class="card-image">
                             <a href="{{ $article->article_url }}"><img src="{{ $article->article_image }}"></a>
-                            {{--  ここにタグの実装  --}} <span
-                                    class="ct-tag chip btn-floating halfway-fab circle blue-grey lighten-5">IT</span>
+  {{--  ここにタグの実装  --}} <span class="ct-tag chip btn-floating halfway-fab circle blue-grey lighten-5">IT</span>
                         </div>
                         <div class="card-stacked">
                             <a href="{{ $article->article_url }}"></a>
