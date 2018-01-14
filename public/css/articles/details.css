@@ -34,8 +34,16 @@
 .fav-btn{
   padding-right: 0.5rem;
 }
+.us-box{
+  float: left;
+  padding: 5px;
+  display: inline-block;
+}
+.category-tag{
+  display: inline-block;
+}
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 991px) {
   #main {
     margin-top: 100px;
   }
@@ -43,13 +51,17 @@
     padding: 0.5rem;
   }
   .title {
-    font-size: 1.2em;
+    font-size: 1em;
+  }
+  .article-image{
+    margin-top: 30px;
   }
   .date_link .col {
     padding: 0;
   }
   .date_link {
     font-size: 0.5em;
+    margin-bottom: 10px;
   }
   .main-image {
     width: 10%;
@@ -84,7 +96,6 @@
   }
   .wap-comment{
     text-align: right;
-    padding: 0.5rem;
   }
   .comment-submit{
     font-size: 0.6em;
@@ -97,9 +108,20 @@
   .comment {
     margin-top: 15px;
   }
+  .card-images img{
+    display: block;
+    border-radius: 2px 2px 0 0;
+    position: relative;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+  }
+
 }
 
-@media only screen and (min-width: 601px) {
+@media only screen and (min-width: 992px) {
   .title{
     font-size: 2rem;
     margin: 40px 0;
@@ -139,7 +161,6 @@
   /* comment area */
   .wap-comment{
     text-align: right;
-    padding: 0.5rem;
   }
   .comment-submit{
     font-size: 0.7em;
@@ -153,6 +174,16 @@
     padding: 10px;
   }
   .side {
+    width: 100%;
+  }
+  .card-images img{
+    display: block;
+    border-radius: 2px 2px 0 0;
+    position: relative;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
     width: 100%;
   }
 }
