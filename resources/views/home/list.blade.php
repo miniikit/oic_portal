@@ -24,6 +24,7 @@
 @endsection
 @section('main')
   @include('common.top_card')
+
 @endsection
 
 @section('script')
