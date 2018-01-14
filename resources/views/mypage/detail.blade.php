@@ -62,7 +62,7 @@
 
       <div class="wap col s12">
         @foreach($articles as $article)
-          <div class="col s6">
+          <div class="col s4">
             <div class="card hoverable">
               <div class="card-image">
                 <a href="{{ $article->article_url }}"><img src="{{ $article->article_image }}"></a>
@@ -75,7 +75,7 @@
               </div>
               <div class="card-action">
                 <a href="{{ $article->article_url.'/edit' }}" class="btn-floating waves-effect waves-light green"><i class="material-icons">edit</i></a>
-                <a class="waves-effect waves-light modal-trigger" href="#modal1">削除</a>
+                <a href="#modal1" class="modal-trigger btn-floating waves-effect waves-light red"><i class="material-icons">delete</i></a>
                 <div id="modal1" class="modal">
                   <div class="modal-content">
                     <h1>削除しますか？</h1>
@@ -102,21 +102,11 @@
                   </div>
                 </div>
               </div>
-
-                {{-- カウンター 実装するか検討 --}}
-                {{-- <div class="counter">
-                  <i class="goodicon material-icons" id="counter">thumb_up</i>
-                  <label class="showcounter" for="counter">100</label>
-                </div>
-                <div class="counter">
-                  <i class="goodicon material-icons" id="counter">remove_red_eye</i>
-                  <label class="showcounter" for="counter">1000</label>
-                </div> --}}
               </div>
             </div>
             </div>
-          </div>
           @endforeach
+        </div>
       </div>
 
   </div>
