@@ -46,7 +46,7 @@ class ArticlesLikesController extends Controller
       return redirect()->route('user_article_detail', ['id' => $id]);
   }
 
-    public function UnLike(Request $request,$id)
+    public function Unlike(Request $request,$id)
     {
         $articlelike_model = app(ArticleLike::class);
         $userId = Auth::user()->id;
@@ -63,7 +63,7 @@ class ArticlesLikesController extends Controller
         return redirect()->route('user_article_detail', ['id' => $id]);
     }
 
-    public function fav($id)
+    public function favorite($id)
     {
         $userId = Auth::user()->id;
         $article_fav_model = app(ArticleFavorite::class);
@@ -77,7 +77,7 @@ class ArticlesLikesController extends Controller
         return redirect()->route('user_article_detail', ['id' => $id]);
     }
 
-    public function Unfav($id)
+    public function Unfavorite($id)
     {
         $userId = Auth::user()->id;
         $article_fav_model = app(ArticleFavorite::class);

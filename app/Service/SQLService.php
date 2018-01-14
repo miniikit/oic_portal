@@ -3,7 +3,7 @@
 namespace App\Service;
 
 use App\NewsSite;
-use App\NewsSiteCategory;
+use App\ArticleCategory;
 use App\User;
 use App\Friend;
 use App\Article;
@@ -131,8 +131,8 @@ class SQLService
      */
     public function getArticle()
     {
-        return $article = \DB::table('news_sites_categories_master')
-            ->join('news_sites_master', 'news_sites_master.news_site_category_id', 'news_sites_categories_master.id')
+        return $article = \DB::table('articles_categories_master')
+            ->join('news_sites_master', 'news_sites_master.articles_categories_id', 'articles_categories_master.id')
             ->rightJoin('articles_table', 'articles_table.news_site_id', 'news_sites_master.id')
             ->where('articles_table.deleted_at', null)
             ->orderBy('articles_table.id', 'DESC')
@@ -169,7 +169,7 @@ class SQLService
     {
         return $article = DB::table('news_sites_master')
             ->join('articles_table', 'news_sites_master.id', 'articles_table.news_site_id')
-            ->where('news_sites_master.news_site_category_id', 1)
+            ->where('news_sites_master.articles_categories_id', 1)
             ->where('articles_table.deleted_at', null)
             ->orderBy('articles_table.id', 'DESC')
             ->get();
@@ -180,7 +180,7 @@ class SQLService
     {
         return $article = DB::table('news_sites_master')
             ->join('articles_table', 'news_sites_master.id', 'articles_table.news_site_id')
-            ->where('news_sites_master.news_site_category_id', 2)
+            ->where('news_sites_master.articles_categories_id', 2)
             ->where('articles_table.deleted_at', null)
             ->orderBy('articles_table.id', 'DESC')
             ->get();
@@ -191,7 +191,7 @@ class SQLService
     {
         return $article = DB::table('news_sites_master')
             ->join('articles_table', 'news_sites_master.id', 'articles_table.news_site_id')
-            ->where('news_sites_master.news_site_category_id', 3)
+            ->where('news_sites_master.articles_categories_id', 3)
             ->where('articles_table.deleted_at', null)
             ->orderBy('articles_table.id', 'DESC')
             ->get();
@@ -202,7 +202,7 @@ class SQLService
     {
         return $article = DB::table('news_sites_master')
             ->join('articles_table', 'news_sites_master.id', 'articles_table.news_site_id')
-            ->where('news_sites_master.news_site_category_id', 4)
+            ->where('news_sites_master.articles_categories_id', 4)
             ->where('articles_table.deleted_at', null)
             ->orderBy('articles_table.id', 'DESC')
             ->get();
@@ -213,7 +213,7 @@ class SQLService
     {
         return $article = DB::table('news_sites_master')
             ->join('articles_table', 'news_sites_master.id', 'articles_table.news_site_id')
-            ->where('news_sites_master.news_site_category_id', 5)
+            ->where('news_sites_master.articles_categories_id', 5)
             ->where('articles_table.deleted_at', null)
             ->orderBy('articles_table.id', 'DESC')
             ->get();

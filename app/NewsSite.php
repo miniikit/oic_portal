@@ -12,6 +12,6 @@ class NewsSite extends Model
 
     public function news_site_categories()
     {
-        return $this->hasMany('App\NewsSiteCategory','news_site_category_id');
+        return $this->hasMany('App\ArticleCategory','news_site_category_id');
     }
 }
