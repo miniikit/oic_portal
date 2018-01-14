@@ -177,14 +177,17 @@ class SQLService
     //いいね順に記事を取得
     public function getArticleLike()
     {
-        return $article = DB::table('articles_likes_table')
-            ->select(DB::raw('count(*) as count,article_id,articles_table.id,article_title,article_text,article_image,news_site_id,article_url,articles_table.deleted_at'))
-            ->join('articles_table', 'article_id', 'articles_table.id')
-            ->where('articles_table.deleted_at', null)
-            ->groupBy('article_id')
-            ->orderBy('count', 'desc')
-            ->limit(21)->get();
+         $article = DB::table('articles_likes_table')
+             ->join('articles_table', 'articles_likes_table.article_id', 'articles_table.id')
 
+
+             //->select(DB::raw('count(*) as count,article_id,articles_table.id,article_title,article_text,article_image,news_site_id,article_url,articles_table.deleted_at'))
+//            ->where('articles_table.deleted_at', null)
+            //->groupBy('article_id')
+            //->orderBy('count', 'desc')
+            //->limit(21)
+        ->get();
+        dd($article);
     }
 
     //IT系の記事を表示
