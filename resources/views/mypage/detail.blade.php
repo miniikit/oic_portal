@@ -66,6 +66,7 @@
             <div class="card hoverable">
               <div class="card-image">
                 <a href="{{ $article->article_url }}"><img src="{{ $article->article_image }}"></a>
+  {{--  ここにタグの実装  --}}<span class="ct-tag chip btn-floating halfway-fab circle blue-grey lighten-5">IT</span>
               </div>
             <div class="card-stacked">
               <a class="link-box" href="{{ $article->article_url }}"></a>
@@ -85,8 +86,7 @@
                   </div>
                 </div>
               </div>
-
-              <div class="card-action">
+              {{-- <div class="card-action">
                 <div class="tags">
                   <div class="chip">
                     IT
@@ -101,7 +101,7 @@
                     アニメーション
                   </div>
                 </div>
-              </div>
+              </div> --}}
               </div>
             </div>
             </div>

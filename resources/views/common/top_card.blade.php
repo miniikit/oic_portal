@@ -23,10 +23,11 @@
             {{ csrf_field() }}
             <select required="required" name="category" onchange="submit()">
                 <option value="" disabled>カテゴリ</option>
-            @foreach($categories as $category)
+                @foreach($categories as $category)
                     @if(isset($categoryId))
-                        @if($categoryId == $category->id)
-                            <option value="{{ $category->id }}" selected> {{ $category->articles_category_name }} </option>
+                        @if($categoryId === $category->id)
+                            <option value="{{ $category->id }}"
+                                    selected> {{ $category->articles_category_name }} </option>
                         @else
                             <option value="{{ $category->id }}"> {{ $category->articles_category_name }} </option>
                         @endif
@@ -45,6 +46,7 @@
                     <div class="card-wrapper">
                         <div class="card-image">
                             <a href="{{ $article->article_url }}"><img src="{{ $article->article_image }}"></a>
+  {{--  ここにタグの実装  --}} <span class="ct-tag chip btn-floating halfway-fab circle blue-grey lighten-5">IT</span>
                         </div>
                         <div class="card-stacked">
                             <a href="{{ $article->article_url }}"></a>
@@ -52,22 +54,15 @@
                                 <span class="card-title">{{ $article->article_title }}</span>
                                 <p class="card-text">{{ mb_strimwidth($article->article_text,0,132,"...") }}</p>
                             </div>
-                            <div class="card-action">
-                                <div class="tags">
-                                    <div class="chip">
-                                        IT
-                                    </div>
-                                    <div class="chip">
-                                        デザイン
-                                    </div>
-                                    <div class="chip">
-                                        映像
-                                    </div>
-                                    <div class="chip">
-                                        ゲーム
-                                    </div>
-                                </div>
-                            </div>
+                            {{--<div class="card-action">--}}
+                                {{--<div class="tags">--}}
+                                    {{--@if($article->news_site_category_name)--}}
+                                    {{--<div class="chip">--}}
+                                    {{--{{ $article->news_site_category_name }}--}}
+                                    {{--</div>--}}
+                                    {{--@endif--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
                         </div>
                     </div>
                 </div>

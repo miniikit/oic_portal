@@ -229,7 +229,6 @@ class ArticlesTableSeeder extends Seeder
             ]);
         }
 
-
         for ($i = 100; $i < 120; $i++) {
             DB::table('articles_table')->insert([
                 'article_title' => 'ユーザ記事',
@@ -263,6 +262,27 @@ class ArticlesTableSeeder extends Seeder
                 'article_url' => '/articles/user/' . $i,
                 'user_id' => rand(3,100),
                 'news_site_id' => null,
+                'articles_categories_id' => rand(1, 5),
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ]);
+        }
+
+
+        $urls = [
+            "http://gigazine.net/news/20180114-family-doesnt-feel-pain/",
+            "http://gigazine.net/news/20180114-lunar-gravity-simulation/",
+            "http://gigazine.net/news/20180113-spinnaker-million-arm-core/"
+        ];
+
+        for ($i = 0; $i < count($urls); $i++) {
+            DB::table('articles_table')->insert([
+                'article_title' => '記事' . $i,
+                'article_text' => '記事' . $i,
+                'article_image' => '/images/sample-' . rand(1, 6) . '.jpg',
+                'article_url' => $urls[$i],
+                'news_site_id' => 2,
+                'user_id' => null,
                 'articles_categories_id' => rand(1, 5),
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()

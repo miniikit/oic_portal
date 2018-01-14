@@ -30,7 +30,6 @@
                 <a href="/logout" onclick="event.preventDefault();document.getElementById('logout-form').submit();">ログアウト</a>
                 <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">{{ csrf_field() }}</form>
               </div>
-
             @endif
               <a href="#" data-activates="mobile-demo" class="left side-nav-btn button-collapse"><i class="material-icons">menu</i></a>
               <ul class="side-nav" id="mobile-demo">
@@ -51,8 +50,8 @@
                 </li>
                 <li><a href="{{ route('user_home') }}">トップ</a></li>
                 <li><a href="{{ route('user_mypage') }}">マイページ</a></li>
-                <li><a href="{{ route('user_article_write') }}">記事を投稿する</a></li>
-                <li><a href="{{ route('user_article_favoritelist') }}">お気に入り記事</a></li>
+                <li><a href="{{ route('user_article_write') }}">記事投稿</a></li>
+                <li><a href="{{ route('user_article_favoritelist') }}">お気に入り</a></li>
                 <li><a href="{{ route('user_community') }}">コミュニティ</a></li>
                 <li><a href="{{ route('user_event') }}">イベント</a></li>
                 <li><a href="{{ route('user_contact') }}">お問い合わせ</a></li>
@@ -70,8 +69,8 @@
               @else
                 <li class="tab_link active"><a href="{{ route('user_home') }}">ホーム</a></li>
                 <li class="tab_link"><a href="{{ route('user_mypage') }}">マイページ</a></li>
-                <li class="tab_link"><a href="{{ route('user_article_write') }}">記事を投稿する</a></li>
-                <li class="tab_link"><a href="{{ route('user_article_favoritelist') }}">お気に入り記事</a></li>
+                <li class="tab_link"><a href="{{ route('user_article_write') }}">記事投稿</a></li>
+                <li class="tab_link"><a href="{{ route('user_article_favoritelist') }}">お気に入り</a></li>
                 <li class="tab_link"><a href="{{ route('user_community') }}">コミュニティ</a></li>
                 <li class="tab_link"><a href="{{ route('user_event') }}">イベント</a></li>
                 <li class="tab_link"><a href="{{ route('user_contact') }}">お問い合わせ</a></li>

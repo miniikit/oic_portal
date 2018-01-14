@@ -34,8 +34,16 @@
 .fav-btn{
   padding-right: 0.5rem;
 }
+.us-box{
+  float: left;
+  padding: 5px;
+  display: inline-block;
+}
+.category-tag{
+  display: inline-block;
+}
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 991px) {
   #main {
     margin-top: 100px;
   }
@@ -43,13 +51,17 @@
     padding: 0.5rem;
   }
   .title {
-    font-size: 1.2em;
+    font-size: 1em;
+  }
+  .article-image{
+    margin-top: 30px;
   }
   .date_link .col {
     padding: 0;
   }
   .date_link {
     font-size: 0.5em;
+    margin-bottom: 10px;
   }
   .main-image {
     width: 10%;
@@ -84,10 +96,19 @@
   }
   .wap-comment{
     text-align: right;
-    padding: 0.5rem;
   }
   .comment-submit{
     font-size: 0.6em;
+  }
+  .quote-site{
+    margin-top: 50px;
+    padding: 0 0 0 2rem;
+    font-size: 0.5em;
+  }
+  .quote-url{
+    margin-top: 5px;
+    font-size: 0.5em;
+    padding: 0 0 1rem 2rem;
   }
 
   /* side-contents */
@@ -97,9 +118,20 @@
   .comment {
     margin-top: 15px;
   }
+  .card-images img{
+    display: block;
+    border-radius: 2px 2px 0 0;
+    position: relative;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+  }
+
 }
 
-@media only screen and (min-width: 601px) {
+@media only screen and (min-width: 992px) {
   .title{
     font-size: 2rem;
     margin: 40px 0;
@@ -115,6 +147,16 @@
     letter-spacing: 3px;
     line-height: 1.7em;
     font-size: 0.95em;
+  }
+  .quote-site{
+    margin-top: 50px;
+    padding: 0 0 0 2rem;
+    font-size: 0.5em;
+  }
+  .quote-url{
+    margin-top: 5px;
+    font-size: 0.5em;
+    padding: 0 0 1rem 2rem;
   }
   .side-contents-text {
     letter-spacing: 1px;
@@ -139,10 +181,11 @@
   /* comment area */
   .wap-comment{
     text-align: right;
-    padding: 0.5rem;
   }
   .comment-submit{
     font-size: 0.7em;
+    text-indent: none;
+    letter-spacing: none;
   }
 
   /* side-contents */
@@ -153,6 +196,16 @@
     padding: 10px;
   }
   .side {
+    width: 100%;
+  }
+  .card-images img{
+    display: block;
+    border-radius: 2px 2px 0 0;
+    position: relative;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
     width: 100%;
   }
 }

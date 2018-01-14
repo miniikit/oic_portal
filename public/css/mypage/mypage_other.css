@@ -1,6 +1,6 @@
 
 #main{
-  margin-top: 100px;
+  margin-top: 120px;
 }
 .tabs{
   background-color: none;
@@ -37,6 +37,7 @@
   .image{
     height: 100px;
     width: 100px;
+    margin-left: 75px;
   }
   .username h1{
     font-size: 25px;
@@ -94,6 +95,7 @@
   .image{
     height: 150px;
     width: 150px;
+    margin-left: 100px;
   }
   .profile{
     margin: 50px 0 50px 0;
