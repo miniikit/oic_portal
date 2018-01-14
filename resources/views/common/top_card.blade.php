@@ -44,6 +44,7 @@
                     <div class="card-wrapper">
                         <div class="card-image">
                             <a href="{{ $article->article_url }}"><img src="{{ $article->article_image }}"></a>
+{{--  ここにタグの実装  --}}   <span class="ct-tag chip btn-floating halfway-fab circle blue-grey lighten-5">IT</span>
                         </div>
                         <div class="card-stacked">
                             <a href="{{ $article->article_url }}"></a>
@@ -51,7 +52,7 @@
                                 <span class="card-title">{{ $article->article_title }}</span>
                                 <p class="card-text">{{ mb_strimwidth($article->article_text,0,132,"...") }}</p>
                             </div>
-                            <div class="card-action">
+                            {{-- <div class="card-action">
                                 <div class="tags">
                                     <div class="chip">
                                         IT
@@ -66,7 +67,7 @@
                                         ゲーム
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                 </div>

@@ -10,12 +10,13 @@
         <div class="profile col s12">
           <div class="profile-rap col s12 center">
             {{--  chat  --}}
-            <a class="chat-btn btn-floating waves-effect waves-light modal-trigger green" href="#modal2">
+            {{-- チャット実装 --}}
+            {{-- <a class="chat-btn btn-floating waves-effect waves-light modal-trigger green" href="#modal2">
               <i class="material-icons">chat</i>
             </a>
             <div id="modal2" class="modal modal-fixed-footer">
               @include('common.chat')
-            </div>
+            </div> --}}
 
             {{--  follow  --}}
             {{-- <img class="image circle" src="{{ $profile['profile_image'] }}" alt=""> --}}
@@ -107,18 +108,19 @@
 
       <div class="wap col s12">
         @foreach($articles as $article)
-          <div class="col s6">
+          <div class="col s4">
             <div class="card hoverable">
               <div class="card-image">
                 <a href="{{ $article->article_url }}"><img src="{{ $article->article_image }}"></a>
-                <span class="card-title">{{ $article->article_title }}</span>
+{{--  ここにタグの実装  --}}<span class="ct-tag chip btn-floating halfway-fab circle blue-grey lighten-5">IT</span>
               </div>
             <div class="card-stacked">
               <a href="{{ $article->article_image }}"></a>
               <div class="card-content">
+                <span class="card-title">{{ $article->article_title }}</span>
                 <p class="card-text">{{ $article->article_text }}</p>
               </div>
-              <div class="card-action">
+              {{-- <div class="card-action">
                 <div class="tags">
                   <div class="chip">
                     IT
@@ -133,16 +135,7 @@
                     アニメーション
                   </div>
                 </div>
-                {{-- カウンター 実装するか検討 --}}
-                {{-- <div class="counter">
-                  <i class="goodicon material-icons" id="counter">thumb_up</i>
-                  <label class="showcounter" for="counter">100</label>
-                </div>
-                <div class="counter">
-                  <i class="goodicon material-icons" id="counter">remove_red_eye</i>
-                  <label class="showcounter" for="counter">1000</label>
-                </div> --}}
-              </div>
+              </div> --}}
             </div>
             </div>
           </div>
