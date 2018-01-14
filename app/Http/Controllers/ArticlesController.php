@@ -12,6 +12,8 @@ use App\Article;
 use App\ArticleLike;
 use App\ArticleComment;
 use App\ArticleFavorite;
+use App\NewsSite;
+use App\NewsSiteCategory;
 
 
 class ArticlesController extends Controller
@@ -69,14 +71,37 @@ class ArticlesController extends Controller
     // 詳細
     public function detail($id)
     {
-        $userId = Auth::user()->id;
+        $article_model = app(Article::class);
         $article_comment_model = app(ArticleComment::class);
         $user_model = app(User::class);
         $profile_model = app(Profile::class);
+        $articles_likes_model = app(ArticleLike::class);
+        $articles_fav_model = app(ArticleFavorite::class);
+        $newssite_model = app(NewsSite::class);
+        $newssite_category_model = app(NewsSiteCategory::class);
+
+        /*
         $article = DB::table('articles_table')
             ->join('news_sites_master', 'news_sites_master.id', '=', 'articles_table.news_site_id')
             ->where('articles_table.id', $id)
             ->first();
+        */
+
+        $article = $article_model
+        ->where('id',$id)
+        ->first();
+
+        dd($article);
+
+        if($article->news_site_id !== null) {
+            $categoryId = $article->news_site_category_id;
+            $relatedArticles = DB::table('news_sites_master')
+                ->join('articles_table', 'articles_table.news_site_id', '=', 'news_sites_master.id')
+                ->where('news_sites_master.news_site_category_id', '=', $categoryId)
+                ->orderBy('articles_table.id', 'DESC')
+                ->limit(3)
+                ->get();
+        }
 
         /*
         $comments = DB::table('articles_comments_table')
@@ -92,9 +117,6 @@ class ArticlesController extends Controller
             ->orderBy('id','desc')
             ->get();
 
-        $getprofile_id = $user_model->where('id',$userId)->first();
-        $myprofile = $profile_model->where('id',$getprofile_id->profile_id)->first();
-
         foreach ($comments as $comment){
             $user_id = $comment->user_id;
             $profile = $profile_model->where('id',$user_id)->first();
@@ -103,23 +125,11 @@ class ArticlesController extends Controller
             $comment->profile_image = $profile->profile_image;
         }
 
-
-        $categoryId = $article->news_site_category_id;
-        $relatedArticles = DB::table('news_sites_master')
-            ->join('articles_table', 'articles_table.news_site_id', '=', 'news_sites_master.id')
-            ->where('news_sites_master.news_site_category_id', '=', $categoryId)
-            ->orderBy('articles_table.id', 'DESC')
-            ->limit(3)
-            ->get();
-
-        $articles_likes_model = app(ArticleLike::class);
-        $articles_fav_model = app(ArticleFavorite::class);
-
-        $like_ct = $articles_likes_model->where('article_id',$id)->get()->count();
-        $fav_ct = $articles_fav_model->where('article_id',$id)->get()->count();
-
         if(!Auth::guest()) {
             $userId = Auth::user()->id;
+
+            $getprofile_id = $user_model->where('id',$userId)->first();
+            $myprofile = $profile_model->where('id',$getprofile_id->profile_id)->first();
 
             $active_like = $articles_likes_model
                 ->where('user_id', $userId)
@@ -132,7 +142,8 @@ class ArticlesController extends Controller
                 ->first();
         }
 
-
+        $like_ct = $articles_likes_model->where('article_id',$id)->get()->count();
+        $fav_ct = $articles_fav_model->where('article_id',$id)->get()->count();
 
         return view('articles.detail', compact('article', 'id', 'comments', 'relatedArticles','like_ct','active_like','active_fav','fav_ct','myprofile'));
     }

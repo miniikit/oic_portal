@@ -26,7 +26,6 @@ Route::get('/', 'HomeController@index')->name('user_home');
 Route::get('/contact','ContactsController@show')->name('user_contact');
 Route::post('/contact/complete','ContactsController@complete')->name('user_contact_complete');
 
-
 /**
  * 記事
  */

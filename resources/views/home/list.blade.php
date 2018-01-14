@@ -17,13 +17,14 @@
     <div id="tab1" class="row">
         <form>
             <div class="input-field">
-                <input id="search1" class="center" type="search" required>
+                <input id="search1" class="center" type="search" name="keyword" placeholder="キーワード" required>
                 <label class="label-icon" for="search1"><i class="material-icons">search</i></label>
                 <i class="material-icons">close</i>
             </div>
         </form>
+
         <div class="sort-box input-field col s6">
-            <select>
+            <select name="sort" onChange="submit()">
                 <option value="" disabled selected>並び替え</option>
                 <option value="1">いいね順</option>
                 <option value="2">コメント順</option>
@@ -31,7 +32,7 @@
             </select>
         </div>
         <div class="sort-box input-field col s6">
-            <select>
+            <select name="junle" onChange="submit()">
                 <option value="" disabled selected>ジャンル</option>
                 <option value="1">情報処理IT</option>
                 <option value="2">ゲーム</option>
