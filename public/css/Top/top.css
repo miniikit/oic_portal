@@ -37,25 +37,3 @@ nav ul a{
   width: 100%;
   height: 100%;
 }
-@media only screen and (max-width: 992px) {
-  .tab_link{
-    display: none;
-  }
-}
-
-@media only screen and (min-width: 993px) {
-  .card-image img{
-    height: 200px;
-  }
-  .tab_link_drb{
-    display: none;
-  }
-}
-@media only screen and (min-width: 1200px) {
-  .card-image img{
-    height: 230px;
-  }
-  .tab_link_drb{
-    display: none;
-  }
-}
