@@ -24,6 +24,7 @@
 
             <div class="text-area">
                 <p class="main-contents-text">{{ $article->article_text }}</p>
+                <p class="quote-text">引用元：ここに引用元を表示</p>
             </div>
 
             <div class="border"></div>
