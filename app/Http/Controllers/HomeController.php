@@ -93,4 +93,33 @@ class HomeController extends Controller
 
     }
 
+    public function sort(Request $request)
+    {
+        $data = $request->all();
+
+        $article_its = $this->SQLService->getArticleIt();
+        $article_games = $this->SQLService->getArticleGame();
+        $article_designs = $this->SQLService->getArticleDesign();
+        $article_arts = $this->SQLService->getArticleArt();
+        $article_economys = $this->SQLService->getArticleEconomy();
+
+        if($data['sort'] == 1) {
+            //いいね数順
+            $articles = $this->SQLService->getArticleLike();
+        }else if($data['sort'] == 2){
+            //コメント数順
+            $articles = $this->SQLService->getArticleComment();
+        }else{
+            //閲覧数順
+            $articles = $this->SQLService->getArticle();
+        }
+
+        return view('home.list',compact('articles', 'article_like','article_its','article_games','article_designs','article_arts','article_economys'));
+    }
+
+    public function genre(Request $request)
+    {
+
+    }
+
 }

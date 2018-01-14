@@ -6,7 +6,7 @@
 
 @section('main')
   <div class="content">
-    <form class="col s10" method="POST" action="{{ url('/articles/user/post/complete') }}" enctype="multipart/form-data">
+    <form class="col s10" method="POST" action="{{ url('/articles/user/edit/complete') }}" enctype="multipart/form-data">
       {{ csrf_field() }}
       <div class="title-box">
         <p class="title">記事プレビュー</p>
@@ -32,6 +32,7 @@
           </div>
 
           <input type="hidden" name="category" value="{{ $data['category'] }}">
+          <input type="hidden" name="article_id" value="{{ $data['article_id'] }}">
 
           <div class="border"></div>
 
