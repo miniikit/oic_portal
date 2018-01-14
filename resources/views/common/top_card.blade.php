@@ -7,22 +7,25 @@
         </div>
     </form>
     <div class="sort-box input-field col s6">
-        <select>
-            <option value="" disabled selected>並び替え</option>
-            <option value="1">いいね順</option>
-            <option value="2">コメント順</option>
-            <option value="3">閲覧数順</option>
-        </select>
+        <form action="{{ route('user_sort') }}" method="post">
+            {{ csrf_field() }}
+            <select required="required" name="sort" onchange="submit()">
+                <option value="" disabled selected>並び替え</option>
+                <option value="1">いいね順</option>
+                <option value="2">コメント順</option>
+                <option value="3">閲覧数順</option>
+            </select>
+        </form>
     </div>
     <div class="sort-box input-field col s6">
-        <select>
-            <option value="" disabled selected>ジャンル</option>
-            <option value="1">新着ニュース</option>
-            <option value="2">IT・ビジネス系</option>
-            <option value="3">ゲーム系</option>
-            <option value="4">映像・CG・アニメーション</option>
-            <option value="5">デザイン・WEB系</option>
-        </select>
+        <form action="{{ route('user_genre') }}" method="post">
+            {{ csrf_field() }}
+            <select required="required" name="category" onchange="submit()">
+                @foreach($categories as $category)
+                        <option value="{{ $category->id }}" selected> {{ $category->articles_category_name }} </option>
+                @endforeach
+            </select>
+        </form>
     </div>
     <!-- article tab1 -->
     <div class="row">
@@ -33,30 +36,30 @@
                         <div class="card-image">
                             <a href="{{ $article->article_url }}"><img src="{{ $article->article_image }}"></a>
                         </div>
-                      <div class="card-stacked">
-                        <a href="{{ $article->article_url }}"></a>
-                        <div class="card-content">
-                            <span class="card-title">{{ $article->article_title }}</span>
-                            <p class="card-text">{{ mb_strimwidth($article->article_text,0,132,"...") }}</p>
-                        </div>
-                        <div class="card-action">
-                            <div class="tags">
-                                <div class="chip">
-                                    IT
-                                </div>
-                                <div class="chip">
-                                    デザイン
-                                </div>
-                                <div class="chip">
-                                  映像
-                                </div>
-                                <div class="chip">
-                                  ゲーム
+                        <div class="card-stacked">
+                            <a href="{{ $article->article_url }}"></a>
+                            <div class="card-content">
+                                <span class="card-title">{{ $article->article_title }}</span>
+                                <p class="card-text">{{ mb_strimwidth($article->article_text,0,132,"...") }}</p>
+                            </div>
+                            <div class="card-action">
+                                <div class="tags">
+                                    <div class="chip">
+                                        IT
+                                    </div>
+                                    <div class="chip">
+                                        デザイン
+                                    </div>
+                                    <div class="chip">
+                                        映像
+                                    </div>
+                                    <div class="chip">
+                                        ゲーム
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                  </div>
                 </div>
             </div>
         @endforeach
