@@ -138,6 +138,11 @@
     line-height: 1.7em;
     font-size: 0.95em;
   }
+  .quote-text{
+    margin-top: 50px;
+    padding: 2rem;
+    font-size: 0.5em;
+  }
   .side-contents-text {
     letter-spacing: 1px;
     font-size: 0.9em;
