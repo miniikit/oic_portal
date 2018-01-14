@@ -36,62 +36,6 @@ class HomeController extends Controller
         return view('home.list', compact('articles', 'article_like','article_its','article_games','article_designs','article_arts','article_economys'));
     }
 
-    public function it()
-    {
-      $articles = $this->SQLService->getArticle();
-      $article_like = $this->SQLService->getArticleLike();
-      $article_its = $this->SQLService->getArticleIt();
-      $article_games = $this->SQLService->getArticleGame();
-      $article_designs = $this->SQLService->getArticleDesign();
-      $article_arts = $this->SQLService->getArticleArt();
-      $article_economys = $this->SQLService->getArticleEconomy();
-
-
-      return view('home.list_it', compact('articles', 'article_like','article_its','article_games','article_designs','article_arts','article_economys'));
-
-    }
-    public function game()
-    {
-      $articles = $this->SQLService->getArticle();
-      $article_like = $this->SQLService->getArticleLike();
-      $article_its = $this->SQLService->getArticleIt();
-      $article_games = $this->SQLService->getArticleGame();
-      $article_designs = $this->SQLService->getArticleDesign();
-      $article_arts = $this->SQLService->getArticleArt();
-      $article_economys = $this->SQLService->getArticleEconomy();
-
-
-      return view('home.list_game', compact('articles', 'article_like','article_its','article_games','article_designs','article_arts','article_economys'));
-
-    }
-    public function movie()
-    {
-      $articles = $this->SQLService->getArticle();
-      $article_like = $this->SQLService->getArticleLike();
-      $article_its = $this->SQLService->getArticleIt();
-      $article_games = $this->SQLService->getArticleGame();
-      $article_designs = $this->SQLService->getArticleDesign();
-      $article_arts = $this->SQLService->getArticleArt();
-      $article_economys = $this->SQLService->getArticleEconomy();
-
-
-      return view('home.list_movie', compact('articles', 'article_like','article_its','article_games','article_designs','article_arts','article_economys'));
-
-    }
-    public function design()
-    {
-      $articles = $this->SQLService->getArticle();
-      $article_like = $this->SQLService->getArticleLike();
-      $article_its = $this->SQLService->getArticleIt();
-      $article_games = $this->SQLService->getArticleGame();
-      $article_designs = $this->SQLService->getArticleDesign();
-      $article_arts = $this->SQLService->getArticleArt();
-      $article_economys = $this->SQLService->getArticleEconomy();
-
-
-      return view('home.list_design', compact('articles', 'article_like','article_its','article_games','article_designs','article_arts','article_economys'));
-
-    }
 
     public function sort(Request $request)
     {

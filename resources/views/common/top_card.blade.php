@@ -17,10 +17,11 @@
     <div class="sort-box input-field col s6">
         <select>
             <option value="" disabled selected>ジャンル</option>
-            <option value="1">情報処理IT</option>
-            <option value="2">ゲーム</option>
-            <option value="3">CG・映像・アニメーション</option>
-            <option value="4">デザイン・Web</option>
+            <option value="1">新着ニュース</option>
+            <option value="2">IT・ビジネス系</option>
+            <option value="3">ゲーム系</option>
+            <option value="4">映像・CG・アニメーション</option>
+            <option value="5">デザイン・WEB系</option>
         </select>
     </div>
     <!-- article tab1 -->

@@ -32,7 +32,7 @@
               </div>
 
             @endif
-              <a href="#" data-activates="mobile-demo" class="left button-collapse"><i class="material-icons">menu</i></a>
+              <a href="#" data-activates="mobile-demo" class="left side-nav-btn button-collapse"><i class="material-icons">menu</i></a>
               <ul class="side-nav" id="mobile-demo">
                 <li>
                     @if(Auth::guest())
@@ -60,7 +60,24 @@
                @endif
             </ul>
         </div>
-        @yield('nav-tab')
+        <div class="nav-tab nav-wrapper">
+            <ul class="left">
+              @if(Auth::guest())
+                <li class="tab_link active"><a href="{{ route('user_home') }}">ホーム</a></li>
+                <li class="tab_link"><a href="{{ route('user_community') }}">コミュニティ</a></li>
+                <li class="tab_link"><a href="{{ route('user_event') }}">イベント</a></li>
+                <li class="tab_link"><a href="{{ route('user_contact') }}">お問い合わせ</a></li>
+              @else
+                <li class="tab_link active"><a href="{{ route('user_home') }}">ホーム</a></li>
+                <li class="tab_link"><a href="{{ route('user_mypage') }}">マイページ</a></li>
+                <li class="tab_link"><a href="{{ route('user_article_write') }}">記事を投稿する</a></li>
+                <li class="tab_link"><a href="{{ route('user_article_favoritelist') }}">お気に入り記事</a></li>
+                <li class="tab_link"><a href="{{ route('user_community') }}">コミュニティ</a></li>
+                <li class="tab_link"><a href="{{ route('user_event') }}">イベント</a></li>
+                <li class="tab_link"><a href="{{ route('user_contact') }}">お問い合わせ</a></li>
+               @endif
+            </ul>
+        </div>
     </nav>
 </header>
 <!--- メイン -->
