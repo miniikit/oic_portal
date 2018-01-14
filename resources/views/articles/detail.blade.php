@@ -24,7 +24,8 @@
 
             <div class="text-area">
                 <p class="main-contents-text">{{ $article->article_text }}</p>
-                <p class="quote-text">引用元：ここに引用元を表示</p>
+                <p class="quote-site">引用元サイト：ここに引用元サイトを表示</p>
+                <p class="quote-url">引用元URL：ここに引用元URLを表示</p>
             </div>
 
             <div class="border"></div>
@@ -87,8 +88,7 @@
                                 <input type="text" id="icon_prefix2" class="materialize-textarea" name="comment_text"
                                        size="50">
                                 <div class="wap-comment">
-                                    <input type="submit" value="コメント"
-                                           class="comment-submit waves-effect waves-light btn">
+                                    <button type="submit" class="comment-submit waves-effect waves-light btn" required>投稿</button>
                                 </div>
                                 {!! csrf_field() !!}
                             </form>
