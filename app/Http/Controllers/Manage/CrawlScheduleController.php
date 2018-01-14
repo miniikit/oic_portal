@@ -25,6 +25,7 @@ class CrawlScheduleController extends Controller
         $this->dispatch(new CheckNewArticles);
     }
 
+
     /**
      * ホーム画面　TODO : viewに値埋め込み、Service切り分け
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
@@ -38,35 +39,59 @@ class CrawlScheduleController extends Controller
         $tasks = $SQLService->getCrawlSchedules();
         $status = $this->crawlerScheduleService->check();
 
-        if($status === true){
+        if ($status === true) {
             $status_message = "実行中";
         } else {
             $status_message = "停止中";
         }
 
-        return view('manage.crawl.home',compact('tasks','status_message'));
+        return view('manage.crawl.home', compact('tasks', 'status_message'));
     }
 
+
+    // 手動実行
     public function execute(Request $request)
     {
-        if(!$request->has('execute') && $request->input('execute') == "execute"){
+        if (!$request->has('execute') && $request->input('execute') == "execute") {
             return redirect()->route('manager_crawl_home');
         }
 
         $SQLService = new SQLService();
         $result = $SQLService->addCrawler();
+
+        if($result){
+            // DB完了
+        } else {
+            // DB登録失敗
+        }
+
+        // 一時的
+        return redirect()->route('manager_crawl_home');
+
     }
 
+
+    // キャンセル
     public function cancel(Request $request)
     {
-        $data = $request->all();
-        if(!$request->has('cancel')){
+        if (!$request->has('cancel') && $request->input('cancel') == "cancel") {
             return redirect()->route('manager_crawl_home');
         }
 
+        $SQLService = new SQLService();
+        $result = $SQLService->cancelCrawler();
 
+        if($result){
+            // DB完了
+        } else {
+            // DB登録失敗
+        }
+
+        // 一時的
+        return redirect()->route('manager_crawl_home');
 
     }
+
 
     public function index()
     {
@@ -85,7 +110,7 @@ class CrawlScheduleController extends Controller
         // TODO : 画面埋め込み
         $task = $SQLService->getCrawlSchedule($id);
 
-        return view('manage.home',compact('id','task'));
+        return view('manage.home', compact('id', 'task'));
     }
 
     public function edit()
@@ -93,12 +118,12 @@ class CrawlScheduleController extends Controller
         return view('manage.home');
     }
 
-    public function update($id,Request $request)
+    public function update($id, Request $request)
     {
         //dd($id,$request->all());
     }
 
-    public function delete($id,Request $request)
+    public function delete($id, Request $request)
     {
         //dd($id,$request->all());
     }

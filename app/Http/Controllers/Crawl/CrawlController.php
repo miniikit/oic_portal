@@ -39,6 +39,7 @@ class CrawlController extends Controller
     }
 
     // 1/12作りかけ
+
     public function getOneSiteNewArticle($site_id)
     {
         $SQLService = new SQLService();
@@ -59,14 +60,11 @@ class CrawlController extends Controller
     }
 
 
-
-
     public function getLists()
     {
 
         $SQLService = new SQLService();
         $sites = $SQLService->getAllSites();
-
 
         foreach ($sites as $site) {
 
@@ -88,7 +86,7 @@ class CrawlController extends Controller
             // サイトに更新があるか確認
             $latest_2_article_urls = $this->crawlService->getLatest2ArticleUrlByDB($site_id);
             //$latest_article_url = "http://gigazine.net/news/20171128-dennys-cheese-dak-galbi/";
-            //dd($latest_2_article_urls);
+            dd($latest_2_article_urls);
 
             // $urlsの中にDBの最終URLが含まれているか確認
             if(in_array($latest_2_article_urls[0]->article_url,$urls)){

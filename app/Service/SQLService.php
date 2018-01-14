@@ -68,11 +68,36 @@ class SQLService
         return DB::table('crawler_schedule_table')->insert([
             'crawl_start_time' => $now,
             'crawl_end_time' => null,
-            'crawl_status_id' => 1, // 予約中
+            'crawl_status_id' => 2, // 予約中
             'added_articles_count' => 0,
             'user_id' => $userId,
             'created_at' => $now
         ]);
+    }
+
+    /**
+     * クローラースケジュールをキャンセル
+     * @return bool
+     */
+    public function cancelCrawler()
+    {
+        $now = Carbon::now();
+        $userId = Auth::user()->id;
+
+        $status = DB::table('crawler_schedule_table')->where('crawl_status_id',2)->get();
+
+        if(count($status) > 0){
+            DB::table('crawler_schedule_table')->where('crawl_status_id',2)->update([
+                'crawl_end_time' => $now,
+                'crawl_status_id' => 4, // キャンセル
+                'user_id' => $userId,
+                'updated_at' => $now
+            ]);
+
+            return true;
+        } else {
+            return false;
+        }
     }
 
 
