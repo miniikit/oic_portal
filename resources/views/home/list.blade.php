@@ -3,17 +3,27 @@
     <link rel="stylesheet" href="/css/top/top.css">
 @endsection
 @section('nav-tab')
-    <div class="nav-content">
-        <ul class="tabs tabs-transparent">
-            <li class="tab"><a class="active" href="#tab1">新着ニュース</a></li>
-            <li class="tab"><a href="#tab2">IT・ビジネス系</a></li>
-            <li class="tab"><a href="#tab3">ゲーム系</a></li>
-            <li class="tab"><a href="#tab4">映像・CG・アニメーション</a></li>
-            <li class="tab"><a href="#tab5">デザイン・WEB系</a></li>
+    <div class="nav-wrapper">
+        <ul class="left">
+            <li class="tab_link active"><a href="{{ route('user_home') }}">新着ニュース</a></li>
+            <li class="tab_link"><a href="{{ route('user_it') }}">IT・ビジネス系</a></li>
+            <li class="tab_link"><a href="{{ route('user_game') }}">ゲーム系</a></li>
+            <li class="tab_link"><a href="{{ route('user_movie') }}">映像・CG・アニメーション</a></li>
+            <li class="tab_link"><a href="{{ route('user_design') }}">デザイン・WEB系</a></li>
+            <li class="tab_link_drb"><a class="dropdown-button" href="#!" data-activates="dropdown1">表示する記事ジャンルを選択<i class="material-icons right">arrow_drop_down</i></a></li>
+        </ul>
+
+        <ul id="dropdown1" class="dropdown-content">
+          <li class="active"><a href="{{ route('user_home') }}">新着ニュース</a></li>
+          <li><a href="{{ route('user_it') }}">IT・ビジネス系</a></li>
+          <li><a href="{{ route('user_game') }}">ゲーム系</a></li>
+          <li><a href="{{ route('user_movie') }}">映像・CG・アニメーション</a></li>
+          <li><a href="{{ route('user_design') }}">デザイン・WEB系</a></li>
         </ul>
     </div>
 @endsection
 @section('main')
+<<<<<<< HEAD
     <div id="tab1" class="row">
         <form>
             <div class="input-field">
@@ -396,6 +406,9 @@
             @endforeach
         </div>
     </div>
+=======
+  @include('common.top_card')
+>>>>>>> 7907a7f52f43d858f75f2462aeb151ddd385c052
 
 @endsection
 
@@ -406,5 +419,7 @@
         $(document).ready(function () {
             $('select').material_select();
         });
+
+        $(".dropdown-button").dropdown();
     </script>
 @endsection

@@ -4055,7 +4055,7 @@ nav .button-collapse i {
 nav .brand-logo {
   position: absolute;
   display: inline-block;
-  font-size: 2.1rem;
+  font-size: 25px;
   padding: 0
 }
 
@@ -4504,7 +4504,7 @@ small {
   transition: box-shadow .25s;
   transition: box-shadow .25s, -webkit-box-shadow .25s;
   padding: 24px;
-  margin: .5rem 0 1rem 0;
+  margin: 0rem 0 1rem 0;
   border-radius: 2px;
   background-color: #fff
 }
