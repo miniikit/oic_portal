@@ -1050,17 +1050,16 @@ class CrawlerScheduleTableSeeder extends Seeder
     public function run()
     {
         $max = 20;
-        $baseDate = Carbon::now()->subDay($max);
-        $count = -1;
+        $baseDate = Carbon::now()->subDay($max-4);
         $now = Carbon::now();
-        $yesterday = Carbon::yesterday();
+        $today = Carbon::today();
 
         $user = 0;
 
         DB::table('crawler_schedule_table')->delete();
         for ($i = 0; $i < $max; $i++) {
-            $date = $baseDate;
-            $date = $date->addDay(++$count);
+            $date = $baseDate->subHour();
+            $date = $date->addDay(1);
             $endDate = $date;
             $endDate = $endDate->addHour();
 
@@ -1072,7 +1071,7 @@ class CrawlerScheduleTableSeeder extends Seeder
             // 実行状態を指定
             if($date >= $now){  // 未来
                 $crawlerStatus = 1; // 予約
-            } else if($now >= $yesterday){   // 昨日〜現在
+            } else if($date >= $today){   // 本日
                 $crawlerStatus = 2;   // 実行中
             } else {
                 $crawlerStatus = rand(3,4); //完了、キャンセル
