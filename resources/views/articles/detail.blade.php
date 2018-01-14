@@ -88,8 +88,7 @@
                                 <input type="text" id="icon_prefix2" class="materialize-textarea" name="comment_text"
                                        size="50">
                                 <div class="wap-comment">
-                                    <input type="submit" value="コメント"
-                                           class="comment-submit waves-effect waves-light btn">
+                                    <button type="submit" class="comment-submit waves-effect waves-light btn" required>投稿</button>
                                 </div>
                                 {!! csrf_field() !!}
                             </form>
