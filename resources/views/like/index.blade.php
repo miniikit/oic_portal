@@ -26,16 +26,16 @@
                                 <div class="card-image">
                                     <a href="{{ $article_list->article_url }}"><img
                                                 src="{{ $article_list->article_image }}"></a>
+         {{--  ここにタグの実装  --}} <span class="ct-tag chip btn-floating halfway-fab circle blue-grey lighten-5">IT</span>
                                 </div>
                                 <div class="card-stacked">
-                                    <a href="{{ route('user_article_detail',1) }}"></a>
+                                    <a href="{{ $article_list->article_url }}"></a>
                                     <div class="card-content">
                                         <span class="card-title">{{ $article_list->article_title }}</span>
                                         <p class="card-text">{{ $article_list->article_text }}</p>
                                     </div>
                                     <div class="card-action">
-                                        <a href="{{ $article_list->article_url }}">続きを読む</a>
-                                        <div class="tags">
+                                        {{-- <div class="tags">
                                             <div class="chip">
                                                 IT
                                             </div>
@@ -48,17 +48,17 @@
                                             <div class="chip">
                                                 ゲーム
                                             </div>
-                                        </div>
-                                        {{--
+                                        </div> --}}
                                         <div class="chkbox">
-                                          <input type="checkbox" name="article" id="check{{ $i }}">
-                                          <label for="check{{ $i }}"></label>
-                                          --}}
+                                          <input type="checkbox" name="article" id="check{{ $article_lists }}">
+                                          <label for="check{{ $article_lists }}"></label>
+                                        </div>
+
                                     </div>
-                                </div>
                             </div>
                         </div>
                     </div>
+                  </div>
                 @endforeach
             @else{{-- 記事がない場合の処理--}}
                 <div>記事が存在しません</div>
@@ -97,7 +97,6 @@
             $('#edit-btn').click(function () {
                 $('#delete-btn').toggle();
                 $('.chkbox').toggle();
-                $('.chip').toggle();
             });
         });
     </script>
