@@ -28,6 +28,9 @@ Route::post('/sort','HomeController@sort')->name('user_sort');
 //ジャンルでソート
 Route::post('/genre','HomeController@genre')->name('user_genre');
 
+//検索
+Route::get('/search','HomeController@search')->name('user_search');
+
 
 // 問い合わせ
 Route::get('/contact','ContactsController@show')->name('user_contact');
@@ -140,7 +143,7 @@ Route::get('/community/new', 'CommunityController@make')->name('user_community_c
 // 新規作成-確認
 Route::post('/community/new/confirm', 'CommunityController@confirm')->name('user_community_create_confirm');
 // 新規作成-完了
-Route::post('/community/new/complete', 'CommunityController@comeplete')->name('user_community_create_complete');
+Route::post('/community/new/complete', 'CommunityController@complete')->name('user_community_create_complete');
 
 
 /**
@@ -148,10 +151,12 @@ Route::post('/community/new/complete', 'CommunityController@comeplete')->name('u
  */
 // 一覧
 Route::get('/event', 'EventController@index')->name('user_event');
+
+Route::get('/event/{id}/detail', 'EventController@detail')->name('user_event_detail');
 // 一覧(終了分)  TODO : URL考える
 Route::get('/event/kk', 'FakeController@index');
 // 詳細
-Route::get('/event/1000', 'EventController@show')->name('user_event_detail');
+//Route::get('/event/1000', 'EventController@show')->name('user_event_detail');
 
 // 更新
 Route::get('/event/1000/edit', 'EventController@edit')->name('user_event_edit');
@@ -163,10 +168,9 @@ Route::get('/event/1000/edit/complete', 'FakeController@edit');
 // 新規作成
 Route::get('/event/new', 'EventController@make')->name('user_event_create');
 // 新規作成-確認
-Route::get('/event/new/confirm', 'FakeController@make');
+Route::get('/event/new/confirm', 'EventController@make_confirm')->name('user_make_confirm');
 // 新規作成-完了   TODO : 関数名変更
-Route::get('/event/new/complete', 'FakeController@fake');
-
+Route::get('/event/new/complete', 'EventController@make_complete')->name('user_make_complete');
 
 
 /**

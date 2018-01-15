@@ -82,7 +82,7 @@ class RegisterController extends Controller
         ]);
 
         Mail::send('mail.register',compact('data'), function ($message) use ($request) {
-            $message->to($request->email, $request->name)->subject('会員登録完了');
+            $message->to(session('email'), $request->name)->subject('会員登録完了');
         });
 
         return view('auth.register.complete');

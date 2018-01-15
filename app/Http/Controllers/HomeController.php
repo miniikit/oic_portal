@@ -6,6 +6,7 @@ use App\Service\SQLService;
 use Illuminate\Http\Request;
 use App\Jobs\CheckNewArticles;
 use App\ArticleCategory;
+use App\Article;
 
 
 class HomeController extends Controller
@@ -86,6 +87,10 @@ class HomeController extends Controller
         }
 
         return view('home.list',compact('articles','categories','postCategory','categoryId'));
+    }
+
+    public function search(Request $request)
+    {
     }
 
 }

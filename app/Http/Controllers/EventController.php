@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Event;
 
 class EventController extends Controller
 {
@@ -32,7 +33,11 @@ class EventController extends Controller
 
     public function detail($id)
     {
-        return view('');
+        $event_model = app(Event::class);
+        $events = $event_model->where('id',$id)->first();
+
+        dd($events);
+        return view('event.detail');
     }
 
     public function show()

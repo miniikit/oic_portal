@@ -494,6 +494,7 @@ class CommunitiesTableSeeder extends Seeder
         for ($i = 1; $i < 50; $i++) {
             DB::table('communities_table')->insert([
                 'community_title' => '#test' . $i,
+                'community_image' => '/images/sample-' . rand(1, 6) . '.jpg',
                 'community_contents' => '#test' . $i,
                 'community_category_id' => rand(1, 3),
                 'created_at' => Carbon::now(),
