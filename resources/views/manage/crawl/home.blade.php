@@ -84,7 +84,7 @@
         <div class="col s12">
             <div class="log-area card-panel teal white center">
                 <h2 class="l-title">クローラーログ</h2>
-                    <table class="table">
+                    <table class="table-wrp">
                         <thead>
                         <tr>
                             <th class="tb-title">担当者</th>
@@ -98,7 +98,7 @@
                         <tbody>
                         <div class="log-a">
                             @foreach($tasks as $task)
-                                <tr data-href="{{ route('manager_event_detail',$task->crawler_id) }}" class="log-text">
+                                <tr data-href="{{ route('manager_crawl_detail',$task->crawler_id) }}" class="log-text">
                                     <td class="tb-text">{{ $task->name }}</td>
                                     <td class="tb-text">{{ date('Y年m月d日 H時i分' ,strtotime($task->crawl_start_time)) }}</td>
                                     @if(is_null($task->crawl_end_time))
@@ -135,6 +135,16 @@
                     ampmclickable: true, // make AM PM clickable
                     aftershow: function () {
                     } //Function for after opening timepicker
+                });
+
+                jQuery(function ($) {
+                    $('tr[data-href]').addClass('clickable')
+                        .click(function (e) {
+                            if (!$(e.target).is('a')) {
+                                window.location = $(e.target).closest('tr').data('href');
+                            }
+                            ;
+                        });
                 });
             </script>
 @endsection
