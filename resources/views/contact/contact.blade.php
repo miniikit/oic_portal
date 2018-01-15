@@ -6,8 +6,8 @@
 
 @section('main')
 
-<div class="title">
-  <p>お問い合わせ</p>
+<div class="page_title center-align">
+  <h1 class="title">お問い合わせ</h1>
 </div>
   <div class="content">
     <form role="form" id="contact_form" class="col s8" method="POST" action="{{ url('/contact/complete') }}">
@@ -31,7 +31,7 @@
         <button type="submit" class="submit-btn waves-effect waves-light btn">送信</button>
       </div>
     </form>
-      </div>
+  </div>
 
 
 

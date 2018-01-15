@@ -15,11 +15,18 @@ header{
   left: 0px;
   background-color: #fff;
 }
+
 nav a{
   color: darkgray;
 }
+nav ul a{
+  color: black;
+}
 .brand-logo{
   color: darkgray;
+  text-indent: 2px;
+  letter-spacing: 2px;
+  font-weight: bold;
 }
 @media only screen and (min-width: 0px) and (max-width: 600px){
   nav .brand-logo{
@@ -73,7 +80,7 @@ nav a{
   }
   #main{
     min-height: 100%;
-    margin-top: 140px;
+    margin-top: 200px;
     margin-bottom: -50px;
   }
   @media only screen and (max-width: 600px){
@@ -83,6 +90,28 @@ nav a{
   }
   .push{
     height: 20px;
+  }
+  @media only screen and (max-width: 992px) {
+    .nav-tab{
+      display: none;
+    }
+  }
+
+  @media only screen and (min-width: 993px) {
+    .card-image img{
+      height: 200px;
+    }
+    .side-nav-btn{
+      display: none;
+    }
+  }
+  @media only screen and (min-width: 1200px) {
+    .card-image img{
+      height: 230px;
+    }
+    .side-nav-btn{
+      display: none;
+    }
   }
 
 

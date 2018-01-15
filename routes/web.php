@@ -22,41 +22,47 @@ use App\Events\MessagePosted;
 // ホーム
 Route::get('/', 'HomeController@index')->name('user_home');
 
+//ソート
+Route::post('/sort','HomeController@sort')->name('user_sort');
+
+//ジャンルでソート
+Route::post('/genre','HomeController@genre')->name('user_genre');
+
+
 // 問い合わせ
 Route::get('/contact','ContactsController@show')->name('user_contact');
 Route::post('/contact/complete','ContactsController@complete')->name('user_contact_complete');
-
 
 /**
  * 記事
  */
 // 投稿
-Route::get('/articles/post', 'ArticlesController@write')->name('user_article_write');
+Route::get('/articles/user/post', 'ArticlesController@write')->name('user_article_write');
 // 確認
-Route::post('/articles/confirm', 'ArticlesController@confirm')->name('user_article_post_confirm');
+Route::post('/articles/user/confirm', 'ArticlesController@confirm')->name('user_article_post_confirm');
 // 完了
-Route::post('/articles/post/complete', 'ArticlesController@complete')->name('user_article_post_complete');
+Route::post('/articles/user/post/complete', 'ArticlesController@complete')->name('user_article_post_complete');
 
 // 一覧
-Route::get('/articles/index', 'ArticleController@index')->name('user_article_list');
+//Route::get('/articles/index', 'ArticleController@index')->name('user_article_list');
 // 詳細
-Route::get('/articles/{id}', 'ArticlesController@detail')->name('user_article_detail');
+Route::get('/articles/user/{id}', 'ArticlesController@detail')->name('user_article_detail');
 // 編集
-Route::get('/articles/{id}/edit', 'ArticlesController@edit')->name('user_article_edit');
-Route::get('/articles/{id}/delete', 'ArticlesController@delete')->name('user_article_delete');
-Route::post('/articles/edit/confirm','ArticlesController@edit_confirm')->name('user_article_edit_confirm');
-Route::post('/articles/edit/complete','ArticlesController@edit_complete')->name('user_article_edit_complete');
+Route::get('/articles/user/{id}/edit', 'ArticlesController@edit')->name('user_article_edit');
+Route::get('/articles/user/{id}/delete', 'ArticlesController@delete')->name('user_article_delete');
+Route::post('/articles/user/edit/confirm','ArticlesController@edit_confirm')->name('user_article_edit_confirm');
+Route::post('/articles/user/edit/complete','ArticlesController@edit_complete')->name('user_article_edit_complete');
 // コメント投稿
-Route::post('/articles/{article_id}/comment', 'ArticlesController@store')->name('user_article_comment');
+Route::post('/articles/user/{article_id}/comment', 'ArticlesController@store')->name('user_article_comment');
 
 //お気に入り
-Route::get('/favlist','ArticlesLikesController@index')->name('user_article_favlist');
-Route::get('/articles/{id}/fav', 'ArticlesLikesController@fav')->name('user_article_fav');
-Route::get('/articles/{id}/unfav', 'ArticlesLikesController@Unfav')->name('user_article_unfav');
+Route::get('/user/favorite/list','ArticlesLikesController@index')->name('user_article_favoritelist');
+Route::get('/articles/user/{id}/favorite', 'ArticlesLikesController@favorite')->name('user_article_favorite');
+Route::get('/articles/user/{id}/unfavorite', 'ArticlesLikesController@Unfavorite')->name('user_article_unfavorite');
 
 // いいね
-Route::get('/articles/{id}/like', 'ArticlesLikesController@like')->name('user_article_like');
-Route::get('/articles/{id}/unlike', 'ArticlesLikesController@UnLike')->name('user_article_unlike');
+Route::get('/articles/user/{id}/like', 'ArticlesLikesController@like')->name('user_article_like');
+Route::get('/articles/user/{id}/unlike', 'ArticlesLikesController@Unlike')->name('user_article_unlike');
 
 /**
  * 通報

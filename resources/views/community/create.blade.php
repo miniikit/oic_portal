@@ -29,7 +29,7 @@
     </div>
     <div class="row">
       <div class="input-field col s12">
-        <a class="btn-floating btn-large waves-effect waves-light" id="btn1"><i class="material-icons">add</i></a>
+        <a class="btn-floating waves-effect waves-light" id="btn1"><i class="material-icons">add</i></a>
           <div class="parent">
             <div id="hoge">
               <select>

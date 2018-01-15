@@ -29,6 +29,12 @@ Route::delete('/manage/report/{id}/delete', 'Manage\ReportsController@destroy')-
  */
 // ステータス *特殊画面
 Route::get('/manage/crawl/home', 'Manage\CrawlScheduleController@home')->name('manager_crawl_home');
+// 手動更新実行
+Route::post('/manage/crawl/execute','Manage\CrawlScheduleController@execute')->name('manager_crawl_form_execute');
+// 手動キャンセル
+Route::post('/manage/crawl/cancel','Manage\CrawlScheduleController@cancel')->name('manager_crawl_form_cancel');
+
+
 // 一覧
 Route::get('/manage/crawl', 'Manage\CrawlScheduleController@index')->name('manager_crawl_list');
 // 詳細

@@ -60,11 +60,12 @@ class LoginController extends Controller
     public function getGoogleAuthCallback()
     {
         //例外処理
-      try{
-        $getUser = Socialite::driver('google')->stateless()->user();
-      }catch (\Exception $e) {
-          return redirect()->route('user_home');
-      }
+        try {
+            $getUser = Socialite::driver('google')->stateless()->user();
+            session(['email' => $getUser->email ]); // 会員登録用に保持
+        } catch (\Exception $e) {
+            return redirect()->route('user_home');
+        }
 
         /*
         if(!str_contains($getUser->email,'@oic.jp')){
@@ -73,12 +74,12 @@ class LoginController extends Controller
         }
         */
 
-        $userModel = app( User::class );
-        $user = $userModel->where('email',$getUser->email)->first();
+        $userModel = app(User::class);
+        $user = $userModel->where('email', $getUser->email)->first();
 
-        if(!$user){
-            return view('auth.register',compact('getUser'));
-        }else{
+        if (!$user) {
+            return view('auth.register', compact('getUser'));
+        } else {
             Auth::loginUsingId($user->id);
             return redirect()->route('user_home');
         }

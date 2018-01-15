@@ -1,6 +1,10 @@
 
 /* main */
 
+nav ul a{
+  color: black;
+  font-size: 14px;
+}
 .card-text{
   letter-spacing: 1px;
   font-size: 0.95em;
@@ -16,12 +20,16 @@
   justify-content: space-between;
   align-items: center;
 }
+.card-content{
+  height: 175px;
+}
 .tags{
   display: flex;
 }
-.chip:first-child{
+.chip{
   margin-right: 8px;
 }
+
 .card-stacked a{
   display: block;
   position: absolute;

@@ -1,7 +1,4 @@
 
-#main{
-  margin-top: 100px;
-}
 .tabs{
   background-color: none;
 }
@@ -11,7 +8,7 @@
 .color{
   color: black;
 }
-.card-stacked a{
+.card-stacked .link-box{
   display: block;
   position: absolute;
   top: 0;
@@ -21,9 +18,6 @@
 }
 
 @media only screen and (max-width: 992px) {
-  /* .row .col.s6{
-    width: 100%;
-  } */
   .image{
     height: 100px;
     width: 100px;
@@ -67,8 +61,11 @@
   }
   .card-action{
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     align-items: center;
+  }
+  .card-action a{
+    margin-right: 10px;
   }
   .tags{
     display: flex;
@@ -124,8 +121,11 @@
   }
   .card-action{
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     align-items: center;
+  }
+  .card-action a{
+    margin-right: 10px;
   }
   .tags{
     display: flex;

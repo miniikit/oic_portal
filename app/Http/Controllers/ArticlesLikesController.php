@@ -23,6 +23,11 @@ class ArticlesLikesController extends Controller
           ->orderby('id','desc')
           ->get();
 
+      // お気に入り記事が存在しない場合
+      if(count($article_fav_lists) < 1) {
+        $article_lists = null;
+      }
+
       foreach ($article_fav_lists as $article_fav_list) {
           $article_fav_id = $article_fav_list->article_id;
           $article_lists = $article_model->where('id',$article_fav_id)->get();
@@ -46,7 +51,7 @@ class ArticlesLikesController extends Controller
       return redirect()->route('user_article_detail', ['id' => $id]);
   }
 
-    public function UnLike(Request $request,$id)
+    public function Unlike(Request $request,$id)
     {
         $articlelike_model = app(ArticleLike::class);
         $userId = Auth::user()->id;
@@ -63,7 +68,7 @@ class ArticlesLikesController extends Controller
         return redirect()->route('user_article_detail', ['id' => $id]);
     }
 
-    public function fav($id)
+    public function favorite($id)
     {
         $userId = Auth::user()->id;
         $article_fav_model = app(ArticleFavorite::class);
@@ -77,7 +82,7 @@ class ArticlesLikesController extends Controller
         return redirect()->route('user_article_detail', ['id' => $id]);
     }
 
-    public function Unfav($id)
+    public function Unfavorite($id)
     {
         $userId = Auth::user()->id;
         $article_fav_model = app(ArticleFavorite::class);
