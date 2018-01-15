@@ -24,7 +24,10 @@ nav a{
 }
 .brand-logo{
   color: darkgray;
-  margin-left: 10px;
+  margin-left: 25px;
+  font-weight: bold;
+  letter-spacing: -1px;
+  text-indent: -1px;
 }
 .bread-rap{
   margin-left: 2rem;
@@ -46,7 +49,7 @@ body{
 #main{
   min-height: 100%;
   margin-top: 80px;
-  margin-bottom: -50px;
+  margin-bottom: 50px;
 }
 
 @media only screen and (max-width: 600px) {

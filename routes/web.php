@@ -182,3 +182,4 @@ Route::post('/register/complete', 'Auth\RegisterController@complete')->name('use
 Route::get('/crawl', 'Crawl\CrawlController@getRss');
 Route::get('/crawl2', 'Crawl\CrawlController@getLists')->name('getImage');
 Route::get('/crawl/check', 'Crawl\CrawlController@customeCheck');
+Route::get('/crawl3/{site_id}','Crawl\CrawlController@getOneSiteNewArticle');

@@ -36,7 +36,7 @@
               <ul class="side-nav" id="mobile-demo">
                 <li>
                     @if(Auth::guest())
-                    <li><a href="{{ route('user_home') }}">トップ</a></li>
+                    <li><a href="{{ route('user_home') }}">ニュース</a></li>
                     <li><a href="{{ route('user_community') }}">コミュニティ</a></li>
                     <li><a href="{{ route('user_event') }}">イベント</a></li>
                     <li><a href="{{ route('user_contact') }}">お問い合わせ</a></li>

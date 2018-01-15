@@ -1,0 +1,10 @@
+
+/*  */
+
+input[type=text]:not(.browser-default){
+
+}
+
+.val-red{
+  border-bottom: 1px solid red;
+}
