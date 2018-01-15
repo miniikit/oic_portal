@@ -54,7 +54,7 @@ class ArticlesController extends Controller
             'article_image' => $data['article_image'],
             'article_text' => $data['article_text'],
             'news_site_id' => null,
-            'articles_categories_id' => $data['category'],
+            'article_category_id' => $data['category'],
             'article_url' => '/articles/user/' . Carbon::now(),
             'user_id' => $userId,
         ]);
@@ -92,10 +92,10 @@ class ArticlesController extends Controller
             ->where('id', $id)
             ->first();
 
-        $categoryId = $article->articles_categories_id;
+        $categoryId = $article->article_category_id;
         $relatedArticles = DB::table('news_sites_master')
             ->join('articles_table', 'articles_table.news_site_id', '=', 'news_sites_master.id')
-            ->where('news_sites_master.articles_categories_id', '=', $categoryId)
+            ->where('news_sites_master.article_category_id', '=', $categoryId)
             ->orderBy('articles_table.id', 'DESC')
             ->limit(3)
             ->get();
@@ -150,7 +150,7 @@ class ArticlesController extends Controller
     {
         $article = app(Article::class)->find($id);
         $categories = app(ArticleCategory::class)->get();
-        $article_category = app(ArticleCategory::class)->where('id',$article->articles_categories_id)->first();
+        $article_category = app(ArticleCategory::class)->where('id',$article->article_category_id)->first();
 
         return view('articles.edit', compact('article','article_category','categories'));
     }
