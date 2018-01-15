@@ -20,11 +20,16 @@
     <div class="sort-box input-field col s6">
         <form action="{{ route('user_genre') }}" method="post">
             {{ csrf_field() }}
+
             <select required="required" name="category" onchange="submit()">
-                <option value="" disabled>カテゴリ</option>
+                @if(isset($categoryId))
+                    <option value="" disabled>カテゴリ</option>
+                @else
+                    <option value="" selected disabled>カテゴリ</option>
+                @endif
                 @foreach($categories as $category)
                     @if(isset($categoryId))
-                        @if($categoryId === $category->id)
+                        @if($categoryId == $category->id)
                             <option value="{{ $category->id }}"
                                     selected> {{ $category->articles_category_name }} </option>
                         @else
@@ -45,7 +50,8 @@
                     <div class="card-wrapper">
                         <div class="card-image">
                             <a href="{{ $article->article_url }}"><img src="{{ $article->article_image }}"></a>
-  {{--  ここにタグの実装  --}} <span class="ct-tag chip btn-floating halfway-fab circle blue-grey lighten-5">IT</span>
+                            {{--  ここにタグの実装  --}} <span
+                                    class="ct-tag chip btn-floating halfway-fab circle blue-grey lighten-5">IT</span>
                         </div>
 
                         <div class="card-stacked">
@@ -58,13 +64,13 @@
 
                             {{-- TODO : 記事カテゴリ --}}
                             {{--<div class="card-action">--}}
-                                {{--<div class="tags">--}}
-                                    {{--@if($article->news_site_category_name)--}}
-                                    {{--<div class="chip">--}}
-                                    {{--{{ $article->news_site_category_name }}--}}
-                                    {{--</div>--}}
-                                    {{--@endif--}}
-                                {{--</div>--}}
+                            {{--<div class="tags">--}}
+                            {{--@if($article->news_site_category_name)--}}
+                            {{--<div class="chip">--}}
+                            {{--{{ $article->news_site_category_name }}--}}
+                            {{--</div>--}}
+                            {{--@endif--}}
+                            {{--</div>--}}
                             {{--</div>--}}
 
                         </div>
