@@ -189,13 +189,6 @@ Route::post('/logout', 'Auth\LoginController@logout')->name('user_logout');
 Route::post('/register/complete', 'Auth\RegisterController@complete')->name('user_register_complete');
 
 
-//管理者
-Route::get('/login/manage', 'Auth\AdminLoginController@getGoogleAuth');
-Route::get('/oauth_callback', 'Auth\AdminLoginController@getGoogleAuthCallback');
-
-//管理者 ログアウト
-Route::post('/logout', 'Auth\AdminLoginController@logout');
-
 
 /**
  * Crawler
