@@ -28,7 +28,6 @@ class CommunityController extends Controller
         return view('community.detail', compact('community'));
     }
 
-
     //作成
     public function make()
     {
