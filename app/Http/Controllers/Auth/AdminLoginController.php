@@ -11,7 +11,7 @@ use Socialite;
 
 class AdminLoginController extends Controller
 {
-    public function getGoogleAdAuth()
+    public function getGoogleAuth()
     {
         $scopes = [
             'https://www.googleapis.com/auth/plus.me',
@@ -26,9 +26,15 @@ class AdminLoginController extends Controller
 
     }
 
-    public function getGoogleAdAuthCallback()
+    public function getGoogleAuthCallback()
     {
-        $getUser = Socialite::driver('google')->user();
+        //例外処理
+        try {
+            $getUser = Socialite::driver('google')->stateless()->user();
+            session(['email' => $getUser->email ]); // 会員登録用に保持
+        } catch (\Exception $e) {
+            return redirect()->route('user_home');
+        }
 
         /*
         if(!str_contains($getUser->email,'@oic.jp')){
@@ -37,15 +43,14 @@ class AdminLoginController extends Controller
         }
         */
 
-        $userModel = app( User::class );
-        $user = $userModel->where('email',$getUser->email)->first();
+        $userModel = app(User::class);
+        $user = $userModel->where('email', $getUser->email)->first();
 
-        if(!$user){
-            return redirect('/register');
-        }else{
+        if (!$user) {
+            return redirect()->route('user_home');
+        } else {
             Auth::loginUsingId($user->id);
-            $user = Auth::user();
-            return redirect()->route('user_home',compact('user'));
+            return redirect()->route('manager_home');
         }
     }
 
