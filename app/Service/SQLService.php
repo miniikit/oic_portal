@@ -2,6 +2,7 @@
 
 namespace App\Service;
 
+use App\Community;
 use App\NewsSite;
 use App\ArticleCategory;
 use App\User;
@@ -268,10 +269,12 @@ class SQLService
     public function getArticleComment()
     {
         return $article = app(ArticleComment::class)
-            ->select(DB::raw('count(*) as count,article_id'))
+            ->join('articles_table', 'articles_comments_table.article_id', 'articles_table.id')
+            ->select(DB::raw('count(*) as count,article_id,articles_table.id,article_title,article_text,article_image,news_site_id,article_url,articles_table.deleted_at'))
             ->where('articles_table.deleted_at', null)
             ->groupBy('article_id')
             ->orderBy('count', 'desc')
+            ->limit(21)
             ->get();
     }
 
@@ -292,5 +295,14 @@ class SQLService
     public function getArticleWatch()
     {
 
+    }
+
+    //コミニュティ一覧を取得
+    public function getCommunity()
+    {
+        return $community = app(Community::class)
+            ->where('deleted_at',null)
+            ->orderBy('id','DESC')
+            ->get();
     }
 }

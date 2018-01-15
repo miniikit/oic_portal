@@ -143,7 +143,7 @@ Route::get('/community/new', 'CommunityController@make')->name('user_community_c
 // 新規作成-確認
 Route::post('/community/new/confirm', 'CommunityController@confirm')->name('user_community_create_confirm');
 // 新規作成-完了
-Route::post('/community/new/complete', 'CommunityController@comeplete')->name('user_community_create_complete');
+Route::post('/community/new/complete', 'CommunityController@complete')->name('user_community_create_complete');
 
 
 /**
