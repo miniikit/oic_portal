@@ -110,12 +110,12 @@ class CrawlScheduleController extends Controller
         // TODO : 画面埋め込み
         $task = $SQLService->getCrawlSchedule($id);
 
-        return view('manage.home', compact('id', 'task'));
+        return view('manage.crawl.detail', compact('id', 'task'));
     }
 
     public function edit()
     {
-        return view('manage.home');
+        return view('manage.crawl.edit');
     }
 
     public function update($id, Request $request)
