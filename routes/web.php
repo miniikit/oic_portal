@@ -151,10 +151,12 @@ Route::post('/community/new/complete', 'CommunityController@complete')->name('us
  */
 // 一覧
 Route::get('/event', 'EventController@index')->name('user_event');
+
+Route::get('/event/{id}/detail', 'EventController@detail')->name('user_event_detail');
 // 一覧(終了分)  TODO : URL考える
 Route::get('/event/kk', 'FakeController@index');
 // 詳細
-Route::get('/event/1000', 'EventController@show')->name('user_event_detail');
+//Route::get('/event/1000', 'EventController@show')->name('user_event_detail');
 
 // 更新
 Route::get('/event/1000/edit', 'EventController@edit')->name('user_event_edit');
@@ -166,10 +168,9 @@ Route::get('/event/1000/edit/complete', 'FakeController@edit');
 // 新規作成
 Route::get('/event/new', 'EventController@make')->name('user_event_create');
 // 新規作成-確認
-Route::get('/event/new/confirm', 'FakeController@make');
+Route::get('/event/new/confirm', 'EventController@make_confirm')->name('user_make_confirm');
 // 新規作成-完了   TODO : 関数名変更
-Route::get('/event/new/complete', 'FakeController@fake');
-
+Route::get('/event/new/complete', 'EventController@make_complete')->name('user_make_complete');
 
 
 /**
