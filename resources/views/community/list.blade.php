@@ -82,6 +82,7 @@
           </div>
         @endforeach
       </div>
+      <!--
       <div class="pager">
         <ul class="pagination">
           <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
@@ -91,6 +92,7 @@
           <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
         </ul>
       </div>
+      -->
   </div>
 
 @endsection
