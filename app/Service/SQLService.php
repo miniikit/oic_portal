@@ -21,16 +21,41 @@ class SQLService
      * 記事
      */
     // 記事挿入
-    public function insertArticle($title, $image, $text, $article_url, $site_id)
+    public function insertArticle($title, $image, $text, $article_url, $site_id, $category_id)
     {
-        return DB::table('articles_table')
-            ->insert([
+        $now = Carbon::now();
+
+        $id = DB::table('articles_table')
+            ->insertGetId([
                 'article_title' => $title,
                 'article_text' => $text,
                 'article_image' => $image,
+                'article_category_id' => $category_id,
                 'article_url' => $article_url,
-                'news_site_id' => $site_id
+                'news_site_id' => $site_id,
+                'created_at' => $now,
+                'updated_at' => $now
             ]);
+
+        if (count($id) > 0) {
+
+            return DB::table('articles_table')
+                ->where('id', $id)
+                ->update([
+                    'article_url' => '/articles/' . $id
+                ]);
+        } else {
+            return "error";
+        }
+
+
+    }
+
+    // ニュースサイトIDよりカテゴリIDを取得
+    public function getNewsSiteCategoryId($site_id)
+    {
+        $result = DB::table('news_sites_master')->where('id', $site_id)->whereNull('deleted_at')->select('id')->first();
+        return $result->id;
     }
 
     /*
@@ -84,10 +109,10 @@ class SQLService
         $now = Carbon::now();
         $userId = Auth::user()->id;
 
-        $status = DB::table('crawler_schedule_table')->where('crawl_status_id',2)->get();
+        $status = DB::table('crawler_schedule_table')->where('crawl_status_id', 2)->get();
 
-        if(count($status) > 0){
-            DB::table('crawler_schedule_table')->where('crawl_status_id',2)->update([
+        if (count($status) > 0) {
+            DB::table('crawler_schedule_table')->where('crawl_status_id', 2)->update([
                 'crawl_end_time' => $now,
                 'crawl_status_id' => 4, // キャンセル
                 'user_id' => $userId,

@@ -545,6 +545,7 @@ class NewsSitesMasterSeeder extends Seeder
         DB::table('news_sites_master')->delete();
 
         //ユーザ記事
+        /*
         DB::table('news_sites_master')->insert([
             'news_site_name' => 'User',
             'news_site_url' => 'User',
@@ -556,6 +557,7 @@ class NewsSitesMasterSeeder extends Seeder
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
+        */
 
         // GIGAZINE
         DB::table('news_sites_master')->insert([

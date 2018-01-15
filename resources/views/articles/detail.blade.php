@@ -38,7 +38,7 @@
                     </div>
                     <div class="category-tag tags">
                         <div class="chip">
-                            ユーザー
+                            ユーザ
                         </div>
                         {{-- <div class="chip">
                             IT
