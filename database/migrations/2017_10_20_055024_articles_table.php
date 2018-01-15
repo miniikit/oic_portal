@@ -22,7 +22,7 @@ class ArticlesTable extends Migration
             $table->text('article_url'); // 記事URL
             $table->integer('likes_count')->default(0); //Likeカウント
             $table->integer('user_id')->nullable();
-            $table->integer('articles_categories_id'); //カテゴリID
+            $table->integer('article_category_id'); //カテゴリID
             $table->timestamps();
             $table->softDeletes();
         });

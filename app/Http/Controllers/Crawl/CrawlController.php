@@ -82,11 +82,11 @@ class CrawlController extends Controller
             $urls = $this->crawlService->getLists($client, $url, $tag_for_url);
             $titles = $this->crawlService->getLists($client, $url, $tag_for_title);
 
-
+            /*
             // サイトに更新があるか確認
             $latest_2_article_urls = $this->crawlService->getLatest2ArticleUrlByDB($site_id);
             //$latest_article_url = "http://gigazine.net/news/20171128-dennys-cheese-dak-galbi/";
-            //dd($latest_2_article_urls);
+            dd($latest_2_article_urls);
 
 
             $a = \DB::table('articles_table')->where('news_site_id','=',2)->orderBy('id','desc')->limit(2)->select('articles_table.article_url')->get();
@@ -100,6 +100,9 @@ class CrawlController extends Controller
             } else {
                 //dd($latest_2_article_urls,"false",$urls);
             }
+            */
+
+
 
             for ($i = count($urls) - 1; $i > 0; $i--) {
                 // 記事取得

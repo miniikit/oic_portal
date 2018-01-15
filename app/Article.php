@@ -8,7 +8,7 @@ class Article extends Model
 {
     protected $table = 'articles_table';
     protected $fillable = [
-        'article_title','article_text','article_image','news_site_id','article_url','user_id','articles_categories_id'
+        'article_title','article_text','article_image','news_site_id','article_url','user_id','article_category_id'
     ];
 
     public function articlelikes()

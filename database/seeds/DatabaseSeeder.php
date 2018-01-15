@@ -223,7 +223,7 @@ class ArticlesTableSeeder extends Seeder
                 'article_url' => '/articles/' . $i,
                 'news_site_id' => rand(1, 20),
                 'user_id' => null,
-                'articles_categories_id' => rand(1, 5),
+                'article_category_id' => rand(1, 5),
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ]);
@@ -262,7 +262,7 @@ class ArticlesTableSeeder extends Seeder
                 'article_url' => '/articles/user/' . $i,
                 'user_id' => rand(3,100),
                 'news_site_id' => null,
-                'articles_categories_id' => rand(1, 5),
+                'article_category_id' => rand(1, 5),
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ]);
@@ -283,7 +283,7 @@ class ArticlesTableSeeder extends Seeder
                 'article_url' => $urls[$i],
                 'news_site_id' => 2,
                 'user_id' => null,
-                'articles_categories_id' => rand(1, 5),
+                'article_category_id' => rand(1, 5),
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ]);
@@ -552,7 +552,7 @@ class NewsSitesMasterSeeder extends Seeder
             'news_site_tag_url' => 'item link',
             'news_site_tag_text' => '.cntimage p',
             'news_site_tag_image' => '.cntimage img',
-            'articles_categories_id' => 1,
+            'article_category_id' => 1,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
@@ -565,7 +565,7 @@ class NewsSitesMasterSeeder extends Seeder
             'news_site_tag_url' => 'item link',
             'news_site_tag_text' => '.cntimage p',
             'news_site_tag_image' => '.cntimage img',
-            'articles_categories_id' => 1,
+            'article_category_id' => 1,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
@@ -578,7 +578,7 @@ class NewsSitesMasterSeeder extends Seeder
             'news_site_tag_url' => 'item link',
             'news_site_tag_text' => '.post-text p',
             'news_site_tag_image' => '.post-text img',
-            'articles_categories_id' => 1,
+            'article_category_id' => 1,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
@@ -591,7 +591,7 @@ class NewsSitesMasterSeeder extends Seeder
             'news_site_tag_url' => 'item link',
             'news_site_tag_text' => '.inner p',
             'news_site_tag_image' => '.inner img',
-            'articles_categories_id' => 1,
+            'article_category_id' => 1,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
@@ -604,7 +604,7 @@ class NewsSitesMasterSeeder extends Seeder
             'news_site_tag_url' => 'item link',
             'news_site_tag_text' => '.inner p',
             'news_site_tag_image' => '.inner img',
-            'articles_categories_id' => 1,
+            'article_category_id' => 1,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
@@ -617,7 +617,7 @@ class NewsSitesMasterSeeder extends Seeder
             'news_site_tag_url' => 'item link',
             'news_site_tag_text' => '.inner p',
             'news_site_tag_image' => '.inner img',
-            'articles_categories_id' => 1,
+            'article_category_id' => 1,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
@@ -630,7 +630,7 @@ class NewsSitesMasterSeeder extends Seeder
             'news_site_tag_url' => 'item link',
             'news_site_tag_text' => '.inner p',
             'news_site_tag_image' => '.inner img',
-            'articles_categories_id' => 1,
+            'article_category_id' => 1,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
@@ -643,7 +643,7 @@ class NewsSitesMasterSeeder extends Seeder
             'news_site_tag_url' => 'item link',
             'news_site_tag_text' => '.inner p',
             'news_site_tag_image' => '.inner img',
-            'articles_categories_id' => 1,
+            'article_category_id' => 1,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
@@ -656,7 +656,7 @@ class NewsSitesMasterSeeder extends Seeder
             'news_site_tag_url' => 'item link',
             'news_site_tag_text' => '.inner p',
             'news_site_tag_image' => '.inner img',
-            'articles_categories_id' => 1,
+            'article_category_id' => 1,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
@@ -669,7 +669,7 @@ class NewsSitesMasterSeeder extends Seeder
             'news_site_tag_url' => 'item link',
             'news_site_tag_text' => '.inner p',
             'news_site_tag_image' => '.inner img',
-            'articles_categories_id' => 1,
+            'article_category_id' => 1,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
@@ -682,7 +682,7 @@ class NewsSitesMasterSeeder extends Seeder
             'news_site_tag_url' => 'item link',
             'news_site_tag_text' => '.inner p',
             'news_site_tag_image' => '.inner img',
-            'articles_categories_id' => 1,
+            'article_category_id' => 1,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
@@ -695,7 +695,7 @@ class NewsSitesMasterSeeder extends Seeder
             'news_site_tag_url' => 'item link',
             'news_site_tag_text' => '.inner p',
             'news_site_tag_image' => '.inner img',
-            'articles_categories_id' => 1,
+            'article_category_id' => 1,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
@@ -708,7 +708,7 @@ class NewsSitesMasterSeeder extends Seeder
             'news_site_tag_url' => 'item link',
             'news_site_tag_text' => '.inner p',
             'news_site_tag_image' => '.inner img',
-            'articles_categories_id' => 5,
+            'article_category_id' => 5,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
@@ -721,7 +721,7 @@ class NewsSitesMasterSeeder extends Seeder
             'news_site_tag_url' => 'item link',
             'news_site_tag_text' => '.inner p',
             'news_site_tag_image' => '.inner img',
-            'articles_categories_id' => 5,
+            'article_category_id' => 5,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
@@ -734,7 +734,7 @@ class NewsSitesMasterSeeder extends Seeder
             'news_site_tag_url' => 'item link',
             'news_site_tag_text' => '.inner p',
             'news_site_tag_image' => '.inner img',
-            'articles_categories_id' => 5,
+            'article_category_id' => 5,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
@@ -747,7 +747,7 @@ class NewsSitesMasterSeeder extends Seeder
             'news_site_tag_url' => 'item link',
             'news_site_tag_text' => '.box-text',
             'news_site_tag_image' => '.text img',
-            'articles_categories_id' => 3,
+            'article_category_id' => 3,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
@@ -760,7 +760,7 @@ class NewsSitesMasterSeeder extends Seeder
             'news_site_tag_url' => 'item link',
             'news_site_tag_text' => '#entry-body p',
             'news_site_tag_image' => '#entry-body td img',
-            'articles_categories_id' => 2,
+            'article_category_id' => 2,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
@@ -773,7 +773,7 @@ class NewsSitesMasterSeeder extends Seeder
             'news_site_tag_url' => 'article a',
             'news_site_tag_text' => '.contents .w820 p',
             'news_site_tag_image' => '.contents .w820 p img',
-            'articles_categories_id' => 3,
+            'article_category_id' => 3,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
@@ -786,7 +786,7 @@ class NewsSitesMasterSeeder extends Seeder
             'news_site_tag_url' => 'article a',
             'news_site_tag_text' => 'span p',
             'news_site_tag_image' => '.cb-entry-header .cb-mask img',
-            'articles_categories_id' => 3,
+            'article_category_id' => 3,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
@@ -799,7 +799,7 @@ class NewsSitesMasterSeeder extends Seeder
             'news_site_tag_url' => 'article h1 a',
             'news_site_tag_text' => 'article p',
             'news_site_tag_image' => 'article img',
-            'articles_categories_id' => 1,
+            'article_category_id' => 1,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
@@ -812,7 +812,7 @@ class NewsSitesMasterSeeder extends Seeder
             'news_site_tag_url' => 'article a',
             'news_site_tag_text' => '.article-body p',
             'news_site_tag_image' => '.article-thum img',
-            'articles_categories_id' => 3,
+            'article_category_id' => 3,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
@@ -825,7 +825,7 @@ class NewsSitesMasterSeeder extends Seeder
             'news_site_tag_url' => 'li p a',
             'news_site_tag_text' => 'article .box p',
             'news_site_tag_image' => 'article .box a img',
-            'articles_categories_id' => 2,
+            'article_category_id' => 2,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
@@ -838,7 +838,7 @@ class NewsSitesMasterSeeder extends Seeder
             'news_site_tag_url' => 'article h2 a',
             'news_site_tag_text' => 'article p',
             'news_site_tag_image' => 'article img',
-            'articles_categories_id' => 3,
+            'article_category_id' => 3,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
@@ -851,7 +851,7 @@ class NewsSitesMasterSeeder extends Seeder
             'news_site_tag_url' => '.artMain h3 a',
             'news_site_tag_text' => 'article section p',
             'news_site_tag_image' => '',
-            'articles_categories_id' => 2,
+            'article_category_id' => 2,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
@@ -864,7 +864,7 @@ class NewsSitesMasterSeeder extends Seeder
             'news_site_tag_url' => 'section a.link',
             'news_site_tag_text' => 'main article',
             'news_site_tag_image' => '', //画像なし
-            'articles_categories_id' => 2,
+            'article_category_id' => 2,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
@@ -877,7 +877,7 @@ class NewsSitesMasterSeeder extends Seeder
             'news_site_tag_url' => 'cont_titbox h2 a',
             'news_site_tag_text' => '.cont_article p',
             'news_site_tag_image' => '.cont_article img',
-            'articles_categories_id' => 1,
+            'article_category_id' => 1,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
@@ -890,7 +890,7 @@ class NewsSitesMasterSeeder extends Seeder
             'news_site_tag_url' => 'ul .title a',
             'news_site_tag_text' => '.life p',
             'news_site_tag_image' => '.life img',
-            'articles_categories_id' => 5,
+            'article_category_id' => 5,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
@@ -903,7 +903,7 @@ class NewsSitesMasterSeeder extends Seeder
             'news_site_tag_url' => 'article .title a',
             'news_site_tag_text' => 'article',
             'news_site_tag_image' => 'article img',
-            'articles_categories_id' => 2,
+            'article_category_id' => 2,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
@@ -916,7 +916,7 @@ class NewsSitesMasterSeeder extends Seeder
             'news_site_tag_url' => '',
             'news_site_tag_text' => '',
             'news_site_tag_image' => '',
-            'articles_categories_id' => 1
+            'article_category_id' => 1
         ]);
         */
     }
