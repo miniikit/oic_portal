@@ -54,7 +54,7 @@
           <div class="col s12">
             <div class="change card hoverable horizontal">
                 <div class="card-image">
-                  <a href="{{ route('user_event_detail') }}"><img src="{{ $event->event_image }}"></a>
+                  <a href="{{ /event/{{ $event->id }}/detail }}"><img src="{{ $event->event_image }}"></a>
                 </div>
                 <div class="card-stacked">
                   <a href="{{ route('user_event_detail') }}"></a>

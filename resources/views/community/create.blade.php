@@ -13,35 +13,30 @@
   <form class="col s10" method="POST" action="{{route('user_community_create_confirm')}}" enctype="multipart/form-data">
     {{ csrf_field() }}
     <div class="input-field col s12">
-      <input placeholder="コミュニティー名" id="first_name" name="community_name" type="text" class="validate" required>
+      <input placeholder="コミュニティー名" id="first_name" name="community_title" type="text" class="validate" required>
       <label for="first_name">コミュニティー名</label>
     </div>
     <div class="input-field col s12">
-      <textarea id="textarea1" class="materialize-textarea" name="community_detail" data-length="50" required></textarea>
+      <textarea id="textarea1" class="materialize-textarea" name="community_contents" data-length="50" required></textarea>
       <label for="textarea1">コミュニティー内容</label>
     </div>
     <div class="file-field input-field">
-      <input type="file" name="community_image">
       <div class="file-path-wrapper">
-        <input class="file-path validate" type="text"  accept="images/*" placeholder="画像選択" required>
+        <input type="file" name="community_image">
+        <input class="file-path validate" type="text" name="community_image" accept="images/*" placeholder="画像選択" required>
         <label for="image">画像選択</label>
       </div>
     </div>
     <div class="row">
       <div class="input-field col s12">
-        <a class="btn-floating waves-effect waves-light" id="btn1"><i class="material-icons">add</i></a>
           <div class="parent">
             <div id="hoge">
-              <select>
+              <select name="community_category">
                 <option value='' disabled selected style='display:none;'>ジャンル</option>
-                <option value="" disabled selected></option>
-                <option value="1">すべて</option>
-                <option value="2">情報処理・IT</option>
-                <option value="3">ゲーム</option>
-                <option value="4">CG・映像・アニメーション</option>
-                <option value="5">デザイン・web</option>
+                <option value="1">趣味</option>
+                <option value="2">スポーツ</option>
+                <option value="3">勉強</option>
               </select>
-              <a class="d_b btn-floating btn-large waves-effect waves-light" id="btn2"><i class="material-icons">delete</i></a>
             </div>
           </div>
         </div>
