@@ -82,7 +82,7 @@
                         <th class="th-box">プロフィール画像</th>
                         <td class="td-box input-field imgInput">
                             <img id="preview" class="mb" src="{{ old('image',$user->profile_image) }}" alt="">
-                            <input type="file" id="getfile" name="event_image" value=""/>
+                            <input type="file" id="getfile" name="profile_image" value=""/>
                         </td>
                     </tr>
                     <tr>
@@ -128,33 +128,46 @@
             closeOnSelect: false // Close upon selecting a date,
         });
 
-        $(function () {
-            var setFileInput = $('.imgInput'),
-                setFileImg = $('.imgView');
-            setFileInput.each(function () {
-                var selfFile = $(this),
-                    selfInput = $(this).find('input[type=file]'),
-                    prevElm = selfFile.find(setFileImg),
-                    orgPass = prevElm.attr('src');
-                selfInput.change(function () {
-                    var file = $(this).prop('files')[0],
-                        fileRdr = new FileReader();
-                    if (!this.files.length) {
-                        prevElm.attr('src', orgPass);
-                        return;
-                    } else {
-                        if (!file.type.match('image.*')) {
-                            prevElm.attr('src', orgPass);
-                            return;
-                        } else {
-                            fileRdr.onload = function () {
-                                prevElm.attr('src', fileRdr.result);
-                            }
-                            fileRdr.readAsDataURL(file);
-                        }
-                    }
-                });
-            });
-        });
+        var file = document.querySelector('#getfile');
+        file.onchange = function () {
+            var fileList = file.files;
+            //読み込み
+            var reader = new FileReader();
+            reader.readAsDataURL(fileList[0]);
+            //読み込み後
+            reader.onload = function () {
+                document.querySelector('#preview').src = reader.result;
+            };
+        };
+
+
+        // $(function () {
+        //     var setFileInput = $('.imgInput'),
+        //         setFileImg = $('.imgView');
+        //     setFileInput.each(function () {
+        //         var selfFile = $(this),
+        //             selfInput = $(this).find('input[type=file]'),
+        //             prevElm = selfFile.find(setFileImg),
+        //             orgPass = prevElm.attr('src');
+        //         selfInput.change(function () {
+        //             var file = $(this).prop('files')[0],
+        //                 fileRdr = new FileReader();
+        //             if (!this.files.length) {
+        //                 prevElm.attr('src', orgPass);
+        //                 return;
+        //             } else {
+        //                 if (!file.type.match('image.*')) {
+        //                     prevElm.attr('src', orgPass);
+        //                     return;
+        //                 } else {
+        //                     fileRdr.onload = function () {
+        //                         prevElm.attr('src', fileRdr.result);
+        //                     }
+        //                     fileRdr.readAsDataURL(file);
+        //                 }
+        //             }
+        //         });
+        //     });
+        // });
     </script>
 @endsection
