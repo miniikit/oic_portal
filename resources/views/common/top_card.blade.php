@@ -47,12 +47,16 @@
                             <a href="{{ $article->article_url }}"><img src="{{ $article->article_image }}"></a>
   {{--  ここにタグの実装  --}} <span class="ct-tag chip btn-floating halfway-fab circle blue-grey lighten-5">IT</span>
                         </div>
+
                         <div class="card-stacked">
                             <a href="{{ $article->article_url }}"></a>
                             <div class="card-content">
                                 <span class="card-title">{{ $article->article_title }}</span>
-                                <p class="card-text">{{ mb_strimwidth($article->article_text,0,132,"...") }}</p>
+                                {{-- 記事内容--}}
+                                {{--<p class="card-text">{{ mb_strimwidth($article->article_text,0,132,"...") }}</p>--}}
                             </div>
+
+                            {{-- TODO : 記事カテゴリ --}}
                             {{--<div class="card-action">--}}
                                 {{--<div class="tags">--}}
                                     {{--@if($article->news_site_category_name)--}}
@@ -62,6 +66,7 @@
                                     {{--@endif--}}
                                 {{--</div>--}}
                             {{--</div>--}}
+
                         </div>
                     </div>
                 </div>
