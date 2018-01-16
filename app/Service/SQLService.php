@@ -22,7 +22,7 @@ class SQLService
      * 記事
      */
     // 記事挿入
-    public function insertArticle($title, $image, $text, $article_url, $site_id, $category_id)
+    public function insertArticle($title, $image, $text, $article_url, $original_url,$site_id, $category_id)
     {
         $now = Carbon::now();
 
@@ -33,6 +33,7 @@ class SQLService
                 'article_image' => $image,
                 'article_category_id' => $category_id,
                 'article_url' => $article_url,
+                'article_original_url' => $original_url,
                 'news_site_id' => $site_id,
                 'created_at' => $now,
                 'updated_at' => $now

@@ -23,8 +23,8 @@
 
             <div class="text-area">
                 <p class="main-contents-text">{{ $article->article_text }}</p>
-                <p class="quote-site">引用元サイト：ここに引用元サイトを表示</p>
-                <p class="quote-url">引用元URL：ここに引用元URLを表示</p>
+                <p class="quote-site">引用元サイト：{{ $newssite->news_site_name }}</p>
+                <p class="quote-url">引用元URL：{{ $article->article_original_url }}</p>
             </div>
 
             <div class="border"></div>
