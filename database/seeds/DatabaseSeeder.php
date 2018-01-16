@@ -213,11 +213,11 @@ class ArticlesTableSeeder extends Seeder
 {
     public function run()
     {
+        $articleTitle = ['LINE、仮想通貨による決済を導入か　Bloomberg報道','はやぶさ2、小惑星「リュウグウ」目指しエンジン始動　6月到着へ','英単語の問題を自動作成　ベネッセ、ソフトバンクらが実証研究へ','任天堂、コロプラを提訴　「白猫プロジェクト」特許侵害で差し止め・賠償請求','CES2018：Intel、49量子ビットの量子コンピュータ用チップ「Tangle Lake」の開発に成功','トヨタもAlexa採用　北米の一部モデルで','蛍のように光り、空中を飛び回るLED光源　東大などが開発','Adobe、Flash Playerの脆弱性に対処　悪用されれば情報流出の恐れ','Microsoft、1月の月例更新プログラムを公開　56件の脆弱性を修正','CES 2018：「Alexa」搭載カーチャージャー、Ankerが50ドルで発売へ'];
         DB::table('articles_table')->delete();
-
-        for ($i = 1; $i < 100; $i++) {
+        for ($i = 1; $i < 10; $i++) {
             DB::table('articles_table')->insert([
-                'article_title' => '記事' . $i,
+                'article_title' => $articleTitle[$i],
                 'article_text' => '記事' . $i,
                 'article_image' => '/images/sample-' . rand(1, 6) . '.jpg',
                 'article_url' => '/articles/' . $i,
