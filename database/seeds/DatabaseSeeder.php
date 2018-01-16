@@ -490,12 +490,16 @@ class CommunitiesTableSeeder extends Seeder
 {
     public function run()
     {
+        $titles = ["情報部","ゲーム部","Webデザイン部"];
+        $contents = ["システム開発や外部イベントなどに積極的に参加しています。","最新のゲーム技術を体験し、日々未来的なテーマを企画しています。","デザインについて日々取り組んでいます。"];
+
         DB::table('communities_table')->delete();
-        for ($i = 1; $i < 50; $i++) {
+        for ($i = 0; $i < count($titles); $i++) {
+            $int = $i +1;
             DB::table('communities_table')->insert([
-                'community_title' => '#test' . $i,
-                'community_image' => '/images/sample-' . rand(1, 6) . '.jpg',
-                'community_contents' => '#test' . $i,
+                'community_title' => $titles[$i],
+                'community_image' => '/images/community_images/sample-' . $int . '.jpg',
+                'community_contents' => $contents[$i],
                 'community_category_id' => rand(1, 3),
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
@@ -946,14 +950,15 @@ class EventsTableSeeder extends Seeder
     {
         $makermax = 5;
 
-        $eventTitle = ['#test1', '#test2', '#test3', '#test4', '#test5', '#test6', '#test7', '#test8', '#test9', '#test10'];
-        $eventTexts = ['#test1', '#test2', '#test3', '#test4', '#test5', '#test6', '#test7', '#test8', '#test9', '#test10'];
+        $eventTitle = ['プログラミング勉強会', 'デザイン勉強会', 'ネットワーク/インフラ技術を学ぼう!'];
+        $eventTexts = ['色々なプログラム言語を学ぼう', 'Adobeデザインツールを使用した勉強会を行います!', 'ネットワークエンジニア/インフラエンジニアが実際に使っている技術を体験していただきます。'];
         DB::table('events_table')->delete();
-        for ($i = 1; $i < 10; $i++) {
+        for ($i = 0; $i < count($eventTitle); $i++) {
+            $int = $i +1;
             DB::table('events_table')->insert([
                 'event_title' => $eventTitle[$i],
                 'event_text' => $eventTexts[$i],
-                'event_image' => '/images/sample-' . rand(1, 6) . '.jpg',
+                'event_image' => '/images/event_images/sample-' . $int . '.jpg',
                 'event_start_date_time' => Carbon::now(),
                 'event_end_date_time' => Carbon::now(),
                 'event_spot' => '大阪市内',

@@ -14,9 +14,11 @@
 
     <div class="row">
         <form class="edit" action="" method="post">
+            <!--
             <div class="edit-form col s12 right-align">
                 <a id="edit-btn" class="waves-effect waves-light btn">編集</a>
             </div>
+            -->
 
             @if(count($article_lists) > 0)
                 @foreach($article_lists as $article_list)

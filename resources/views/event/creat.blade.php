@@ -10,7 +10,7 @@
         <div class="page_title center-align">
             <h1 class="title">イベント作成</h1>
         </div>
-        <form class="col s10" action="{{route('')}}" method="post">
+        <form class="col s10" action="{{ route('user_make_complete') }}" method="post">
             <div class="input-field col s12">
                 <input placeholder="イベント名" id="first_name" name="event_name" type="text" class="validate">
                 <label for="first_name">イベント名</label>

@@ -60,6 +60,8 @@ Route::post('/articles/user/{article_id}/comment', 'ArticlesController@store')->
 
 //お気に入り
 Route::get('/user/favorite/list','ArticlesLikesController@index')->name('user_article_favoritelist');
+Route::get('/user/favorite/delete','ArticlesLikesController@deletefavorite')->name('user_article_favorite_delete');
+
 Route::get('/articles/user/{id}/favorite', 'ArticlesLikesController@favorite')->name('user_article_favorite');
 Route::get('/articles/user/{id}/unfavorite', 'ArticlesLikesController@Unfavorite')->name('user_article_unfavorite');
 
@@ -165,10 +167,9 @@ Route::get('/event/1000/edit/complete', 'FakeController@edit');
 
 // 新規作成
 Route::get('/event/new', 'EventController@make')->name('user_event_create');
-// 新規作成-確認
-Route::get('/event/new/confirm', 'EventController@make_confirm')->name('user_make_confirm');
+
 // 新規作成-完了   TODO : 関数名変更
-Route::get('/event/new/complete', 'EventController@make_complete')->name('user_make_complete');
+Route::post('/event/new/complete', 'EventController@make_complete')->name('user_make_complete');
 
 //イベント参加
 Route::get('/event/{id}/participants', 'EventController@Participants')->name('user_event_participant');

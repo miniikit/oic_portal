@@ -60,7 +60,7 @@
                   </div>
                   <div class="card-action">
                     <div class="join">
-                      <p>参加人数 ここに人数</p>
+                      <p>参加人数:20人</p>
                     </div>
                     <div class="tags">
                         <div class="chip">

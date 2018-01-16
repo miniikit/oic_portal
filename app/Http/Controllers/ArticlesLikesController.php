@@ -97,4 +97,21 @@ class ArticlesLikesController extends Controller
         Flash::success('記事をお気に入りから削除しました。');
         return redirect()->route('user_article_detail', ['id' => $id]);
     }
+
+    public function deletefavorite($id)
+    {
+        $userId = Auth::user()->id;
+        $article_fav_model = app(ArticleFavorite::class);
+
+        $active_fav = $article_fav_model
+            ->where('article_id',$id)
+            ->where('user_id',$userId)
+            ->first();
+
+        $active_fav->delete();
+
+        return redirect()->route('user_article_favoritelist');
+    }
+
+
 }
