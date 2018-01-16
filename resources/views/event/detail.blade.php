@@ -8,7 +8,7 @@
     @include('flash::message')
     <div class="main-panel row">
         <div class="date_link col s12">
-            <p class="date">{{ $event->created_at }}</p>
+            <p class="date">{{ date('m月d日', strtotime($event->created_at)) }}</p>
         </div>
 
         <div class="event-title">
