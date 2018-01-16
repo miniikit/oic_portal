@@ -47,7 +47,7 @@
                 </tr>
                 <tr>
                     <th class="th-box">作成日</th>
-                    <td class="td-box">{{ $community->created_at }}</td>
+                    <td class="td-box">{{ date('Y年m月d日', strtotime($community->created_at)) }}</td>
                 </tr>
                 </thead>
             </table>

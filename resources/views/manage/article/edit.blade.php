@@ -40,9 +40,9 @@
                     </tr>
                     <tr>
                         <th class="th-box">記事画像</th>
-                        <td class="td-box input-field">
-                            <input type="text" class="validate" name="articleImage"
-                                   value="{{ old('articleImage',$article->article_image) }}">
+                        <td class="td-box input-field imgInput">
+                          <img id="preview" class="mb" src="{{ old('article_image',$article->article_image) }}" alt="">
+                            <input type="file" id="getfile" class="validate" name="article_image" value="">
                         </td>
                     </tr>
                     <tr>
@@ -61,7 +61,7 @@
                     </tr>
                     <tr>
                         <th class="th-box">作成日</th>
-                        <td class="td-box">{{ date('m月d日', strtotime($article->created_at)) }}</td>
+                        <td class="td-box">{{ date('Y年m月d日', strtotime($article->created_at)) }}</td>
                     </tr>
                     </thead>
                 </table>
@@ -92,33 +92,45 @@
             closeOnSelect: false // Close upon selecting a date,
         });
 
-        $(function () {
-            var setFileInput = $('.imgInput'),
-                setFileImg = $('.imgView');
-            setFileInput.each(function () {
-                var selfFile = $(this),
-                    selfInput = $(this).find('input[type=file]'),
-                    prevElm = selfFile.find(setFileImg),
-                    orgPass = prevElm.attr('src');
-                selfInput.change(function () {
-                    var file = $(this).prop('files')[0],
-                        fileRdr = new FileReader();
-                    if (!this.files.length) {
-                        prevElm.attr('src', orgPass);
-                        return;
-                    } else {
-                        if (!file.type.match('image.*')) {
-                            prevElm.attr('src', orgPass);
-                            return;
-                        } else {
-                            fileRdr.onload = function () {
-                                prevElm.attr('src', fileRdr.result);
-                            }
-                            fileRdr.readAsDataURL(file);
-                        }
-                    }
-                });
-            });
-        });
+        var file = document.querySelector('#getfile');
+        file.onchange = function () {
+            var fileList = file.files;
+            //読み込み
+            var reader = new FileReader();
+            reader.readAsDataURL(fileList[0]);
+            //読み込み後
+            reader.onload = function () {
+                document.querySelector('#preview').src = reader.result;
+            };
+        };
+
+        // $(function () {
+        //     var setFileInput = $('.imgInput'),
+        //         setFileImg = $('.imgView');
+        //     setFileInput.each(function () {
+        //         var selfFile = $(this),
+        //             selfInput = $(this).find('input[type=file]'),
+        //             prevElm = selfFile.find(setFileImg),
+        //             orgPass = prevElm.attr('src');
+        //         selfInput.change(function () {
+        //             var file = $(this).prop('files')[0],
+        //                 fileRdr = new FileReader();
+        //             if (!this.files.length) {
+        //                 prevElm.attr('src', orgPass);
+        //                 return;
+        //             } else {
+        //                 if (!file.type.match('image.*')) {
+        //                     prevElm.attr('src', orgPass);
+        //                     return;
+        //                 } else {
+        //                     fileRdr.onload = function () {
+        //                         prevElm.attr('src', fileRdr.result);
+        //                     }
+        //                     fileRdr.readAsDataURL(file);
+        //                 }
+        //             }
+        //         });
+        //     });
+        // });
     </script>
 @endsection

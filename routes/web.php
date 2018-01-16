@@ -50,6 +50,8 @@ Route::post('/articles/user/post/complete', 'ArticlesController@complete')->name
 //Route::get('/articles/index', 'ArticleController@index')->name('user_article_list');
 // 詳細
 Route::get('/articles/user/{id}', 'ArticlesController@detail')->name('user_article_detail');
+Route::get('/articles/{id}', 'ArticlesController@detail')->name('user_article_detail');
+
 // 編集
 Route::get('/articles/user/{id}/edit', 'ArticlesController@edit')->name('user_article_edit');
 Route::get('/articles/user/{id}/delete', 'ArticlesController@delete')->name('user_article_delete');
