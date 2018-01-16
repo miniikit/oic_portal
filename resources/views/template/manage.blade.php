@@ -20,7 +20,7 @@
   <div class="navbar-fixed">
       <nav>
         <div class="nav-wrapper">
-         <a href="#" class="brand-logo">OIC-Portal</a>
+         <a href="{{ route('manager_home') }}" class="brand-logo">OIC-Portal</a>
          <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
          <ul id="nav-mobile" class="right hide-on-med-and-down">
            <li><a class="links" href="{{ route('manager_home') }}">ホーム</a></li>

@@ -954,12 +954,14 @@ class EventsTableSeeder extends Seeder
                 'event_title' => $eventTitle[$i],
                 'event_text' => $eventTexts[$i],
                 'event_image' => '/images/sample-' . rand(1, 6) . '.jpg',
+                'event_spot' => '',
                 'event_start_date_time' => Carbon::now(),
                 'event_end_date_time' => Carbon::now(),
                 'event_capacity' => rand(10, 500),
                 'event_maker_id' => rand(1, $makermax),
                 'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
+                'updated_at' => Carbon::now(),
+                'event_category_id' => rand(1,4)
             ]);
         }
     }
