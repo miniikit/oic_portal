@@ -1,6 +1,6 @@
 @extends('template/master')
 @section('css')
-    <link rel="stylesheet" href="/css/top/top.css">
+    <link rel="stylesheet" href="/css/Top/top.css">
 @endsection
 
 @section('main')
