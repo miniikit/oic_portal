@@ -17,7 +17,7 @@
       <label for="first_name">タイトル</label>
     </div>
       <div class="input-field col s12">
-        <textarea id="textarea1" class="materialize-textarea" name="article_text" data-length="120" required="required"></textarea>
+        <textarea id="textarea1" class="materialize-textarea" name="article_text" data-length="500" required="required"></textarea>
         <label for="textarea1">記事本文</label>
       </div>
       {{-- <div class="input-field col s12">
