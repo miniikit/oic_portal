@@ -27,7 +27,7 @@
            <li><a class="links" href="{{ route('manager_crawl_home') }}">クローラー管理</a></li>
            <li><a class="links" href="{{ route('manager_article_list') }}">記事管理</a></li>
            <li><a class="links" href="{{ route('manager_site_list') }}">サイト管理</a></li>
-           <li><a class="links" href="{{ route('manager_user_list') }}">ユーザー管理</a></li>
+           <li><a class="links" href="{{ route('manager_user_list') }}">ユーザ管理</a></li>
            <li><a class="links" href="{{ route('manager_event_list') }}">イベント管理</a></li>
            <li><a class="links" href="{{ route('manager_community_list') }}">コミュニティ管理</a></li>
          </ul>
@@ -36,7 +36,7 @@
            <li><a class="links" href="{{ route('manager_crawl_home') }}">クローラー管理</a></li>
            <li><a class="links" href="{{ route('manager_article_list') }}">記事管理</a></li>
            <li><a class="links" href="{{ route('manager_site_list') }}">サイト管理</a></li>
-           <li><a class="links" href="{{ route('manager_site_list') }}">ユーザー管理</a></li>
+           <li><a class="links" href="{{ route('manager_site_list') }}">ユーザ管理</a></li>
            <li><a class="links" href="{{ route('manager_event_list') }}">イベント管理</a></li>
            <li><a class="links" href="{{ route('manager_community_list') }}">コミュニティ管理</a></li>
          </ul>

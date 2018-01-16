@@ -10,8 +10,7 @@
 
         <div class="col s12 l9">
             <div class="date_link col s12">
-                <!--  TODO : null日付  !-->
-                <p>{{ $article->created_at }}</p>
+                <p>{{ date('Y年 m月 d日  H時i分' ,strtotime($article->created_at)) }}</p>
             </div>
 
             <div class="page-title">
@@ -38,7 +37,7 @@
                     </div>
                     <div class="category-tag tags">
                         <div class="chip">
-                            ユーザー
+                            ユーザ
                         </div>
                         {{-- <div class="chip">
                             IT
