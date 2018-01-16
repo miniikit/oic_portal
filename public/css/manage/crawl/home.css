@@ -37,3 +37,11 @@
   letter-spacing: 3px;
   border-bottom: 1px darkgray solid;
 }
+tr:hover{
+  background:#ccc
+}
+.table-wrp{
+  width: 100%;
+  height: 700px;
+  overflow: auto;
+}

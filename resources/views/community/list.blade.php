@@ -46,17 +46,17 @@
       </div>
 
       <div class="row">
-        @for ($i=1; $i < 7; $i++)
+          @foreach($communities as $community)
           <div class="com-card col s12">
             <div class="change card hoverable horizontal">
                 <div class="card-image">
-                  <a href="{{ route('user_community_detail',1) }}"><img src="/images/sample-{{ $i }}.jpg" class="cimg"></a>
+                  <a href="{{ route('user_community_detail',$community->id) }}"><img src="{{ $community->community_image }}" class="cimg"></a>
                 </div>
                 <div class="card-stacked">
-                  <a href="{{ route('user_community_detail',1) }}"></a>
+                  <a href="{{ route('user_community_detail',$community->id) }}"></a>
                   <div class="card-content">
-                    <span class="card-title">コミュニティ名</span>
-                    <p class="card-text">ここにコミュニティ情報の一部を表示ここにコミュニティー情報の一部を表示ここにコミュニティー情報の一部を表示ここにコミュニティー情報の一部を表示ここにコミュニティー情報の一部を表示ここにコミュニティー情報の一部を表示</p>
+                    <span class="card-title">{{ $community->community_title }}</span>
+                    <p class="card-text">{{ $community->community_contents }}</p>
                   </div>
                   <div class="card-action">
                     <div class="join">
@@ -80,8 +80,9 @@
                 </div>
             </div>
           </div>
-        @endfor
+        @endforeach
       </div>
+      <!--
       <div class="pager">
         <ul class="pagination">
           <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
@@ -91,6 +92,7 @@
           <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
         </ul>
       </div>
+      -->
   </div>
 
 @endsection
