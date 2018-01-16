@@ -99,7 +99,15 @@ class CrawlService
             return $results;
         });
 
-        return $image;
+        if(!is_array($image)){
+            return "error";
+        }
+
+        if(count($image) > 0){
+            return $image[0];
+        }
+
+        return "error";
     }
 
     /**
@@ -159,7 +167,35 @@ class CrawlService
 
         }
 
+    }
 
+    /**
+     * @param $urls : サイトから取得した新着記事集
+     * @param $site_id : ウェブサイトID (指定することでSQL速度向上
+     * @return array : 配列で返却
+     */
+    public function checkUrlInDB($urls,$site_id)
+    {
+        $new_urls = [];
+        $debug = [];
+        foreach($urls as $url) {
+            $isExsists = DB::table('articles_table')
+                    ->where('news_site_id',$site_id)
+                    ->where('article_url',$url)
+                ->first();
+
+            if($isExsists){
+                $debug[] = $url;
+            } else {
+                $new_urls[] = $url;
+            }
+        }
+
+//        $debug_sql = DB::table('articles_table')->where('news_site_id',2)->select('article_url')->get();
+        //return compact('new_urls');
+        return $new_urls;
+       // dd($debug,$new_urls,$debug_sql);
+   //     return compact('new_urls','debug');
 
     }
 

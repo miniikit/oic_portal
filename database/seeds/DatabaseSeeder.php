@@ -213,8 +213,8 @@ class ArticlesTableSeeder extends Seeder
 {
     public function run()
     {
-        //
         DB::table('articles_table')->delete();
+
         for ($i = 1; $i < 100; $i++) {
             DB::table('articles_table')->insert([
                 'article_title' => '記事' . $i,
@@ -550,6 +550,7 @@ class NewsSitesMasterSeeder extends Seeder
         DB::table('news_sites_master')->delete();
 
         //ユーザ記事
+        /*
         DB::table('news_sites_master')->insert([
             'news_site_name' => 'User',
             'news_site_url' => 'User',
@@ -561,6 +562,7 @@ class NewsSitesMasterSeeder extends Seeder
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
+        */
 
         // GIGAZINE
         DB::table('news_sites_master')->insert([
@@ -966,7 +968,7 @@ class EventsTableSeeder extends Seeder
                 'event_maker_id' => rand(1, $makermax),
                 'event_category_id' => rand(1,3),
                 'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
+                'updated_at' => Carbon::now(),
             ]);
         }
     }

@@ -14,7 +14,7 @@
         <div class="title-box center">
             <h1 class="title">各種通知</h1>
         </div>
-        <div class="col s12 m8 l8">
+        <div class="col s12">
             <div class="main-content">
                 {{-- ここにメインコンテンツ --}}
                 <div class="col s12">
@@ -54,15 +54,15 @@
             </div>
         </div>
 
-        <div class="col s12 m4 l4">
+        {{-- <div class="col s12 m4 l4">
             {{-- ここにグラフなどのコンテンツ --}}
-            <canvas id="Graph" width="400" height="400"></canvas>
+            {{-- <canvas id="Graph" width="400" height="400"></canvas>
 
             <div class="side-content card-panel teal">
             <span class="white-text">
             </span>
             </div>
-        </div>
+        </div>  --}}
     </div>
 @endsection
 

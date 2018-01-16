@@ -72,7 +72,7 @@
               <a class="link-box" href="{{ $article->article_url }}"></a>
               <div class="card-content">
                 <span class="card-title">{{ $article->article_title }}</span>
-                <p class="card-text">{{ $article->article_text }}</p>
+                <p class="card-text">{{ mb_strimwidth($article->article_text,0,132,"...") }}</p>
               </div>
               <div class="card-action">
                 <a href="{{ $article->article_url.'/edit' }}" class="btn-floating waves-effect waves-light green"><i class="material-icons">edit</i></a>
