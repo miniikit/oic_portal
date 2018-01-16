@@ -58,7 +58,7 @@
                         <div class="card-stacked">
                             <a href="{{ $article->article_url }}"></a>
                             <div class="card-content">
-                                <span class="card-title">{{ mb_strimwidth($article->article_title,0,100,"...") }}</span>
+                                <span class="card-title">{{ mb_strimwidth($article->article_title,0,60,"...") }}</span>
                                 {{-- 記事内容--}}
                                 {{--<p class="card-text">{{ mb_strimwidth($article->article_text,0,132,"...") }}</p>--}}
                             </div>
