@@ -92,6 +92,8 @@ class ArticlesController extends Controller
             ->where('id', $id)
             ->first();
 
+        $newssite = $newssite_model->where('id',$article->news_site_id)->first();
+
         $categoryId = $article->article_category_id;
         $relatedArticles = DB::table('news_sites_master')
             ->join('articles_table', 'articles_table.news_site_id', '=', 'news_sites_master.id')
@@ -142,7 +144,7 @@ class ArticlesController extends Controller
         $like_ct = $articles_likes_model->where('article_id', $id)->get()->count();
         $fav_ct = $articles_fav_model->where('article_id', $id)->get()->count();
 
-        return view('articles.detail', compact('article', 'id', 'comments', 'relatedArticles','like_ct','active_like','active_fav','fav_ct','myprofile'));
+        return view('articles.detail', compact('article', 'id', 'comments', 'relatedArticles','like_ct','active_like','active_fav','fav_ct','myprofile','newssite'));
     }
 
     // 編集

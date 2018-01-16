@@ -154,6 +154,7 @@ class CheckNewArticles implements ShouldQueue
                 // 本来 $title = $crawlService->getTitle($contents,$tag_for_title);
                 $image = $crawlService->getImages($contents, $tag_for_image);
                 $texts = $crawlService->getText($contents, $tag_for_text);
+                $original_url = $urls[$i];
 
                 // 配列から変数に変換
                 $resultText = "";
@@ -167,7 +168,7 @@ class CheckNewArticles implements ShouldQueue
 
                 // DB挿入
                 // $query = $SQL->insertArticle($title, $image[0], $resultText,$urls[$i], $site_id);
-                $query = $SQLService->insertArticle($title, $image, $resultText, $urls[$i], $site_id, $category_id);
+                $query = $SQLService->insertArticle($title, $image, $resultText, $urls[$i], $original_url ,$site_id, $category_id);
                 //dd(123);
             }
 
