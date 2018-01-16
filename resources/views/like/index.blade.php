@@ -32,7 +32,7 @@
                                     <a href="{{ $article_list->article_url }}"></a>
                                     <div class="card-content">
                                         <span class="card-title">{{ $article_list->article_title }}</span>
-                                        <p class="card-text">{{ $article_list->article_text }}</p>
+                                        {{-- <p class="card-text">{{ mb_strimwidth($article_list->article_text,0,132,"...") }}</p> --}}
                                     </div>
                                     <div class="card-action">
                                         {{-- <div class="tags">

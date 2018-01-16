@@ -24,10 +24,10 @@ nav a{
 }
 .brand-logo{
   color: darkgray;
-  margin-left: 25px;
+  text-indent: 2px;
+  letter-spacing: 2px;
   font-weight: bold;
-  letter-spacing: -1px;
-  text-indent: -1px;
+  margin-left: 10px;
 }
 .bread-rap{
   margin-left: 2rem;

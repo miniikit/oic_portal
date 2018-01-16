@@ -9,12 +9,26 @@
     <link rel="stylesheet" href="/css/common/materialize.min.css" media="screen,projection"/>
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="/css/common/fakeLoader.css">
     <link rel="stylesheet" href="/css/common/master.css" media="all" title="no title">
     <link rel="stylesheet" href="/css/common/reset.css" media="all" title="no title">
     @yield('css')
     @yield('plug')
 </head>
+
 <body>
+
+  <div id="fakeLoader"></div>
+  
+  {{-- <div id="loader-bg">
+    <div id="loading">
+      <div class="progress">
+        <div class="indeterminate"></div>
+      </div>
+    </div>
+  </div> --}}
+
+{{-- <div id="main-contents"> --}}
 
 <!--- ヘッダー -->
 <header>
@@ -99,11 +113,25 @@
     </div>
 </footer>
 
+{{-- </div> --}}
+
 <!--- Script -->
 <!--Import jQuery before materialize.js-->
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="/js/materialize.min.js"></script>
 <script type="text/javascript">
+
+      // $(function() {
+      // var h = $(window).height(); //ブラウザウィンドウの高さを取得
+      // $('#main-contents').css('display','none'); //初期状態ではメインコンテンツを非表示
+      // $('#loader-bg ,#loader').height(h).css('display','block'); //ウィンドウの高さに合わせでローディング画面を表示
+      // });
+      // $(window).load(function () {
+      // $('#loader-bg').delay(900).fadeOut(800); //$('#loader-bg').fadeOut(800);でも可
+      // $('#loader').delay(600).fadeOut(300); //$('#loader').fadeOut(300);でも可
+      // $('#main-contents').css('display', 'block'); // ページ読み込みが終わったらメインコンテンツを表示する
+      // });
+
     $('.button-collapse').sideNav({
         menuWidth: 300,
         edge: 'left',
