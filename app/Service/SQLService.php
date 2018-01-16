@@ -125,6 +125,46 @@ class SQLService
         }
     }
 
+    /**
+     * クローラーログを作成
+     * @param $news_site_id
+     * @param $schedule_id
+     * @return bool
+     */
+    public function addCrawlerLog($news_site_id,$schedule_id)
+    {
+        $now = Carbon::now();
+
+        return $result = DB::table('crawler_logs_table')->insert([
+            'news_site_id' => $news_site_id,
+            'schedule_id' => $schedule_id,
+            'status_id' => 1,   // 1実行中 ※通常0のところ、処理速度向上のため1
+            'created_at' => $now,
+            'updated_at' => $now
+        ]);
+    }
+
+    /**
+     * クローラーログ　アップデート
+     * @param $news_site_id
+     * @param $schedule_id
+     * @param $status_id
+     * @return bool
+     */
+    public function updateCrawlerLog($news_site_id,$schedule_id,$status_id)
+    {
+        $now = Carbon::now();
+
+        return $result = DB::table('crawler_logs_table')
+            ->where('')
+            ->update([
+            'news_site_id' => $news_site_id,
+            'schedule_id' => $schedule_id,
+            'status_id' => $status_id,  // 実行状況 0: 見実行 1: 実行中 2:完了 3:失敗
+            'updated_at' => $now
+        ]);
+    }
+
 
     /*
      * クローラー

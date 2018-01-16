@@ -28,33 +28,43 @@
         </div>
         <div class="col s6">
             <div class="schedule-set card-panel teal white center">
-                <form class="" action="index.html" method="post">
-                    <h2 class="s-title">スケジュール</h2>
+                <form action="{{ route('manager_crawl_form_start') }}" method="POST">
+                    <h2 class="s-title">監視開始</h2>
                     <div class="switch">
                         <label>
-                            Off
-                            <input type="checkbox">
+                            <input type="checkbox" name="execute" onchange="submit()">
                             <span class="lever"></span>
-                            On
                         </label>
                     </div>
-                    <div class="time-set col s6">
-                        <input type="text" class="timepicker" name="t-set" required>
-                        <label for="t-set">開始時刻の設定</label>
-                    </div>
-                    <div class="count-set col s6">
-                        <input type="time" class="timelist" name="c-set" list="data1">
-                        <datalist id="data1">
-                            <option value="00:30"></option>
-                            <option value="01:00"></option>
-                            <option value="02:00"></option>
-                            <option value="03:00"></option>
-                            <option value="04:00"></option>
-                            <option value="05:00"></option>
-                        </datalist>
-                        <label for="c-set">周期時間の設定</label>
-                    </div>
+                    {{ csrf_field() }}
                 </form>
+                {{--<form class="" action="index.html" method="post">--}}
+                    {{--<h2 class="s-title">スケジュール</h2>--}}
+                    {{--<div class="switch">--}}
+                        {{--<label>--}}
+                            {{--Off--}}
+                            {{--<input type="checkbox">--}}
+                            {{--<span class="lever"></span>--}}
+                            {{--On--}}
+                        {{--</label>--}}
+                    {{--</div>--}}
+                    {{--<div class="time-set col s6">--}}
+                        {{--<input type="text" class="timepicker" name="t-set" required>--}}
+                        {{--<label for="t-set">開始時刻の設定</label>--}}
+                    {{--</div>--}}
+                    {{--<div class="count-set col s6">--}}
+                        {{--<input type="time" class="timelist" name="c-set" list="data1">--}}
+                        {{--<datalist id="data1">--}}
+                            {{--<option value="00:30"></option>--}}
+                            {{--<option value="01:00"></option>--}}
+                            {{--<option value="02:00"></option>--}}
+                            {{--<option value="03:00"></option>--}}
+                            {{--<option value="04:00"></option>--}}
+                            {{--<option value="05:00"></option>--}}
+                        {{--</datalist>--}}
+                        {{--<label for="c-set">周期時間の設定</label>--}}
+                    {{--</div>--}}
+                {{--</form>--}}
             </div>
         </div>
         <div class="col s6">

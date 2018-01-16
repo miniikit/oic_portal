@@ -20,10 +20,11 @@ class CrawlScheduleController extends Controller
     }
 
 
-    public function start()
-    {
-        $this->dispatch(new CheckNewArticles);
-    }
+//    // TODO : 削除
+//    public function start()
+//    {
+//        $this->dispatch(new CheckNewArticles);
+//    }
 
 
     /**
@@ -33,6 +34,9 @@ class CrawlScheduleController extends Controller
     public function home()
     {
         $SQLService = new SQLService();
+
+        //$this->dispatch(new CheckNewArticles)->delay(Carbon::now()->addMinutes(10));
+
 
 
         // 全スケジュール
@@ -46,6 +50,20 @@ class CrawlScheduleController extends Controller
         }
 
         return view('manage.crawl.home', compact('tasks', 'status_message'));
+    }
+
+
+    //　監視開始
+    public function startCrawl(Request $request)
+    {
+        if (!$request->has('execute') && $request->input('execute') == "execute") {
+            return redirect()->route('manager_crawl_home');
+        }
+
+        $this->dispatch(new CheckNewArticles)->delay(Carbon::now()->addMinutes(10));
+
+        return view('manage.crawl.home', compact('tasks', 'status_message'));
+
     }
 
 

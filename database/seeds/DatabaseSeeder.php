@@ -213,8 +213,8 @@ class ArticlesTableSeeder extends Seeder
 {
     public function run()
     {
-        //
         DB::table('articles_table')->delete();
+
         for ($i = 1; $i < 100; $i++) {
             DB::table('articles_table')->insert([
                 'article_title' => '記事' . $i,

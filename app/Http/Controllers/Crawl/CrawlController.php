@@ -39,7 +39,6 @@ class CrawlController extends Controller
     }
 
     // 1/12作りかけ
-
     public function getOneSiteNewArticle($site_id)
     {
         $SQLService = new SQLService();
@@ -62,8 +61,10 @@ class CrawlController extends Controller
 
     public function getLists()
     {
-
         $SQLService = new SQLService();
+
+        $check = $SQLService->checkCrawlStatus();
+
         $sites = $SQLService->getAllSites();
 
         foreach ($sites as $site) {
@@ -104,10 +105,20 @@ class CrawlController extends Controller
             */
 
 
+
+
             // 取得した新着記事URL一覧のうち、DBにあるものを除外する
             for ($i = 0; $i < count($urls); $i++) {
                 $urls = $this->crawlService->checkUrlInDB($urls, $site_id);
             }
+
+            /*
+            // 取得URLが存在しない場合
+            if(count($urls) < 1){
+                $SQLService->updateCrawlerLog($site_id);
+            }
+            */
+
 
             // 記事取得＋DB挿入
             for ($i = count($urls) - 1; $i > 0; $i--) {
