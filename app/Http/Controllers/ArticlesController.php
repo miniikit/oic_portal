@@ -92,7 +92,12 @@ class ArticlesController extends Controller
             ->where('id', $id)
             ->first();
 
-        $newssite = $newssite_model->where('id',$article->news_site_id)->first();
+        // TODO : 変数名修正
+        if (isset($article->user_id)) {
+            $newssite = $user_model->where('id', $article->user_id)->first();
+        } else {
+            $newssite = $newssite_model->where('id', $article->news_site_id)->first();
+        }
 
         $categoryId = $article->article_category_id;
         $relatedArticles = DB::table('news_sites_master')
@@ -125,10 +130,10 @@ class ArticlesController extends Controller
         }
 
 
-        if(!Auth::guest()) {
+        if (!Auth::guest()) {
             $userId = Auth::user()->id;
-            $getprofile_id = $user_model->where('id',$userId)->first();
-            $myprofile = $profile_model->where('id',$getprofile_id->profile_id)->first();
+            $getprofile_id = $user_model->where('id', $userId)->first();
+            $myprofile = $profile_model->where('id', $getprofile_id->profile_id)->first();
 
             $active_like = $articles_likes_model
                 ->where('user_id', $userId)
@@ -139,12 +144,12 @@ class ArticlesController extends Controller
                 ->where('user_id', $userId)
                 ->where('article_id', $id)
                 ->first();
-            }
+        }
 
         $like_ct = $articles_likes_model->where('article_id', $id)->get()->count();
         $fav_ct = $articles_fav_model->where('article_id', $id)->get()->count();
 
-        return view('articles.detail', compact('article', 'id', 'comments', 'relatedArticles','like_ct','active_like','active_fav','fav_ct','myprofile','newssite'));
+        return view('articles.detail', compact('article', 'id', 'comments', 'relatedArticles', 'like_ct', 'active_like', 'active_fav', 'fav_ct', 'myprofile', 'newssite'));
     }
 
     // 編集
@@ -152,9 +157,9 @@ class ArticlesController extends Controller
     {
         $article = app(Article::class)->find($id);
         $categories = app(ArticleCategory::class)->get();
-        $article_category = app(ArticleCategory::class)->where('id',$article->article_category_id)->first();
+        $article_category = app(ArticleCategory::class)->where('id', $article->article_category_id)->first();
 
-        return view('articles.edit', compact('article','article_category','categories'));
+        return view('articles.edit', compact('article', 'article_category', 'categories'));
     }
 
     // 編集確認
@@ -175,7 +180,7 @@ class ArticlesController extends Controller
             $articles_image = '/images/event_images/' . $filename;
         }
 
-        return view('articles.edit_confirm', compact('data', 'articles_image','carbon'));
+        return view('articles.edit_confirm', compact('data', 'articles_image', 'carbon'));
     }
 
     //編集完了
