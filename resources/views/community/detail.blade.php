@@ -37,7 +37,9 @@
                     </li>
                     <li>
                         <div class="collapsible-header"><i class="material-icons">people</i>メンバー</div>
-                        <div class="collapsible-body"><span>メンバー名メンバー名メンバー名メンバー名メンバー名</span></div>
+                        @for($i=1; $i<20; $i++)
+                        <div class="collapsible-body"><span>user0{{ $i }}</span></div>
+                            @endfor
                     </li>
                 </ul>
             </div>

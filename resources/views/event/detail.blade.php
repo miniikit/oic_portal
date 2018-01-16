@@ -16,7 +16,7 @@
         </div>
 
         <div class="event-image">
-            <img class="image-box" width="100%" src="/images/sample-1.jpg">
+            <img class="image-box" width="100%" src="{{ $event->event_image }}">
         </div>
 
         <div class="text-area">
