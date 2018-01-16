@@ -81,10 +81,12 @@ class RegisterController extends Controller
             'profile_id' => $profileId,
         ]);
 
+        //不具合あり。一時停止
+        /*
         Mail::send('mail.register',compact('data'), function ($message) use ($request) {
             $message->to(session('email'), $request->name)->subject('会員登録完了');
         });
-
+        */
         return view('auth.register.complete');
     }
 

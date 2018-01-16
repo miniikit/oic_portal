@@ -50,6 +50,8 @@ Route::post('/articles/user/post/complete', 'ArticlesController@complete')->name
 //Route::get('/articles/index', 'ArticleController@index')->name('user_article_list');
 // 詳細
 Route::get('/articles/user/{id}', 'ArticlesController@detail')->name('user_article_detail');
+Route::get('/articles/{id}', 'ArticlesController@detail')->name('user_article_detail');
+
 // 編集
 Route::get('/articles/user/{id}/edit', 'ArticlesController@edit')->name('user_article_edit');
 Route::get('/articles/user/{id}/delete', 'ArticlesController@delete')->name('user_article_delete');
@@ -151,12 +153,10 @@ Route::post('/community/new/complete', 'CommunityController@complete')->name('us
  */
 // 一覧
 Route::get('/event', 'EventController@index')->name('user_event');
-
-Route::get('/event/{id}/detail', 'EventController@detail')->name('user_event_detail');
 // 一覧(終了分)  TODO : URL考える
 Route::get('/event/kk', 'FakeController@index');
 // 詳細
-//Route::get('/event/1000', 'EventController@show')->name('user_event_detail');
+Route::get('/event/{id}/detail', 'EventController@detail')->name('user_event_detail');
 
 // 更新
 Route::get('/event/1000/edit', 'EventController@edit')->name('user_event_edit');
@@ -172,6 +172,12 @@ Route::get('/event/new/confirm', 'EventController@make_confirm')->name('user_mak
 // 新規作成-完了   TODO : 関数名変更
 Route::get('/event/new/complete', 'EventController@make_complete')->name('user_make_complete');
 
+//イベント参加
+Route::get('/event/{id}/participants', 'EventController@Participants')->name('user_event_participant');
+
+//イベント参加取り消し
+Route::get('/event/{id}/unparticipants', 'EventController@UnParticipants')->name('user_event_unparticipant');
+
 
 /**
  * Auth
@@ -183,6 +189,7 @@ Route::get('/oauth_callback', 'Auth\LoginController@getGoogleAuthCallback');
 Route::post('/logout', 'Auth\LoginController@logout')->name('user_logout');
 // 会員登録
 Route::post('/register/complete', 'Auth\RegisterController@complete')->name('user_register_complete');
+
 
 
 /**

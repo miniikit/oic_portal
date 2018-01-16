@@ -33,6 +33,8 @@ Route::get('/manage/crawl/home', 'Manage\CrawlScheduleController@home')->name('m
 Route::post('/manage/crawl/execute','Manage\CrawlScheduleController@execute')->name('manager_crawl_form_execute');
 // 手動キャンセル
 Route::post('/manage/crawl/cancel','Manage\CrawlScheduleController@cancel')->name('manager_crawl_form_cancel');
+// 監視開始
+Route::post('/manage/crawl/start','Manage\CrawlScheduleController@startCrawl')->name('manager_crawl_form_start');
 
 
 // 一覧

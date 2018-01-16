@@ -11,32 +11,8 @@
             <h1 class="title">コミュニティー名</h1>
         </div>
         <div class=" col s12 m8 l8">
-            <div class="comi">
-                <div class="comment-area col s12">
-                    <ul class="collection">
-                        @for ($i = 0; $i < 20; $i++)
-                            <li class="collection-item avatar">
-                                <img src="/images/profile_images/default.jpg" alt="" class="circle">
-                                <span class="name">name</span>
-                                <p>
-                                    ここにコメントを表示
-                                </p>
-                            </li>
-                        @endfor
-                    </ul>
-                </div>
-            </div>
-            <div class="comment">
-                <ul class="collection">
-                    <li class="collection-item avatar">
-                        <img src="/images/profile_images/default.jpg" alt="" class="circle">
-                        <span class="name">name</span>
-                        <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
-                        <div class="wap-comment">
-                            <a class="comment-submit waves-effect waves-light btn">コメント</a>
-                        </div>
-                    </li>
-                </ul>
+            <div class="text-area">
+                <p class="main-contents-text">{{ $community->community_contents }}</p>
             </div>
         </div>
 
@@ -49,7 +25,7 @@
                 <ul class="collapsible" data-collapsible="expandable">
                     <li>
                         <div class="collapsible-header"><i class="material-icons">fiber_new</i>新着情報</div>
-                        <div class="collapsible-body"><span>新着情報新着情報新着情報新着情報新着情報</span></div>
+                        <div class="collapsible-body"><span>新着情報</span></div>
                     </li>
                     <li>
                         <div class="collapsible-header"><i class="material-icons">account_circle</i>管理者</div>
