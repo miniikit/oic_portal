@@ -19,6 +19,9 @@ use App\Events\MessagePosted;
 /**
  *  一般
  */
+
+//トップ
+Route::get('/top','HomeController@top')->name('user_top');
 // ホーム
 Route::get('/', 'HomeController@index')->name('user_home');
 

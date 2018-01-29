@@ -18,6 +18,11 @@ class HomeController extends Controller
         $this->SQLService = $SQLService;
     }
 
+    //トップページ
+    public function top()
+    {
+      return view('home.top');
+    }
     // ホーム（記事一覧）
     public function index()
     {
