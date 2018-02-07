@@ -28,7 +28,7 @@
                         <th class="tb-title">ID</th>
                         <th class="tb-title">記事タイトル</th>
                         <th class="tb-title">サイト名</th>
-                        <th class="tb-title">作成日</th>
+                        <th class="tb-title">掲載日</th>
                     </tr>
                     </thead>
 
@@ -36,7 +36,7 @@
                     @foreach($articles as $article)
                         <tr data-href="{{ route('manager_article_detail',$article->id) }}">
                             <td class="tb-text">{{ $article->id }}</td>
-                            <td class="tb-text">{{ $article->article_title }}</td>
+                            <td class="tb-text">{{ mb_strimwidth($article->article_title,0,60,'...') }}</td>
                             <td class="tb-text">{{ $article->news_site_name }}</td>
                             <td class="tb-text">{{ date('m月d日', strtotime($article->created_at)) }}</td>
                         </tr>

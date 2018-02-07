@@ -1,3 +1,4 @@
+
 @extends('template/manage')
 
 @section('css')
