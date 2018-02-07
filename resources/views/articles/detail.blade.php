@@ -31,28 +31,28 @@
 
             @if(!Auth::guest())
                 <div class="icon-button col s12 right-align">
-                  <div class="col s12">
-                    <div class="us-box">
-                      <h1 class="user-name">投稿者：<a href="">投稿者名</a></h1>
+                    <div class="col s12">
+                        <div class="us-box">
+                            <h1 class="user-name">投稿者：<a href="">投稿者名</a></h1>
+                        </div>
+                        <div class="category-tag tags">
+                            <div class="chip">
+                                ユーザ
+                            </div>
+                            {{-- <div class="chip">
+                                IT
+                            </div>
+                            <div class="chip">
+                                デザイン
+                            </div>
+                            <div class="chip">
+                              映像
+                            </div>
+                            <div class="chip">
+                              ゲーム
+                            </div> --}}
+                        </div>
                     </div>
-                    <div class="category-tag tags">
-                        <div class="chip">
-                            ユーザ
-                        </div>
-                        {{-- <div class="chip">
-                            IT
-                        </div>
-                        <div class="chip">
-                            デザイン
-                        </div>
-                        <div class="chip">
-                          映像
-                        </div>
-                        <div class="chip">
-                          ゲーム
-                        </div> --}}
-                    </div>
-                  </div>
                     @if($active_fav == null)
                         <a class="fav-btn waves-effect" href="{{ $article->article_url.'/favorite' }}">
                             <i class="goodicon material-icons">favorite</i>
@@ -87,7 +87,9 @@
                                 <input type="text" id="icon_prefix2" class="materialize-textarea" name="comment_text"
                                        size="50">
                                 <div class="wap-comment">
-                                    <button type="submit" class="comment-submit waves-effect waves-light btn" required>投稿</button>
+                                    <button type="submit" class="comment-submit waves-effect waves-light btn" required>
+                                        投稿
+                                    </button>
                                 </div>
                                 {!! csrf_field() !!}
                             </form>
@@ -98,19 +100,19 @@
 
 
             @if(count($comments) > 0)
-            <div class="comment-area col s12">
-                <ul class="collection">
-                    @foreach($comments as $comment)
-                        <li class="collection-item avatar">
-                            <img class="circle" src="{{ $comment->profile_image }}">
-                            <span class="name">{{ $comment->profile_name }}</span>
-                            <p>
-                                {{ $comment->article_comment_text }}
-                            </p>
-                        </li>
-                    @endforeach
-                </ul>
-            </div>
+                <div class="comment-area col s12">
+                    <ul class="collection">
+                        @foreach($comments as $comment)
+                            <li class="collection-item avatar">
+                                <img class="circle" src="{{ $comment->profile_image }}">
+                                <span class="name">{{ $comment->profile_name }}</span>
+                                <p>
+                                    {{ $comment->article_comment_text }}
+                                </p>
+                            </li>
+                        @endforeach
+                    </ul>
+                </div>
             @endif
 
 
@@ -122,18 +124,19 @@
                     <h2>関連記事</h2>
                 </div>
                 @foreach($relatedArticles as $relatedArticle)
-                  <div class="col s12">
-                    <div class="card hoverable">
-                      <div class="card-wrapper">
-                        <div class="card-images">
-                            <a href="{{ route('user_article_detail',$relatedArticle->id) }}"><img src="{{ $relatedArticle->article_image }}"></a>
+                    <div class="col s12">
+                        <div class="card hoverable">
+                            <div class="card-wrapper">
+                                <div class="card-images">
+                                    <a href="{{ route('user_article_detail',$relatedArticle->id) }}"><img
+                                                src="{{ $relatedArticle->article_image }}"></a>
+                                </div>
+                                <div class="card-contents">
+                                    <p class="side-contents-text">{{ $relatedArticle->article_title }}</p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="card-contents">
-                            <p class="side-contents-text">{{ $relatedArticle->article_title }}</p>
-                        </div>
-                      </div>
                     </div>
-                  </div>
                 @endforeach
             </div>
         </div>
@@ -144,16 +147,16 @@
                     <h2>ランキング</h2>
                 </div>
                 @for ($i=0; $i < 3; $i++)
-                  <div class="col s12">
-                    <div class="relation card hoverable">
-                        <div class="card-images">
-                            <a href="details"><img src="/images/sample-3.jpg"></a>
-                        </div>
-                        <div class="card-contents">
-                            <p class="side-contents-text">ミニスーファミにやりたいゲームが入ってない！って方に、同じくらいの値段で買えるSFC用のレトロフリーク</p>
+                    <div class="col s12">
+                        <div class="relation card hoverable">
+                            <div class="card-images">
+                                <a href="details"><img src="/images/sample-3.jpg"></a>
+                            </div>
+                            <div class="card-contents">
+                                <p class="side-contents-text">ミニスーファミにやりたいゲームが入ってない！って方に、同じくらいの値段で買えるSFC用のレトロフリーク</p>
+                            </div>
                         </div>
                     </div>
-                  </div>
                 @endfor
             </div>
         </div>
