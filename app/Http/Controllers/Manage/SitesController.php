@@ -12,7 +12,7 @@ class SitesController extends Controller
     public function index()
     {
         $sites = DB::table('news_sites_categories_master')
-            ->join('news_sites_master','news_sites_master.news_site_category_id','news_sites_categories_master.id')
+            ->join('news_sites_master','news_sites_master.article_category_id','news_sites_categories_master.id')
             ->select('news_sites_master.id','news_sites_master.news_site_name','news_sites_master.news_site_url','news_sites_categories_master.news_site_category_name','news_sites_master.updated_at')
             ->get();
 
@@ -22,7 +22,7 @@ class SitesController extends Controller
     public function show($id)
     {
         $site = DB::table('news_sites_categories_master')
-            ->join('news_sites_master','news_sites_master.news_site_category_id','news_sites_categories_master.id')
+            ->join('news_sites_master','news_sites_master.article_category_id','news_sites_categories_master.id')
             ->where('news_sites_master.id',$id)
             ->first();
 
@@ -32,7 +32,7 @@ class SitesController extends Controller
     public function edit($id)
     {
         $site = DB::table('news_sites_categories_master')
-            ->join('news_sites_master','news_sites_master.news_site_category_id','news_sites_categories_master.id')
+            ->join('news_sites_master','news_sites_master.article_category_id','news_sites_categories_master.id')
             ->where('news_sites_master.id',$id)
             ->first();
 
