@@ -103,6 +103,7 @@ class ArticlesController extends Controller
         $relatedArticles = DB::table('news_sites_master')
             ->join('articles_table', 'articles_table.news_site_id', '=', 'news_sites_master.id')
             ->where('news_sites_master.article_category_id', '=', $categoryId)
+            ->where('articles_table.id','!=',$id)
             ->orderBy('articles_table.id', 'DESC')
             ->limit(3)
             ->get();
